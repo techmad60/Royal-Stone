@@ -14,6 +14,7 @@ const config: Config = {
         "color-one": "#419444", 
         "color-two": "#E4FFE2", 
         "color-three": "#FCFCFC", 
+        "color-four": "#24222F",
       
         
         // //Used in Signup Page
