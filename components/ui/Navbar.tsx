@@ -32,7 +32,7 @@ export default function Navbar () {
                 width={129}
                 height={24.17}/>
             </div>
-            <div className="cursor-pointer  lg:hidden" onClick={handleToggleNav}>
+            <div className="cursor-pointer lg:hidden" onClick={handleToggleNav}>
             <HiBars3 className='text-[#3A495B] text-2xl'/>
             </div>
         </div>
@@ -45,8 +45,8 @@ export default function Navbar () {
                     alt="Royal-Stone Logo"
                     width={129}
                     height={24.17}/>
-                <button onClick={handleToggleNav} className="lg:hidden">
-                    <LiaTimesSolid className='w-5 h-5'/>
+                <button onClick={handleToggleNav} className="">
+                    <LiaTimesSolid className='w-5 h-5 text-black'/>
                 </button>
             </div>
             

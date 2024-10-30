@@ -1,44 +1,44 @@
 // Main Component
 import Image from "next/image";
-import { poppins } from "../../app/fonts/fonts";
 import AppStoreButton from "../ui/AppStoreButton";
 import GooglePlayButton from "../ui/GooglePlayButton";
 import DownloadApp from "../ui/DownloadApp";
 export default function Main () {
     return (
         <main className="">
-         {/* Hero Section */}
-         <section className="flex flex-col items-center justify-center text-center py-8  lg:text-start lg:flex-row lg:px-16 lg:py-[4rem] lg:gap-16 m-auto xl:gap-28">
-          {/* Text and Button Section */}
-           <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start">
-                <h1 className={`text-color-zero font-semibold px-12 text-xl my-4 lg:px-0 lg:text-4xl lg:w-[29.4375rem] ${poppins.className}`}>
-                Accumsan urna quis at fau cibus magna Facilisi.
-                </h1>
+            {/* Hero Section */}
+            <section className="flex flex-col items-center justify-center text-center pt-20  lg:text-start lg:flex-row lg:px-36 lg:py-[4rem] lg:gap-4 xl:gap-0 m-auto xl:px-96">
+               {/* Text and Button Section */}
+                <div className="flex flex-col justify-start items-start text-start px-4 space-y-6 lg:px-0 bg-lime-400">
+                    <h1 className={`text-color-zero leading-[34.72px] font-extrabold text-[28px] w-[347px] lg:px-0 lg:text-[39px] lg:w-[500px] lg:leading-[48.36px] xl:w-[520px]`}>
+                    Accumsan urna quis at fau cibus magna Facilisi.
+                    </h1>
 
-                <p className="text-sm text-color-zero px-8 py-4 sm:px-28 md:px-32 lg:px-0 lg:w-[425px] lg:text-xl xl:w-[559px]">
-                Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                    <AppStoreButton textColor="text-white" backgroundColor="bg-color-four"/>
-                    <GooglePlayButton textColor="text-white" backgroundColor="bg-color-four"/>
+                    <p className="text-sm w-[345px] font-normal text-[rgba(15,28,57,0.8)] lg:px-0 lg:w-[425px] lg:leading-[28px] lg:text-[16px] xl:w-[644px]">
+                    Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or
+                    </p>
+                    <div className="flex gap-4 pt-6">
+                        <AppStoreButton textColor="text-white" backgroundColor="bg-color-four"/>
+                        <GooglePlayButton textColor="text-white" backgroundColor="bg-color-four"/>
+                    </div>
                 </div>
-            </div>
 
-            {/*Hero Image */}
-            <div className="hidden lg:flex">
+                {/*Hero Image */}
+                
                 <Image 
                 src="/images/hero-img.svg"
                 alt="Hero Image"
-                width={500}
-                height={56}
+                width={345}
+                height={437.36}
+                className="lg:w-[400px] xl:w-[579px] xl:h-[734px] mt-8"
                 />
-            </div>
-        </section>
+            
+            </section>
         
         {/* Our Services Section */}
         <section className="flex flex-col justify-center items-center py-16 bg-white">
             <div className="flex flex-col justify-center items-center my-8">
-                <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl ${poppins.className}`}>Our Services</h2>
+                <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl`}>Our Services</h2>
                 <p className="font-light text-sm text-color-zero text-center leading-4 lg:text-xl my-4 w-[300px] sm:w-[400px] lg:w-[600px] xl:w-[557px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
             </div>
 
@@ -60,7 +60,7 @@ export default function Main () {
                             height={45.36}
                         />
                         <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start">
-                            <h3 className={`font-semibold text-color-zero px-8 mt-4 lg:px-0 lg:text-lg ${poppins.className}`}>Make an Investment</h3>
+                            <h3 className={`font-semibold text-color-zero px-8 mt-4 lg:px-0 lg:text-lg`}>Make an Investment</h3>
                             <p className="font-light text-sm text-color-zero leading-4 my-2 lg:text-start">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
                         </div>
                     </section>
@@ -74,7 +74,7 @@ export default function Main () {
                             height={45.36}
                         />
                         <div className="flex flex-col justify-center items-center lg:w-[350px] lg:justify-start lg:items-start">
-                            <h3 className={`font-semibold text-color-zero px-8 mt-4 lg:px-0 lg:text-lg ${poppins.className}`}>Create a Savings Target</h3>
+                            <h3 className={`font-semibold text-color-zero px-8 mt-4 lg:px-0 lg:text-lg`}>Create a Savings Target</h3>
                             <p className="font-light text-sm text-color-zero leading-4 my-2 lg:text-start">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
                         </div>
                     </section>
@@ -88,7 +88,7 @@ export default function Main () {
                             height={45.36}
                         />
                         <div className="flex flex-col justify-center items-center lg:w-[350px] lg:justify-start lg:items-start">
-                            <h3 className={`font-semibold text-color-zero px-8 mt-4 lg:px-0 lg:text-lg ${poppins.className}`}>Invest In Stocks</h3>
+                            <h3 className={`font-semibold text-color-zero px-8 mt-4 lg:px-0 lg:text-lg`}>Invest In Stocks</h3>
                             <p className="font-light text-sm text-color-zero leading-4 my-2 lg:text-start">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
                         </div>
                     </section>
@@ -99,7 +99,7 @@ export default function Main () {
         {/*How to get started Section*/}
         <section className="flex flex-col justify-center items-center bg-color-two py-16">
             <div className="flex flex-col justify-center items-center">
-                <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl ${poppins.className}`}>How To Get Started</h2>
+                <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl`}>How To Get Started</h2>
             </div>
 
             <section className="flex flex-col justify-center items-center p-4 mt-8 md:flex-row-reverse md:mt-20  gap-8 lg:p-0 lg:gap-12 xl:gap-32">
@@ -127,7 +127,7 @@ export default function Main () {
                         </div>
                         
                         <div className="flex flex-col justify-start items-start">
-                            <h3 className={`font-semibold text-color-zero mt-3 ${poppins.className}`}>Download the Mobile App</h3>
+                            <h3 className={`font-semibold text-color-zero mt-3`}>Download the Mobile App</h3>
                             <p className="font-light text-sm text-color-zero leading-4 my-2 text-start">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue.</p>
                         </div>
                     </section>
@@ -146,7 +146,7 @@ export default function Main () {
                         </div>
                         
                         <div className="flex flex-col justify-start items-start">
-                            <h3 className={`font-semibold text-color-zero mt-3 ${poppins.className}`}>Create an Account</h3>
+                            <h3 className={`font-semibold text-color-zero mt-3`}>Create an Account</h3>
                             <p className="font-light text-sm text-color-zero leading-4 my-2 text-start">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue.</p>
                         </div>
                     </section>
@@ -163,7 +163,7 @@ export default function Main () {
                         </div>
                         
                         <div className="flex flex-col justify-start items-start">
-                            <h3 className={`font-semibold text-color-zero text-start mt-3 ${poppins.className}`}>Make your First Transaction</h3>
+                            <h3 className={`font-semibold text-color-zero text-start mt-3`}>Make your First Transaction</h3>
                             <p className="font-light text-sm text-color-zero leading-4 my-2 text-start">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue.</p>
                         </div>
                     </section>
@@ -176,7 +176,7 @@ export default function Main () {
            
             <section className="flex flex-col justify-center items-center p-4 py-12 gap-8 lg:py-12 lg:grid lg:grid-cols-2 lg:p-0 xl:gap-24">
                 <div className="flex flex-col justify-center items-center">
-                    <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl ${poppins.className}`}>Why Royal Stone Is The Best</h2>
+                    <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl`}>Why Royal Stone Is The Best</h2>
                     <p className="font-light text-sm text-color-zero text-center leading-4 lg:text-xl my-4 w-[300px] sm:w-[400px] lg:w-[450px] xl:w-[557px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
                 </div>
 
@@ -240,7 +240,7 @@ export default function Main () {
         {/*Our Latest Products Section*/}
         <section className="flex flex-col justify-center items-center bg-color-two py-16">
             <div className="flex flex-col justify-center items-center">
-                <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl ${poppins.className}`}>
+                <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl`}>
                     Our Latest Products
                 </h2>
             </div>
