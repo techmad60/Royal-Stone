@@ -68,19 +68,19 @@ export default function Navbar () {
             <div className="flex flex-col text-color-zero my-12 text-center text-sm font-medium leading-[3.75rem]  lg:flex-row lg:text-sm lg:my-4 lg:gap-8 xl:gap-20">
                 <div className='flex flex-col lg:flex-row items-center justify-between lg:space-x-5 lg:text-sm xl:space-x-12'>
                     
-                    <Link href="/" className={`${isActiveLink('/') ? 'border-b border-color-zero ' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
+                    <Link href="/" className={`${isActiveLink('/') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
                         Home
                     </Link>
-                    <Link href="/about-us" className={`${isActiveLink('/about-us') ? 'text-color-six border-b border-color-zero' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
+                    <Link href="/about-us" className={`${isActiveLink('/about-us') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
                         About Us
                     </Link>
-                    <Link href="/contact-us" className={`${isActiveLink('/contact-us') ? 'text-color-six border-b border-color-zero' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
+                    <Link href="/contact-us" className={`${isActiveLink('/contact-us') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Contact Us
                     </Link>
-                    <Link href="/privacy-policy" className={`${isActiveLink('/privacy-policy') ? 'text-color-six border-b border-color-zero' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
+                    <Link href="/privacy-policy" className={`${isActiveLink('/privacy-policy') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Privacy Policy
                     </Link>
-                    <Link href="/tos" className={`${isActiveLink('/tos') ? 'text-color-six border-b border-color-zero' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
+                    <Link href="/tos" className={`${isActiveLink('/tos') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Terms Of Service
                     </Link>
                 </div>
