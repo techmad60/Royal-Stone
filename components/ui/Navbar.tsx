@@ -1,6 +1,6 @@
 // Navbar Component
 'use client'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import { LiaTimesSolid } from "react-icons/lia";
@@ -19,10 +19,22 @@ export default function Navbar () {
   const pathname = usePathname()
   const isActiveLink = (href: string) => pathname === href;
 
+  // Prevent scrolling when navbar is open
+    useEffect(() => {
+        if (isNavOpen) {
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Cleanup function to remove class on unmount
+        return () => document.body.classList.remove('overflow-hidden');
+    }, [isNavOpen]);
+
 
 
   return (
-    <nav className={`lg:flex justify-between lg:self-center items-center`}>
+    <nav className={`lg:flex justify-between lg:self-center items-center z-40`}>
         <div className="flex justify-between items-center">
             <div className="flex">
                 <Image 
@@ -50,7 +62,7 @@ export default function Navbar () {
                 </button>
             </div>
             
-            <div className="flex flex-col w-full text-color-zero my-2 text-center text-sm leading-[3.75rem] lg:flex-row lg:border-0 lg:text-sm lg:my-4 lg:gap-12 xl:gap-28">
+            <div className="flex flex-col w-full text-color-zero my-2 text-center text-sm leading-[3.75rem] lg:flex-row lg:border-0 lg:text-sm lg:my-4 lg:gap-12 xl:gap-28 z-50">
                 <div className='flex flex-col lg:flex-row items-center lg:space-x-5 lg:text-sm xl:space-x-12'>
                     <Link href="/" className={`${isActiveLink('/') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
                         Home

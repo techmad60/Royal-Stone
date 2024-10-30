@@ -15,6 +15,7 @@ const config: Config = {
         "color-two": "#E4FFE2", 
         "color-three": "#FCFCFC", 
         "color-four": "#24222F",
+        "colour-five": "rgba(15, 28, 57, 0.8)",
       
         
         // //Used in Signup Page
@@ -31,6 +32,13 @@ const config: Config = {
         // //Used in Pricing Page
         // "colour-fifteen": "#FCFAFF",
       },
+      lineHeight: {
+        "base": "30px",
+      },
+      fontSize: {
+        "base": "1rem",
+        "lg-base": "28px",
+      }
     },
   },
   plugins: [],
