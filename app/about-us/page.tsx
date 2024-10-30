@@ -9,7 +9,7 @@ import DownloadApp from "@/components/ui/DownloadApp";
 
 export default function AboutUs() {
     return (
-        <div className={montsy.className}>
+        <div className={`${montsy.className} flex flex-col`}>
             <Header/>
             <main>
                 {/* About Us Hero Section */}
