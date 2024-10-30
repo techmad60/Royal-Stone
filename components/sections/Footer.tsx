@@ -9,7 +9,7 @@ import Link from 'next/link';
 export default function Footer ({margin = ""}){
     return (
         <footer className={`bg-color-two text-color-zero pt-8 px-16 flex flex-col lg:justify-center lg:items-center ${margin}`}>
-            <nav className="flex flex-col justify-start items-start mb-12 space-y-12 py-8 sm:grid grid-cols-2 sm:space-y-0 sm:gap-8 lg:flex lg:flex-row lg:space-y-0 lg:gap-[14rem] xl:gap-[9rem]" aria-label="footer-nav">
+            <nav className="flex flex-col justify-start items-start mb-12 space-y-12 py-8 sm:grid grid-cols-2 sm:space-y-0 sm:gap-8 lg:flex lg:flex-row lg:space-y-0 lg:gap-[14rem] xl:gap-[18rem]" aria-label="footer-nav">
                 
                 {/* Logo Section */}
                 <section className="flex flex-col space-y-4 justify-start items-start flex-shrink-0">
