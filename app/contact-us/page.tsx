@@ -4,6 +4,7 @@ import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import { montsy, poppins } from "../fonts/fonts";
 import FormButton from "@/components/ui/FormButton";
+import DownloadApp from "@/components/ui/DownloadApp";
 export default function ContactUs() {
     return (
         <div className={`${montsy.className} flex flex-col`}>
@@ -112,7 +113,9 @@ export default function ContactUs() {
                         </form>
                     </section>
                 </section>
-
+                <section className="flex flex-col justify-center items-center bg-color-two py-16">
+                    <DownloadApp />
+                </section>
             </main>
             <Footer/>
         </div>

@@ -16,7 +16,7 @@ export default function AboutUs() {
                 <section className="flex flex-col items-center justify-center text-center py-8  lg:text-start lg:flex-row lg:px-16 lg:py-[4rem] lg:gap-16 m-auto xl:gap-28">
                 {/* Text and Button Section */}
                     <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start">
-                        <h1 className={`text-color-zero font-semibold px-12 text-xl my-4 lg:px-0 lg:text-4xl lg:w-[29.4375rem] ${poppins.className}`}>
+                        <h1 className={`text-color-zero font-semibold text-xl my-4 lg:px-0 lg:text-4xl ${poppins.className}`}>
                         Who We Are...
                         </h1>
                         {/* Responsive Hero Image */}

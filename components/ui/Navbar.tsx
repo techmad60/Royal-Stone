@@ -80,17 +80,17 @@ export default function Navbar () {
                     <Link href="/privacy-policy" className={`${isActiveLink('/privacy-policy') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Privacy Policy
                     </Link>
-                    <Link href="/tos" className={`${isActiveLink('/tos') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
+                    <Link href="/terms-of-service" className={`${isActiveLink('/terms-of-service') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Terms Of Service
                     </Link>
                 </div>
             
                 <div className="flex flex-col space-y-6 mt-12  lg:flex lg:flex-row lg:space-x-4 lg:space-y-0 lg:items-center lg:mt-0 rounded-md text-center">
-                    <Link href="/login" className="text-green-700 bg-white rounded-md border border-green-700 transition duration-150 hover:text-color-one hover:border-color-one hover:ease-in font-medium lg:px-4 lg:py-2  lg:text-sm ">
+                    <Link href="/login" className="text-green-700 bg-white rounded-md border border-green-700 transition duration-150 hover:text-green-800 hover:border-green-800 hover:ease-in font-medium lg:px-4 lg:py-2 lg:text-sm ">
                     Login
                     </Link>
                     
-                    <Link href="/signup" className=" text-color-three bg-green-700 transition duration-150 hover:ease-in font-medium rounded-md hover:bg-color-one lg:text-sm lg:p-3">
+                    <Link href="/signup" className=" text-color-three bg-green-700 transition duration-150 hover:ease-in font-medium rounded-md hover:bg-green-800 lg:text-sm lg:p-3">
                     Get Started
                     </Link>
                 </div>
