@@ -46,7 +46,7 @@ export default function Main () {
         {/* Our Services Section */}
         <section className="flex flex-col justify-center items-center py-16 bg-white">
             <div className="flex flex-col justify-center items-center my-8">
-                <h2 className={`text-color-zero text-xl font-semibold lg:text-3xl ${poppins.className}`}>Our Services</h2>
+                <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl ${poppins.className}`}>Our Services</h2>
                 <p className="font-light text-sm text-color-zero text-center leading-4 lg:text-xl my-4 w-[300px] sm:w-[400px] lg:w-[600px] xl:w-[557px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
             </div>
 
@@ -107,7 +107,7 @@ export default function Main () {
         {/*How to get started Section*/}
         <section className="flex flex-col justify-center items-center bg-color-two py-16">
             <div className="flex flex-col justify-center items-center">
-                <h2 className={`text-color-zero text-xl font-semibold lg:text-3xl ${poppins.className}`}>How To Get Started</h2>
+                <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl ${poppins.className}`}>How To Get Started</h2>
             </div>
 
             <section className="flex flex-col justify-center items-center p-4 mt-8 md:flex-row-reverse md:mt-20  gap-8 lg:p-0 lg:gap-12 xl:gap-32">
@@ -184,7 +184,7 @@ export default function Main () {
            
             <section className="flex flex-col justify-center items-center p-4 py-12 gap-8 lg:py-12 lg:grid lg:grid-cols-2 lg:p-0 xl:gap-24">
                 <div className="flex flex-col justify-center items-center">
-                    <h2 className={`text-color-zero text-xl font-semibold lg:text-3xl ${poppins.className}`}>Why Royal Stone Is The Best</h2>
+                    <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl ${poppins.className}`}>Why Royal Stone Is The Best</h2>
                     <p className="font-light text-sm text-color-zero text-center leading-4 lg:text-xl my-4 w-[300px] sm:w-[400px] lg:w-[450px] xl:w-[557px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
                 </div>
 
@@ -248,7 +248,7 @@ export default function Main () {
         {/*Our Latest Products Section*/}
         <section className="flex flex-col justify-center items-center bg-color-two py-16">
             <div className="flex flex-col justify-center items-center">
-                <h2 className={`text-color-zero text-xl font-semibold lg:text-3xl ${poppins.className}`}>
+                <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl ${poppins.className}`}>
                     Our Latest Products
                 </h2>
             </div>
