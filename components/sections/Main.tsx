@@ -14,14 +14,6 @@ export default function Main () {
                 <h1 className={`text-color-zero font-semibold px-12 text-xl my-4 lg:px-0 lg:text-4xl lg:w-[29.4375rem] ${poppins.className}`}>
                 Accumsan urna quis at fau cibus magna Facilisi.
                 </h1>
-                {/* Responsive Hero Image */}
-                <Image 
-                src="/images/hero-img.svg" 
-                alt="Hero Image"
-                className="my-4 lg:hidden" 
-                width={180} 
-                height={126.37} 
-                />
 
                 <p className="text-sm text-color-zero px-8 py-4 sm:px-28 md:px-32 lg:px-0 lg:w-[425px] lg:text-xl xl:w-[559px]">
                 Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or
@@ -32,7 +24,7 @@ export default function Main () {
                 </div>
             </div>
 
-            {/* Large Screen Hero Image */}
+            {/*Hero Image */}
             <div className="hidden lg:flex">
                 <Image 
                 src="/images/hero-img.svg"

@@ -1,32 +1,14 @@
 // Navbar Component
 'use client'
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import Link from "next/link";
 import Image from "next/image";
-import { FaTimes, FaBars } from 'react-icons/fa';
+import { LiaTimesSolid } from "react-icons/lia";
+import { HiBars3 } from "react-icons/hi2";
 import { usePathname } from 'next/navigation';
 
 export default function Navbar () {
-    
     const [isNavOpen, setIsNavOpen] = useState(false);
-    useEffect(() => {
-        // Add or remove a class to the body and html to disable/enable scrolling
-        const body = document.body;
-        const html = document.documentElement;
-    
-        if (isNavOpen) {
-          body.style.overflow = 'hidden';
-          html.style.overflow = 'hidden';
-        } else {
-          body.style.overflow = 'visible';
-          html.style.overflow = 'visible';
-        }
-        // Clean up the effect on component unmount
-        return () => {
-          body.style.overflow = 'visible';
-          html.style.overflow = 'visible';
-        };
-    }, [isNavOpen])
  
     //Toggle Nav
   const handleToggleNav = () => {
@@ -47,50 +29,52 @@ export default function Navbar () {
                 className="logo lg:w-[120px]"
                 src={"/images/logo.svg"}
                 alt="Royal-Stone Logo"
-                width={100}
-                height={100}/>
+                width={129}
+                height={24.17}/>
             </div>
-            <div className="cursor-pointer lg:hidden" onClick={handleToggleNav}>
-            <FaBars className='text-black font-bold text-xl'/>
+            <div className="cursor-pointer  lg:hidden" onClick={handleToggleNav}>
+            <HiBars3 className='text-[#3A495B] text-2xl'/>
             </div>
         </div>
 
-        {isNavOpen && (
-            <div
-            className="fixed top-0 left-0 w-[25vw] min-h-screen bg-black opacity-50 z-50 lg:hidden"
-            onClick={handleToggleNav} 
-            />
-        )}
-        <div className={`bg-color-three absolute top-0 right-0 h-screen flex flex-col items-center p-4 w-3/4 z-40 lg:w-auto lg:flex-row lg:static lg:h-auto lg:bg-transparent lg:p-0 ${isNavOpen ? 'fixed' : 'hidden lg:flex'} `}>
-           <button onClick={handleToggleNav} className="lg:hidden">
-            <FaTimes size={24} className='text-color-zero'/>
-            </button>
-            <div className="flex flex-col text-color-zero my-12 text-center text-sm font-medium leading-[3.75rem]  lg:flex-row lg:text-sm lg:my-4 lg:gap-8 xl:gap-20">
-                <div className='flex flex-col lg:flex-row items-center justify-between lg:space-x-5 lg:text-sm xl:space-x-12'>
-                    
-                    <Link href="/" className={`${isActiveLink('/') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
+        <div className={`bg-color-two absolute inset-0 w-full h-screen flex flex-col items-center px-4 z-40 lg:w-auto lg:flex-row lg:static lg:h-auto lg:bg-transparent lg:p-0 ${isNavOpen ? 'fixed' : 'hidden lg:flex'}`}>
+            <div className='flex w-full justify-between border-b border-[#D6EFD4] py-6 lg:hidden'>
+                <Image 
+                    className="logo lg:hidden"
+                    src={"/images/logo.svg"}
+                    alt="Royal-Stone Logo"
+                    width={129}
+                    height={24.17}/>
+                <button onClick={handleToggleNav} className="lg:hidden">
+                    <LiaTimesSolid className='w-5 h-5'/>
+                </button>
+            </div>
+            
+            <div className="flex flex-col w-full text-color-zero my-2 text-center text-sm leading-[3.75rem] lg:flex-row lg:border-0 lg:text-sm lg:my-4 lg:gap-12 xl:gap-28">
+                <div className='flex flex-col lg:flex-row items-center lg:space-x-5 lg:text-sm xl:space-x-12'>
+                    <Link href="/" className={`${isActiveLink('/') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
                         Home
                     </Link>
-                    <Link href="/about-us" className={`${isActiveLink('/about-us') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
+                    <Link href="/about-us" className={`${isActiveLink('/about-us') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
                         About Us
                     </Link>
-                    <Link href="/contact-us" className={`${isActiveLink('/contact-us') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
+                    <Link href="/contact-us" className={`${isActiveLink('/contact-us') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Contact Us
                     </Link>
-                    <Link href="/privacy-policy" className={`${isActiveLink('/privacy-policy') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
+                    <Link href="/privacy-policy" className={`${isActiveLink('/privacy-policy') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Privacy Policy
                     </Link>
-                    <Link href="/terms-of-service" className={`${isActiveLink('/terms-of-service') ? 'border-b border-blue-800 text-blue-800' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
+                    <Link href="/terms-of-service" className={`${isActiveLink('/terms-of-service') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Terms Of Service
                     </Link>
                 </div>
             
-                <div className="flex flex-col space-y-6 mt-12  lg:flex lg:flex-row lg:space-x-4 lg:space-y-0 lg:items-center lg:mt-0 rounded-md text-center">
-                    <Link href="/login" className="text-green-700 bg-white rounded-md border border-green-700 transition duration-150 hover:text-green-800 hover:border-green-800 hover:ease-in font-medium lg:px-4 lg:py-2 lg:text-sm ">
+                <div className="flex flex-col space-y-6 mt-4 w-full justify-center items-center lg:flex lg:flex-row lg:space-x-4 lg:space-y-0 lg:mt-0 rounded-md text-center lg:w-auto">
+                    <Link href="/login" className="text-color-one w-[295px] h-[45px] p-[10px] flex justify-center items-center bg-white rounded-[10px] border border-slate-200 transition duration-150 hover:text-green-700 hover:border-green-700 hover:ease-in font-semibold lg:w-[80px] lg:h-[37px] lg:px-4 lg:py-2 lg:text-sm ">
                     Login
                     </Link>
                     
-                    <Link href="/signup" className=" text-color-three bg-green-700 transition duration-150 hover:ease-in font-medium rounded-md hover:bg-green-800 lg:text-sm lg:p-3">
+                    <Link href="/signup" className="text-color-three w-[295px] h-[45px] p-[10px] flex justify-center items-center bg-color-one transition duration-150 hover:ease-in font-semibold rounded-[10px] lg:w-[127px] lg:h-[37px] hover:bg-green-700 lg:text-sm">
                     Get Started
                     </Link>
                 </div>

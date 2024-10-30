@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import "./globals.css";
+import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   title: "Royal Stone",
@@ -7,18 +8,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <head>
-        {/* <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> */}
-      </head>
-      <body>
-        <div>{children}</div>
-      </body>
+    <html lang="en" className={GeistSans.className}>
+      <body>{children}</body>
     </html>
   );
 }
- 
