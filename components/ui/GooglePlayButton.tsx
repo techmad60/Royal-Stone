@@ -1,6 +1,6 @@
 //Google Play Button
 import Image from "next/image";
-export default function GooglePlayButton({textColor = "", backgroundColor = "", width = "", height = "", lgWidth ="", lgHeight = "" , logoWidth = "", logoHeight = ""}) {
+export default function GooglePlayButton({textColor = "", backgroundColor = "", width = "", height = "", lgWidth ="", lgHeight = ""}) {
     return (
         <button className={`${backgroundColor} ${textColor} ${width} ${height} ${lgWidth} ${lgHeight} flex items-center justify-center rounded-[9.69px] p-2`}>
             <Image 

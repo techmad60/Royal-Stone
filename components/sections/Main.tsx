@@ -33,11 +33,11 @@ export default function Main () {
             </section>
         
             {/* Our Services Section */}
-            <section className="flex flex-col justify-start items-start bg-white py-12 px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-12 xl:pb-0">
+            <section className="flex flex-col justify-start items-start bg-white py-12 px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-[9rem] xl:pb-0">
                 <div className="flex flex-col justify-center">
                     <div className="flex flex-col justify-start items-start">
                         <h2 className={`text-color-zero text-[22px] font-extrabold whitespace-nowrap lg:text-lg-base`}>Our Services</h2>
-                        <p className="text-sm text-colour-five leading-base w-[345px] my-2 text-start sm:w-[400px] lg:text-base xl:w-[482px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
+                        <p className="text-sm text-colour-five leading-base w-[345px] my-2 text-start sm:w-[400px] lg:text-base xl:w-[500px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
                     </div>
                     <Image 
                         src={"/images/dashboard.svg"}
@@ -48,7 +48,7 @@ export default function Main () {
                     />
                 </div>
 
-                <div className="flex flex-col space-y-6 justify-center items-center mt-12 lg:mt-0 lg:border-l lg:pl-12 xl:pl-20">
+                <div className="flex flex-col space-y-6 justify-center items-center mt-12 lg:mt-0 lg:border-l lg:pl-12 xl:pl-24">
                     {/* Make an Investment */}
                     <section className="flex flex-col justify-start items-start border border-slate-100 bg-color-three p-4 rounded-[25px] w-[345px] h-[275px] sm:w-[370px] xl:w-[450px]">
                         <Image 
@@ -95,7 +95,7 @@ export default function Main () {
             
 
             {/*How to get started Section*/}
-            <section className="flex flex-col justify-start items-start bg-color-two py-16 lg:justify-center lg:items-start lg:flex-row lg:gap-4 lg:pb-0 xl:gap-64">
+            <section className="flex flex-col justify-start items-start bg-color-two py-16 lg:justify-center lg:items-start lg:flex-row lg:gap-4 lg:pb-0 xl:gap-72">
                 <div className="flex flex-col justify-start items-start px-4">
                     <h2 className={`text-color-zero text-[22px] font-extrabold whitespace-nowrap lg:text-lg-base`}>How To Get Started</h2>
                     {/* Download Mobile App */}
