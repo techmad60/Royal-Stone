@@ -36,14 +36,14 @@ export default function Navbar () {
   return (
     <nav className={`lg:flex justify-between lg:self-center items-center z-40`}>
         <div className="flex justify-between items-center">
-            <div className="flex">
+            <Link href="/" className="flex" >
                 <Image 
                 className="logo lg:w-[120px]"
                 src={"/images/logo.svg"}
                 alt="Royal-Stone Logo"
                 width={129}
                 height={24.17}/>
-            </div>
+            </Link>
             <div className="cursor-pointer lg:hidden" onClick={handleToggleNav}>
             <HiBars3 className='text-[#3A495B] text-2xl'/>
             </div>

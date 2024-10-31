@@ -33,7 +33,7 @@ export default function Main () {
             </section>
         
             {/* Our Services Section */}
-            <section className="flex flex-col justify-start items-start bg-white py-12 px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-[9rem] xl:pb-0">
+            <section className="flex flex-col justify-start items-start bg-white py-12 px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-[9rem] xl:pb-0 overflow-x-hidden">
                 <div className="flex flex-col justify-center">
                     <div className="flex flex-col justify-start items-start">
                         <h2 className={`text-color-zero text-[22px] font-extrabold whitespace-nowrap lg:text-lg-base`}>Our Services</h2>

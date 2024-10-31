@@ -11,7 +11,10 @@ export default function Footer ({margin = ""}){
                 
                 {/* Logo Section */}
                 <section className="flex flex-col space-y-4 justify-start items-start flex-shrink-0">
-                    <Image src={"/images/logo.svg"} alt="Royal-Stone Logo" width={129} height={24.17}/> 
+                    <Link href="/">
+                        <Image src={"/images/logo.svg"} alt="Royal-Stone Logo" width={129} height={24.17}/> 
+                    </Link>
+                    
                     <p className='text-sm text-colour-five leading-[25px] sm:w-[300px] lg:w-[330px]'>Purus eget arcu faucibus mi velit. Massa placerat sed in malesuada cum ornare.</p>
                 </section>
                 
