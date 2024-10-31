@@ -11,7 +11,7 @@ export default function AboutUs() {
             <Header/>
             <main>
                 {/* Hero Section */}
-                <section className="flex flex-col items-center justify-center text-center pt-24 lg:text-start lg:flex-row lg:px-36 lg:pt-[4rem] lg:gap-4 xl:gap-6 m-auto xl:px-96">
+                <section className="flex flex-col items-center justify-center text-center pt-24 lg:text-start md:flex-row lg:px-36 lg:pt-[4rem] lg:gap-4 xl:gap-6 m-auto xl:px-96">
                 {/* Text and Button Section */}
                     <div className="flex flex-col justify-start items-start text-start px-4 space-y-6 lg:px-0">
                         <h1 className={`text-color-zero leading-[34.72px] font-extrabold text-[28px] lg:text-[39px] lg:leading-[48.36px]`}>
@@ -32,7 +32,7 @@ export default function AboutUs() {
                 </section>
 
                 {/*Our Story Section */}
-                <section className="flex flex-col items-center justify-center text-center bg-white pt-12 lg:text-start lg:flex-row-reverse lg:px-36 lg:pt-[4rem] lg:gap-16 xl:gap-44 m-auto xl:px-96">
+                <section className="flex flex-col items-center justify-center text-center bg-white pt-12 lg:text-start md:flex-row-reverse lg:px-36 lg:pt-[4rem] lg:gap-16 xl:gap-44 m-auto xl:px-96">
                 {/* Text and Button Section */}
                     <div className="flex flex-col justify-start items-start text-start px-4 space-y-6 lg:px-0">
                         <h1 className={`text-color-zero leading-[34.72px] font-extrabold text-[28px]`}>
@@ -53,7 +53,7 @@ export default function AboutUs() {
                 </section>
 
                 {/*Our Mission Section */}
-                <section className="flex flex-col items-center justify-center text-center bg-color-two pt-12 lg:text-start lg:flex-row  lg:px-36 lg:pt-[4rem] lg:gap-12 xl:gap-32 m-auto xl:px-96">
+                <section className="flex flex-col items-center justify-center text-center bg-color-two pt-12 lg:text-start md:flex-row  lg:px-36 lg:pt-[4rem] lg:gap-12 xl:gap-32 m-auto xl:px-96">
                 {/* Text and Button Section */}
                     <div className="flex flex-col justify-start items-start text-start px-4 space-y-6 lg:px-0">
                         <h1 className={`text-color-zero leading-[34.72px] font-extrabold text-[28px]`}>
