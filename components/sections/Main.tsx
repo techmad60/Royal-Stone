@@ -17,8 +17,8 @@ export default function Main () {
                     Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or
                     </p>
                     <div className="flex gap-4 pt-6">
-                        <AppStoreButton textColor="text-white" backgroundColor="bg-color-four"/>
-                        <GooglePlayButton textColor="text-white" backgroundColor="bg-color-four"/>
+                        <AppStoreButton textColor="text-white" backgroundColor="bg-[rgba(36,34,47,1)]" width="166.69px" height="62.02px" lgWidth="162px" lgHeight="64px"/>
+                        <GooglePlayButton textColor="text-white" backgroundColor="bg-[rgba(36,34,47,1)]" width="166.69px" height="62.02px" lgWidth="162px" lgHeight="64px" logoWidth="w-38.76px" logoHeight="h-38.76px"/>
                     </div>
                 </div>
 
@@ -320,7 +320,7 @@ export default function Main () {
                 </div>
             </section>
 
-            <section className="flex flex-col justify-center items-center bg-color-two py-16">
+            <section className="flex flex-col justify-center items-center sm:px-4 lg:px-0">
                 <DownloadApp />
             </section>
       </main>
