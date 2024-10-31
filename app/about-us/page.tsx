@@ -74,7 +74,6 @@ export default function AboutUs() {
                 </section>
                 
                 <DownloadApp />
-                
             </main>
             <Footer/>
         </div>

@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function Footer ({margin = ""}){
     return (
         <footer className={` text-color-zero pt-8 px-4 flex flex-col lg:px-16 lg:justify-center lg:items-start mx-auto ${margin}`}>
-            <nav className="justify-start items-start space-y-12 border-b py-8 sm:grid grid-cols-2 sm:space-y-0 sm:gap-8 lg:border-none lg:flex lg:flex-row lg:space-y-0 lg:gap-36 xl:gap-72" aria-label="footer-nav">
+            <nav className="justify-start items-start space-y-12 border-b py-8 sm:grid grid-cols-2 sm:space-y-0 sm:gap-8 lg:border-none lg:flex lg:flex-row lg:space-y-0  lg:gap-36 xl:gap-72" aria-label="footer-nav">
                 
                 {/* Logo Section */}
                 <section className="flex flex-col space-y-4 justify-start items-start flex-shrink-0">
@@ -15,7 +15,7 @@ export default function Footer ({margin = ""}){
                     <p className='text-sm text-colour-five leading-[25px] sm:w-[300px] lg:w-[330px]'>Purus eget arcu faucibus mi velit. Massa placerat sed in malesuada cum ornare.</p>
                 </section>
                 
-                <div className='flex w-full justify-between lg:gap-20 xl:gap-44'>
+                <div className='flex w-full justify-between lg:gap-20 xl:gap-28'>
                 {/* Company Section */}
                     <section className="flex flex-col space-y-4 justify-start items-start">
                         <p className={`text-center text-sm font-semibold`}>COMPANY</p>
@@ -26,7 +26,7 @@ export default function Footer ({margin = ""}){
                             <Link href="/faqs" className="hover:text-green-500 duration-300 text-colour-five text-sm">FAQs</Link>
                         </ul>
                     </section>
-                    <div className='flex flex-col lg:flex-row-reverse lg:gap-20 xl:gap-44'> 
+                    <div className='flex flex-col lg:flex-row-reverse lg:gap-20 xl:gap-40'> 
                         {/* Policies Section */}
                         <section className="flex flex-col space-y-4 justify-start items-start">
                             <p className={`text-center text-sm font-semibold`}>POLICIES</p>
@@ -51,10 +51,10 @@ export default function Footer ({margin = ""}){
             </nav>
              
             {/* Copyright Section */}
-            <div className='flex flex-col text-sm text-colour-five my-6 lg:relative bottom-16'>
+            {/* <div className='flex flex-col text-sm text-colour-five my-6 lg:relative bottom-16'>
                 <p>© Copyright Royal Stone 2024</p>
                
-            </div>
+            </div> */}
         </footer>
     )
 }

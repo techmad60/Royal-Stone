@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
-import { montsy, poppins } from "../fonts/fonts";
 import DownloadApp from "@/components/ui/DownloadApp";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
@@ -58,24 +57,24 @@ export default function Faqs() {
     ];
 
     return (
-        <div className={`${montsy.className} flex flex-col`}>
+        <div className={`flex flex-col`}>
             <Header/>
             <main className="flex flex-col justify-center items-center">
-                <section className="flex flex-col justify-center items-center text-center mt-8 ">
-                    <h1 className={`${poppins.className} text-color-zero font-semibold px-12 text-xl my-4 lg:text-4xl`}>Frequently Asked Questions</h1>
-                    <p className="font-light text-sm text-color-zero text-center leading-4 lg:text-xl my-4 w-[300px] sm:w-[400px] lg:w-[600px] xl:w-[557px]">Anything you need to know about Royal Stone?</p>
+                <section className="flex flex-col justify-center items-center text-center mt-20 lg:mt-32">
+                    <h1 className={`text-color-zero font-extrabold text-[28px] w-[312px] lg:tetxt-[39px] lg:w-fit`}>Frequently Asked Questions</h1>
+                    <p className="text-sm text-colour-five text-center">Any question you want to ask?</p>
                 </section>
 
                 <section className="flex flex-col justify-center items-center py-16 bg-white w-full my-12">
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                         {faqs.map((faq, index) => (
                             <section 
                                 key={index} 
-                                className="flex flex-col bg-color-three p-8 shadow-md w-[300px] justify-start items-start self-start"
+                                className="flex flex-col bg-color-three p-4 w-[345px] border justify-start items-start self-start rounded-[25px] lg:w-[400px] xl:w-[558px]"
                                 onClick={() => toggleAccordion(index)}
                             >
                                 <div className="flex justify-between items-start w-full cursor-pointer">
-                                    <h3 className={`font-semibold text-color-zero ${poppins.className} text-sm pr-4`}>
+                                    <h3 className={`font-medium text-color-zero text-base pr-4 lg:text-lg`}>
                                         {faq.question}
                                     </h3>
                                     {openIndex === index ? (
@@ -85,7 +84,7 @@ export default function Faqs() {
                                     )}
                                 </div>
                                 {openIndex === index && (
-                                    <p className="font-light text-sm text-color-zero leading-4 my-2 lg:text-start transition-all duration-300">
+                                    <p className="text-sm text-color-form leading-5 my-2 lg:text-start transition-all duration-300">
                                         {faq.answer}
                                     </p>
                                 )}
@@ -93,10 +92,8 @@ export default function Faqs() {
                         ))}
                     </div>
                 </section>
-                <section className="flex flex-col justify-center items-center bg-color-two py-16">
-                    <DownloadApp />
-                </section>
             </main>
+            <DownloadApp />
             <Footer/>
         </div>
     );
