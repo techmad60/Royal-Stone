@@ -240,7 +240,7 @@ export default function Main () {
             {/*Our Latest Products Section*/}
             <section className="flex flex-col justify-center items-center bg-color-two py-16">
                 <div className="flex flex-col justify-center items-center">
-                    <h2 className={`text-color-zero font-extrabold text-[22px] lg:text-lg-base`}>
+                    <h2 className={`text-color-zero w-[345px] font-extrabold sm:w-fit text-[22px] lg:text-lg-base`}>
                         Our Latest Investment Products
                     </h2>
                 </div>
