@@ -3,6 +3,8 @@ import Image from "next/image";
 import AppStoreButton from "../ui/AppStoreButton";
 import GooglePlayButton from "../ui/GooglePlayButton";
 import DownloadApp from "../ui/DownloadApp";
+import CardComponent from "../ui/CardComponent";
+import CardComponentTwo from "../ui/CardComponentTwo";
 export default function Main () {
     return (
         <main className="z-10 w-full">
@@ -49,51 +51,18 @@ export default function Main () {
                 </div>
 
                 <div className="flex flex-col space-y-6 justify-center items-center mt-12 lg:mt-0 lg:border-l lg:pl-12 xl:pl-24">
+
                     {/* Make an Investment */}
-                    <section className="flex flex-col justify-start items-start border border-slate-100 bg-color-three p-4 rounded-[25px] w-[345px] h-[275px] sm:w-[370px] xl:w-[450px]">
-                        <Image 
-                            src={"/images/make-investment.svg"}
-                            alt="Make Investment Icon"
-                            width={35.36}
-                            height={35.36}
-                        />
-                        <div className="flex flex-col justify-start items-start">
-                            <h3 className={`font-semibold text-[18px] text-color-zero mt-4`}>Make an Investment</h3>
-                            <p className="text-sm leading-base text-colour-five">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
-                        </div>
-                    </section>
+                    <CardComponent title="Make an Investment" text="Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or"  icon="/images/make-investment.svg"/>
 
                     {/* Create a Savings Target */}
-                    <section className="flex flex-col justify-start items-start border border-slate-100 bg-color-three p-4 rounded-[25px] w-[345px] h-[275px] sm:w-[370px] xl:w-[450px]">
-                        <Image 
-                            src={"/images/make-savings.svg"}
-                            alt="Make Savings Icon"
-                            width={35.36}
-                            height={35.36}
-                        />
-                        <div className="flex flex-col justify-start items-start">
-                            <h3 className={`font-semibold text-[18px] text-color-zero mt-4`}>Create a savings Target</h3>
-                            <p className="text-sm leading-base text-colour-five">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
-                        </div>
-                    </section>
+                    <CardComponent title="Create a Savings Target" text="Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or" icon="/images/make-savings.svg"/>
 
                     {/* Invest In Stocks */}
-                    <section className="flex flex-col justify-start items-start border border-slate-100 bg-color-three p-4 rounded-[25px] w-[345px] h-[275px] sm:w-[370px] xl:w-[450px]">
-                        <Image 
-                            src={"/images/buy-stocks.svg"}
-                            alt="Buy Stocks Icon"
-                            width={35.36}
-                            height={35.36}
-                        />
-                        <div className="flex flex-col justify-start items-start">
-                            <h3 className={`font-semibold text-[18px] text-color-zero mt-4`}>Invest in Stocks</h3>
-                            <p className="text-sm leading-base text-colour-five">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
-                        </div>
-                    </section>
+                    <CardComponent title="Invest In Stocks" text="Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or" icon="/images/buy-stocks.svg"/>
+                    
                 </div>
             </section>
-            
-
             {/*How to get started Section*/}
             <section className="flex flex-col justify-start items-start bg-color-two py-16 lg:justify-center lg:items-start lg:flex-row lg:gap-4 lg:pb-0 xl:gap-72">
                 <div className="flex flex-col justify-start items-start px-4">
@@ -183,17 +152,7 @@ export default function Main () {
 
                     <div className="flex flex-col space-y-4 justify-center items-center my-4 sm:grid sm:grid-cols-2 sm:gap-4 lg:my-0 lg:space-y-0 lg:gap-4">
                         {/* Fast Transactions */}
-                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] sm:w-[300px] lg:w-[257px]">
-                            <Image 
-                                src={"/images/fast-transaction.svg"}
-                                alt="Fast Transactions Icon"
-                                width={35.36}
-                                height={35.36}
-                                className="icon"
-                            />
-                            
-                            <p className="font-medium text-base text-color-zero leading-4 my-4 text-center">Fast Transactions</p>
-                        </section>
+                        <CardComponentTwo icon="/images/fast-transaction.svg" text="Fast Transaction" />
 
                         {/* Easy Configuration */}
                         <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] sm:w-[300px] lg:w-[257px]">

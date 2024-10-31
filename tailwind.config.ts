@@ -33,6 +33,10 @@ const config: Config = {
         // //Used in Pricing Page
         // "colour-fifteen": "#FCFAFF",
       },
+      screens: {
+        "xs": '375px',
+        "2xs": '320px',
+      },
       lineHeight: {
         "base": "30px",
       },
