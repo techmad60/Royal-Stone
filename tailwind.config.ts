@@ -16,6 +16,7 @@ const config: Config = {
         "color-three": "#FCFCFC", 
         "color-four": "#24222F",
         "colour-five": "rgba(15, 28, 57, 0.8)",
+        "color-unit": "rgba(63, 73, 97, 1)"
       
         
         // //Used in Signup Page

@@ -240,8 +240,8 @@ export default function Main () {
             {/*Our Latest Products Section*/}
             <section className="flex flex-col justify-center items-center bg-color-two py-16">
                 <div className="flex flex-col justify-center items-center">
-                    <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl`}>
-                        Our Latest Products
+                    <h2 className={`text-color-zero font-extrabold text-[22px] lg:text-lg-base`}>
+                        Our Latest Investment Products
                     </h2>
                 </div>
                 
@@ -251,33 +251,33 @@ export default function Main () {
                         <Image 
                             src={"/images/potato.svg"}
                             alt="Potato Image"
-                            className="lg:w-[300px]"
-                            width={200}
-                            height={185.28}
+                            className="lg:w-[291px]"
+                            width={252}
+                            height={172}
                         />
 
                         <div className="flex flex-col justify-start items-start mt-2">    
                             <div className="flex flex-col justify-start items-start">
-                                <p className="font-semibold text-sm text-color-zero leading-4 my-2 text-start">Sweet Potatoes</p>
-                                <p>500 Units. <span className="text-green-700">Available</span></p>
+                                <p className="font-medium text-base text-color-zero leading-4 my-2 text-start">Sweet Potatoes</p>
+                                <p className="text-sm text-color-unit">500 Units. <span className="text-green-700 text-sm">Available</span></p>
                             </div>
                         </div> 
                     </section>
 
-                    {/* Product two */}
+                    {/* Product Two */}
                     <section className="flex flex-col justify-start items-start flex-shrink-0">
                         <Image 
                             src={"/images/potato.svg"}
                             alt="Potato Image"
-                            className="lg:w-[300px]"
-                            width={200}
-                            height={185.28}
+                            className="lg:w-[291px]"
+                            width={252}
+                            height={172}
                         />
 
                         <div className="flex flex-col justify-start items-start mt-2">    
                             <div className="flex flex-col justify-start items-start">
-                                <p className="font-semibold text-sm text-color-zero leading-4 my-2 text-start">Sweet Potatoes</p>
-                                <p>500 Units. <span className="text-green-700">Available</span></p>
+                                <p className="font-medium text-base text-color-zero leading-4 my-2 text-start">Sweet Potatoes</p>
+                                <p className="text-sm text-color-unit">500 Units. <span className="text-green-700 text-sm">Available</span></p>
                             </div>
                         </div> 
                     </section>
@@ -287,15 +287,15 @@ export default function Main () {
                         <Image 
                             src={"/images/potato.svg"}
                             alt="Potato Image"
-                            className="lg:w-[300px]"
-                            width={200}
-                            height={185.28}
+                            className="lg:w-[291px]"
+                            width={252}
+                            height={172}
                         />
 
                         <div className="flex flex-col justify-start items-start mt-2">    
                             <div className="flex flex-col justify-start items-start">
-                                <p className="font-semibold text-sm text-color-zero leading-4 my-2 text-start">Sweet Potatoes</p>
-                                <p>500 Units. <span className="text-green-700">Available</span></p>
+                                <p className="font-medium text-base text-color-zero leading-4 my-2 text-start">Sweet Potatoes</p>
+                                <p className="text-sm text-color-unit">500 Units. <span className="text-green-700 text-sm">Available</span></p>
                             </div>
                         </div> 
                     </section>
@@ -305,15 +305,15 @@ export default function Main () {
                         <Image 
                             src={"/images/potato.svg"}
                             alt="Potato Image"
-                            className="lg:w-[300px]"
-                            width={200}
-                            height={185.28}
+                            className="lg:w-[291px]"
+                            width={252}
+                            height={172}
                         />
 
                         <div className="flex flex-col justify-start items-start mt-2">    
                             <div className="flex flex-col justify-start items-start">
-                                <p className="font-semibold text-sm text-color-zero leading-4 my-2 text-start">Sweet Potatoes</p>
-                                <p>500 Units. <span className="text-green-700">Available</span></p>
+                                <p className="font-medium text-base text-color-zero leading-4 my-2 text-start">Sweet Potatoes</p>
+                                <p className="text-sm text-color-unit">500 Units. <span className="text-green-700 text-sm">Available</span></p>
                             </div>
                         </div> 
                     </section>
