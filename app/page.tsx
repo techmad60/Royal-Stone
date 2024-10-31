@@ -7,7 +7,7 @@ import Footer from "../components/sections/Footer";
 
 export default function Home() {
   return (
-    <div className={`bg-color-two`}>
+    <div className={`bg-color-two flex flex-col`}>
       <Header />
        <Main />
       <Footer />

@@ -1,81 +1,58 @@
 // Footer Component
 import Image from 'next/image';
-import { FaFacebookF, FaApple, FaGooglePlay} from 'react-icons/fa';
-import { FaXTwitter, FaYoutube} from "react-icons/fa6";
-import { PiLinkedinLogoFill, PiInstagramLogoThin } from "react-icons/pi";
+import { FaXTwitter, FaLinkedin} from "react-icons/fa6";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import Link from 'next/link';
-
 
 export default function Footer ({margin = ""}){
     return (
-        <footer className={`bg-color-two text-color-zero pt-8 px-16 flex flex-col lg:justify-center lg:items-center ${margin}`}>
-            <nav className="flex flex-col justify-start items-start mb-12 space-y-12 py-8 sm:grid grid-cols-2 sm:space-y-0 sm:gap-8 lg:flex lg:flex-row lg:space-y-0 lg:gap-[14rem] xl:gap-[18rem]" aria-label="footer-nav">
+        <footer className={` text-color-zero pt-8 px-4 flex flex-col lg:px-16 lg:justify-center lg:items-start mx-auto ${margin}`}>
+            <nav className="justify-start items-start space-y-12 border-b py-8 sm:grid grid-cols-2 sm:space-y-0 sm:gap-8 lg:border-none lg:flex lg:flex-row lg:space-y-0 lg:gap-36 xl:gap-72" aria-label="footer-nav">
                 
                 {/* Logo Section */}
                 <section className="flex flex-col space-y-4 justify-start items-start flex-shrink-0">
-                    <Image src={"/images/logo.svg"} alt="Royal-Stone Logo" width={170} height={170}/>
+                    <Image src={"/images/logo.svg"} alt="Royal-Stone Logo" width={129} height={24.17}/> 
+                    <p className='text-sm text-colour-five leading-[25px] sm:w-[300px] lg:w-[330px]'>Purus eget arcu faucibus mi velit. Massa placerat sed in malesuada cum ornare.</p>
                 </section>
+                
+                <div className='flex w-full justify-between lg:gap-20 xl:gap-44'>
+                {/* Company Section */}
+                    <section className="flex flex-col space-y-4 justify-start items-start">
+                        <p className={`text-center text-sm font-semibold`}>COMPANY</p>
+                        <ul className="flex flex-col gap-2">
+                            <Link href="/" className="hover:text-green-500 duration-300 text-colour-five text-sm">Home</Link>
+                            <Link href="/about" className="hover:text-green-500 duration-300 text-colour-five text-sm">About</Link>
+                            <Link href="/contact-us" className="hover:text-green-500 duration-300 text-colour-five text-sm">Contact us</Link>
+                            <Link href="/faqs" className="hover:text-green-500 duration-300 text-colour-five text-sm">FAQs</Link>
+                        </ul>
+                    </section>
+                    <div className='flex flex-col lg:flex-row-reverse lg:gap-20 xl:gap-44'> 
+                        {/* Policies Section */}
+                        <section className="flex flex-col space-y-4 justify-start items-start">
+                            <p className={`text-center text-sm font-semibold`}>POLICIES</p>
+                            <ul className="flex flex-col gap-2 ">
+                                <Link href="/terms-of-service" className='hover:text-green-500 duration-300 text-colour-five text-sm'>Terms of Services</Link>
+                                <Link href="/privacy-policy" className='hover:text-green-500 duration-300 text-colour-five text-sm'>Privacy Policy</Link>
+                            </ul>
+                        </section>
 
-                {/* Contact Section */}
-                <section className="flex flex-col space-y-4 justify-start items-start">
-                    <p className={`text-center text-[1.375rem] font-medium  whitespace-nowrap`}>Contact Us</p>
-                    <ul className="flex flex-col gap-2">
-                        <Link href="/" className="hover:text-green-500 duration-300">Home</Link>
-                        <Link href="/about" className="hover:text-green-500 duration-300">About</Link>
-                        <Link href="/contact-us" className="hover:text-green-500 duration-300">Contact us</Link>
-                        <Link href="/faqs" className="hover:text-green-500 duration-300">FAQs</Link>
-                    </ul>
-                </section>
-
-                {/* Policies Section */}
-                <section className="flex flex-col space-y-4 justify-start items-start">
-                    <p className={`text-center text-[1.375rem] font-medium  whitespace-nowrap`}>Policies</p>
-                    <ul className="flex flex-col gap-2 ">
-                        <Link href="/terms-of-service" className='whitespace-nowrap hover:text-green-500 duration-300'>Terms of Services</Link>
-                        <Link href="/privacy-policy" className='hover:text-green-500 duration-300'>Privacy Policy</Link>
-                    </ul>
-                </section>
-
-                {/* More From Dubai */}
-                {/* <section className="flex flex-col space-y-4 justify-start items-start">
-                    <p className={`text-center text-[1.375rem] font-medium  whitespace-nowrap`}>More from Dutiful</p>
-                    <ul className="">
-                        <Link href="/jobs" className='hover:text-green-500 duration-300'>Royal Stone jobs</Link>
-                    </ul>
-                </section> */}
+                        {/* Socials */}
+                        <section className="flex flex-col space-y-4 justify-start items-start lg:mt-0">
+                            <p className={`text-center text-sm font-semibold `}>SOCIALS</p>
+                            <ul className="flex flex-row space-x-2 lg:space-x-0 lg:grid grid-cols-2 lg:gap-3">
+                                <li><a href="" className='hover:text-green-500 duration-300 text-blue-600'><FaFacebook/></a></li>
+                                <li><a href="" className='hover:text-green-500 duration-300'> <Image src={"/images/instagram.svg"} alt="Instagram Logo" width={16} height={16}/></a></li>
+                                <li><a href="" className='hover:text-green-500 duration-300 text-blue-600'><FaXTwitter className='text-black'/></a></li>
+                                <li><a href="" className='hover:text-green-500 duration-300 text-blue-600'><FaLinkedin className='text-blue-700'/></a></li>
+                            </ul>
+                        </section>
+                    </div>                   
+                </div>
             </nav>
-
-            <div className='flex flex-col border-t border-b border-green-700 gap-12 pt-16 pb-8 lg:mx-12 lg:gap-[20rem] lg:flex-row xl:gap-[30rem]'>
-            {/* Socials Section */}
-                <section className="flex flex-col ">
-                    <nav className="flex flex-col gap-4 lg:flex-row">
-                        <p className='font-medium whitespace-nowrap'>Follow us</p>
-                        <ul className="flex space-x-8 ">
-                            <li><a href="" className="text-2xl hover:text-green-500 duration-300"><FaFacebookF/></a></li>
-                            <li><a href="" className="text-2xl hover:text-green-500 duration-300"><PiInstagramLogoThin/></a></li>
-                            <li><a href="" className="text-2xl hover:text-green-500 duration-300"><FaXTwitter/></a></li>
-                            <li><a href="" className="text-2xl hover:text-green-500 duration-300"><FaYoutube/></a></li>
-                            <li><a href="" className="text-2xl hover:text-green-500 duration-300"><PiLinkedinLogoFill/></a></li>
-                           
-                        </ul>
-                    </nav>
-                </section>
-
-            {/*Download section*/}
-                <section className="flex flex-col">
-                    <nav className="flex flex-col gap-6 lg:flex-row">
-                    <p className='font-medium whitespace-nowrap'>Download the app</p>
-                        <ul className="flex space-x-6">
-                            <li><a href="" className="text-2xl hover:text-green-500 duration-300"><FaApple/></a></li>
-                            <li><a href="" className="text-2xl hover:text-green-500 duration-300"><FaGooglePlay/></a></li>
-                        </ul>
-                    </nav>
-                </section>
-            </div>
              
             {/* Copyright Section */}
-            <div className='flex flex-col justify-center items-center gap-24 my-12 lg:flex-row self-center'>
-                <p>©  2024 Royal Stone®</p>
+            <div className='flex flex-col text-sm text-colour-five mb-6 lg:relative bottom-16'>
+                <p>© Copyright Royal Stone 2024</p>
                
             </div>
         </footer>

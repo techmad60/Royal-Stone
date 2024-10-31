@@ -181,9 +181,9 @@ export default function Main () {
                         <p className="text-sm text-colour-five leading-base my-4 w-[345px] xl:w-[487px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue</p>
                     </div>
 
-                    <div className="flex flex-col space-y-4 justify-center items-center my-4 lg:grid lg:grid-cols-2 lg:my-0 lg:space-y-0 lg:gap-4">
+                    <div className="flex flex-col space-y-4 justify-center items-center my-4 sm:grid sm:grid-cols-2 sm:gap-4 lg:my-0 lg:space-y-0 lg:gap-4">
                         {/* Fast Transactions */}
-                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] lg:w-[257px]">
+                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] sm:w-[300px] lg:w-[257px]">
                             <Image 
                                 src={"/images/fast-transaction.svg"}
                                 alt="Fast Transactions Icon"
@@ -196,7 +196,7 @@ export default function Main () {
                         </section>
 
                         {/* Easy Configuration */}
-                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] lg:w-[257px]">
+                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] sm:w-[300px] lg:w-[257px]">
                             <Image 
                                 src={"/images/easy-config.svg"}
                                 alt="Easy Configuration Icon"
@@ -209,7 +209,7 @@ export default function Main () {
                         </section>
 
                         {/* Secure Platform */}
-                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] lg:w-[257px]">
+                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] sm:w-[300px] lg:w-[257px]">
                             <Image 
                                 src={"/images/secure-platform.svg"}
                                 alt="Secure Platform Icon"
@@ -222,7 +222,7 @@ export default function Main () {
                         </section>
 
                         {/* Easy to Use */}
-                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] lg:w-[257px]">
+                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] sm:w-[300px] lg:w-[257px]">
                             <Image 
                                 src={"/images/easy-use.svg"}
                                 alt="Easy to Use Icon"
@@ -320,7 +320,7 @@ export default function Main () {
                 </div>
             </section>
 
-            <section className="flex flex-col justify-center items-center sm:px-4 lg:px-0">
+            <section className="flex flex-col justify-center items-center px-4 lg:px-0">
                 <DownloadApp />
             </section>
       </main>
