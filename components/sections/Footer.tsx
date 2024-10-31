@@ -51,10 +51,9 @@ export default function Footer ({margin = ""}){
             </nav>
              
             {/* Copyright Section */}
-            {/* <div className='flex flex-col text-sm text-colour-five my-6 lg:relative bottom-16'>
+            <div className='flex flex-col text-sm text-colour-five my-6 lg:relative bottom-16'>
                 <p>© Copyright Royal Stone 2024</p>
-               
-            </div> */}
+            </div> 
         </footer>
     )
 }
