@@ -1,7 +1,7 @@
 // Footer Component
 import Image from 'next/image';
 import { FaXTwitter, FaLinkedin} from "react-icons/fa6";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebook} from "react-icons/fa";
 import Link from 'next/link';
 
 export default function Footer ({margin = ""}){
