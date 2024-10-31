@@ -5,7 +5,7 @@ import GooglePlayButton from "../ui/GooglePlayButton";
 import DownloadApp from "../ui/DownloadApp";
 export default function Main () {
     return (
-        <main className="z-10">
+        <main className="z-10 w-full">
             {/* Hero Section */}
             <section className="flex flex-col items-center justify-center text-center pt-24 lg:text-start lg:flex-row lg:px-36 lg:pt-[4rem] lg:gap-4 xl:gap-0 m-auto xl:px-96">
                {/* Text and Button Section */}
