@@ -18,7 +18,7 @@ export default function Main () {
                     </p>
                     <div className="flex gap-4 pt-6">
                         <AppStoreButton textColor="text-white" backgroundColor="bg-[rgba(36,34,47,1)]" width="166.69px" height="62.02px" lgWidth="162px" lgHeight="64px"/>
-                        <GooglePlayButton textColor="text-white" backgroundColor="bg-[rgba(36,34,47,1)]" width="166.69px" height="62.02px" lgWidth="162px" lgHeight="64px" logoWidth="w-38.76px" logoHeight="h-38.76px"/>
+                        <GooglePlayButton textColor="text-white" backgroundColor="bg-[rgba(36,34,47,1)]" width="166.69px" height="62.02px" lgWidth="162px" lgHeight="64px"/>
                     </div>
                 </div>
 
