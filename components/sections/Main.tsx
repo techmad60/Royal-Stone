@@ -174,66 +174,64 @@ export default function Main () {
             </section>
 
             {/*Why Royal Stone Is The Best*/}
-            <section className="flex flex-col justify-center items-center bg-white xl:px-16">
-            
-                <section className="flex flex-col justify-center items-center p-4 py-12 gap-8 lg:py-12 lg:grid lg:grid-cols-2 lg:p-0 xl:gap-24">
-                    <div className="flex flex-col justify-center items-center">
-                        <h2 className={`text-color-zero text-xl whitespace-nowrap font-semibold lg:text-3xl`}>Why Royal Stone Is The Best</h2>
-                        <p className="font-light text-sm text-color-zero text-center leading-4 lg:text-xl my-4 w-[300px] sm:w-[400px] lg:w-[450px] xl:w-[557px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue. Sit eget nullam nunc neque nulla venenatis. Felis ornare nulla eros dolor viverra quis odio or</p>
+            <section className="flex flex-col justify-start items-start py-16 bg-white sm:justify-center sm:items-center">
+                <section className="flex flex-col justify-start items-start px-4 sm:px-0 lg:flex-row lg:gap-8 xl:gap-40">
+                    <div className="flex flex-col justify-start items-start">
+                        <h2 className={`text-color-zero font-extrabold text-[22px] w-[345px] lg:text-lg-base`}>Why Royal Stone Is The Best Choice</h2>
+                        <p className="text-sm text-colour-five leading-base my-4 w-[345px] xl:w-[487px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue</p>
                     </div>
 
-                    <div className="flex flex-col space-y-4 justify-center items-center md:grid grid-cols-2 md:gap-6 md:space-y-0 lg:gap-4 xl:gap-8">
-
+                    <div className="flex flex-col space-y-4 justify-center items-center my-4 lg:grid lg:grid-cols-2 lg:my-0 lg:space-y-0 lg:gap-4">
                         {/* Fast Transactions */}
-                        <section className="flex flex-col justify-center items-center bg-color-three p-5 border  rounded-lg text-center shadow-md w-[220px] lg:w-auto xl:p-8">
+                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] lg:w-[257px]">
                             <Image 
                                 src={"/images/fast-transaction.svg"}
                                 alt="Fast Transactions Icon"
-                                width={45.36}
-                                height={45.36}
+                                width={35.36}
+                                height={35.36}
                                 className="icon"
                             />
                             
-                            <p className="font-semibold text-lg text-color-zero leading-4 my-4">Fast Transactions</p>
+                            <p className="font-medium text-base text-color-zero leading-4 my-4 text-center">Fast Transactions</p>
                         </section>
 
                         {/* Easy Configuration */}
-                        <section className="flex flex-col justify-center items-center bg-color-three p-5 border  rounded-lg text-center shadow-md w-[220px] lg:w-auto xl:p-8">
+                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] lg:w-[257px]">
                             <Image 
                                 src={"/images/easy-config.svg"}
                                 alt="Easy Configuration Icon"
-                                width={45.36}
-                                height={45.36}
+                                width={35.36}
+                                height={35.36}
                                 className="icon"
                             />
                             
-                            <p className="font-semibold text-lg text-color-zero leading-4 my-4 whitespace-nowrap">Easy Configuration</p>
+                            <p className="font-medium text-base text-color-zero leading-4 my-4 text-center">Easy Configuration</p>
                         </section>
 
                         {/* Secure Platform */}
-                        <section className="flex flex-col justify-center items-center bg-color-three p-5 border  rounded-lg text-center shadow-md w-[220px] lg:w-auto xl:p-8">
+                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] lg:w-[257px]">
                             <Image 
                                 src={"/images/secure-platform.svg"}
                                 alt="Secure Platform Icon"
-                                width={45.36}
-                                height={45.36}
+                                width={35.36}
+                                height={35.36}
                                 className="icon"
                             />
                             
-                            <p className="font-semibold text-lg text-color-zero leading-4 my-4">Secure Platform</p>
+                            <p className="font-medium text-base text-color-zero leading-4 my-4 text-center">Secure Platform</p>
                         </section>
 
                         {/* Easy to Use */}
-                        <section className="flex flex-col justify-center items-center bg-color-three p-5 border  rounded-lg text-center shadow-md w-[220px] lg:w-auto xl:p-8">
+                        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] lg:w-[257px]">
                             <Image 
                                 src={"/images/easy-use.svg"}
                                 alt="Easy to Use Icon"
-                                width={45.36}
-                                height={45.36}
+                                width={35.36}
+                                height={35.36}
                                 className="icon"
                             />
                             
-                            <p className="font-semibold text-lg text-color-zero leading-4 my-4">Easy to Use</p>
+                            <p className="font-medium text-base text-color-zero leading-4 my-4 text-center">Easy To Use</p>
                         </section>
                     </div> 
                 </section>
