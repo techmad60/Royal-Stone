@@ -7,7 +7,7 @@ export default function Main () {
     return (
         <main className="z-10">
             {/* Hero Section */}
-            <section className="flex flex-col items-center justify-center text-center pt-20 lg:text-start lg:flex-row lg:px-36 lg:py-[4rem] lg:gap-4 xl:gap-0 m-auto xl:px-96">
+            <section className="flex flex-col items-center justify-center text-center pt-24 lg:text-start lg:flex-row lg:px-36 lg:pt-[4rem] lg:gap-4 xl:gap-0 m-auto xl:px-96">
                {/* Text and Button Section */}
                 <div className="flex flex-col justify-start items-start text-start px-4 space-y-6 lg:px-0">
                     <h1 className={`text-color-zero leading-[34.72px] font-extrabold text-[28px] w-[347px] lg:px-0 lg:text-[39px] lg:w-[500px] lg:leading-[48.36px] xl:w-[520px]`}>
@@ -319,10 +319,8 @@ export default function Main () {
                     </section>
                 </div>
             </section>
-
-            <section className="flex flex-col justify-center items-center px-4 lg:px-0">
-                <DownloadApp />
-            </section>
+            <DownloadApp />
+            
       </main>
     )
 }

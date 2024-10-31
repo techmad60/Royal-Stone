@@ -37,7 +37,7 @@ export default function Footer ({margin = ""}){
                         </section>
 
                         {/* Socials */}
-                        <section className="flex flex-col space-y-4 justify-start items-start lg:mt-0">
+                        <section className="flex flex-col space-y-4 justify-start items-start mt-8 lg:mt-0">
                             <p className={`text-center text-sm font-semibold `}>SOCIALS</p>
                             <ul className="flex flex-row space-x-2 lg:space-x-0 lg:grid grid-cols-2 lg:gap-3">
                                 <li><a href="" className='hover:text-green-500 duration-300 text-blue-600'><FaFacebook/></a></li>
@@ -51,7 +51,7 @@ export default function Footer ({margin = ""}){
             </nav>
              
             {/* Copyright Section */}
-            <div className='flex flex-col text-sm text-colour-five mb-6 lg:relative bottom-16'>
+            <div className='flex flex-col text-sm text-colour-five my-6 lg:relative bottom-16'>
                 <p>© Copyright Royal Stone 2024</p>
                
             </div>
