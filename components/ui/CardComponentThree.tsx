@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function CardComponentThree({icon = "", text = "", contact = "", href = ""}) {
     return (
-        <section className="flex flex-col justify-start items-start bg-color-three border p-8 rounded-[25px] w-[345px] lg:w-[285px] xl:w-[345px]">
+        <section className="flex flex-col justify-start items-start bg-color-three border p-8 rounded-[25px] w-[330px] xs:w-[345px] lg:w-[285px] xl:w-[345px]">
             <Image 
                 src={icon}
                 alt={`${text} Icon`}
