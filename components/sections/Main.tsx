@@ -9,7 +9,7 @@ export default function Main () {
     return (
         <main className="z-10 w-full">
             {/* Hero Section */}
-            <section className="flex flex-col items-center justify-center text-center xs:px-4 pt-24 lg:text-start lg:flex-row lg:px-36 lg:pt-[4rem] lg:gap-4 xl:gap-0 xl:m-auto xl:px-96">
+            <section className="flex flex-col items-center justify-center text-center pt-24 xs:px-4 lg:text-start lg:flex-row lg:px-36 lg:pt-[4rem] lg:gap-4 xl:gap-0 xl:m-auto xl:px-96">
                {/* Text and Button Section */}
                 <div className="flex flex-col justify-start items-start text-start space-y-6 lg:px-0">
                     <h1 className={`text-color-zero leading-[34.72px] font-extrabold text-xl w-[340px] xs:text-[28px] xs:w-[347px] lg:px-0 lg:text-[39px] lg:w-[500px] lg:leading-[48.36px] xl:w-[520px]`}>
@@ -35,7 +35,7 @@ export default function Main () {
             </section>
         
             {/* Our Services Section */}
-            <section className="flex flex-col justify-start items-start bg-white py-12 px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-[9rem] xl:pb-0 overflow-x-hidden">
+            <section className="flex flex-col justify-start items-start bg-white py-12 xs:px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-[9rem] xl:pb-0 overflow-x-hidden">
                 <div className="flex flex-col justify-center">
                     <div className="flex flex-col justify-start items-start">
                         <h2 className={`text-color-zero text-[22px] font-extrabold whitespace-nowrap lg:text-lg-base`}>Our Services</h2>
@@ -144,7 +144,7 @@ export default function Main () {
 
             {/*Why Royal Stone Is The Best*/}
             <section className="flex flex-col justify-start items-start py-16 bg-white sm:justify-center sm:items-center">
-                <section className="flex flex-col justify-start items-start px-4 sm:px-0 lg:flex-row lg:gap-8 xl:gap-40">
+                <section className="flex flex-col justify-start items-start xs:px-4 sm:px-0 lg:flex-row lg:gap-8 xl:gap-40">
                     <div className="flex flex-col justify-start items-start">
                         <h2 className={`text-color-zero font-extrabold text-[22px] w-[345px] lg:text-lg-base`}>Why Royal Stone Is The Best Choice</h2>
                         <p className="text-sm text-colour-five leading-base my-4 w-[345px] xl:w-[487px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue</p>
@@ -169,7 +169,7 @@ export default function Main () {
             {/*Our Latest Products Section*/}
             <section className="flex flex-col justify-center items-center bg-color-two py-16">
                 <div className="flex flex-col justify-center items-center">
-                    <h2 className={`text-color-zero w-[345px] font-extrabold sm:w-fit text-[22px] lg:text-lg-base`}>
+                    <h2 className={`text-color-zero xs:w-[345px] font-extrabold sm:w-fit text-[22px] lg:text-lg-base`}>
                         Our Latest Investment Products
                     </h2>
                 </div>
