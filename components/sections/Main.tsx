@@ -35,7 +35,7 @@ export default function Main () {
             </section>
         
             {/* Our Services Section */}
-            <section className="flex flex-col justify-start items-start bg-white py-12 xs:px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-[9rem] xl:pb-0 overflow-x-hidden">
+            <section className="flex flex-col justify-start items-start bg-white pl-4 py-12 xs:px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-[9rem] xl:pb-0 overflow-x-hidden">
                 <div className="flex flex-col justify-center">
                     <div className="flex flex-col justify-start items-start">
                         <h2 className={`text-color-zero text-[22px] font-extrabold whitespace-nowrap lg:text-lg-base`}>Our Services</h2>
@@ -45,7 +45,7 @@ export default function Main () {
                         src={"/images/dashboard.svg"}
                         alt="App Dashboard"
                         className="mt-20 xs:w-[345px] sm:w-[350px] lg:w-[472px]"
-                        width={340}
+                        width={330}
                         height={430}
                     />
                 </div>
@@ -127,8 +127,8 @@ export default function Main () {
                 <Image 
                     src={"/images/fund-wallet-full.svg"}
                     alt="Fund-Wallet"
-                    className="self-center mt-8 lg:hidden"
-                    width={345}
+                    className="xs:w-[345px] self-center mt-8 lg:hidden"
+                    width={330}
                     height={185.28}
                 />
                 {/* Fund Wallet Destop Image */}
