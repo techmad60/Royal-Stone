@@ -12,7 +12,7 @@ export default function SignUpLayout({
         <div>
           <Prompt />
         </div>
-        <div className="">
+        <div className="flex flex-col">
           <SignUpHeader />
           {children} {/* Ensure children are rendered here */}
         </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CardComponentFour from "@/components/ui/CardComponentFour";
+import CardComponentFour from "@/components/registration/CardComponentFour";
 
 export default function SignUp() {
     return (
