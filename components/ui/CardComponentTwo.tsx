@@ -1,7 +1,7 @@
 import Image from "next/image"
 export default function CardComponentRwo ({icon = "", text = ""}) {
     return (
-        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[345px] h-[94px] sm:w-[300px] lg:w-[257px]">
+        <section className="flex flex-col justify-center items-center bg-color-three p-4 border rounded-[29.34px] text-center w-[300px] xs:w-[345px] h-[94px] sm:w-[300px] lg:w-[257px]">
             <Image 
                 src={icon}
                 alt={`${text} Icon`}

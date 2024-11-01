@@ -143,11 +143,11 @@ export default function Main () {
             </section>
 
             {/*Why Royal Stone Is The Best*/}
-            <section className="flex flex-col justify-start items-start py-16 bg-white sm:justify-center sm:items-center">
+            <section className="flex flex-col  justify-start items-start py-16 pl-4 xs:pl-0 bg-white sm:justify-center sm:items-center">
                 <section className="flex flex-col justify-start items-start xs:px-4 sm:px-0 lg:flex-row lg:gap-8 xl:gap-40">
                     <div className="flex flex-col justify-start items-start">
-                        <h2 className={`text-color-zero font-extrabold text-[22px] w-[345px] lg:text-lg-base`}>Why Royal Stone Is The Best Choice</h2>
-                        <p className="text-sm text-colour-five leading-base my-4 w-[345px] xl:w-[487px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue</p>
+                        <h2 className={`text-color-zero font-extrabold text-[22px] w-[335px] xs:w-[345px] lg:text-lg-base`}>Why Royal Stone Is The Best Choice</h2>
+                        <p className="text-sm text-colour-five leading-base my-4 w-[340px] xs:w-[345px] xl:w-[487px]">Proin quam varius facilisis urna. Viverra at vitae lacus at ut volutpat. Amet commodo venenatis in congue</p>
                     </div>
 
                     <div className="flex flex-col space-y-4 justify-center items-center my-4 sm:grid sm:grid-cols-2 sm:gap-4 lg:my-0 lg:space-y-0 lg:gap-4">
@@ -169,7 +169,7 @@ export default function Main () {
             {/*Our Latest Products Section*/}
             <section className="flex flex-col justify-center items-center bg-color-two py-16">
                 <div className="flex flex-col justify-center items-center">
-                    <h2 className={`text-color-zero xs:w-[345px] font-extrabold sm:w-fit text-[22px] lg:text-lg-base`}>
+                    <h2 className={`text-color-zero w-[340px] xs:w-[345px] font-extrabold text-[22px] sm:w-fit lg:text-lg-base`}>
                         Our Latest Investment Products
                     </h2>
                 </div>
