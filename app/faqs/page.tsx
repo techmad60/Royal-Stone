@@ -70,7 +70,7 @@ export default function Faqs() {
                         {faqs.map((faq, index) => (
                             <section 
                                 key={index} 
-                                className="flex flex-col bg-color-three p-4 w-[345px] border justify-start items-start self-start rounded-[25px] lg:w-[400px] xl:w-[558px]"
+                                className="flex flex-col bg-color-three p-4 w-[345px] border justify-start items-start self-start rounded-common lg:w-[400px] xl:w-[558px]"
                                 onClick={() => toggleAccordion(index)}
                             >
                                 <div className="flex justify-between items-start w-full cursor-pointer">

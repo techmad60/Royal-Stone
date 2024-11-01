@@ -43,6 +43,9 @@ const config: Config = {
       fontSize: {
         "base": "1rem",
         "lg-base": "28px",
+      },
+      borderRadius: {
+        'common': "25px",
       }
     },
   },
