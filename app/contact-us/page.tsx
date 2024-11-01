@@ -1,9 +1,9 @@
 //app/contact-us/page.tsx
-import Image from "next/image";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import FormButton from "@/components/ui/FormButton";
 import DownloadApp from "@/components/ui/DownloadApp";
+import CardComponentThree from "@/components/ui/CardComponentThree";
 
 export default function ContactUs() {
     return (
@@ -19,47 +19,13 @@ export default function ContactUs() {
                 <section className="flex flex-col justify-center items-center py-8 bg-white w-full my-12 md:px-16">
                     <div className="flex flex-col justify-center items-center gap-6 lg:flex-row mx-4 w-full">
                         {/* Chat on Whatsapp */}
-                        <section className="flex flex-col justify-start items-start bg-color-three border p-8 rounded-[25px] w-[345px] lg:w-[285px] xl:w-[345px]">
-                            <Image 
-                                src={"/images/whatsapp-icon.svg"}
-                                alt="Whats App Icon"
-                                width={45.36}
-                                height={45.36}
-                            />
-                            <div className="flex flex-col justify-start items-start ">
-                                <h3 className={`font-semibold text-color-zero mt-4 lg:text-lg whitespace-nowrap `}>Chat with Us on Whatsapp</h3>
-                                <a href="tel:+2349010201223" className="font-light hover:text-green-500 duration-300 text-sm text-color-zero leading-4 my-2 lg:text-start">09010201223</a>
-                            </div>
-                        </section>
+                        <CardComponentThree icon="images/whatsapp-icon.svg" text="Whatsapp" contact="09010201223" href="tel:+2349010201223"/>
                         
-
-                        {/* Call us over the Phone */}     
-                        <section className="flex flex-col justify-start items-start bg-color-three border p-8 rounded-[25px] w-[345px] lg:w-[285px] xl:w-[400px]">
-                            <Image 
-                                src={"/images/phone-icon.svg"}
-                                alt="Phone Icon"
-                                width={45.36}
-                                height={45.36}
-                            />
-                            <div className="flex flex-col justify-start items-start ">
-                                <h3 className={`font-semibold text-color-zero mt-4 lg:text-lg `}>Call us over the Phone</h3>
-                                <a href="tel:+2349010201223" className="font-light hover:text-green-500 duration-300 text-sm text-color-zero leading-4 my-2 lg:text-start">09010201223</a>
-                            </div>
-                        </section>
-                    
-                        {/* Send us a Mail */}
-                        <section className="flex flex-col justify-start items-start bg-color-three border p-8 rounded-[25px] w-[345px] lg:w-[285px] xl:w-[400px]">
-                            <Image 
-                                src={"/images/mail-icon.svg"}
-                                alt="Mail Icon"
-                                width={45.36}
-                                height={45.36}
-                            />
-                            <div className="flex flex-col justify-start items-start ">
-                                <h3 className={`font-semibold text-color-zero mt-4 lg:text-lg `}>Send us a Mail</h3>
-                                <a href="mailto:Support@royalstone.com" className="font-light hover:text-green-500 duration-300 text-sm text-color-zero leading-4 my-2 lg:text-start">Support@royalstone.com</a>
-                            </div>
-                        </section> 
+                        {/* Call on Phone */}
+                        <CardComponentThree icon="images/phone-icon.svg" text="Phone" contact="09010201223" href="tel:+2349010201223"/>
+                        
+                        {/* Send a Mail */}
+                        <CardComponentThree icon="images/mail-icon.svg" text="Mail" contact="Support@royalstone.com" href="mailto:Support@royalstone.com"/>
                     </div>
 
                     {/* Contact Us Form*/}
