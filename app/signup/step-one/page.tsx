@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import StepNavigator from "@/components/registration/SignUpNavigator";
+import SignUpNavigator from "@/components/registration/SignUpNavigator";
 import CheckBox from "@/components/ui/Checkedbox";
 import EmptyBox from "@/components/ui/UncheckedBox";
 import FormButton from "@/components/ui/FormButton";
@@ -24,7 +24,7 @@ export default function StepOne() {
   };
   return (
     <div className="flex flex-col">
-      <StepNavigator currentStep={1} />
+      <SignUpNavigator currentStep={1} />
       {/* Step One Content Here */}
       <form className={`flex flex-col mt-8 space-y-8 max-w-[33.5rem]`}>
         {/* Name */}

@@ -4,7 +4,7 @@ export default function StepOne() {
     return (
         <div className="flex flex-col">
             <LogInNavigator currentStep={2} />
-            <VerifyEmail />
+            <VerifyEmail href="/forgot-password/step-two" />
         </div>
     )
 }
