@@ -5,6 +5,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 const steps = [
     { label: "Sign in with", href: "/login" },
     { label: "With Email", href: "/login/step-one" },
+    { label: "Forgot Password", href: "/forgot-password" },
 ];
 
 export default function LogInNavigator({ currentStep }: { currentStep: number }) {

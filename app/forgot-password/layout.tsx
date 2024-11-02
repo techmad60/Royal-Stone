@@ -1,8 +1,8 @@
-//app/login/layout.tsx
+//app/forgot-password/layout.tsx
 import Prompt from "@/components/registration/Prompt";
 import AuthHeader from "@/components/registration/AuthHeader";
 
-export default function LoginLayout({
+export default function ForgetPasswordLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ export default function LoginLayout({
           <Prompt prompt="Welcome back! 1,000+ users are already on the path to smart investing. Ready to take the next step? 🤔"/>
         </div>
         <div className="flex flex-col">
-          <AuthHeader title="Sign in to your Royal Stone Account"/>
+          <AuthHeader title="Forgot Password"/>
           {children} {/* Ensure children are rendered here */}
         </div>
       </div>

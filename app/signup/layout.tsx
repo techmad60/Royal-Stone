@@ -13,7 +13,7 @@ export default function SignUpLayout({
           <Prompt prompt="1,000+ users are making smart investment choices. Why not be one of them? 🤔"/>
         </div>
         <div className="flex flex-col">
-          <AuthHeader title="Create a"/>
+          <AuthHeader title="Create a Royal Stone Account"/>
           {children} {/* Ensure children are rendered here */}
         </div>
       </div>
