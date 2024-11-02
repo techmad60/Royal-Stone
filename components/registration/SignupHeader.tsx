@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 export default function SignUpHeader() {
     return (
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-4 lg:pr-8">
             <Link href="/" className="flex">
                 <Image 
                     className="logo lg:hidden"

@@ -1,12 +1,14 @@
-// pages/signup/step-one.tsx
+//app/signup/step-one/page.tsx
 "use client";
 import { useState } from "react";
+
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import StepNavigator from "@/components/registration/StepNavigator";
 import CheckBox from "@/components/ui/Checkedbox";
 import EmptyBox from "@/components/ui/UncheckedBox";
 import FormButton from "@/components/ui/FormButton";
+import Link from "next/link";
 
 export default function StepOne() {
   const [showPassword, setShowPassword] = useState(false);
@@ -104,8 +106,15 @@ export default function StepOne() {
             </span>
           </p>
         </div>
-        <FormButton ButtonText="Create Account" className="py-3" />
+        <Link href="/signup/step-two">
+          <FormButton ButtonText="Create Account" className="py-3" />
+        </Link>
       </form>
+        <p className="text-slate-400 text-center mt-8">
+            Already have an account?<span className="font-semibold text-color-one duration-300 hover:text-green-700">
+                <Link href="/login">Sign in</Link>
+            </span>
+        </p>
     </div>
   );
 }
