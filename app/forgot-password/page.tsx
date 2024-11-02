@@ -1,6 +1,8 @@
 //app/forgot-password/page.tsx
 import LogInNavigator from "@/components/registration/LogInNavigator";
 import FormButton from "@/components/ui/FormButton";
+import Link from "next/link";
+
 export default function ForgotPassword() {
   return (
     <div className="flex flex-col max-w-[33.5rem]">
@@ -21,7 +23,9 @@ export default function ForgotPassword() {
                 />
             </div>
         </form>
-        <FormButton ButtonText="Proceed" className="py-3 mt-24 lg:mt-16"/>
+        <Link href="/forgot-password/step-one">
+            <FormButton ButtonText="Proceed" className="py-3 mt-24 lg:mt-16"/>
+        </Link>
     </div>
   );
 }
