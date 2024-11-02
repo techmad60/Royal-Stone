@@ -1,9 +1,10 @@
+//app/signup/page.tsx
 import Link from "next/link";
 import CardComponentFour from "@/components/registration/CardComponentFour";
 
 export default function SignUp() {
     return (
-        <section className="flex flex-col space-y-6 mt-4 lg:px-8">
+        <section className="flex flex-col space-y-6 mt-4 lg:pr-8">
             <section className="flex flex-col space-y-4">
                 <div className="grid grid-cols-2 gap-2">
                     {/* Signup with Email */}

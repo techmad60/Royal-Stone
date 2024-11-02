@@ -1,5 +1,5 @@
 //app/signup/step-two/page.tsx
-import StepNavigator from "@/components/registration/StepNavigator";
+import StepNavigator from "@/components/registration/SignUpNavigator";
 import Link from "next/link";
 import FormButton from "@/components/ui/FormButton";
 

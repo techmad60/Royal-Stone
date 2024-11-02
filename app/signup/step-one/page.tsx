@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import StepNavigator from "@/components/registration/StepNavigator";
+import StepNavigator from "@/components/registration/SignUpNavigator";
 import CheckBox from "@/components/ui/Checkedbox";
 import EmptyBox from "@/components/ui/UncheckedBox";
 import FormButton from "@/components/ui/FormButton";
