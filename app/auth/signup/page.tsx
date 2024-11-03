@@ -8,7 +8,7 @@ export default function SignUp() {
             <section className="flex flex-col space-y-4">
                 <div className="grid grid-cols-2 gap-2">
                     {/* Signup with Email */}
-                    <CardComponentFour icon="/images/mail-icon.svg" textStart="Continue" textEnd="Email" href="/signup/step-one" className="lg:h-[83px]" />
+                    <CardComponentFour icon="/images/mail-icon.svg" textStart="Continue" textEnd="Email" href="/auth/signup/step-one" className="lg:h-[83px]" />
 
                     {/* Signup with Google */}
                     <CardComponentFour icon="/images/google-icon.svg" textStart="Continue" textEnd="Google" className="lg:h-[83px]" />
@@ -20,7 +20,7 @@ export default function SignUp() {
             <p className="text-slate-400 lg:border-t lg:pt-4">
                 Already have an account?{" "}
                 <span className="font-semibold text-color-one duration-300 hover:text-green-700">
-                    <Link href="/login">Sign in</Link>
+                    <Link href="/auth/login">Sign in</Link>
                 </span>
             </p>
         </section>

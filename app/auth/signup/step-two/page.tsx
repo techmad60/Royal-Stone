@@ -8,7 +8,7 @@ export default function StepTwo() {
     <div className="flex flex-col">
       <SignUpNavigator currentStep={2} />
       {/* Step Two Content Here */}
-      <VerifyEmail href="/signup/step-three" />
+      <VerifyEmail href="/auth/signup/step-three" />
     </div>
   );
 }

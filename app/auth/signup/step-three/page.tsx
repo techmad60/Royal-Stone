@@ -1,4 +1,4 @@
-//app/signup/step-three/page.tsx
+//signup/step-three/page.tsx
 "use client";
 import { useState } from "react";
 import StepNavigator from "@/components/registration/SignUpNavigator";
@@ -107,7 +107,10 @@ export default function StepThree() {
           />
         </div>
       </form>
-      <FormButton ButtonText="Proceed" className="py-3 mt-20" />
+      <Link href="/auth/dashboard">
+          <FormButton ButtonText="Proceed" className="py-3 mt-20" />
+      </Link>
+      
     </div>
   );
 }

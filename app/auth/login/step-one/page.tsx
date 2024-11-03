@@ -51,15 +51,15 @@ export default function StepOne() {
             </button>
           </div>
         </div>
-        <Link href="/forgot-password" className="text-end text-sm text-color-one hover:text-green-700">Forgot Password?</Link>
+        <Link href="/auth/forgot-password" className="text-end text-sm text-color-one hover:text-green-700">Forgot Password?</Link>
         {/* Sign in Button */}
-        <Link href="/dashboard">
+        <Link href="/auth/dashboard">
           <FormButton ButtonText="Sign in" className="py-3 mt-4" />
         </Link>
       </form>
         <p className="text-slate-400 text-sm text-center mt-8">
             Don&apos;t have an account? <span className="font-semibold text-color-one duration-300 hover:text-green-700">
-                <Link href="/signup">Sign up</Link>
+                <Link href="/auth/signup">Sign up</Link>
             </span>
         </p>
     </div>

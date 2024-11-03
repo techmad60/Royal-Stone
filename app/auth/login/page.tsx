@@ -12,7 +12,7 @@ export default function Login() {
             icon="/images/mail-icon.svg"
             textStart="Sign in with"
             textEnd="Email"
-            href="/login/step-one"
+            href="/auth/login/step-one"
             className="lg:h-[83px]"
           />
 
@@ -35,7 +35,7 @@ export default function Login() {
       </section>
       <p className="text-slate-400 lg:border-t lg:pt-4">
         Don&apos;t have an account? <span className="font-semibold text-color-one duration-300 hover:text-green-700">
-          <Link href="/signup">Sign up</Link>
+          <Link href="/auth/signup">Sign up</Link>
         </span>
       </p>
     </section>

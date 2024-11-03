@@ -1,4 +1,4 @@
-//app/signup/step-one/page.tsx
+//signup/step-one/page.tsx
 "use client";
 import { useState } from "react";
 import { FaEye } from "react-icons/fa";
@@ -105,13 +105,13 @@ export default function StepOne() {
             </span>
           </p>
         </div>
-        <Link href="/signup/step-two">
+        <Link href="/auth/signup/step-two">
           <FormButton ButtonText="Create Account" className="py-3" />
         </Link>
       </form>
         <p className="text-slate-400 text-center mt-8">
-            Already have an account?<span className="font-semibold text-color-one duration-300 hover:text-green-700">
-                <Link href="/login">Sign in</Link>
+            Already have an account? <span className="font-semibold text-color-one duration-300 hover:text-green-700">
+                <Link href="/auth/login">Sign in</Link>
             </span>
         </p>
     </div>

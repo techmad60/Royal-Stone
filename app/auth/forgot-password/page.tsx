@@ -23,7 +23,7 @@ export default function ForgotPassword() {
                 />
             </div>
         </form>
-        <Link href="/forgot-password/step-one">
+        <Link href="/auth/forgot-password/step-one">
             <FormButton ButtonText="Proceed" className="py-3 mt-24 lg:mt-16"/>
         </Link>
     </div>
