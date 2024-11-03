@@ -1,7 +1,6 @@
 //app/signup/step-one/page.tsx
 "use client";
 import { useState } from "react";
-
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import SignUpNavigator from "@/components/registration/SignUpNavigator";

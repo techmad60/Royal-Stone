@@ -67,16 +67,16 @@ export default function Navbar () {
                     <Link href="/" className={`${isActiveLink('/') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
                         Home
                     </Link>
-                    <Link href="/about-us" className={`${isActiveLink('/about-us') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
+                    <Link href="landing-page/about-us" className={`${isActiveLink('landing-page/about-us') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 transition duration-150 hover:ease-in`}>
                         About Us
                     </Link>
-                    <Link href="/contact-us" className={`${isActiveLink('/contact-us') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
+                    <Link href="landing-page/contact-us" className={`${isActiveLink('landing-page/contact-us') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Contact Us
                     </Link>
-                    <Link href="/privacy-policy" className={`${isActiveLink('/privacy-policy') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
+                    <Link href="landing-page/privacy-policy" className={`${isActiveLink('landing-page/privacy-policy') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Privacy Policy
                     </Link>
-                    <Link href="/terms-of-service" className={`${isActiveLink('/terms-of-service') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
+                    <Link href="landing-page/terms-of-service" className={`${isActiveLink('landing-page/terms-of-service') ? 'border-b border-blue-800 text-blue-800 font-bold' : ''} hover:text-blue-800 hover:border-blue-800 duration-150 hover:ease-in`}>
                         Terms Of Service
                     </Link>
                 </div>

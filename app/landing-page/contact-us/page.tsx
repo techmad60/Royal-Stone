@@ -19,13 +19,13 @@ export default function ContactUs() {
                 <section className="flex flex-col justify-center items-center py-8 bg-white w-full my-12 md:px-16">
                     <div className="flex flex-col justify-center items-center gap-6 lg:flex-row mx-4 w-full">
                         {/* Chat on Whatsapp */}
-                        <CardComponentThree icon="images/whatsapp-icon.svg" text="Whatsapp" contact="09010201223" href="tel:+2349010201223"/>
+                        <CardComponentThree icon="/images/whatsapp-icon.svg" text="Whatsapp" contact="09010201223" href="tel:+2349010201223"/>
                         
                         {/* Call on Phone */}
-                        <CardComponentThree icon="images/phone-icon.svg" text="Phone" contact="09010201223" href="tel:+2349010201223"/>
+                        <CardComponentThree icon="/images/phone-icon.svg" text="Phone" contact="09010201223" href="tel:+2349010201223"/>
                         
                         {/* Send a Mail */}
-                        <CardComponentThree icon="images/mail-icon.svg" text="Mail" contact="Support@royalstone.com" href="mailto:Support@royalstone.com"/>
+                        <CardComponentThree icon="/images/mail-icon.svg" text="Mail" contact="Support@royalstone.com" href="mailto:Support@royalstone.com"/>
                     </div>
 
                     {/* Contact Us Form*/}
@@ -80,7 +80,7 @@ export default function ContactUs() {
                                 </div>
                             </div>
                         </form>
-                        <FormButton ButtonText="Send Message"/>
+                        <FormButton ButtonText="Send Message" className="py-4"/>
                     </section>
                 </section>
             </main>

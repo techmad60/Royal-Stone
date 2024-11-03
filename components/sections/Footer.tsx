@@ -24,9 +24,9 @@ export default function Footer ({margin = ""}){
                         <p className={`text-center text-sm font-semibold`}>COMPANY</p>
                         <ul className="flex flex-col gap-2">
                             <Link href="/" className="hover:text-green-500 duration-300 text-colour-five text-sm">Home</Link>
-                            <Link href="/about" className="hover:text-green-500 duration-300 text-colour-five text-sm">About</Link>
-                            <Link href="/contact-us" className="hover:text-green-500 duration-300 text-colour-five text-sm">Contact us</Link>
-                            <Link href="/faqs" className="hover:text-green-500 duration-300 text-colour-five text-sm">FAQs</Link>
+                            <Link href="/landing-page/about" className="hover:text-green-500 duration-300 text-colour-five text-sm">About</Link>
+                            <Link href="/landing-page/contact-us" className="hover:text-green-500 duration-300 text-colour-five text-sm">Contact us</Link>
+                            <Link href="/landing-page/faqs" className="hover:text-green-500 duration-300 text-colour-five text-sm">FAQs</Link>
                         </ul>
                     </section>
                     <div className='flex flex-col lg:flex-row-reverse lg:gap-20 xl:gap-40'> 
@@ -34,8 +34,8 @@ export default function Footer ({margin = ""}){
                         <section className="flex flex-col space-y-4 justify-start items-start">
                             <p className={`text-center text-sm font-semibold`}>POLICIES</p>
                             <ul className="flex flex-col gap-2 ">
-                                <Link href="/terms-of-service" className='hover:text-green-500 duration-300 text-colour-five text-sm'>Terms of Services</Link>
-                                <Link href="/privacy-policy" className='hover:text-green-500 duration-300 text-colour-five text-sm'>Privacy Policy</Link>
+                                <Link href="/landing-page/terms-of-service" className='hover:text-green-500 duration-300 text-colour-five text-sm'>Terms of Services</Link>
+                                <Link href="/landing-page/privacy-policy" className='hover:text-green-500 duration-300 text-colour-five text-sm'>Privacy Policy</Link>
                             </ul>
                         </section>
 
