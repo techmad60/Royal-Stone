@@ -6,7 +6,7 @@ import { FaBars } from "react-icons/fa";
 
 interface AuthHeaderProps {
   title?: string;
-  toggleNav: () => void; 
+  toggleNav?: () => void; 
   grid?: string;
 }
 
