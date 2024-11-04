@@ -53,7 +53,7 @@ export default function StepOne() {
         </div>
         <Link href="/auth/forgot-password" className="text-end text-sm text-color-one hover:text-green-700">Forgot Password?</Link>
         {/* Sign in Button */}
-        <Link href="/auth/dashboard">
+        <Link href="/auth/auth-dashboard">
           <FormButton ButtonText="Sign in" className="py-3 mt-4" />
         </Link>
       </form>

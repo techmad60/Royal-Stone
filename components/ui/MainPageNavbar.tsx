@@ -1,24 +1,115 @@
-//mport Image from "next/image";
+"use client";
+import { useEffect} from "react";
 import Link from "next/link";
-import {FaTimes} from "react-icons/fa";
+import Image from "next/image";
+import { LiaTimesSolid } from "react-icons/lia";
 import { GoHomeFill } from "react-icons/go";
+import { TbPackages, TbTargetArrow } from "react-icons/tb";
+import { RiMouseFill, RiStockLine } from "react-icons/ri";
+import { BsFileBarGraphFill, BsPeopleFill } from "react-icons/bs";
+import { FaClock } from "react-icons/fa6";
+import { IoMdSettings } from "react-icons/io";
+import NavLink from "@/components/ui/MainPageNavLink";
 
-export default function MainPageNavbar() {
+interface MainPageNavbarProps {
+    isNavOpen: boolean;
+    toggleNav: () => void;
+  }
+export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarProps) {
+  
+
+  // Prevent scrolling when navbar is open
+  useEffect(() => {
+    if (isNavOpen) {
+        document.body.classList.add('overflow-hidden');
+    } else {
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    // Cleanup function to remove class on unmount
+    return () => document.body.classList.remove('overflow-hidden');
+}, [isNavOpen]);
+
+ 
+
   return (
-    <div className="flex flex-col">
-        <FaTimes className="lg:hidden"/>
-        <nav>
-            <ul>
-                <li>
-                    <Link href="/" className="flex items-center gap-2">
-                        <div className="w-6 h-6 shadow-sm flex items-center justify-center">
-                            <GoHomeFill className=""/>
-                        </div>
-                        <p>Dashboard</p>
-                    </Link>
+    
+    <>
+        {isNavOpen && (
+            <div
+            className="fixed top-0 right-0 w-[25vw] min-h-screen bg-black opacity-50 z-50 lg:hidden"
+            onClick={toggleNav} 
+            />
+        )}
+        <div className={`flex flex-col bg-[rgba(252,252,252,1)] absolute h-screen top-0 left-0 p-4 space-y-8 w-3/4 lg:w-[268px] lg:static lg:px-8 xl:w-[368px] border-r border-slate-200 ${isNavOpen ? 'fixed' : 'hidden lg:flex'}`}>
+            <button className="flex justify-center lg:hidden" onClick={toggleNav}>
+                <LiaTimesSolid className='text-color-zero'/>
+            </button>
+            {/* Logo Img */}
+            <Link href="/" className="flex border-b border-slate-200 pb-4">
+                <Image
+                className="logo"
+                src={"/images/logo.svg"}
+                alt="Royal-Stone Logo" 
+                width={106.75}
+                height={20}
+                />
+            </Link>
+            <nav>
+                <ul>
+                        <li className="flex flex-col gap-6">
+                            <NavLink
+                    href="/auth/auth-dashboard"
+                    icon={<GoHomeFill />}
+                    label="Dashboard"
+                    />
+                    <NavLink
+                    href="/product"
+                    icon={<TbPackages />}
+                    label="Product"
+                    />
+                    <NavLink
+                    href="/portfolio"
+                    icon={<RiMouseFill />}
+                    label="Portfolio"
+                    />
+                    <NavLink
+                    href="/stocks"
+                    icon={<RiStockLine />}
+                    label="Stocks"
+                    />
+                    <NavLink
+                    href="/savings"
+                    icon={<TbTargetArrow />}
+                    label="Fixed Savings"
+                    />
+                    <NavLink
+                    href="/invest"
+                    icon={<BsFileBarGraphFill />}
+                    label="Investments"
+                    />
+                    <NavLink
+                    href="/referrals"
+                    icon={<BsPeopleFill />}
+                    label="Referrals"
+                    />
+                    <NavLink
+                    href="/transaction-history"
+                    icon={<FaClock />}
+                    label="Transaction History"
+                    />
+
+                    <NavLink
+                    href="/settings"
+                    icon={<IoMdSettings />}
+                    label="Settings"
+                    />
                 </li>
             </ul>
-        </nav>
-    </div>
+          </nav>
+        </div>
+     
+      
+    </>
   );
 }

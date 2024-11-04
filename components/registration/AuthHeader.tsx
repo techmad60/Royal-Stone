@@ -4,12 +4,18 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FaBars } from "react-icons/fa";
 
-export default function AuthHeader({ title = "" }) {
+interface AuthHeaderProps {
+  title?: string;
+  toggleNav: () => void; 
+  grid?: string;
+}
+
+export default function AuthHeader({ title = "", toggleNav, grid = "" }: AuthHeaderProps) {
   const pathname = usePathname();
-  const isDashboard = pathname === "/dashboard"; // Adjust path if different
+  const isDashboard = pathname === "/auth/auth-dashboard"; // Adjust path if different
 
   return (
-    <div className="flex flex-col space-y-4 lg:pr-8">
+    <div className={`flex flex-col space-y-4 lg:pr-8 ${grid}`}>
       {/* Logo Img */}
       <Link href="/" className="flex">
         <Image
@@ -23,7 +29,7 @@ export default function AuthHeader({ title = "" }) {
       <div className="flex justify-between items-center border-y py-4 lg:border-y-0 lg:border-b">
         <div className="flex gap-4 items-center">
             {isDashboard && (
-                <FaBars className="lg:hidden"/>
+                <FaBars className="lg:hidden" onClick={toggleNav} />
             )}
           <h1 className="font-semibold text-base text-color-zero lg:text-[22px]">
             {title}

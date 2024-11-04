@@ -65,7 +65,7 @@ export default function StepTwo() {
           </div>
         </div>
       </form>
-      <Link href="/auth/dashboard">
+      <Link href="/auth/auth-dashboard">
         <FormButton ButtonText="Proceed" className="py-3 mt-24 lg:mt-16"/>
       </Link>
     </div>

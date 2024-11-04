@@ -107,7 +107,7 @@ export default function StepThree() {
           />
         </div>
       </form>
-      <Link href="/auth/dashboard">
+      <Link href="/auth/auth-dashboard">
           <FormButton ButtonText="Proceed" className="py-3 mt-20" />
       </Link>
       
