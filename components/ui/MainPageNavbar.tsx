@@ -46,13 +46,13 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
                 <LiaTimesSolid className='text-color-zero'/>
             </button>
             {/* Logo Img */}
-            <Link href="/" className="flex border-b border-slate-200 pb-4">
+            <Link href="/" className="flex border-b border-slate-200 pb-3">
                 <Image
                 className="logo"
                 src={"/images/logo.svg"}
                 alt="Royal-Stone Logo" 
-                width={106.75}
-                height={20}
+                width={117.43}
+                height={22}
                 />
             </Link>
             <nav>

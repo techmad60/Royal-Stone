@@ -1,6 +1,6 @@
 //app/login/page.tsx
 import Link from "next/link";
-import CardComponentFour from "@/components/registration/CardComponentFour";
+import CardComponentFour from "@/components/ui/CardComponentFour";
 
 export default function Login() {
   return (
