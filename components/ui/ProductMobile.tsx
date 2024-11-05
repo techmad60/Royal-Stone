@@ -31,7 +31,7 @@ export default function ProductList() {
             <p className="text-[10px] text-color-one">{product.unitsAvailable}</p>
             <p className="text-sm">{product.description}</p>
             <div className="flex items-center justify-between">
-              <Link href="/main/product" className="text-xs text-color-one font-semibold bg-light-grey shadow-sm w-[57px] h-[22px] rounded-common">
+              <Link href="/main/product/product-details" className=" flex items-center justify-center text-xs text-color-one font-semibold bg-light-grey shadow-sm w-[57px] h-[22px] rounded-common">
                 Invest
               </Link>
               <MdArrowForwardIos className="text-sm text-color-form font-semibold" />
