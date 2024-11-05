@@ -10,7 +10,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 import ToggleSwitch from "./ToogleSwitch";
 export default function CardVerification({icon, label, status, showArrow, showSwitch}: CardFiveProps) {
     return (
-        <section className="flex justify-between items-center bg-[rgba(252,252,252,1)] hover:bg-slate-100 duration-300 cursor-pointer rounded-common p-4 lg:w-[765px]">
+        <section className="flex justify-between items-center bg-light-grey hover:bg-slate-100 duration-300 cursor-pointer rounded-common p-4 lg:w-[765px]">
             <div className="flex gap-4">
                 <div className="flex justify-center items-center">
                     <Image src={icon} alt="icon" width={33} height={33}/>

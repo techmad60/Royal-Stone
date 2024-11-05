@@ -18,6 +18,7 @@ const config: Config = {
         "colour-five": "rgba(15, 28, 57, 0.8)",
         "color-unit": "rgba(63, 73, 97, 1)",
         "color-form" : "rgba(107, 115, 133, 1)",
+        "light-grey" : "rgba(252, 252, 252, 1)",
         
         // //Used in Signup Page
         // "color-eight": "#B1BDCA", //Inactive-class

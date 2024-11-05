@@ -4,7 +4,7 @@ import { useState } from "react";
 import AuthHeader from "@/components/registration/AuthHeader";
 import MainPageNavbar from "@/components/ui/MainPageNavbar";
 
-export default function DashboardLayout({
+export default function AuthDashboardLayout({
   children,
 }: {
   children: React.ReactNode;

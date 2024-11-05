@@ -41,7 +41,7 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
             onClick={toggleNav} 
             />
         )}
-        <div className={`flex flex-col bg-[rgba(252,252,252,1)] absolute h-screen top-0 left-0 p-4 space-y-8 w-3/4 lg:w-[268px] lg:static lg:px-8 xl:w-[368px] border-r border-slate-200 ${isNavOpen ? 'fixed' : 'hidden lg:flex'}`}>
+        <div className={`flex z-50 flex-col bg-light-grey absolute h-screen top-0 left-0 p-4 space-y-8 w-3/4 lg:w-[268px] lg:static lg:px-8 xl:w-[368px] border-r border-slate-200 ${isNavOpen ? 'fixed' : 'hidden lg:flex'}`}>
             <button className="flex justify-center lg:hidden" onClick={toggleNav}>
                 <LiaTimesSolid className='text-color-zero'/>
             </button>
@@ -57,15 +57,16 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
             </Link>
             <nav>
                 <ul>
-                        <li className="flex flex-col gap-6">
-                            <NavLink
-                    href="/auth/auth-dashboard"
-                    icon={<GoHomeFill />}
-                    label="Dashboard"
-                    />
-                    <NavLink
-                    href="/product"
-                    icon={<TbPackages />}
+                    <li className="flex flex-col gap-6">
+                        <NavLink
+                        href="/main/dashboard"
+                        icon={<GoHomeFill/>}
+                        label="Dashboard"
+                        
+                        />
+                        <NavLink
+                        href="/main/product"
+                        icon={<TbPackages />}
                     label="Product"
                     />
                     <NavLink

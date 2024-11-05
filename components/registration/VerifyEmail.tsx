@@ -10,7 +10,7 @@ export default function VerifyEmail({href = ""}) {
           verify your account and complete your password change
         </p>
         {/* Input Fields For OTP */}
-        <form className="flex items-center gap-2 bg-[rgba(252,252,252,1)] w-full rounded-[10px] h-[70px] space-x-4 justify-between px-6 mt-8 border border-slate-100">
+        <form className="flex items-center gap-2 bg-light-grey w-full rounded-[10px] h-[70px] space-x-4 justify-between px-6 mt-8 border border-slate-100">
             <div className="w-[28.3px] h-[28.3px] transform rotate-45 overflow-hidden flex items-center justify-center border-2 border-slate-200 rounded-[9px]">
                 <input
                 type="text"
