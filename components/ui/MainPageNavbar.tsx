@@ -75,7 +75,7 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
                     label="Portfolio"
                     />
                     <NavLink
-                    href="/stocks"
+                    href="/main/stocks"
                     icon={<RiStockLine />}
                     label="Stocks"
                     />

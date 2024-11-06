@@ -12,7 +12,7 @@ interface AuthHeaderProps {
 
 export default function AuthHeader({ title = "", toggleNav, grid = "" }: AuthHeaderProps) {
   const pathname = usePathname();
-  const showNav = pathname.includes("/main/dashboard") || pathname.includes("/main/product") || pathname.includes("/auth/auth-dashboard"); // Adjust path if different
+  const showMenu = pathname.includes("/auth/auth-dashboard") || pathname.includes("/main/dashboard") || pathname.includes("/main/product") || pathname.includes("/main/stocks"); // Adjust path if different
 
   return (
     <div className={`flex flex-col space-y-4 lg:pr-8 ${grid}`}>
@@ -28,7 +28,7 @@ export default function AuthHeader({ title = "", toggleNav, grid = "" }: AuthHea
       </Link>
       <div className="flex justify-between items-center border-y py-4 lg:border-y-0 lg:border-b">
         <div className="flex gap-4 items-center">
-            {showNav && (
+            {showMenu && (
                 <FaBars className="lg:hidden" onClick={toggleNav} />
             )}
           <h1 className="font-semibold text-base text-color-zero lg:text-[22px]">
@@ -36,7 +36,7 @@ export default function AuthHeader({ title = "", toggleNav, grid = "" }: AuthHea
           </h1> 
         </div>
         {/* User and Notification Img - Show only on the dashboard page */}
-        {showNav && (
+        {showMenu && (
           <div className="flex gap-1">
               <Image
               src={"/images/user.svg"}

@@ -35,15 +35,15 @@ export default function ProductDetails() {
             </section>
 
             {/* Large Screen */}
-            <section className="hidden overflow-scroll my-4 lg:grid grid-cols-4 grid-rows-2 gap-2">
-                <div className="col-span-2 row-span-2">
-                    <Image src={"/images/large-img.svg"} alt="product-details" width={549} height={337} className=""/>
+            <section className="hidden overflow-scroll my-4 lg:grid grid-cols-4 gap-x-2">
+                <div className="col-span-2">
+                    <Image src={"/images/potato-0.png"} alt="product-details" width={549} height={337} className=""/>
                 </div>
-                <div className="grid grid-cols-2 col-span-2 row-span-3 gap-2">
-                    <Image src={"/images/smaller-img.svg"} alt="product-details" width={315} height={166} className=""/>
-                    <Image src={"/images/smaller-img.svg"} alt="product-details" width={315} height={166} className=""/>
-                    <Image src={"/images/smaller-img.svg"} alt="product-details" width={315} height={166} className=""/>
-                    <Image src={"/images/smaller-img.svg"} alt="product-details" width={315} height={166} className=""/>
+                <div className="grid grid-cols-2 col-span-2 gap-x-2">
+                    <Image src={"/images/potato-small.png"} alt="product-details" width={315} height={166} className=""/>
+                    <Image src={"/images/potato-small.png"} alt="product-details" width={315} height={166} className=""/>
+                    <Image src={"/images/potato-small.png"} alt="product-details" width={315} height={166} className=""/>
+                    <Image src={"/images/potato-small.png"} alt="product-details" width={315} height={166} className=""/>
                 </div>
             </section>
             
