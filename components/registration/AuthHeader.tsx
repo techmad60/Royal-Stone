@@ -12,7 +12,7 @@ interface AuthHeaderProps {
 
 export default function AuthHeader({ title = "", toggleNav, grid = "" }: AuthHeaderProps) {
   const pathname = usePathname();
-  const showNav = pathname.includes("/main/dashboard") || pathname.includes("/main/product"); // Adjust path if different
+  const showNav = pathname.includes("/main/dashboard") || pathname.includes("/main/product") || pathname.includes("/auth/auth-dashboard"); // Adjust path if different
 
   return (
     <div className={`flex flex-col space-y-4 lg:pr-8 ${grid}`}>

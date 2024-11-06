@@ -19,11 +19,10 @@ export default function AuthDashboardLayout({
         <MainPageNavbar isNavOpen={isNavOpen} toggleNav={toggleNav} />
         {/* Item 2 */}
         <div className="flex flex-col lg:col-span-2 xl:col-span-3">
-          <AuthHeader title="Dashboard" toggleNav={toggleNav} grid=""/>
+          <AuthHeader title="Dashboard" toggleNav={toggleNav}/>
           {children} {/* Ensure children are rendered here */}
         </div>
       </div>
     </div>
   );
 }
-
