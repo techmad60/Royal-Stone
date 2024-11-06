@@ -2,6 +2,7 @@ import { TbTargetArrow } from "react-icons/tb";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import CardComponentFive from "@/components/ui/CardComponentFive";
 import CardVerification from "@/components/ui/CardVerification";
+import Button from "@/components/ui/Button";
 
 
 export default function Dashboard() {
@@ -19,7 +20,7 @@ export default function Dashboard() {
         <CardVerification icon="/images/kin.svg" label="Next of Kin" status="Not Set" showArrow="flex" showSwitch="hidden"/>
         <CardVerification icon="/images/biometrics.svg" label="Enable Biometrics" status="Not Set" showArrow="hidden" showSwitch="flex"/>
       </div>
-     
+      <Button/>
     </div>
 
   );
