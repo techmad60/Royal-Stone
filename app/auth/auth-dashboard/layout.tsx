@@ -15,10 +15,10 @@ export default function AuthDashboardLayout({
   return (
     <div className="flex flex-col bg-white">
      
-      <div className={`p-4 lg:grid lg:p-0 lg:grid-cols-4 gap-32`}>
+      <div className={`p-4 lg:grid lg:p-0 lg:grid-cols-3 xl:grid-cols-4`}>
         <MainPageNavbar isNavOpen={isNavOpen} toggleNav={toggleNav} />
         {/* Item 2 */}
-        <div className="flex flex-col lg:col-span-2">
+        <div className="flex flex-col lg:col-span-2 xl:col-span-3">
           <AuthHeader title="Dashboard" toggleNav={toggleNav} grid=""/>
           {children} {/* Ensure children are rendered here */}
         </div>

@@ -7,22 +7,35 @@ export default function ProductDetails() {
     return (
         <div>
             <ProductNavigator currentStep={1} />
-            <section className="flex overflow-scroll gap-2 my-4">
-                <div className="w-[110px] h-[111px] flex-shrink-0">
+            <section className="flex overflow-scroll gap-2 my-4 lg:hidden ">
+                <div className="w-[110px] h-[111px] flex-shrink-0 col-span-2 row-span-2 lg:w-[549px] lg:h-[337px]">
+                    <Image src={"/images/potato-2.svg"} alt="product-details" width={110} height={111} className=""/>
+                </div>
+                <div className="w-[110px] h-[111px] flex-shrink-0 lg:w-[315px] lg:h-[166px]">
                     <Image src={"/images/potato-2.svg"} alt="product-details" width={110} height={111}/>
                 </div>
-                <div className="w-[110px] h-[111px] flex-shrink-0">
+                <div className="w-[110px] h-[111px] flex-shrink-0 lg:w-[315px] lg:h-[166px]">
                     <Image src={"/images/potato-2.svg"} alt="product-details" width={110} height={111}/>
                 </div>
-                <div className="w-[110px] h-[111px] flex-shrink-0">
+                <div className="w-[110px] h-[111px] flex-shrink-0 lg:w-[315px] lg:h-[166px]">
                     <Image src={"/images/potato-2.svg"} alt="product-details" width={110} height={111}/>
                 </div>
-                <div className="w-[110px] h-[111px] flex-shrink-0">
+                <div className="w-[110px] h-[111px] flex-shrink-0 lg:w-[315px] lg:h-[166px]">
                     <Image src={"/images/potato-2.svg"} alt="product-details" width={110} height={111}/>
                 </div>
-                <div className="w-[110px] h-[111px] flex-shrink-0">
-                    <Image src={"/images/potato-2.svg"} alt="product-details" width={110} height={111}/>
+            </section>
+            <section className="hidden overflow-scroll my-4 lg:grid grid-cols-4 grid-rows-2 gap-4">
+                <div className="col-span-2 row-span-2">
+                    <Image src={"/images/large-img.svg"} alt="product-details" width={549} height={337} className=""/>
                 </div>
+                <div className="grid grid-cols-2 col-span-2 row-span-2 gap-4">
+                    <Image src={"/images/smaller-img.svg"} alt="product-details" width={315} height={166} className=""/>
+                    <Image src={"/images/smaller-img.svg"} alt="product-details" width={315} height={166} className=""/>
+                    <Image src={"/images/smaller-img.svg"} alt="product-details" width={315} height={166} className=""/>
+                    <Image src={"/images/smaller-img.svg"} alt="product-details" width={315} height={166} className=""/>
+                </div>
+                
+               
             </section>
             
             <div className="flex flex-col lg:grid grid-cols-2 lg:gap-12 lg:pr-8 lg:mt-8">

@@ -15,7 +15,7 @@ export default function ProductLayout({
   return (
     <div className="flex flex-col bg-white">
      
-      <div className={`p-4 lg:grid lg:p-0 lg:grid-cols-4 gap-32`}>
+      <div className={`p-4 lg:grid lg:p-0 lg:grid-cols-4`}>
         <MainPageNavbar isNavOpen={isNavOpen} toggleNav={toggleNav} />
         {/* Item 2 */}
         <div className="flex flex-col lg:col-span-3">
