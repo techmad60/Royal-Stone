@@ -41,15 +41,15 @@ export default function AuthHeader({ title = "", toggleNav, grid = "" }: AuthHea
               <Image
               src={"/images/user.svg"}
               alt="User Image"
-              width={24}
-              height={24}
+              width={25.41}
+              height={25.41}
               className=""
               />
               <Image
               src={"/images/notification.svg"}
               alt="Notification Image"
-              width={24}
-              height={24}
+              width={25.41}
+              height={25.41}
               />
           </div>
         )}

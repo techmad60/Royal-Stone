@@ -8,11 +8,13 @@ import StockNavigator from "@/components/stocks/StockNavigator";
 import Button from "@/components/ui/Button";
 import { useMediaQuery } from "@/hooks/useMediaQuery"; // Import the custom hook
 import { useState } from "react";
-import TradeModal from "@/components/stocks/TradeModal"; // The trade modal component (shown below)
+import TradeModal from "@/components/stocks/TradeModal";
+import BuyModal from "@/components/stocks/BuyModal";
 
 export default function StockDetails() {
     const isDesktop = useMediaQuery('(min-width: 1024px)'); // Check if screen width is desktop size
     const [isTradeModalOpen, setIsTradeModalOpen] = useState(false);
+    const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
     
     const router = useRouter();
     const handleTradeButtonClick = () => {
@@ -23,7 +25,10 @@ export default function StockDetails() {
             router.push('/main/stocks/stock-details/trade-stock');
         }
     };
-
+    const handleOpenBuyModal = () => {
+        setIsTradeModalOpen(false);
+        setIsBuyModalOpen(true);
+    };
     return (
         <div>
             <StockNavigator currentStep={1} />
@@ -63,7 +68,10 @@ export default function StockDetails() {
 
             {/* Conditionally render the Trade Modal on desktop */}
             {isDesktop && isTradeModalOpen && (
-                <TradeModal onClose={() => setIsTradeModalOpen(false)} />
+                <TradeModal onClose={() => setIsTradeModalOpen(false)} openBuyModal={handleOpenBuyModal} />
+            )}
+            {isBuyModalOpen && (
+                <BuyModal onClose={() => setIsBuyModalOpen(false)} />
             )}
         </div>
     );

@@ -1,12 +1,13 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 interface MyComponentProps {
     onClose: () => void; // Explicitly defining onClose as a function with no parameters and no return type
+    openBuyModal: () => void;  
   }
-export default function TradeModal({ onClose}: MyComponentProps) {
+export default function TradeModal({ onClose, openBuyModal}: MyComponentProps) {
     // Disable background scroll when modal opens and re-enable it when it closes
   useEffect(() => {
     // Add class to disable scroll
@@ -18,8 +19,12 @@ export default function TradeModal({ onClose}: MyComponentProps) {
     };
   }, []);
 
+  const handleBuyModalOpen = () => {
+    openBuyModal();
+  };    
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-[#D9D9D9A6] flex items-center justify-center z-50">
         <div className="bg-white p-4 rounded-[20px] w-full max-w-[621px] h-[621px]">
             {/* Trade form contents */}
             <div className="flex items-center border-b w-full pb-2">
@@ -54,8 +59,12 @@ export default function TradeModal({ onClose}: MyComponentProps) {
             <div className="mt-8">
                 <p className="text-color-form text-sm">Do you want to buy or sell?</p>
                 <div className="flex items-center gap-4 mt-4">
-                    <Button ButtonText="Buy" className="bg-color-one w-[168px]"/>
-                    <Button ButtonText="Sell" className="bg-color-six w-[168px]"/>
+                    <div onClick={handleBuyModalOpen}>
+                        <Button ButtonText="Buy" className="bg-color-one w-[168px]"/>
+                    </div>
+                    <div onClick={handleBuyModalOpen}>
+                        <Button ButtonText="Sell" className="bg-color-six w-[168px]"/>
+                    </div>
                 </div>
             </div>
         </div>
