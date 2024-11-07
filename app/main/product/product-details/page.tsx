@@ -3,14 +3,15 @@ import Image from "next/image"
 import { MdLocationOn } from "react-icons/md";
 import TextToggle from "@/components/ui/TextToggle";
 import Button from "@/components/ui/Button";
+import StatRow from "@/components/ui/StatRow";
 
 // Reusable StatRow Component
-const StatRow = ({ label = "", value = "", valueClass = "" }) => (
-    <div className="flex items-center justify-between border-b py-4 lg:border-dashed">
-      <p className="text-color-form text-sm">{label}</p>
-      <p className={valueClass}>{value}</p>
-    </div>
-  );
+// const StatRow = ({ label = "", value = "", valueClass = "" }) => (
+//     <div className="flex items-center justify-between border-b py-4 lg:border-dashed">
+//       <p className="text-color-form text-sm">{label}</p>
+//       <p className={valueClass}>{value}</p>
+//     </div>
+//   );
 export default function ProductDetails() {
     return (
         <div>
