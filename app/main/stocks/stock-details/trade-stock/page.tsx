@@ -46,13 +46,24 @@ export default function TradeStock() {
 
             {/* Email Address */}
             <div className="flex flex-col gap-2">
-            <label className="text-color-form text-sm">What&apos;s your email address?</label>
+                <label className="text-color-form text-sm">What&apos;s your email address?</label>
+                <input
+                    type="email"
+                    required
+                    className="rounded-sm border-b border-slate-200 placeholder:text-color-zero py-2"
+                    placeholder="SamJoneson@gmail.com"
+                />
+            </div>
+
+            {/* Phone Number */}
+            <div className="flex flex-col gap-2">
+            <label className="text-color-form text-sm">Phone Number</label>
             <input
-                type="email"
+                type="tel"
                 required
                 className="rounded-sm border-b border-slate-200 placeholder:text-color-zero py-2"
-                placeholder="SamJoneson@gmail.com"
-                />
+                placeholder="+234 8103763064"
+            />
             </div>
         </form>
         <div className="mt-8 w-full">
