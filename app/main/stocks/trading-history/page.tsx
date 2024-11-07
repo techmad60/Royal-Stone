@@ -4,8 +4,8 @@ import StockLinks from "@/components/stocks/StockLinks";
 
 export default function TradingHistory() {
   return  (
-    <div className="flex flex-col pr-8">
-      <div className="flex flex-col border-b py-4">
+    <div className="flex flex-col lg:pr-8">
+      <div className="flex flex-col lg:border-b py-4">
         <StockLinks />
       </div>
      

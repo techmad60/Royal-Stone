@@ -11,8 +11,8 @@ export default function NavigationLinks() {
         <div className="flex items-center gap-2">
             <Link
                 href="/main/stocks"
-                className={`text-base text-color-one rounded-[10px] p-4 h-[40px] flex items-center justify-center shadow-sm ${
-                    isActive('/main/stocks') ? 'bg-color-two text-color-one font-medium' : 'text-colour-five'
+                className={`text-base  rounded-[10px] p-4 h-[40px] flex items-center justify-center shadow-sm ${
+                    isActive('/main/stocks') ? 'bg-color-two text-color-one font-medium' : 'text-color-one'
                 }`}
             >
                 Stocks List

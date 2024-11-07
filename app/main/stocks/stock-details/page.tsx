@@ -1,5 +1,6 @@
 
 import Image from "next/image";
+import Link from "next/link";
 import TextToggle from "@/components/ui/TextToggle";
 import StatRow from "@/components/ui/StatRow";
 import StockNavigator from "@/components/stocks/StockNavigator";
@@ -31,7 +32,10 @@ export default function StockDetails () {
                         <StatRow label="Naira Conversion" value="N481,072" valueClass="text-color-six text-sm" />
                         <StatRow label="Minimum Units" value="0.001" valueClass="text-color-six text-sm" isLast={true}/>
                     </section>
-                    <Button ButtonText="Trade Stock" className="w-full self-end justify-self-end mt-auto lg:mt-4" />
+                    <Link href="/main/stocks/stock-details/trade-stock" className="w-full self-end justify-self-end mt-auto lg:mt-4">
+                        <Button ButtonText="Trade Stock" className="w-full" />
+                    </Link>
+                   
                 </div>
             </div>
         </div>

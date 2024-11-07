@@ -38,7 +38,7 @@ export default function StockListMobile() {
         <div>
             <div className="flex items-center gap-4 mt-4 lg:hidden">
                 <SearchUI />
-                <p className="text-xs whitespace-nowrap text-color-one hover:text-green-700 border-b border-color-one hover:border-green-700">View Stocks History</p>
+                <Link href="/main/stocks/trading-history" className="text-xs whitespace-nowrap text-color-one hover:text-green-700 border-b border-color-one hover:border-green-700">View Stocks History</Link>
            </div>
             <Link href="/main/stocks/stock-details">
                 {stocks.map((stock, index) => (
