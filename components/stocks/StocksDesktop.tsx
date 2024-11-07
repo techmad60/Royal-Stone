@@ -1,7 +1,9 @@
+"use client";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
 import SearchUI from "./SearchUI";
+import StockLinks from "./StockLinks";
 const stocks = [
     {
         logo: "/images/stocks/tesco.svg",
@@ -40,10 +42,7 @@ export default function StockDesktopList() {
         <>
            <div className="flex items-center justify-between py-4 border-b w-full">
                 <div className="flex items-center gap-2">
-                    <Link href="/main/stocks" className="text-base font-semibold rounded-[10px] p-4 h-[40px] flex items-center justify-center shadow-sm bg-color-two text-green-700">Stocks List
-                    </Link>
-                    <Link href="/main/stocks/trading-history" className="text-base text-colour-five rounded-[10px] p-4 h-[40px] flex items-center justify-center shadow-sm">Trading History
-                    </Link>
+                    <StockLinks />
                 </div>
                 <div>
                     <SearchUI />

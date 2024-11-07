@@ -4,7 +4,7 @@ import { BsFileBarGraphFill } from "react-icons/bs";
 import { FaClock } from "react-icons/fa6";
 import { MdArrowForwardIos } from "react-icons/md";
 import CardComponentFive from "@/components/ui/CardComponentFive";
-import FormButton from "@/components/ui/FormButton";
+import Button from "@/components/ui/Button";
 import ProductMobile from "@/components/ui/ProductMobile";
 import ProductDesktop from "@/components/ui/ProductDesktop";
 
@@ -25,7 +25,7 @@ export default function Dashboard() {
           <span className="text-color-one transform -rotate-45"><FaClock/> {/* Counter-rotate icon */}</span>
         </div>
         <p className="text-sm text-color-form">No transactions have been performed yet</p>
-        <FormButton ButtonText="Perform a transaction" className="py-3 self-center w-[200px] lg:w-[200px]"/>
+        <Button ButtonText="Perform a transaction" className="py-3 self-center w-[200px] lg:w-[200px]"/>
       </div>
 
       <div className="flex flex-col border-t py-6">
