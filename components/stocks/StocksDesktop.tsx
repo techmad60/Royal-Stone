@@ -56,7 +56,7 @@ export default function StockDesktopList() {
                 <p className="text-sm text-slate-400 col-span-2">Price Change Percentage</p>
                 <p className="text-sm text-slate-400 col-span-1">Actions</p>
             </div>
-
+           
             {stocks.map((stock, index) => (
                 <section key={index} className="grid lg:grid-cols-7 xl:grid-cols-8 items-center pl-4 border-b py-4">
                     <div className="flex items-center gap-2 col-span-2 xl:col-span-3">
@@ -66,10 +66,12 @@ export default function StockDesktopList() {
                     <p className="col-span-1">{stock.symbol}</p>
                     <p className="col-span-1 text-sm text-color-six">{stock.price}</p>
                     <p className="col-span-2 text-sm text-color-one">{stock.change}</p>
-                    <button className="col-span-1 text-xs text-colour-five rounded-[20px] h-[22px] w-[70px] flex items-center justify-center shadow-sm gap-2">
-                        View
+                    <Link href="/main/stocks/stock-details">    
+                        <button className="col-span-1 text-xs text-colour-five rounded-[20px] h-[22px] w-[70px] flex items-center justify-center shadow-sm gap-2">
+                            View
                         <MdOutlineArrowForwardIos className="text-colour-five" />
-                    </button>
+                        </button>
+                    </Link>
                 </section>
             ))}
         </>
