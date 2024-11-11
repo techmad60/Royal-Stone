@@ -5,12 +5,19 @@ import Image from "next/image";
 import StockNavigator from "@/components/stocks/StockNavigator";
 import Button from "@/components/ui/Button";
 import BuyModal from "@/components/stocks/BuyModal";
+import TransactionProcessed from "@/components/stocks/TransactionProcessed";
 
 export default function TradeStock() {
     const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
+    const [isTransactionProcessedOpen, setIsTransactionProcessedOpen] = useState(false);
 
     const handleOpenBuyModal = () => {
         setIsBuyModalOpen(true);
+    };
+    // Function to open TransactionProcessed and close BuyModal
+    const handleProceedClick = () => {
+        setIsBuyModalOpen(false);
+        setIsTransactionProcessedOpen(true);
     };
 
     return (
@@ -89,7 +96,14 @@ export default function TradeStock() {
 
             {/* Render BuyModal when isBuyModalOpen is true */}
             {isBuyModalOpen && (
-                <BuyModal onClose={() => setIsBuyModalOpen(false)} />
+                <BuyModal 
+                    onClose={() => setIsBuyModalOpen(false)}
+                    onProceed={handleProceedClick} // Added required onProceed prop
+                />
+            )}
+             {/* Conditionally render the TransactionProcessed modal */}
+             {isTransactionProcessedOpen && (
+                <TransactionProcessed onClose={() => setIsTransactionProcessedOpen(false)} />
             )}
         </div>
     );
