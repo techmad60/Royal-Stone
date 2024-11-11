@@ -17,6 +17,9 @@ export default function BuyModal({ onClose, onProceed }: MyComponentProps) {
         };
     }, []);
 
+
+  
+
     return (
         <div className="fixed inset-0 flex bg-[#D9D9D9A6] items-end lg:items-center justify-end lg:justify-center z-50">
             <div className="flex flex-col bg-white rounded-[20px] w-full h-[505px] lg:max-w-[621px] lg:h-[484px]">

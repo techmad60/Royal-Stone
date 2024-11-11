@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import Button from "@/components/ui/Button";
-
+import Image from "next/image";
+import { LiaTimesSolid } from "react-icons/lia";
 interface TransactionProcessedProps {
   onClose: () => void;
+  onConfirm: () => void;
 }
 
-export default function TransactionProcessed({ onClose }: TransactionProcessedProps) {
+export default function TransactionProcessed({ onClose , onConfirm}: TransactionProcessedProps) {
   // Prevent background scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -15,41 +17,20 @@ export default function TransactionProcessed({ onClose }: TransactionProcessedPr
   }, []);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white rounded-lg w-full max-w-md p-6">
+    <div className="fixed inset-0 flex bg-[#D9D9D9A6] bg-opacity-50 z-50 items-end justify-center lg:items-start lg:justify-end lg:bg-transparent">
+      <div className="bg-color-one flex flex-col space-y-4 w-full max-w-md p-4 lg:mt-20 lg:rounded-2xl lg:mr-8">
         {/* Modal Header */}
-        <div className="flex justify-between items-center border-b pb-4">
-          <h2 className="text-lg font-semibold text-color-zero">Confirm Trade</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
-            X
+        <div className="flex justify-between items-center relative">
+          <div className="absolute -bottom-1">
+            <Image src="/images/process-trade.svg" alt="Process Trade logo" width={57} height={57} />
+          </div>
+          <button onClick={onClose} className="ml-auto">
+            <LiaTimesSolid className="text-[rgba(255,255,255,1)]"/>
           </button>
         </div>
-
-        {/* Trade Summary Section */}
-        <div className="mt-4 space-y-4">
-          <div className="flex justify-between text-sm">
-            <p className="text-color-form">Trade Type:</p>
-            <p className="text-color-zero font-medium">Stock Buy</p>
-          </div>
-          <div className="flex justify-between text-sm">
-            <p className="text-color-form">Amount:</p>
-            <p className="text-color-zero font-medium">$200</p>
-          </div>
-          <div className="flex justify-between text-sm">
-            <p className="text-color-form">Units:</p>
-            <p className="text-color-zero font-medium">0.4157</p>
-          </div>
-          <div className="flex justify-between text-sm">
-            <p className="text-color-form">Email:</p>
-            <p className="text-color-zero font-medium">SamJoneson@gmail.com</p>
-          </div>
-        </div>
-
-        {/* Confirm or Cancel Buttons */}
-        <div className="flex justify-between mt-6">
-            <div onClick={onClose}>
-                <Button  ButtonText="Back" className="bg-gray-300 w-[120px]" />
-            </div>
+         <p className="text-sm font-medium text-[rgba(255,255,255,1)]">Your stock transaction is being processed. A member of our team will reach out to you via email.</p>   
+        <div onClick={onConfirm} className="text-center flex justify-center items-center bg-[rgba(255,255,255,0.1)] rounded-[8px] border border-[rgba(255,255,255,0.1)]">
+          <Button ButtonText="View transaction details" className="bg-transparent shadow-none hover:bg-transparent" />
         </div>
       </div>
     </div>

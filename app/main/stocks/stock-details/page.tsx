@@ -10,12 +10,14 @@ import { useState } from "react";
 import TradeModal from "@/components/stocks/TradeModal";
 import BuyModal from "@/components/stocks/BuyModal";
 import TransactionProcessed from "@/components/stocks/TransactionProcessed";
+import TransactionDetails from "@/components/stocks/TransactionDetails";
 
 export default function StockDetails() {
     const isDesktop = useMediaQuery('(min-width: 1024px)');
     const [isTradeModalOpen, setIsTradeModalOpen] = useState(false);
     const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
     const [isTransactionProcessedOpen, setIsTransactionProcessedOpen] = useState(false);
+    const [isTransactionDetailsOpen, setIsTransactionDetailsOpen] = useState(false);
     const router = useRouter();
 
     // Function to open TradeModal on desktop or redirect on mobile
@@ -36,8 +38,13 @@ export default function StockDetails() {
 
     // Function to open TransactionProcessed and close BuyModal
     const handleProceedClick = () => {
-        setIsBuyModalOpen(false);
+        setIsBuyModalOpen(false); 
         setIsTransactionProcessedOpen(true);
+    };
+    // Function to open TransactionDetails and close TransactionProcessed
+    const handleViewDetailsClick = () => {
+        setIsTransactionProcessedOpen(false); 
+        setIsTransactionDetailsOpen(true);
     };
 
     return (
@@ -84,7 +91,11 @@ export default function StockDetails() {
 
             {/* Conditionally render the TransactionProcessed modal */}
             {isTransactionProcessedOpen && (
-                <TransactionProcessed onClose={() => setIsTransactionProcessedOpen(false)} />
+                <TransactionProcessed onClose={() => setIsTransactionProcessedOpen(false)} onConfirm={handleViewDetailsClick} />
+            )}
+            {/* Conditionally render the TransactionDetails modal */}
+            {isTransactionDetailsOpen && (
+                <TransactionDetails onClose={() => setIsTransactionDetailsOpen(false)} />
             )}
         </div>
     );

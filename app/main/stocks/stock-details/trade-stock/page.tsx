@@ -6,10 +6,12 @@ import StockNavigator from "@/components/stocks/StockNavigator";
 import Button from "@/components/ui/Button";
 import BuyModal from "@/components/stocks/BuyModal";
 import TransactionProcessed from "@/components/stocks/TransactionProcessed";
+import TransactionDetails from "@/components/stocks/TransactionDetails";
 
 export default function TradeStock() {
     const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
     const [isTransactionProcessedOpen, setIsTransactionProcessedOpen] = useState(false);
+    const [isTransactionDetailsOpen, setIsTransactionDetailsOpen] = useState(false);
 
     const handleOpenBuyModal = () => {
         setIsBuyModalOpen(true);
@@ -18,6 +20,11 @@ export default function TradeStock() {
     const handleProceedClick = () => {
         setIsBuyModalOpen(false);
         setIsTransactionProcessedOpen(true);
+    };
+    // Function to open TransactionDetails and close TransactionProcessed
+    const handleViewDetailsClick = () => {
+        setIsTransactionProcessedOpen(false);
+        setIsTransactionDetailsOpen(true);
     };
 
     return (
@@ -103,7 +110,11 @@ export default function TradeStock() {
             )}
              {/* Conditionally render the TransactionProcessed modal */}
              {isTransactionProcessedOpen && (
-                <TransactionProcessed onClose={() => setIsTransactionProcessedOpen(false)} />
+                <TransactionProcessed onClose={() => setIsTransactionProcessedOpen(false)} onConfirm={handleViewDetailsClick} />
+            )}
+             {/* Conditionally render the TransactionDetails modal */}
+             {isTransactionDetailsOpen && (
+                <TransactionDetails onClose={() => setIsTransactionDetailsOpen(false)} />
             )}
         </div>
     );
