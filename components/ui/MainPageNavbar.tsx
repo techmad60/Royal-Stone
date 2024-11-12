@@ -80,7 +80,7 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
                     label="Stocks"
                     />
                     <NavLink
-                    href="/savings"
+                    href="/main/savings"
                     icon={<TbTargetArrow />}
                     label="Fixed Savings"
                     />
