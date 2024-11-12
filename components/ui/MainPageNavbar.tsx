@@ -90,7 +90,7 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
                     label="Investments"
                     />
                     <NavLink
-                    href="/referrals"
+                    href="/main/referrals"
                     icon={<BsPeopleFill />}
                     label="Referrals"
                     />
