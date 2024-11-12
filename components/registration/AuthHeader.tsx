@@ -12,7 +12,7 @@ interface AuthHeaderProps {
 
 export default function AuthHeader({ title = "", toggleNav, grid = "" }: AuthHeaderProps) {
   const pathname = usePathname();
-  const showMenu = pathname.includes("/auth/auth-dashboard") || pathname.includes("/main/dashboard") || pathname.includes("/main/product") || pathname.includes("/main/stocks") || pathname.includes("/main/savings") || pathname.includes("/main/referrals"); // Adjust path if different
+  const showMenu = pathname.includes("/auth/auth-dashboard") || pathname.includes("/main/dashboard") || pathname.includes("/main/product") || pathname.includes("/main/stocks") || pathname.includes("/main/savings")  || pathname.includes("/main/portfolio"); // Adjust path if different
 
   return (
     <div className={`flex flex-col space-y-4 lg:pr-8 ${grid}`}>
@@ -45,12 +45,15 @@ export default function AuthHeader({ title = "", toggleNav, grid = "" }: AuthHea
               height={25.41}
               className=""
               />
-              <Image
-              src={"/images/notification.svg"}
-              alt="Notification Image"
-              width={25.41}
-              height={25.41}
-              />
+              <Link href="/main/portfolio/notifications">
+                <Image
+                src={"/images/notification.svg"}
+                alt="Notification Image"
+                width={25.41}
+                height={25.41}
+                />
+              </Link>
+              
           </div>
         )}
       </div>

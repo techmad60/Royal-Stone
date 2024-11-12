@@ -70,7 +70,7 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
                     label="Product"
                     />
                     <NavLink
-                    href="/portfolio"
+                    href="/main/portfolio"
                     icon={<RiMouseFill />}
                     label="Portfolio"
                     />
