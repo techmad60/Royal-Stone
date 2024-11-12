@@ -1,6 +1,5 @@
 
 import { BsPeopleFill } from "react-icons/bs";
-import Image from "next/image";
 import { AiFillDollarCircle } from "react-icons/ai";
 import Icon from "@/components/ui/Icon";
 import CardComponentFive from "@/components/ui/CardComponentFive";
