@@ -13,8 +13,8 @@ export default function Dashboard() {
     <div className="flex flex-col lg:pr-8">
       <p className="text-base text-color-form py-4">Welcome, Kolawole! 👋🏻 </p>
       <div className="flex gap-4 pb-6 border-b">
-        <CardComponentFive icon={<TbTargetArrow className="text-base"/>} label="Total Savings Target" number={`0`}/>
-        <CardComponentFive icon={<BsFileBarGraphFill className="text-base"/>} label="Total Investments Made" number={`0`}/>
+        <CardComponentFive icon={<TbTargetArrow className="text-base"/>} label="Total Savings Target" number={`0`} width="lg:w-[378px]"/>
+        <CardComponentFive icon={<BsFileBarGraphFill className="text-base"/>} label="Total Investments Made" number={`0`} width="lg:w-[378px]"/>
       </div>
 
       <div className="flex flex-col justify-center items-center space-y-4 my-8 py-6 shadow-sm bg-light-grey rounded-common lg:w-[765px]">
