@@ -29,7 +29,7 @@ export default function Navigation () {
                  
                     <section className="flex my-6 items-end bg-light-grey p-[8px] shadow-sm rounded-[14.85px] lg:w-[572px] lg:h-[67px] lg:justify-between lg:items-center lg:rounded-common lg:p-6">
                         <div className="flex gap-2 lg:gap-4">
-                            <Icon icon={<FaBell className="text-2xl text-color-one"/>} containerSize="w-[39.6px] h-[39.6px] bg-[rgba(241,255,240,1)] rounded-[14.85px]"/>
+                            <Icon icon={<FaBell className="text-2xl text-color-one"/>} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px] bg-[rgba(241,255,240,1)]"/>
                             <div>
                                 <p className="text-sm text-color-zero font-medium tracking-tight">Sodales et tortor diam sit elit gravida</p>
                                 <p className=" text-sm text-color-form">Id netus malesuada luctus...</p>
@@ -46,7 +46,7 @@ export default function Navigation () {
 
                     <section className="flex my-6 items-end bg-light-grey p-[8px] shadow-sm rounded-[14.85px] lg:w-[572px] lg:h-[67px] lg:justify-between lg:items-center lg:rounded-common lg:p-6">
                         <div className="flex gap-2 lg:gap-4">
-                            <Icon icon={<FaBell className="text-2xl text-color-one"/>} containerSize="w-[39.6px] h-[39.6px] bg-[rgba(241,255,240,1)] rounded-[14.85px]"/>
+                            <Icon icon={<FaBell className="text-2xl text-color-one"/>} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                             <div>
                                 <p className="text-sm text-color-zero font-medium tracking-tight">Sodales et tortor diam sit elit gravida</p>
                                 <p className=" text-sm text-color-form">Id netus malesuada luctus...</p>
@@ -62,7 +62,7 @@ export default function Navigation () {
                     </section>
                     <section className="flex my-6 items-end bg-light-grey p-[8px] shadow-sm rounded-[14.85px] lg:w-[572px] lg:h-[67px] lg:justify-between lg:items-center lg:rounded-common lg:p-6">
                         <div className="flex gap-2 lg:gap-4">
-                            <Icon icon={<FaBell className="text-2xl text-color-one"/>} containerSize="w-[39.6px] h-[39.6px] bg-[rgba(241,255,240,1)] rounded-[14.85px]"/>
+                            <Icon icon={<FaBell className="text-2xl text-color-one"/>} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                             <div>
                                 <p className="text-sm text-color-zero font-medium tracking-tight">Sodales et tortor diam sit elit gravida</p>
                                 <p className=" text-sm text-color-form">Id netus malesuada luctus...</p>
