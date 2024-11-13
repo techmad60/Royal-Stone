@@ -3,9 +3,9 @@ import Link from "next/link";
 import { MdArrowForwardIos } from "react-icons/md";
 
 const steps = [
-    { label: "Potfolio", href: "/main/portfolio/notification" },
-    { label: "Notifications", href: "/main/portfolio/notification" },
-    { label: "Notification View", href: "/main/portfolio/notification/view" },
+    { label: "Potfolio", href: "/main/portfolio" },
+    { label: "Notifications", href: "/main/portfolio/notifications" },
+    { label: "Notification View", href: "/main/portfolio/notifications/view" },
 ];
 
 export default function PortfolioNavigator({ currentStep }: { currentStep: number }) {

@@ -1,25 +1,28 @@
+"use client"
+import { useState } from "react";
 import { FaBell } from "react-icons/fa";
+import Link from "next/link";
 import PortfolioNavigator from "@/components/Portolio/PortfolioNavigator";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
-export default function Navigation () {
+import NoHistory from "@/components/ui/NoHistory";
+export default function Notification () {
+    const [showNotifications, setShowNotifications] = useState(false);
     return (
         <div>
             <PortfolioNavigator currentStep={1}/>
             <p className="font-semibold text-base my-4">Notifications</p>
-            <div className="hidden">
-                <div className="flex flex-col justify-center items-center space-y-4 my-8 py-6 shadow-sm bg-light-grey rounded-common w-full pr-8">
-                    <div
-                    className={`w-7 h-7 shadow-sm flex items-center justify-center transform rotate-45 rounded-[9px] bg-white"
-                    }`}
-                    >
-                        <span className="text-color-one transform -rotate-45"><FaBell /></span>
-                    </div>
-                    <p className="text-sm text-color-form">You have no notifications</p>
+            {showNotifications ? (
+            <div className="">
+                <NoHistory icon={<FaBell/>} text="You have no notifications"/>
+                <div onClick={() => setShowNotifications(false)}>
+                    <Button
+                        ButtonText="With notifications"
+                        className="mx-auto" 
+                    />
                 </div>
-                <Button ButtonText="With notifications" className="mx-auto"/>
             </div>
-
+            ) : (
             <div>
                 <div>
                     <div className="lg:hidden">
@@ -27,7 +30,7 @@ export default function Navigation () {
                         <hr />
                     </div>
                  
-                    <section className="flex my-6 items-end bg-light-grey p-[8px] shadow-sm rounded-[14.85px] lg:w-[572px] lg:h-[67px] lg:justify-between lg:items-center lg:rounded-common lg:p-6">
+                    <Link href="/main/portfolio/notifications/view-notification" className="flex my-6 items-end bg-light-grey p-[8px] shadow-sm rounded-[14.85px] lg:w-[572px] lg:h-[67px] lg:justify-between lg:items-center lg:rounded-common lg:p-6">
                         <div className="flex gap-2 lg:gap-4">
                             <Icon icon={<FaBell className="text-2xl text-color-one"/>} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px] bg-[rgba(241,255,240,1)]"/>
                             <div>
@@ -42,7 +45,7 @@ export default function Navigation () {
                             {/* Green Dot */}
                             <span className="absolute -top-4 right-0 transform translate-x-[50%] -translate-y-[50%] w-[8px] h-[8px] bg-green-700 rounded-full lg:-top-0"></span>
                         </div>
-                    </section>
+                    </Link>
 
                     <section className="flex my-6 items-end bg-light-grey p-[8px] shadow-sm rounded-[14.85px] lg:w-[572px] lg:h-[67px] lg:justify-between lg:items-center lg:rounded-common lg:p-6">
                         <div className="flex gap-2 lg:gap-4">
@@ -144,9 +147,15 @@ export default function Navigation () {
                             <p className="text-xs text-[rgba(107,115,133,0.7)] tracking-tight">11:04 AM</p>
                         </div>
                     </section>
+                    <div onClick={() => setShowNotifications(true)}>
+                        <Button
+                            ButtonText="Without notifications"
+                            className="mx-auto"
+                        />
+                    </div>
                 </div>
-
             </div>
+            )} 
         </div>
     )
 }
