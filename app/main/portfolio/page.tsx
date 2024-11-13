@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { FaBell, FaClock } from "react-icons/fa6";
+import { FaClock } from "react-icons/fa6";
 import { IoIosSend, IoIosArrowForward } from "react-icons/io";
 import { GoPlus } from "react-icons/go";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import Icon from "@/components/ui/Icon";
 import Button from "@/components/ui/Button";
 import HistoryMobile from "@/components/Portolio/HistoryMobile";
 import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
-import Link from "next/link";
+
 
 export default function Portfolio() {
   const [showNotifications, setShowNotifications] = useState(false);

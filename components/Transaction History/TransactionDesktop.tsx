@@ -39,7 +39,7 @@ const transactions = [
   // Add more transactions as needed
 ];
 
-export default function HistoryDesktop() {
+export default function TransactionDesktop() {
   return (
     <div>
         <div className="hidden lg:grid grid-cols-7 items-center bg-light-grey rounded-common py-4 px-3 shadow-sm mr-8">
