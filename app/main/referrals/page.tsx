@@ -43,7 +43,7 @@ export default function Referrals() {
                 </div>
                 
                 {/* Displayed on Large Screen */}
-                <CardComponentFive icon={<AiFillDollarCircle />} label="$30.00" number="Your Earnings" classname="text-xs font-normal" textSize="text-base font-semibold" width="hidden lg:flex w-[605px]"/>
+                <CardComponentFive icon={<AiFillDollarCircle />} label="$30.00" number="Your Earnings" classname="text-xs font-normal lg:tet-base" textSize="text-base font-semibold lg:text-2xl lg:font-extrabold" width="hidden lg:flex w-[605px]"/>
             </div>
             
            
