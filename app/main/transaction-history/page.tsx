@@ -4,7 +4,7 @@ import { IoIosArrowForward, IoIosSend } from "react-icons/io";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import { TbTargetArrow } from "react-icons/tb";
 import Icon from "@/components/ui/Icon";
-import TransactionDesktop from "@/components/Transaction History/TransactionDesktop";
+//import TransactionDesktop from "@/components/Transaction History/TransactionDesktop";
 import Link from "next/link";
 import { MdArrowBackIos } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
