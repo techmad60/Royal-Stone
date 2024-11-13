@@ -95,7 +95,7 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
                     label="Referrals"
                     />
                     <NavLink
-                    href="/transaction-history"
+                    href="/main/transaction-history"
                     icon={<FaClock />}
                     label="Transaction History"
                     />

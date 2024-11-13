@@ -63,7 +63,7 @@ export default function Portfolio() {
 
       <hr />
       {showNotifications ? (
-        <div>
+        <div className="lg:mr-8">
           <NoHistory
             icon={<FaClock />}
             text="No transactions have been performed yet"
