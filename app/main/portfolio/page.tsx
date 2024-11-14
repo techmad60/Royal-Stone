@@ -10,6 +10,7 @@ import Icon from "@/components/ui/Icon";
 import Button from "@/components/ui/Button";
 import HistoryMobile from "@/components/Portolio/HistoryMobile";
 import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
+import Link from "next/link";
 
 
 export default function Portfolio() {
@@ -56,7 +57,7 @@ export default function Portfolio() {
           </div>
           <div className="flex items-center text-color-one gap-2">
             <Icon icon={<GoPlus />} />
-            <p className="text-xs whitespace-nowrap">Fund Wallet</p>
+            <Link href="/main/portfolio/fund-wallet" className="text-xs whitespace-nowrap">Fund Wallet</Link>
           </div>
         </section> 
       </div>

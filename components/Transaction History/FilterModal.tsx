@@ -70,69 +70,81 @@ export default function FilterModal({ onClose }: MyComponentProps) {
 
   return (
     <div className="fixed inset-0 bg-[#D9D9D9A6] flex place-items-end z-50 lg:place-items-center">
-      <div className="flex flex-col justify-center bg-white w-full rounded-t-[15px] p-4">
+      <div className="flex flex-col justify-center bg-white w-full rounded-t-[15px] p-4 lg:w-[610px] lg:h-[529px] lg:mx-auto lg:rounded-common lg:justify-start lg:p-6">
         <div className="flex justify-center items-center mt-4 lg:hidden">
           <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
         </div>
-        <div className="flex items-center border-b w-full pb-2 p-4">
+        <div className="flex items-center border-b w-full pb-2 p-4 lg:p-0">
           <p onClick={onClose} className="text-color-form text-sm">
             Cancel
           </p>
           <p className="text-color-zero font-semibold text-lg mx-auto relative right-4">Filter</p>
         </div>
-
-        {/* Status Section */}
-        <section>
-          <div className="flex justify-between py-4 cursor-pointer" onClick={toggleStatusExpand}>
-            <p className="text-sm font-medium">Status</p>
-            {isStatusExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
-          </div>
-          <hr />
-          {isStatusExpanded && (
-            <div>
-              {(["All", "Successful", "Pending", "Failed"] as Status[]).map((status) => (
-                <div key={status} className="flex justify-between items-center py-2">
-                  <p className="text-color-form text-sm">{status}</p>
-                  <div onClick={() => toggleStatusCheckbox(status)} className="cursor-pointer">
-                    {checkedStatuses[status] ? <CheckBox /> : <EmptyBox />}
-                  </div>
+        
+        <div className="lg:grid grid-cols-2 gap-8">
+            {/* Status Section */}
+            <section>
+            <div className="flex justify-between py-4 cursor-pointer">
+                <p className="text-sm font-medium">Status</p>
+                <div onClick={toggleStatusExpand} className="lg:hidden">
+                    {isStatusExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
                 </div>
-              ))}
+                
             </div>
-          )}
-        </section>
-
-        {/* Transaction Type Section */}
-        <section>
-          <div className="flex justify-between py-4 cursor-pointer" onClick={toggleTransactionTypeExpand}>
-            <p className="text-sm font-medium">Transaction Type</p>
-            {isTransactionTypeExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
-          </div>
-          <hr />
-          {isTransactionTypeExpanded && (
-            <div>
-              {(["All", "Withdrawal", "Funding", "Investments", "Savings", "Stocks"] as Type[]).map((type) => (
-                <div key={type} className="flex justify-between items-center py-2">
-                  <p className="text-color-form text-sm">{type}</p>
-                  <div onClick={() => toggleTransactionTypeCheckbox(type)} className="cursor-pointer">
-                    {checkedTransactionTypes[type] ? <CheckBox /> : <EmptyBox />}
-                  </div>
+            <hr />
+            {isStatusExpanded && (
+                <div>
+                {(["All", "Successful", "Pending", "Failed"] as Status[]).map((status) => (
+                    <div key={status} className="flex justify-between items-center py-2">
+                    <p className="text-color-form text-sm">{status}</p>
+                    <div onClick={() => toggleStatusCheckbox(status)} className="cursor-pointer">
+                        {checkedStatuses[status] ? <CheckBox /> : <EmptyBox />}
+                    </div>
+                    </div>
+                ))}
                 </div>
-              ))}
+            )}
+            </section>
+
+            {/* Transaction Type Section */}
+            <section>
+            <div className="flex justify-between py-4 cursor-pointer">
+                <p className="text-sm font-medium">Transaction Type</p>
+                <div onClick={toggleTransactionTypeExpand} className="lg:hidden">
+                    {isTransactionTypeExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                </div>
+                
             </div>
-          )}
-        </section>
+            <hr />
+            {isTransactionTypeExpanded && (
+                <div>
+                {(["All", "Withdrawal", "Funding", "Investments", "Savings", "Stocks"] as Type[]).map((type) => (
+                    <div key={type} className="flex justify-between items-center py-2">
+                    <p className="text-color-form text-sm">{type}</p>
+                    <div onClick={() => toggleTransactionTypeCheckbox(type)} className="cursor-pointer">
+                        {checkedTransactionTypes[type] ? <CheckBox /> : <EmptyBox />}
+                    </div>
+                    </div>
+                ))}
+                </div>
+            )}
+            </section>
+        </div>
+       
 
         {/* Transaction Date Section */}
         <section>
-          <div className="flex justify-between py-4 cursor-pointer" onClick={toggleTransactionDateExpand}>
-            <p className="text-sm font-medium">Transaction Type</p>
-            {isTransactionTypeExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
+          <div className="flex justify-between py-4 cursor-pointer lg:py-2" >
+            <p className="text-sm font-medium">Transaction Date</p>
+            <div onClick={toggleTransactionDateExpand} className="lg:hidden">
+                {isTransactionTypeExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
+            </div>
+           
           </div>
           <hr />
           {isTransactionDateExpanded && (
-            <div className="py-4 border-b">
-                <p className="text-sm text-color-form py-4">Date Range</p>
+            <div className="py-4 border-b lg:py-2">
+                <p className="text-sm text-color-form py-4 lg:py-2">Date Range</p>
                 <div className="flex items-center gap-2">
                     <IoCalendar className="text-color-zero"/>
                     <p className="text-sm font-medium text-color-zero">1/1/2024 - 31/12/2024</p>
@@ -141,7 +153,7 @@ export default function FilterModal({ onClose }: MyComponentProps) {
           )}
         </section>
 
-        <div className="mt-8">
+        <div className="mt-8 lg:mt-4">
           {/* Accept button to apply filter */}
           <div onClick={onClose}>
             <Button ButtonText="Accept" className="bg-color-one w-full" />
