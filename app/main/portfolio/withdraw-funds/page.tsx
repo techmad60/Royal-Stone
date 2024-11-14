@@ -1,15 +1,15 @@
 "use client"
 import { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
-import FundWallet from "@/components/Portolio/FundWalletNavigator";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import BankComponent from "@/components/ui/BankComponent";
-import TransactionProcessed from "@/components/Portolio/FundTransactionProcessed";
-import TransactionDetails from "@/components/Portolio/FundTransactionDetails";
+import TransactionProcessed from "@/components/Portolio/WithdrawTransactionProcessed";
+import TransactionDetails from "@/components/Portolio/WithdrawTransactionDetails";
+import WithdrawFunds from "@/components/Portolio/WithdrawFundsNavigator";
 
 
-export default function FundWalletPage() {
+export default function WithdrawFundsPage() {
     const [transactionProcessedOpen, setIsTransactionProcessedOpen] = useState (false)
     const [transactionDetailsOpen, setIsTransactionDetailsOpen] = useState (false)
 
@@ -24,9 +24,9 @@ export default function FundWalletPage() {
     };
     return (
         <div>
-            <FundWallet currentStep={1}/>
+            <WithdrawFunds currentStep={1}/>
 
-            <p className="text-color-zero text-base font-semibold py-4 lg:text-lg">Fund Wallet</p>
+            <p className="text-color-zero text-base font-semibold py-4 lg:text-lg">Withdraw Funds</p>
             <form className="flex flex-col space-y-4 mt-2">
                 {/* Trade Amount */}
                 <div className="flex flex-col gap-1">
@@ -47,7 +47,7 @@ export default function FundWalletPage() {
 
                 {/* Amount of Units */}
                 <div className="flex flex-col gap-1 ">
-                    <label className="text-color-form text-sm">What amount do you want to fund?</label>
+                    <label className="text-color-form text-sm">What amount do you want to investment?</label>
                     <input
                         type="number"
                         required
@@ -58,15 +58,20 @@ export default function FundWalletPage() {
 
                 {/* Payment Method */}
                 <div className="flex flex-col gap-1 border-b lg:w-[528px]">
-                    <label className="text-color-form text-sm">Select a preferred funding method</label>
+                    <div className="flex justify-between items-center">
+                        <label className="text-color-form text-sm">Select a preferred funding method</label>
+                        <p className="text-color-one border-b leading-none border-color-one text-xs w-fit hidden lg:flex">Use a new bank account</p>
+                    </div>
+                   
                     <div className="grid grid-cols-2 grid-rows-2 gap-4 py-4 lg:flex">
-                        <BankComponent bankImage={<Image src="/images/banks/pay-pal.svg" height={15} width={15} alt="Pay-Pal Logo"/>} bankName="PayPal"/>
-                        <BankComponent bankImage={<Image src="/images/banks/zelle.svg" height={15} width={15} alt="Zelle Logo"/>} bankName="Zelle" style="bg-color-two"/>
-                        <BankComponent bankImage={<Image src="/images/banks/square-cash.svg" height={15} width={15} alt="Pay-Pal Logo"/>} bankName="Cash App"/>
+                        <BankComponent bankImage={<Image src="/images/banks/opay.svg" height={15} width={15} alt="Opay Logo"/>} bankName="Opay" accNumber={9019111278} accName="Osindeinde Kolawole" style="h-[105px]" flexStyling="flex gap-2 space-y-0"/>
+                        <BankComponent bankImage={<Image src="/images/banks/gt-bank.svg" height={15} width={15} alt="GT bank Logo"/>} bankName="GTBank" accNumber={2219111278} accName="Osindeinde Kolawole" style="h-[105px] bg-color-two" flexStyling="flex gap-2 space-y-0"/>
+                        <BankComponent bankImage={<Image src="/images/banks/opay.svg" height={15} width={15} alt="Opay Logo"/>} bankName="Opay" accNumber={7100192289} accName="Osindeinde Kolawole" style="h-[105px]" flexStyling="flex gap-2 space-y-0"/>
                     </div>
                 </div>
+                <p className="text-color-one border-b leading-none border-color-one text-xs w-fit lg:hidden">Use a new bank account</p>
                 <div onClick={openTransactionProcessed}>
-                    <Button ButtonText="Fund Wallet" className="py-3 mt-12 w-full lg:w-[528px]"/>
+                    <Button ButtonText="Withdraw Funds" className="py-3 mt-12 w-full lg:w-[528px]"/>
                 </div>
                 
             </form>

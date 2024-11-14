@@ -31,7 +31,7 @@ export default function TransactionDetails({ onClose}: TransactionDetailsProps) 
 
                 <div className="flex items-center gap-4 my-1 p-4">
                     <Icon icon={<Image src="/images/banks/zelle.svg" height={24} width={24} alt="Zelle Logo"/>} containerSize="w-[41px] h-[41px]"/>
-                    <div>
+                    <div className="flex flex-col gap-1">
                         <p className="text-color-zero font-medium text-sm lg:text-base">Investment Wallet Funding</p>
                         <p className="text-color-form text-sm">Zelle Funding - <span className="text-color-one">SUCCESSFUL</span></p>
                     </div>

@@ -53,7 +53,7 @@ export default function Portfolio() {
         >
           <div className="flex items-center text-color-one gap-2 lg:border-r lg:pr-16">
             <Icon icon={<IoIosSend />} />
-            <p className="text-xs whitespace-nowrap">Withdraw</p>
+            <Link href="/main/portfolio/withdraw-funds" className="text-xs whitespace-nowrap">Withdraw</Link>
           </div>
           <div className="flex items-center text-color-one gap-2">
             <Icon icon={<GoPlus />} />
