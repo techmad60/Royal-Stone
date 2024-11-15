@@ -16,7 +16,7 @@ export default function ProfileSettings() {
       <h1 className="text-color-zero text-base font-semibold mt-6">
         Profile Settings
       </h1>
-      <form className={`flex flex-col mt-6 space-y-8 lg:w-[200px]`}>
+      <form className={`flex flex-col mt-6 space-y-8 lg:w-[300px] xl:w-[486px]`}>
         {/* Name */}
         <div className="flex flex-col gap-2 ">
           <label className="text-color-form text-sm">Full Name</label>
@@ -104,7 +104,7 @@ export default function ProfileSettings() {
           />
         </div>
         
-        <Button ButtonText="Create Account" className="py-3 lg:w-[200px]" />
+        <Button ButtonText="Create Account" className="py-3 lg:w-[300px] xl:w-[486px]" />
       </form>
     </div>
   );

@@ -25,13 +25,13 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="bg-red-400">
+    <div className="">
       {/* Account Settings and Profile Settings */}
-        <div className="lg:grid grid-cols-2 gap-20">
+        <div className="lg:grid grid-cols-2 gap-4 xl:gap-16">
           <div className={`${
                 activeSetting && !isDesktop
                   ? "hidden"
-                  : "bg-yellow-500"
+                  : "lg:border-r lg:pr-20"
               }`}>
             <div >
               <div className="relative flex justify-start mt-8">
@@ -54,7 +54,7 @@ export default function SettingsPage() {
               <hr className="my-4" />
             </div>
             <div
-              className={`${"space-y-4 lg:grid grid-cols-2 grid-rows-3 lg:space-y-0 lg:gap-16"
+              className={`${"space-y-4 lg:grid grid-cols-2 grid-rows-3 lg:mt-4 lg:space-y-0 lg:gap-x-20 lg:gap-y-2 xl:gap-x-8 xl:gap-y-8"
               }`}
             >
               <div onClick={() => handleSettingClick("Profile")}>
