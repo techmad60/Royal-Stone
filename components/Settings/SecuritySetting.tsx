@@ -3,6 +3,8 @@ import SettingsNavigator from "./SettingsNavigator";
 import Icon from "../ui/Icon";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import ToggleSwitch from "../ui/ToogleSwitch";
+import { useState } from "react";
+import ChangePassword from "./ChangePassword";
 
 // For Profile Settings
 const securitySteps = [
@@ -11,9 +13,13 @@ const securitySteps = [
 ];
 
 export default function SecuritySettings() {
+    const [openChangePasswordModal, setIsopenChangePasswordModal] = useState(false)
+
+    const handleOpenChangePassword = () => {
+        setIsopenChangePasswordModal(true)
+    }
   return (
     <div>
-     
         <SettingsNavigator currentStep={1} steps={securitySteps} />
         <h1 className="text-color-zero text-base font-semibold mt-6">
             Security
@@ -23,7 +29,7 @@ export default function SecuritySettings() {
                 <div className="flex gap-2 lg:gap-3">
                     <Icon icon={<IoIosLock className="text-color-one text-2xl lg:text-lg"/>} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                     <div>
-                        <p className="text-sm text-color-zero font-medium">Change Password</p>
+                        <p className="text-sm text-color-zero font-medium cursor-pointer" onClick={handleOpenChangePassword}>Change Password</p>
                         <p className="text-xs text-color-form">Egestas netus nisi elementum in</p>
                     </div>
                 </div>
@@ -47,6 +53,9 @@ export default function SecuritySettings() {
             </section>
         </div>
         
+        {openChangePasswordModal && (
+            <ChangePassword onClose={() => setIsopenChangePasswordModal(false)}/>
+        )}
     </div>
   );
 }
