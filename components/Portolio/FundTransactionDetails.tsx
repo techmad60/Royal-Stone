@@ -23,9 +23,9 @@ export default function TransactionDetails({ onClose}: TransactionDetailsProps) 
                     <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
                 </div>
                 <div className="flex items-center border-b w-full pb-2 p-4">
-                    <Link onClick={onClose} href="/main/stocks/stock-details" className="text-color-form text-sm">
+                    <p onClick={onClose} className="text-color-form text-sm cursor-pointer">
                         Cancel
-                    </Link>
+                    </p>
                     <p className="text-color-zero font-semibold text-lg mx-auto relative right-4">Transaction Details</p>
                 </div>
 

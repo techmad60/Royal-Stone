@@ -101,7 +101,7 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
                     />
 
                     <NavLink
-                    href="/settings"
+                    href="/main/settings"
                     icon={<IoMdSettings />}
                     label="Settings"
                     />
