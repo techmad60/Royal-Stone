@@ -5,7 +5,7 @@ import SettingsNavigator from "./SettingsNavigator";
 // For Profile Settings
 const profileSteps = [
     { label: "Settings", href: "/main/settings" },
-    { label: "Profile Settings", href: "/main/settings/profile" },
+    { label: "Profile Settings", href: "/main/settings" },
 ];
 
 export default function ProfileSettings() {
@@ -104,7 +104,7 @@ export default function ProfileSettings() {
           />
         </div>
         
-        <Button ButtonText="Create Account" className="py-3 lg:w-[300px] xl:w-[486px]" />
+        <Button ButtonText="Save" className="py-3 lg:w-[300px] xl:w-[486px]" />
       </form>
     </div>
   );

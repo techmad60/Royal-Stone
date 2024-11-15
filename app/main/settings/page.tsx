@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { IoPerson, IoPeople } from "react-icons/io5";
 import { IoIosLock } from "react-icons/io";
@@ -11,17 +11,22 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import Image from "next/image";
 import AccountSettings from "@/components/Settings/AccountSettings";
 import ProfileSettings from "@/components/Settings/ProfileSetting";
+import SecuritySettings from "@/components/Settings/SecuritySetting";
 import Icon from "@/components/ui/Icon";
 
 export default function SettingsPage() {
   const isDesktop = useMediaQuery("(min-width: 1024px)"); // true if screen width is 1024px or larger
-  const [activeSetting, setActiveSetting] = useState<string | null>(null);
-
-  const handleSettingClick = (setting: string) => {
-    if (!isDesktop) {
-      // On mobile, toggle the selected setting to display only the active component
-      setActiveSetting(setting === activeSetting ? null : setting);
+  const [activeSetting, setActiveSetting] = useState<string | null>(
+    isDesktop ? "Profile" : null
+  );
+  useEffect(() => {
+    // Set activeSetting to "Profile" if on desktop
+    if (isDesktop && !activeSetting) {
+      setActiveSetting("Profile");
     }
+  }, [isDesktop, activeSetting]);
+  const handleSettingClick = (setting: string) => {
+    setActiveSetting(setting);
   };
 
   return (
@@ -57,22 +62,34 @@ export default function SettingsPage() {
               className={`${"space-y-4 lg:grid grid-cols-2 grid-rows-3 lg:mt-4 lg:space-y-0 lg:gap-x-20 lg:gap-y-2 xl:gap-x-8 xl:gap-y-8"
               }`}
             >
-              <div onClick={() => handleSettingClick("Profile")}>
+              <div
+                className={`cursor-pointer ${
+                    activeSetting === "Profile" ? "bg-yellow-500" : "bg-transparent"
+                }`}
+                onClick={() => handleSettingClick("Profile")}
+                >
                 <AccountSettings
-                  settingIcon={
+                    settingIcon={
                     <IoPerson className="text-color-one text-2xl lg:text-lg" />
-                  }
-                  setting="Profile settings"
-                  settingText="Egestas netus nisi elementum in"
+                    }
+                    setting="Profile settings"
+                    settingText="Egestas netus nisi elementum in"
                 />
-              </div>
-              <AccountSettings
-                settingIcon={
-                  <IoIosLock className="text-color-one text-2xl lg:text-lg" />
-                }
-                setting="Security settings"
-                settingText="Turpis ultrices quis vestibulum gravida"
-              />
+                </div>
+               
+               <div className={`cursor-pointer ${
+                    activeSetting === "Security Setting" ? "bg-yellow-500" : "bg-transparent"
+                }`}
+                onClick={() => handleSettingClick("Security Setting")}>
+                <AccountSettings
+                    settingIcon={
+                    <IoIosLock className="text-color-one text-2xl lg:text-lg" />
+                    }
+                    setting="Security settings"
+                    settingText="Turpis ultrices quis vestibulum gravida"
+                />
+               </div>
+              
               <AccountSettings
                 settingIcon={
                   <BiSolidBank className="text-color-one text-2xl lg:text-lg" />
@@ -124,12 +141,12 @@ export default function SettingsPage() {
               </div>
             </section>
           </div>
-          {/* ProfileSettings Component */}
-          {activeSetting === "Profile" || isDesktop ? (
-            <div className="">
-              <ProfileSettings />
-            </div>
-          ) : null}
+          {/* Main Content */}
+          <div>
+            {activeSetting === "Profile" && <ProfileSettings />}
+            {activeSetting === "Security Setting" && <SecuritySettings />}
+            {/* Add additional setting components if necessary */}
+          </div>
         </div>
       </div>
   );
