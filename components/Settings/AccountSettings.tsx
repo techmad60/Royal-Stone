@@ -10,8 +10,8 @@ interface SettingsProps{
 
 export default function AccountSettings ({settingIcon, setting, settingText}:SettingsProps) {
     return (
-        <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common">
-            <div className="flex gap-2 lg:gap-4">
+        <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common lg:w-[200px] lg:h-[133px] lg:items-start">
+            <div className="flex gap-2 lg:gap-3 lg:flex-col">
                 <Icon icon={settingIcon} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                 <div>
                     <p className="text-sm text-color-zero font-medium">{setting}</p>
