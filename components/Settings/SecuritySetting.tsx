@@ -23,7 +23,7 @@ export default function SecuritySettings({ onVerifyClick }:SecuritySettingsProps
     }
   return (
     <div>
-        <SettingsNavigator currentStep={1} steps={securitySteps} />
+        <SettingsNavigator currentStep={1} steps={securitySteps} classname="lg:hidden"/>
         <h1 className="text-color-zero text-base font-semibold mt-6">
             Security
         </h1>

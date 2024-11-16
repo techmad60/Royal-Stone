@@ -5,16 +5,18 @@ import { MdArrowForwardIos } from "react-icons/md";
 interface Step {
     label: string;
     href: string;
+    
 }
 
 interface SettingsNavigatorProps {
     currentStep: number;
     steps: Step[]; // List of steps passed in as a prop
+    classname?: string;
 }
 
-export default function SettingsNavigator({ currentStep, steps }: SettingsNavigatorProps) {
+export default function SettingsNavigator({ currentStep, steps, classname }: SettingsNavigatorProps) {
     return (
-        <div className="flex items-center space-x-2 mt-4 overflow-x-scroll lg:hidden">
+        <div className={`flex items-center space-x-2 mt-4 overflow-x-scroll ${classname}`}>
             {steps.slice(0, currentStep + 1).map((step, index) => (
                 <div key={index} className="flex items-center space-x-2">
                     <Link

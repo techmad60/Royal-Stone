@@ -12,7 +12,7 @@ export default function ProfileSettings() {
   return (
     <div>
      
-     <SettingsNavigator currentStep={1} steps={profileSteps} />
+     <SettingsNavigator currentStep={1} steps={profileSteps} classname="lg:hidden"/>
       <h1 className="text-color-zero text-base font-semibold mt-6">
         Profile Settings
       </h1>
