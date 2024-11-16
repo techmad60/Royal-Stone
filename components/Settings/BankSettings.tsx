@@ -7,7 +7,6 @@ import BankComponent from "../ui/BankComponent";
 import BankComponentDesktop from "../ui/BankComponentDesktop";
 import SettingsNavigator from "./SettingsNavigator";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import Icon from "../ui/Icon";
 // For Profile Settings
 const bankSteps = [
     { label: "Settings", href: "/main/settings" },
