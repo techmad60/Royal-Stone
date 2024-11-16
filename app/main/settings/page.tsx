@@ -12,8 +12,9 @@ import Image from "next/image";
 import AccountSettings from "@/components/Settings/AccountSettings";
 import ProfileSettings from "@/components/Settings/ProfileSetting";
 import VerifyEmailSetting from "@/components/Settings/VerifyEmail";
-import ChangePassword from "@/components/Settings/ChangePassword";
 import SecuritySettings from "@/components/Settings/SecuritySetting";
+import ChangePassword from "@/components/Settings/ChangePassword";
+import BankSetting  from "@/components/Settings/BankSettings";
 import Icon from "@/components/ui/Icon";
 
 export default function SettingsPage() {
@@ -91,14 +92,21 @@ export default function SettingsPage() {
                     settingText="Turpis ultrices quis vestibulum gravida"
                 />
                </div>
-              
-              <AccountSettings
-                settingIcon={
-                  <BiSolidBank className="text-color-one text-2xl lg:text-lg" />
-                }
+
+              <div
+                className={`cursor-pointer ${
+                    activeSetting === "Profile" ? "bg-yellow-500" : "bg-transparent"
+                }`}
+                onClick={() => handleSettingClick("Bank Setting")}
+                >
+                <AccountSettings
+                    settingIcon={
+                    <BiSolidBank className="text-color-one text-2xl lg:text-lg" />
+                    }
                 setting="Bank Information"
                 settingText="Id at quis sed posuere magna vel"
               />
+              </div>
               <AccountSettings
                 settingIcon={
                   <IoPeople className="text-color-one text-2xl lg:text-lg" />
@@ -150,6 +158,7 @@ export default function SettingsPage() {
             {activeSetting === "Verify Email" && <VerifyEmailSetting onNavigateToChangePassword={() => handleSettingClick("Change Password")}/>}
             {/* Add additional setting components if necessary */}
             {activeSetting === "Change Password" && <ChangePassword />}
+            {activeSetting === "Bank Setting" && <BankSetting/>}
           </div>
         </div>
       </div>

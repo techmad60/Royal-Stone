@@ -1,6 +1,5 @@
 
 import Icon from "./Icon";
-import CircleToggle from "./CircleToggle";
 import { ReactNode } from "react";
 
 interface bankProps{
@@ -9,25 +8,26 @@ interface bankProps{
     style?: string;
     accNumber?: number;
     accName?: string;
+    icon?: ReactNode;
     flexStyling?: string,
 
 }
-export default function BankComponent ({bankName, bankImage, accNumber, accName, flexStyling, style}:bankProps) {
+export default function BankComponent ({bankName, bankImage, accNumber, accName, flexStyling, style, icon}:bankProps) {
     return (
         <section className={`bg-light-grey rounded-[20px] shadow-sm flex items-start justify-between w-[168px] h-[86px] p-3 ${style}`}>
             <div className="">
-                <div className={`space-y-2 ${flexStyling}`}>
+                <div className={` ${flexStyling}`}>
                     <Icon icon={bankImage} containerSize="w-[24px] h-[24px]"/>
                     <p className="text-color-zero text-sm font-medium">{bankName}</p>
                 </div>
-                <div className="space-y-2 mt-2">
+                <div className="space-y-1 mt-1">
                     <p className="text-xs text-color-form">{accNumber}</p>
                     <p className="text-xs text-color-form">{accName}</p>
                 </div>
             </div>
             
             <div>
-                <CircleToggle />
+                {icon}
             </div>
         </section>
     )

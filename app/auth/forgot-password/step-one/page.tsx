@@ -9,7 +9,7 @@ export default function StepOne() {
             <VerifyEmail/>
 
             <Link href= "/auth/forgot-password/step-two">
-                <FormButton ButtonText="Verify" className="mt-20 py-4 lg:mt-12"/>
+                <FormButton ButtonText="Verify" className="mt-20 py-4 lg:mt-12 lg:w-[417px]"/>
             </Link>
         </div>
     )
