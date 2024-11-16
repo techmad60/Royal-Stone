@@ -2,24 +2,27 @@ import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import Button from "../ui/FormButton";
-// import SettingsNavigator from "./SettingsNavigator";
+import SettingsNavigator from "./SettingsNavigator";
 export default function ChangePassword() {
   const [showPassword, setShowPassword] = useState(false);
   //Toggle Password Visibility
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  //   const changePassword = [
-  //     { label: "Settings", href: "/main/settings" },
-  //     { label: "Security Settings", href: "/main/settings" },
-  //    ];
+    const changePassword = [
+      { label: "Settings", href: "/main/settings" },
+      { label: "Security Settings", href: "/main/settings" },
+      { label: "Change Password", href: "/main/settings" },
+     ];
   return (
     <div>
-      <h1 className="text-color-zero text-base font-semibold mt-6">Security</h1>
-      {/* <SettingsNavigator /> */}
-      <div>
-        <p className="text-base font-medium text-color-zero mt-12">Change Password</p>
-        <p className="text-sm text-color-form">Provide your new password</p>
+      <h1 className="text-color-zero text-base font-semibold mt-24 hidden lg:flex">Security</h1>
+      <div className="lg:mt-12">
+        <SettingsNavigator  currentStep={2} steps={changePassword}/>
+        <div className="mt-8">
+            <p className="text-base font-medium text-color-zero">Change Password</p>
+            <p className="text-sm text-color-form">Provide your new password</p>
+        </div>
       </div>
       <form className={`flex flex-col mt-8 space-y-8 max-w-[486px]`}>
         {/*Change Password */}
