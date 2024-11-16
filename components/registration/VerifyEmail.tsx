@@ -1,7 +1,6 @@
 import Link from "next/link";
-import FormButton from "../ui/FormButton";
 
-export default function VerifyEmail({href = ""}) {
+export default function VerifyEmail() {
     return (
         <section className="flex flex-col max-w-[417px]">
         <h1 className="text-colour-five text-base mt-8 lg:text-[18px]">Verify Email</h1>
@@ -59,9 +58,7 @@ export default function VerifyEmail({href = ""}) {
                 <Link href="/">Resend</Link>
             </span>
         </p>
-        <Link href={href}>
-            <FormButton ButtonText="Verify" className="mt-20 py-4 lg:mt-12"/>
-        </Link>
+       
       </section>
     );
 }

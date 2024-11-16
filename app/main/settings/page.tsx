@@ -11,6 +11,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import Image from "next/image";
 import AccountSettings from "@/components/Settings/AccountSettings";
 import ProfileSettings from "@/components/Settings/ProfileSetting";
+import VerifyEmailSetting from "@/components/Settings/VerifyEmail";
+import ChangePassword from "@/components/Settings/ChangePassword";
 import SecuritySettings from "@/components/Settings/SecuritySetting";
 import Icon from "@/components/ui/Icon";
 
@@ -144,8 +146,10 @@ export default function SettingsPage() {
           {/* Main Content */}
           <div>
             {activeSetting === "Profile" && <ProfileSettings />}
-            {activeSetting === "Security Setting" && <SecuritySettings />}
+            {activeSetting === "Security Setting" && <SecuritySettings onVerifyClick={() => handleSettingClick("Verify Email")}/>}
+            {activeSetting === "Verify Email" && <VerifyEmailSetting onNavigateToChangePassword={() => handleSettingClick("Change Password")}/>}
             {/* Add additional setting components if necessary */}
+            {activeSetting === "Change Password" && <ChangePassword />}
           </div>
         </div>
       </div>
