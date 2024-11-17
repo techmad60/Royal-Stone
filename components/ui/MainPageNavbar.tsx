@@ -85,7 +85,7 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
                     label="Fixed Savings"
                     />
                     <NavLink
-                    href="/invest"
+                    href="/main/investments"
                     icon={<BsFileBarGraphFill />}
                     label="Investments"
                     />
