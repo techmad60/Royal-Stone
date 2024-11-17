@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { IoIosSend, IoIosArrowForward, IoIosMail } from "react-icons/io";
+import { IoIosSend } from "react-icons/io";
 import { GoPlus } from "react-icons/go";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import Image from "next/image";
