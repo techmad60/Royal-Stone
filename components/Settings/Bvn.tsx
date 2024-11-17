@@ -13,8 +13,7 @@ export default function BvnSettings() {
      
      <SettingsNavigator currentStep={2} steps={Kinsteps} classname="lg:hidden"/>
       <h1 className="text-color-zero text-base font-semibold mt-6">
-      KYC
-      <p className="mt-8">BVN</p>
+      BVN
       </h1>
       <form className={`flex flex-col mt-6 space-y-8 lg:w-[300px] xl:w-[486px]`}>
         {/* Name */}

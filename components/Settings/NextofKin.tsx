@@ -1,4 +1,3 @@
-import { IoIosArrowDown } from "react-icons/io";
 import Button from "../ui/Button";
 import SettingsNavigator from "./SettingsNavigator";
 
