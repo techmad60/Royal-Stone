@@ -15,6 +15,7 @@ import VerifyEmailSetting from "@/components/Settings/VerifyEmail";
 import SecuritySettings from "@/components/Settings/SecuritySetting";
 import ChangePassword from "@/components/Settings/ChangePassword";
 import BankSetting  from "@/components/Settings/BankSettings";
+import NewBank from "@/components/Settings/NewBank";
 import Icon from "@/components/ui/Icon";
 
 export default function SettingsPage() {
@@ -158,7 +159,8 @@ export default function SettingsPage() {
             {activeSetting === "Verify Email" && <VerifyEmailSetting onNavigateToChangePassword={() => handleSettingClick("Change Password")}/>}
             {/* Add additional setting components if necessary */}
             {activeSetting === "Change Password" && <ChangePassword />}
-            {activeSetting === "Bank Setting" && <BankSetting/>}
+            {activeSetting === "Bank Setting" && <BankSetting onNavigatetoCreateNewBank={() => handleSettingClick("New Bank")}/>}
+            {activeSetting === "New Bank" && <NewBank />} 
           </div>
         </div>
       </div>
