@@ -15,8 +15,10 @@ const kycSteps = [
 ];
 interface KycProps {
     onNavigatetoValidID: () => void;
+    onNavigatetoNextofKin: () => void;
+    onNavigatetoBvn: () => void;
 }
-export default function Kyc ({onNavigatetoValidID}:KycProps) {
+export default function Kyc ({onNavigatetoValidID, onNavigatetoNextofKin, onNavigatetoBvn}:KycProps) {
     const [showVerified, setShowVerified] = useState(false); 
     return (
         <div>
@@ -35,7 +37,7 @@ export default function Kyc ({onNavigatetoValidID}:KycProps) {
                         <MdKeyboardArrowRight className= "text-2xl"/>
                     </section>
 
-                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common lg:w-[361px] xl:w-[520px]">
+                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common cursor-pointer lg:w-[361px] xl:w-[520px]" onClick={onNavigatetoNextofKin}>
                         <div className="flex gap-4 lg:gap-3">
                             <Icon icon={<IoPeople className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                             <div>
@@ -46,7 +48,7 @@ export default function Kyc ({onNavigatetoValidID}:KycProps) {
                         <MdKeyboardArrowRight className= "text-2xl"/>
                     </section>
 
-                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common lg:w-[361px] xl:w-[520px]">
+                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common cursor-pointer lg:w-[361px] xl:w-[520px]">
                         <div className="flex gap-4 lg:gap-3">
                             <Icon icon={<FaRegImage className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                             <div>
@@ -56,7 +58,7 @@ export default function Kyc ({onNavigatetoValidID}:KycProps) {
                         </div>
                         <MdKeyboardArrowRight className= "text-2xl"/>
                     </section>
-                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common lg:w-[361px] xl:w-[520px]">
+                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common cursor-pointer lg:w-[361px] xl:w-[520px]" onClick={onNavigatetoBvn}>
                         <div className="flex gap-4 lg:gap-3">
                             <Icon icon={<BiSolidBank className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                             <div>

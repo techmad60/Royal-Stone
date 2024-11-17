@@ -23,6 +23,8 @@ import Support from "@/components/Settings/SupportSetting";
 import FAQs from "@/components/Settings/FaqsSettings";
 import Kyc from "@/components/Settings/KycSettings";
 import ValidID from "@/components/Settings/ValidId";
+import NextofKin from "@/components/Settings/NextofKin";
+import Bvn from "@/components/Settings/Bvn";
 
 
 export default function SettingsPage() {
@@ -227,8 +229,15 @@ export default function SettingsPage() {
           )}
           {activeSetting === "Support Setting" && <Support />}
           {activeSetting === "FAQs Setting" && <FAQs />}
-          {activeSetting === "Kyc Setting" && <Kyc onNavigatetoValidID={() => handleSettingClick("Valid ID")}/>}
+          {activeSetting === "Kyc Setting" && (
+            <Kyc 
+            onNavigatetoValidID={() => handleSettingClick("Valid ID")}
+            onNavigatetoNextofKin={() => handleSettingClick("Next of Kin")}
+            onNavigatetoBvn={() => handleSettingClick("BVN")}/>
+          )}
           {activeSetting === "Valid ID" && <ValidID />}
+          {activeSetting === "Next of Kin" && <NextofKin/>}
+          {activeSetting === "BVN" && <Bvn/>}
         </div>
       </div>
     </div>
