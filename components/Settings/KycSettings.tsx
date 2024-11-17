@@ -13,8 +13,10 @@ const kycSteps = [
     { label: "Settings", href: "/main/settings" },
     { label: "KYC", href: "/main/settings" },
 ];
-
-export default function Kyc () {
+interface KycProps {
+    onNavigatetoValidID: () => void;
+}
+export default function Kyc ({onNavigatetoValidID}:KycProps) {
     const [showVerified, setShowVerified] = useState(false); 
     return (
         <div>
@@ -22,7 +24,7 @@ export default function Kyc () {
             <h1 className="text-color-zero text-base font-semibold my-4">KYC</h1>
             {showVerified ? (
                 <div className="flex flex-col space-y-4">
-                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common lg:w-[361px] xl:w-[520px]">
+                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common cursor-pointer lg:w-[361px] xl:w-[520px]" onClick={onNavigatetoValidID}>
                         <div className="flex gap-4 lg:gap-3">
                             <Icon icon={<BsPersonCheck className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                             <div>
@@ -75,7 +77,7 @@ export default function Kyc () {
                             <Icon icon={<BsPersonCheck className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                             <div>
                                 <p className="text-sm text-color-zero font-medium">Valid Identification</p>
-                                <p className="text-xs text-color-one">Not Provided</p>
+                                <p className="text-xs text-color-one">Provided</p>
                             </div>
                         </div>
                         <MdKeyboardArrowRight className= "text-2xl"/>
@@ -86,7 +88,7 @@ export default function Kyc () {
                             <Icon icon={<IoPeople className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                             <div>
                                 <p className="text-sm text-color-zero font-medium">Next of Kin</p>
-                                <p className="text-xs text-color-one">Not Provided</p>
+                                <p className="text-xs text-color-one">Provided</p>
                             </div>
                         </div>
                         <MdKeyboardArrowRight className= "text-2xl"/>
@@ -97,7 +99,7 @@ export default function Kyc () {
                             <Icon icon={<FaRegImage className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                             <div>
                                 <p className="text-sm text-color-zero font-medium">Profile Picture</p>
-                                <p className="text-xs text-color-one">Not Provided</p>
+                                <p className="text-xs text-color-one">Provided</p>
                             </div>
                         </div>
                         <MdKeyboardArrowRight className= "text-2xl"/>
@@ -107,7 +109,7 @@ export default function Kyc () {
                             <Icon icon={<BiSolidBank className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                             <div>
                                 <p className="text-sm text-color-zero font-medium">BVN</p>
-                                <p className="text-xs text-color-one">Not Provided</p>
+                                <p className="text-xs text-color-one">Provided</p>
                             </div>
                         </div>
                         <MdKeyboardArrowRight className= "text-2xl"/>

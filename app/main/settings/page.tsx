@@ -22,6 +22,9 @@ import DeleteBank from "@/components/Settings/DeleteBank";
 import Support from "@/components/Settings/SupportSetting";
 import FAQs from "@/components/Settings/FaqsSettings";
 import Kyc from "@/components/Settings/KycSettings";
+import ValidID from "@/components/Settings/ValidId";
+
+
 export default function SettingsPage() {
   const isDesktop = useMediaQuery("(min-width: 1024px)"); // true if screen width is 1024px or larger
   const [activeSetting, setActiveSetting] = useState<string | null>(
@@ -224,7 +227,8 @@ export default function SettingsPage() {
           )}
           {activeSetting === "Support Setting" && <Support />}
           {activeSetting === "FAQs Setting" && <FAQs />}
-          {activeSetting === "Kyc Setting" && <Kyc />}
+          {activeSetting === "Kyc Setting" && <Kyc onNavigatetoValidID={() => handleSettingClick("Valid ID")}/>}
+          {activeSetting === "Valid ID" && <ValidID />}
         </div>
       </div>
     </div>
