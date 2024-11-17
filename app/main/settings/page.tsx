@@ -21,7 +21,7 @@ import NewBank from "@/components/Settings/NewBank";
 import DeleteBank from "@/components/Settings/DeleteBank";
 import Support from "@/components/Settings/SupportSetting";
 import FAQs from "@/components/Settings/FaqsSettings";
-
+import Kyc from "@/components/Settings/KycSettings";
 export default function SettingsPage() {
   const isDesktop = useMediaQuery("(min-width: 1024px)"); // true if screen width is 1024px or larger
   const [activeSetting, setActiveSetting] = useState<string | null>(
@@ -163,15 +163,22 @@ export default function SettingsPage() {
                 navigate={<MdKeyboardArrowRight className="text-xl"/>}
                 />
             </div>
+            <div
+              className={`cursor-pointer ${
+                activeSetting === "Kyc Setting" ? "bg-yellow-500" : "bg-transparent"
+              }`}
+              onClick={() => handleSettingClick("Kyc Setting")}
+            >
+                <AccountSettings
+                settingIcon={
+                    <BsPersonCheck className="text-color-one text-2xl lg:text-lg" />
+                }
+                setting="KYC"
+                settingText="Luctus turpis amet neque ultrices in"
+                navigate={<MdKeyboardArrowRight className="text-xl"/>}
+                />
+            </div>
            
-            <AccountSettings
-              settingIcon={
-                <BsPersonCheck className="text-color-one text-2xl lg:text-lg" />
-              }
-              setting="KYC"
-              settingText="Luctus turpis amet neque ultrices in"
-              navigate={<MdKeyboardArrowRight className="text-xl"/>}
-            />
           </div>
           {/* Delete Account Button */}
           <section className="flex bg-light-grey p-4 shadow-sm rounded-common w-[167.5px] mt-4">
@@ -217,6 +224,7 @@ export default function SettingsPage() {
           )}
           {activeSetting === "Support Setting" && <Support />}
           {activeSetting === "FAQs Setting" && <FAQs />}
+          {activeSetting === "Kyc Setting" && <Kyc />}
         </div>
       </div>
     </div>
