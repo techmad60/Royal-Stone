@@ -8,6 +8,7 @@ import { BiSolidBank, BiSupport } from "react-icons/bi";
 import { FaQuestionCircle } from "react-icons/fa";
 import { BsPersonCheck } from "react-icons/bs";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { MdKeyboardArrowRight } from "react-icons/md";
 import Image from "next/image";
 import Icon from "@/components/ui/Icon";
 import AccountSettings from "@/components/Settings/AccountSettings";
@@ -19,7 +20,7 @@ import BankSetting from "@/components/Settings/BankSettings";
 import NewBank from "@/components/Settings/NewBank";
 import DeleteBank from "@/components/Settings/DeleteBank";
 import Support from "@/components/Settings/SupportSetting";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import FAQs from "@/components/Settings/FaqsSettings";
 
 export default function SettingsPage() {
   const isDesktop = useMediaQuery("(min-width: 1024px)"); // true if screen width is 1024px or larger
@@ -146,15 +147,23 @@ export default function SettingsPage() {
                 navigate={<MdKeyboardArrowRight className="text-xl"/>}
               />
             </div>
-
-            <AccountSettings
-              settingIcon={
-                <FaQuestionCircle className="text-color-one text-2xl lg:text-lg" />
-              }
-              setting="FAQs"
-              settingText="Ultricies ut felis sit vitae sed eget erat."
-              navigate={<MdKeyboardArrowRight className="text-xl"/>}
-            />
+            
+            <div
+              className={`cursor-pointer ${
+                activeSetting === "FAQs Setting" ? "bg-yellow-500" : "bg-transparent"
+              }`}
+              onClick={() => handleSettingClick("FAQs Setting")}
+            >
+                <AccountSettings
+                settingIcon={
+                    <FaQuestionCircle className="text-color-one text-2xl lg:text-lg" />
+                }
+                setting="FAQs"
+                settingText="Ultricies ut felis sit vitae sed eget erat."
+                navigate={<MdKeyboardArrowRight className="text-xl"/>}
+                />
+            </div>
+           
             <AccountSettings
               settingIcon={
                 <BsPersonCheck className="text-color-one text-2xl lg:text-lg" />
@@ -207,6 +216,7 @@ export default function SettingsPage() {
             <DeleteBank onClose={() => setIsDeleteBankOpen(false)} />
           )}
           {activeSetting === "Support Setting" && <Support />}
+          {activeSetting === "FAQs Setting" && <FAQs />}
         </div>
       </div>
     </div>
