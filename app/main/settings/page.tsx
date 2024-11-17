@@ -16,6 +16,7 @@ import SecuritySettings from "@/components/Settings/SecuritySetting";
 import ChangePassword from "@/components/Settings/ChangePassword";
 import BankSetting  from "@/components/Settings/BankSettings";
 import NewBank from "@/components/Settings/NewBank";
+import DeleteBank from "@/components/Settings/DeleteBank";
 import Icon from "@/components/ui/Icon";
 
 export default function SettingsPage() {
@@ -23,16 +24,22 @@ export default function SettingsPage() {
   const [activeSetting, setActiveSetting] = useState<string | null>(
     isDesktop ? "Profile" : null
   );
+
   useEffect(() => {
     // Set activeSetting to "Profile" if on desktop
     if (isDesktop && !activeSetting) {
       setActiveSetting("Profile");
     }
   }, [isDesktop, activeSetting]);
+
   const handleSettingClick = (setting: string) => {
     setActiveSetting(setting);
   };
 
+  const [deleteBankOpen, setIsDeleteBankOpen] = useState(false)
+  const handleDelteteBankOpen = () => {
+    setIsDeleteBankOpen(true)
+  }
   return (
     <div className="">
       {/* Account Settings and Profile Settings */}
@@ -159,8 +166,11 @@ export default function SettingsPage() {
             {activeSetting === "Verify Email" && <VerifyEmailSetting onNavigateToChangePassword={() => handleSettingClick("Change Password")}/>}
             {/* Add additional setting components if necessary */}
             {activeSetting === "Change Password" && <ChangePassword />}
-            {activeSetting === "Bank Setting" && <BankSetting onNavigatetoCreateNewBank={() => handleSettingClick("New Bank")}/>}
+            {activeSetting === "Bank Setting" && <BankSetting onNavigatetoCreateNewBank={() => handleSettingClick("New Bank")} onNavigatetoDeleteBank={() => setIsDeleteBankOpen(true)}/>}
             {activeSetting === "New Bank" && <NewBank />} 
+            {deleteBankOpen && (
+                <DeleteBank onClose={() => setIsDeleteBankOpen(false)}/>
+           )}
           </div>
         </div>
       </div>

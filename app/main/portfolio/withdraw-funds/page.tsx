@@ -9,6 +9,7 @@ import TransactionProcessed from "@/components/Portolio/WithdrawTransactionProce
 import TransactionDetails from "@/components/Portolio/WithdrawTransactionDetails";
 import WithdrawPreview from "@/components/Portolio/WithdrawPreview";
 import WithdrawFunds from "@/components/Portolio/WithdrawFundsNavigator";
+import CircleToggle from "@/components/ui/CircleToggle";
 
 
 export default function WithdrawFundsPage() {
@@ -76,9 +77,9 @@ export default function WithdrawFundsPage() {
                     </div>
                    
                     <div className="grid grid-cols-2 grid-rows-2 gap-4 py-4 lg:flex">
-                        <BankComponent bankImage={<Image src="/images/banks/opay.svg" height={15} width={15} alt="Opay Logo"/>} bankName="Opay" accNumber={9019111278} accName="Osindeinde Kolawole" style="h-[105px]" flexStyling="flex gap-2 space-y-0"/>
-                        <BankComponent bankImage={<Image src="/images/banks/gt-bank.svg" height={15} width={15} alt="GT bank Logo"/>} bankName="GTBank" accNumber={2219111278} accName="Osindeinde Kolawole" style="h-[105px] bg-color-two" flexStyling="flex gap-2 space-y-0"/>
-                        <BankComponent bankImage={<Image src="/images/banks/opay.svg" height={15} width={15} alt="Opay Logo"/>} bankName="Opay" accNumber={7100192289} accName="Osindeinde Kolawole" style="h-[105px]" flexStyling="flex gap-2 space-y-0"/>
+                        <BankComponent bankImage={<Image src="/images/banks/opay.svg" height={15} width={15} alt="Opay Logo"/>} bankName="Opay" accNumber={9019111278} accName="Osindeinde Kolawole" style="h-[105px]" flexStyling="flex gap-2 space-y-0" icon={<CircleToggle/>}/>
+                        <BankComponent bankImage={<Image src="/images/banks/gt-bank.svg" height={15} width={15} alt="GT bank Logo"/>} bankName="GTBank" accNumber={2219111278} accName="Osindeinde Kolawole" style="h-[105px] bg-color-two" flexStyling="flex gap-2 space-y-0" icon={<CircleToggle/>}/>
+                        <BankComponent bankImage={<Image src="/images/banks/opay.svg" height={15} width={15} alt="Opay Logo"/>} bankName="Opay" accNumber={7100192289} accName="Osindeinde Kolawole" style="h-[105px]" flexStyling="flex gap-2 space-y-0" icon={<CircleToggle/>}/>
                     </div>
                 </div>
                 <p className="text-color-one border-b leading-none border-color-one text-xs w-fit cursor-pointer lg:hidden" onClick={createNewBank}>Use a new bank account</p>

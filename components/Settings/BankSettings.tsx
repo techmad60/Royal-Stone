@@ -14,9 +14,10 @@ const bankSteps = [
 ];
 interface BankSettingProps {
   onNavigatetoCreateNewBank: () => void;
+  onNavigatetoDeleteBank: () => void;
 }
 export default function BankSetting({
-  onNavigatetoCreateNewBank,
+  onNavigatetoCreateNewBank, onNavigatetoDeleteBank
 }: BankSettingProps) {
   const [showBankDetails, setShowBankDetails] = useState(false);
   return (
@@ -79,7 +80,7 @@ export default function BankSetting({
                 accName="Osindeinde Kolawole"
                 style="h-[105px]"
                 flexStyling="flex gap-2 space-y-0"
-                icon={<RiDeleteBin5Fill className="text-red-500" />}
+                icon={<RiDeleteBin5Fill className="text-red-500 cursor-pointer" onClick={onNavigatetoDeleteBank} />}
               />
               <BankComponent
                 bankImage={
@@ -95,7 +96,7 @@ export default function BankSetting({
                 accName="Osindeinde Kolawole"
                 style="h-[105px] bg-color-two"
                 flexStyling="flex gap-2 space-y-0"
-                icon={<RiDeleteBin5Fill className="text-red-500" />}
+                icon={<RiDeleteBin5Fill className="text-red-500 cursor-pointer" onClick={onNavigatetoDeleteBank} />}
               />
               <BankComponent
                 bankImage={
@@ -111,20 +112,19 @@ export default function BankSetting({
                 accName="Osindeinde Kolawole"
                 style="h-[105px]"
                 flexStyling="flex gap-2 space-y-0"
-                icon={<RiDeleteBin5Fill className="text-red-500" />}
+                icon={<RiDeleteBin5Fill className="text-red-500 cursor-pointer" onClick={onNavigatetoDeleteBank} />}
               />
             </div>
-            <div className="my-4 lg:hidden" onClick={onNavigatetoCreateNewBank}>
+            <div className="my-4 lg:hidden" onClick={onNavigatetoDeleteBank}>
               <Button
                 ButtonText="Add Bank Account"
                 className="py-3 rounded-[12px] w-[125px] h-[30px] flex items-center justify-center text-xs tracking-tight"
               />
             </div>
           </div>
-         
 
           <div className="hidden lg:grid">
-            <div className="grid-cols-5 bg-light-grey p-3 rounded-[15px] shadow-sm">
+            <div className="grid grid-cols-5 bg-light-grey p-3 rounded-[15px] shadow-sm">
                 <p className="text-sm text-[rgba(15,28,57,0.5)]">Bank</p>
                 <p className="text-sm text-[rgba(15,28,57,0.5)] col-span-2">
                 Account Number

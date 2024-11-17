@@ -25,7 +25,7 @@ export default function NewBank() {
   ];
 
   return (
-    <div className="flex flex-col bg-white">
+    <div className="flex flex-col bg-white lg:mr-8">
       <div className="">
         <SettingsNavigator currentStep={2} steps={newBankSteps}/>
         <p className="text-color-zero font-semibold text-lg mt-6">
@@ -81,7 +81,7 @@ export default function NewBank() {
           </div>
         </div>
       </form>
-      <div className="mt-12 m-4 lg:mt-4">
+      <div className="mt-12 lg:mt-8">
         <FormButton ButtonText="Save" className="py-3 w-full lg:w-full" />
       </div>
     </div>
