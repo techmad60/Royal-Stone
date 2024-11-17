@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import Icon from "../ui/Icon";
-import { IoIosArrowDown } from "react-icons/io";
 import FormButton from "../ui/FormButton";
 
 interface DeleteBankProps {
@@ -20,7 +19,7 @@ export default function DeleteBank({ onClose}: DeleteBankProps) {
 
   return (
     <div className="fixed inset-0 flex bg-[#D9D9D9A6] items-end lg:items-center justify-end lg:justify-center z-50">
-            <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[335px] lg:rounded-[20px] lg:max-w-[621px] lg:h-[364px]">
+            <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[335px] lg:rounded-[20px] lg:max-w-[621px] lg:h-[348px]">
                 <div className="flex justify-center items-center mt-4 lg:hidden">
                     <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
                 </div>
@@ -28,54 +27,53 @@ export default function DeleteBank({ onClose}: DeleteBankProps) {
                     <p onClick={onClose} className="text-color-form text-sm cursor-pointer">
                         Cancel
                     </p>
-                    <p className="text-color-zero font-semibold text-lg mx-auto relative right-4">Use New Bank Account</p>
+                    <p className="text-color-zero font-semibold text-lg mx-auto relative right-4">Delete Bank Account</p>
                 </div>
+                
+                <p className="text-color-form text-sm my-1 p-4">Do you want to delete the following bank details?</p>
 
-                <div className="flex items-center gap-4 my-1 p-4">
-                    <p className="text-color-form text-sm">Provide your bank account details</p>
-                    {/* <Icon icon={<Image src="/images/banks/gt-bank.svg" height={24} width={24} alt="Zelle Logo"/>} containerSize="w-[41px] h-[41px]"/> */}
+                <section className="bg-light-grey rounded-common shadow-sm h-[84px] py-2 flex flex-col space-y-4 lg:hidden">
+                    <div className="flex pl-4 items-center gap-3">
+                        <Icon icon={<Image src="/images/banks/opay.svg" height={14} width={14} alt="Opay Logo"/>} containerSize="w-[16px] h-[16px]"/>
+                        <p className="text-sm font-medium text-color-zero">GTBank</p>
+                    </div>
+                    <div className="flex items-center gap-4 pl-4">
+                        <p className="text-color-form text-sm border-r pr-4">9019111278</p>
+                        <p className="text-color-form text-sm">Osindeinde Kolawole</p>
+                    </div>
+                </section>
+                
+                <div className="hidden lg:grid h-[348px]">
+                    <div className="grid grid-cols-6 m-4 bg-light-grey p-3 rounded-[15px] shadow-sm">
+                        <p className="text-sm text-[rgba(15,28,57,0.5)] col-span-2">Bank</p>
+                        <p className="text-sm text-[rgba(15,28,57,0.5)] col-span-2">
+                        Account Number
+                        </p>
+                        <p className="text-sm text-[rgba(15,28,57,0.5)] col-span-2">
+                        Account Name
+                        </p>
+                    </div>
+                    <section className="grid grid-cols-6 px-3 py-4 mx-4">
+                        <div className="flex gap-2 col-span-2">
+                            <Icon icon={<Image
+                            src="/images/banks/opay.svg"
+                            height={15}
+                            width={15}
+                            alt="Opay Logo"
+                        />}/>
+                            <p className="text-sm text-color-zero col-span-2">Opay</p>
+                        </div>
+                        <p className="text-sm col-span-2">9019111278</p>
+                        <div className="flex justify-between col-span-2">
+                            <p className="text-sm text-color-zero col-span-2">Osindeinde Kolawole</p>
+                            
+                        </div>  
+                    </section>
+                    <hr />
                 </div>
-
-                <form className="flex flex-col space-y-4 p-4">
-                    {/* Trade Amount */}
-                    <div className="flex flex-col gap-1">
-                        <label className="text-color-form text-sm">Bank</label>
-                        <div className="flex justify-between py-2 border-b border-slate-200">
-                            <div className="flex gap-2">
-                                <p className="text-sm font-medium text-color-zero">GTBank</p>
-                                <Icon icon={<Image src="/images/banks/gt-bank.svg" height={14} width={14} alt="Zelle Logo"/>} containerSize="w-[16px] h-[16px]"/>
-                            </div>
-                           
-                            <div className=" ">
-                                <IoIosArrowDown />
-                            </div>
-                        </div>
-                    
-                    </div>
-                    {/* Trade Amount */}
-                    <div className="flex flex-col gap-1">
-                        <label className="text-color-form text-sm">Account Number</label>
-                        <div className="relative border-b border-slate-200 ">
-                            <div className="flex justify-between py-2">
-                                <input
-                                    type="text"
-                                    required
-                                    className="rounded-sm  placeholder:text-color-zero placeholder:text-sm"
-                                    placeholder="2010100191"
-                                />
-                                <div className="">
-                                    <p className="text-sm text-color-one border-b border-color-one leading-none">Osindeinde Kolawole</p>
-                                </div>
-                            </div>
-                           
-                        </div>
-                    
-                    </div>
-                   
-                   
-                </form>
-                <div className="mt-12 m-4 lg:mt-4">
-                        <FormButton ButtonText="Proceed" className="py-3 w-full lg:w-full"/>
+                
+                <div className="mt-12 m-4 lg:mt-4" onClick={onClose}>
+                        <FormButton ButtonText="Delete" className="py-3 w-full lg:w-full"/>
                     </div>
             </div>
         </div>

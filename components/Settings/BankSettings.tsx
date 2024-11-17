@@ -145,6 +145,8 @@ export default function BankSetting({
               bankName="Opay"
               accountNum={9019111278}
               accountName="Osindeinde Kolawole"
+              onNavigatetoDeleteBank={onNavigatetoDeleteBank}
+              
             />
             <hr />
             <BankComponentDesktop
@@ -159,6 +161,7 @@ export default function BankSetting({
               bankName="Opay"
               accountNum={9019111278}
               accountName="Osindeinde Kolawole"
+              onNavigatetoDeleteBank={onNavigatetoDeleteBank}
             />
             <hr />
             <BankComponentDesktop
@@ -173,6 +176,7 @@ export default function BankSetting({
               bankName="Opay"
               accountNum={9019111278}
               accountName="Osindeinde Kolawole"
+              onNavigatetoDeleteBank={onNavigatetoDeleteBank}
             />
           </div>
           <hr />

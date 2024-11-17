@@ -7,9 +7,10 @@ interface BankComponent {
     bankName: string;
     accountNum: number;
     accountName: string;
+    onNavigatetoDeleteBank?: () => void;
 
 }
-export default function BankComponentDesktop ({bankImage, bankName, accountNum, accountName}:BankComponent) {
+export default function BankComponentDesktop ({bankImage, bankName, accountNum, accountName, onNavigatetoDeleteBank}:BankComponent) {
     return (
         <section className="grid grid-cols-5 px-3 py-5">
             <div className="flex gap-2 p-">
@@ -19,7 +20,7 @@ export default function BankComponentDesktop ({bankImage, bankName, accountNum, 
             <p className="text-sm col-span-2">{accountNum}</p>
             <div className="flex justify-between col-span-2">
                 <p className="text-sm text-color-zero">{accountName}</p>
-                <RiDeleteBin5Fill className="text-red-500"/>
+                <RiDeleteBin5Fill className="text-red-500 cursor-pointer" onClick={onNavigatetoDeleteBank}/>
             </div>  
         </section>
     )
