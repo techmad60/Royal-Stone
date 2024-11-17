@@ -35,7 +35,6 @@ export default function BankSetting({
             className="py-3 rounded-[12px] w-[125px] h-[30px] items-center justify-center text-xs tracking-tight hidden lg:flex"
             />
         </div>
-      
       </div>
 
       {showBankDetails ? (
