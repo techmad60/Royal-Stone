@@ -37,9 +37,6 @@ export default function SettingsPage() {
   };
 
   const [deleteBankOpen, setIsDeleteBankOpen] = useState(false)
-  const handleDelteteBankOpen = () => {
-    setIsDeleteBankOpen(true)
-  }
   return (
     <div className="">
       {/* Account Settings and Profile Settings */}
