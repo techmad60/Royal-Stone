@@ -106,7 +106,10 @@ export default function Portfolio() {
               </p>
               <p className="text-sm text-color-one">View All</p>
             </div>
-            <HistoryDesktop/>
+            <div className="hidden lg:grid">
+                <HistoryDesktop/>
+            </div>
+          
             <div className="lg:hidden">
                 <section>
                     <p className="text-color-form text-sm">Today</p>
