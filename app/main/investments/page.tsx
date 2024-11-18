@@ -9,6 +9,10 @@ import NoHistory from "@/components/ui/NoHistory";
 import Icon from "@/components/ui/Icon";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import ProductsMobile from "@/components/Investments/ProductsMobile";
+import ProductsDesktop from "@/components/Investments/ProductsDesktop";
+import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
+
 
 export default function Portfolio() {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -92,104 +96,9 @@ export default function Portfolio() {
             <h1 className="text-base font-semibold mt-2 lg:text-xl">
               All Investments
             </h1>
-            <div className="flex-col space-y-3 py-4">
-              <section className="flex gap-2 bg-light-grey shadow-sm p-3 rounded-common">
-                <div className="flex-shrink-0">
-                  <Image
-                    src="/images/potato-2.svg"
-                    height={77}
-                    width={77}
-                    alt="Potato image"
-                  />
-                </div>
-                <div>
-                  <div className="flex justify-between items-center">
-                    <div className="flex flex-col gap-1">
-                      <p className="text-color-one text-[0.625rem]">ONGOING</p>
-                      <p className="text-sm text-colour-five">
-                        Pharetra diam vitae duis vash aliquet
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-color-zero font-medium">
-                        $210
-                      </p>
-                      <p className="text-[0.625rem] text-color-one tracking-tight whitespace-nowrap">
-                        ROI:10% ($21)
-                      </p>
-                    </div>
-                  </div>
-                  <hr className="my-1" />
-                  <p className="text-[0.625rem] text-[rgba(151,156,169,1)]">
-                    MATURITY DATE: 22/9/2025
-                  </p>
-                </div>
-              </section>
-              <section className="flex gap-2 bg-light-grey shadow-sm p-3 rounded-common">
-                <div className="flex-shrink-0">
-                  <Image
-                    src="/images/potato-2.svg"
-                    height={77}
-                    width={77}
-                    alt="Potato image"
-                  />
-                </div>
-                <div>
-                  <div className="flex justify-between items-center">
-                    <div className="flex flex-col gap-1">
-                      <p className="text-color-one text-[0.625rem]">ONGOING</p>
-                      <p className="text-sm text-colour-five">
-                        Pharetra diam vitae duis vash aliquet
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-color-zero font-medium">
-                        $210
-                      </p>
-                      <p className="text-[0.625rem] text-color-one tracking-tight whitespace-nowrap">
-                        ROI:10% ($21)
-                      </p>
-                    </div>
-                  </div>
-                  <hr className="my-1" />
-                  <p className="text-[0.625rem] text-[rgba(151,156,169,1)]">
-                    MATURITY DATE: 22/9/2025
-                  </p>
-                </div>
-              </section>
-              <section className="flex gap-2 bg-light-grey shadow-sm p-3 rounded-common">
-                <div className="flex-shrink-0">
-                  <Image
-                    src="/images/potato-2.svg"
-                    height={77}
-                    width={77}
-                    alt="Potato image"
-                  />
-                </div>
-                <div>
-                  <div className="flex justify-between items-center">
-                    <div className="flex flex-col gap-1">
-                      <p className="text-color-one text-[0.625rem]">ONGOING</p>
-                      <p className="text-sm text-colour-five">
-                        Pharetra diam vitae duis vash aliquet
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-color-zero font-medium">
-                        $210
-                      </p>
-                      <p className="text-[0.625rem] text-color-one tracking-tight whitespace-nowrap">
-                        ROI:10% ($21)
-                      </p>
-                    </div>
-                  </div>
-                  <hr className="my-1" />
-                  <p className="text-[0.625rem] text-[rgba(151,156,169,1)]">
-                    MATURITY DATE: 22/9/2025
-                  </p>
-                </div>
-              </section>
-            </div>
+           <ProductsMobile/>
+           <ProductsDesktop />
+          
             <hr />
             <div className="flex justify-between my-4">
               <p className="text-base font-semibold text-color-zero">
@@ -197,40 +106,43 @@ export default function Portfolio() {
               </p>
               <p className="text-sm text-color-one">View All</p>
             </div>
-            <section>
-                <p className="text-color-form text-sm">Today</p>
-                <hr className="my-3"/>
-                <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common mt-2 lg:w-[361px] xl:w-[520px]">
-                    <div className="flex gap-4 lg:gap-3">
-                        <Icon icon={<GoPlus className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
-                        <div>
-                            <p className="text-sm text-color-zero font-medium">Wallet Funding</p>
-                            <p className="text-xs text-color-one">Completed</p>
+            <HistoryDesktop/>
+            <div className="lg:hidden">
+                <section>
+                    <p className="text-color-form text-sm">Today</p>
+                    <hr className="my-3"/>
+                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common mt-2 lg:w-[361px] xl:w-[520px]">
+                        <div className="flex gap-4 lg:gap-3">
+                            <Icon icon={<GoPlus className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
+                            <div>
+                                <p className="text-sm text-color-zero font-medium">Wallet Funding</p>
+                                <p className="text-xs text-color-one">Completed</p>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <p className="text-color-six">$20</p>
-                        <p className="text-slate-400 text-xs">11:04 AM</p>
-                    </div>
-                </section>
-            </section>
-            <section className="my-5">
-                <p className="text-color-form text-sm">September 11th, 2024</p>
-                <hr className="my-3"/>
-                <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common lg:w-[361px] xl:w-[520px]">
-                    <div className="flex gap-4 lg:gap-3">
-                        <Icon icon={<BsFileBarGraphFill className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
                         <div>
-                            <p className="text-sm text-color-zero font-medium">Investment Purchase</p>
-                            <p className="text-xs text-color-one">Successful</p>
+                            <p className="text-color-six">$20</p>
+                            <p className="text-slate-400 text-xs">11:04 AM</p>
                         </div>
-                    </div>
-                    <div>
-                        <p className="text-color-six">$20</p>
-                        <p className="text-slate-400 text-xs">11:04 AM</p>
-                    </div>
+                    </section>
                 </section>
-            </section>
+                <section className="my-5">
+                    <p className="text-color-form text-sm">September 11th, 2024</p>
+                    <hr className="my-3"/>
+                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common lg:w-[361px] xl:w-[520px]">
+                        <div className="flex gap-4 lg:gap-3">
+                            <Icon icon={<BsFileBarGraphFill className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
+                            <div>
+                                <p className="text-sm text-color-zero font-medium">Investment Purchase</p>
+                                <p className="text-xs text-color-one">Successful</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p className="text-color-six">$20</p>
+                            <p className="text-slate-400 text-xs">11:04 AM</p>
+                        </div>
+                    </section>
+                </section>
+            </div>
           </div>
 
           <div onClick={() => setShowNotifications(true)}>
