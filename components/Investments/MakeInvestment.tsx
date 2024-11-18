@@ -22,7 +22,7 @@ export default function MakeInvestment({
 
   return (
     <div className="fixed inset-0 flex bg-[#D9D9D9A6] items-end lg:items-center justify-end lg:justify-center  z-50">
-      <div className="bg-white flex flex-col rounded-[20px] h-[599px] w-full lg:max-w-[621px] lg:h-[484px]">
+      <div className="bg-white flex flex-col rounded-[20px] h-[599px] w-full lg:max-w-[621px] lg:h-[585px]">
         <div className="flex justify-center items-center mt-4 lg:hidden">
           <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
         </div>
@@ -41,7 +41,7 @@ export default function MakeInvestment({
           You are required to make a bank transfer of N200,000 to the details
           provided within an hour to proceed with your investment payment
         </p>
-        <section className="flex flex-col justify-center items-center rounded-[10px] h-[91px] space-y-4 shadow-sm mx-4 text-sm  lg:p-5 lg:w-[572px] lg:h-[167px]">
+        <section className="flex flex-col justify-center items-center rounded-[10px] h-[91px] space-y-4 shadow-sm mx-4 text-sm  lg:p-5 lg:w-[572px]">
           <p className="text-color-form">Timer</p>
           <div className="flex justify-center items-center space-x-4">
             <Icon icon={<p className="text-sm font-medium text-color-six">5</p>}/>
@@ -56,9 +56,10 @@ export default function MakeInvestment({
             <StatRow label="Bank Name" value="Wema Bank" valueClass="text-color-six text-sm" />
             <StatRow label="Account Number" value="3102991190" valueClass="text-color-six text-sm" />
             <StatRow label="Account Name" value="Admin Checkout-Royal" valueClass="text-color-six text-sm" isLast={true}/>
-            </section>
-        <div onClick={onProceed} className="mt-8 mx-6">
-          <Button ButtonText="Proceed" className="bg-color-one w-full" />
+        </section>
+        <hr className="mt-8 "/>
+        <div onClick={onProceed} className="mt-12 mx-6 lg:mt-8">
+          <Button ButtonText="I have made the transfer" className="bg-color-one w-full" />
         </div>
       </div>
     </div>
