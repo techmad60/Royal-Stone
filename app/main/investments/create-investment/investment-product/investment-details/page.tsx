@@ -4,7 +4,7 @@ import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import BankComponent from "@/components/ui/BankComponent";
-import TransactionProcessed from "@/components/Portolio/FundTransactionProcessed";
+import InvestPreview from "@/components/Investments/InvestmentPreview";
 import TransactionDetails from "@/components/Portolio/FundTransactionDetails";
 import CircleToggle from "@/components/ui/CircleToggle";
 import { BiSolidBank } from "react-icons/bi";
@@ -25,17 +25,18 @@ const investmentDetails = [
 ];
 
 export default function ProductDetails() {
-  const [transactionProcessedOpen, setIsTransactionProcessedOpen] =
-    useState(false);
+  const [investPreviewOpen, setIsInvestPreviewOpen] = useState(false);
+  
   const [transactionDetailsOpen, setIsTransactionDetailsOpen] = useState(false);
 
-  const openTransactionProcessed = () => {
-    setIsTransactionProcessedOpen(true);
+ 
+  const openInvestPreview = () => {
+    setIsInvestPreviewOpen(true);
   };
 
   // Function to open TransactionDetails and close TransactionProcessed
   const handleViewDetailsClick = () => {
-    setIsTransactionProcessedOpen(false);
+    setIsInvestPreviewOpen(false);
     setIsTransactionDetailsOpen(true);
   };
   return (
@@ -115,17 +116,17 @@ export default function ProductDetails() {
             />
           </div>
         </div>
-        <div onClick={openTransactionProcessed}>
+        <div onClick={openInvestPreview}>
           <Button
             ButtonText="Proceed"
             className="py-3 mt-12 w-full lg:w-[528px]"
           />
         </div>
       </form>
-      {transactionProcessedOpen && (
-        <TransactionProcessed
-          onClose={() => setIsTransactionProcessedOpen(false)}
-          onConfirm={handleViewDetailsClick}
+      {investPreviewOpen && (
+        <InvestPreview
+          onClose={() => setIsInvestPreviewOpen(false)}
+          onProceed={handleViewDetailsClick}
         />
       )}
       {transactionDetailsOpen && (
