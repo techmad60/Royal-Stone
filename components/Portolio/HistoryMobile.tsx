@@ -46,12 +46,14 @@ const transactions = [
     ],
   },
 ];
-
-export default function TransactionList() {
+interface TransactionListProps {
+  onProceed?: () => void;
+}
+export default function TransactionList({onProceed}:TransactionListProps) {
   return (
     <div className="lg:hidden">
       {transactions.map((transaction, index) => (
-        <section key={index}>
+        <section key={index} onClick={onProceed}>
           <div>
             <p className="text-sm text-color-form pb-2">{transaction.date}</p>
             <hr />

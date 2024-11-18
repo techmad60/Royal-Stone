@@ -14,7 +14,8 @@ import ProductsDesktop from "@/components/Investments/ProductsDesktop";
 import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
 
 
-export default function Portfolio() {
+
+export default function Investment() {
   const [showNotifications, setShowNotifications] = useState(false);
   return (
     <div>

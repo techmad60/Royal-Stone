@@ -38,8 +38,10 @@ const transactions = [
   },
   // Add more transactions as needed
 ];
-
-export default function HistoryDesktop() {
+interface HistoryDesktopProps {
+   onProceed?: () => void;
+}
+export default function HistoryDesktop({onProceed}:HistoryDesktopProps) {
   return (
     <div>
         <div className="hidden lg:grid grid-cols-7 items-center bg-light-grey rounded-common py-4 px-3 shadow-sm mr-8">
@@ -60,7 +62,7 @@ export default function HistoryDesktop() {
             {transaction.date} | {transaction.time}
           </p>
           <p className="text-sm text-color-one">{transaction.status}</p>
-          <Link href={transaction.link} className="flex items-center justify-center border rounded-[20px] gap-2 w-[78px] h-[22px]">
+          <Link href="" className="flex items-center justify-center border rounded-[20px] gap-2 w-[78px] h-[22px]" onClick={onProceed}>
             <p className="text-xs text-color-form">View</p>
             <IoIosArrowForward className="text-color-form text-sm" />
           </Link>
