@@ -5,7 +5,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import BankComponent from "@/components/ui/BankComponent";
 import InvestPreview from "@/components/Investments/InvestmentPreview";
-import TransactionDetails from "@/components/Portolio/FundTransactionDetails";
+import InvestmentProcessed from "@/components/Investments/InvestmentProcessed";
 import CircleToggle from "@/components/ui/CircleToggle";
 import { BiSolidBank } from "react-icons/bi";
 import { IoWallet } from "react-icons/io5";
@@ -27,7 +27,7 @@ const investmentDetails = [
 export default function ProductDetails() {
   const [investPreviewOpen, setIsInvestPreviewOpen] = useState(false);
   
-  const [transactionDetailsOpen, setIsTransactionDetailsOpen] = useState(false);
+  const [investmentProcessedOpen, setIsInvestmentProcessedOpen] = useState(false);
 
  
   const openInvestPreview = () => {
@@ -37,7 +37,7 @@ export default function ProductDetails() {
   // Function to open TransactionDetails and close TransactionProcessed
   const handleViewDetailsClick = () => {
     setIsInvestPreviewOpen(false);
-    setIsTransactionDetailsOpen(true);
+    setIsInvestmentProcessedOpen(true);
   };
   return (
     <div>
@@ -129,9 +129,10 @@ export default function ProductDetails() {
           onProceed={handleViewDetailsClick}
         />
       )}
-      {transactionDetailsOpen && (
-        <TransactionDetails
-          onClose={() => setIsTransactionDetailsOpen(false)}
+      {investmentProcessedOpen && (
+        <InvestmentProcessed
+          onClose={() => setIsInvestmentProcessedOpen(false)}
+          onConfirm={() => setIsInvestPreviewOpen}
         />
       )}
     </div>
