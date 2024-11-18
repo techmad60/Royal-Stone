@@ -100,11 +100,11 @@ export default function Portfolio() {
            <ProductsDesktop />
           
             <hr />
-            <div className="flex justify-between my-4">
+            <div className="flex justify-between my-4 lg:mr-8">
               <p className="text-base font-semibold text-color-zero">
                 Recent Transactions
               </p>
-              <p className="text-sm text-color-one">View All</p>
+              <Link href="/main/investments/investment-history" className="text-sm text-color-one">View All</Link>
             </div>
             <div className="hidden lg:grid">
                 <HistoryDesktop/>

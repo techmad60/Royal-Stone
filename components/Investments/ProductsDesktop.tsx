@@ -22,7 +22,7 @@ export default function ProductsDesktop () {
                     <p className="text-sm text-color-zero">10% ($20)</p>
                     <p className="text-sm text-color-one">ONGOING</p>
                     <p className="text-sm text-color-zero">22/9/2025</p>
-                    <Link href="" className="flex border p-3 rounded-[20px] items-center gap-2 w-[80px] text-xs font-medium hover:text-green-700 duration-300  text-color-form">
+                    <Link href="" className="flex border p-3 rounded-[20px] items-center gap-2 w-[80px] h-[22px] text-xs font-medium hover:text-green-700 duration-300  text-color-form">
                         <p className="text-xs">View</p>
                         <MdArrowForwardIos className="text-xs flex-shrink-0"/>
                     </Link>
@@ -36,7 +36,7 @@ export default function ProductsDesktop () {
                     <p className="text-sm text-color-zero">10% ($20)</p>
                     <p className="text-sm text-color-one">ONGOING</p>
                     <p className="text-sm text-color-zero">22/9/2025</p>
-                    <Link href="" className="flex border p-3 rounded-[20px] items-center gap-2 w-[80px] text-xs font-medium hover:text-green-700 duration-300  text-color-form">
+                    <Link href="" className="flex border p-3 rounded-[20px] items-center gap-2 w-[80px] h-[22px] text-xs font-medium hover:text-green-700 duration-300  text-color-form">
                         <p className="text-xs">View</p>
                         <MdArrowForwardIos className="text-xs flex-shrink-0"/>
                     </Link>
@@ -50,7 +50,7 @@ export default function ProductsDesktop () {
                     <p className="text-sm text-color-zero">10% ($20)</p>
                     <p className="text-sm text-color-one">ONGOING</p>
                     <p className="text-sm text-color-zero">22/9/2025</p>
-                    <Link href="" className="flex border p-3 rounded-[20px] items-center gap-2 w-[80px] text-xs font-medium hover:text-green-700 duration-300  text-color-form">
+                    <Link href="" className="flex border p-3 rounded-[20px] items-center gap-2 w-[80px] h-[22px] text-xs font-medium hover:text-green-700 duration-300  text-color-form">
                         <p className="text-xs">View</p>
                         <MdArrowForwardIos className="text-xs flex-shrink-0"/>
                     </Link>
