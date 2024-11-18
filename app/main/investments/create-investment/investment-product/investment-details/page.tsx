@@ -40,8 +40,8 @@ export default function ProductDetails() {
     setIsMakeInvestmentOpen(true);
   }
   // Function to open InvestPreview and close InvestmentProcessed
-  const handleViewDetailsClick = () => {
-    setIsInvestPreviewOpen(false);
+  const handleInvestmentProcessedClick = () => {
+    setIsMakeInvestmentOpen(false);
     setIsInvestmentProcessedOpen(true);
   };
   return (
@@ -137,7 +137,7 @@ export default function ProductDetails() {
       {makeInvestmentOpen && (
         <MakeInvestment
           onClose={() => setIsMakeInvestmentOpen(false)}
-          onProceed={handleViewDetailsClick}
+          onProceed={handleInvestmentProcessedClick}
         />
       )}
       {investmentProcessedOpen && (
