@@ -71,7 +71,7 @@ export default function Investment() {
           <div className="flex items-center justify-center text-color-one gap-1 lg:flex-col">
             <Icon icon={<GoPlus />} />
             <Link
-              href="/main/portfolio/fund-wallet"
+              href="/main/investments/fund-wallet"
               className="text-xs whitespace-nowrap"
             >
               Fund Wallet
