@@ -4,6 +4,7 @@ import TextToggle from "@/components/ui/TextToggle";
 import Button from "@/components/ui/Button";
 import StatRow from "@/components/ui/StatRow";
 import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
+import Link from "next/link";
 
 const investmentProduct = [
     { label: "Investments", href: "/main/investments" },
@@ -64,7 +65,10 @@ export default function ProductDetails() {
                         <StatRow label="Cost Per Unit" value="$2,000/units" valueClass="text-color-six text-sm" />
                         <StatRow label="ROI" value="32%" valueClass="text-color-six text-sm" />
                     </section>
-                    <Button ButtonText="Invest" className="w-full mt-8"/>
+                    <Link href="/main/investments/create-investment/investment-product/investment-details">
+                        <Button ButtonText="Invest" className="w-full mt-8"/>
+                    </Link>
+                  
                 </div>
             </div>
         </div>
