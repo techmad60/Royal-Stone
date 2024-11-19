@@ -1,6 +1,5 @@
 "use client"
 import { useState } from "react";
-import { IoIosArrowUp } from "react-icons/io";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import BankComponent from "@/components/ui/BankComponent";

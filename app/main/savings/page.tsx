@@ -1,11 +1,18 @@
+"use client"
+import { useState } from "react";
 import Image from "next/image";
 import { TbTargetArrow } from "react-icons/tb";
 import { IoIosSend } from "react-icons/io";
 import { GoPlus } from "react-icons/go";
 import CardComponentFive from "@/components/ui/CardComponentFive";
 import Icon from "@/components/ui/Icon";
+import Button from "@/components/ui/Button";
+import NoHistory from "@/components/ui/NoHistory";
+import { BsFileBarGraphFill } from "react-icons/bs";
 
-export default function Stocks() {
+
+export default function Savings() {
+  const [showNotifications, setShowNotifications] = useState(true);
   return (
     <div className="flex flex-col pb-4 lg:mr-8">
       <div className="xl:flex items-end xl:my-4">
@@ -34,15 +41,20 @@ export default function Stocks() {
       
 
       <hr className=""/>
-
-      <div className="flex flex-col items-center justify-center space-y-2 bg-light-grey rounded-common h-[92px] shadow-sm my-4">
-        <Icon icon={<TbTargetArrow className="text-color-one"/>}/>
-        <p className="text-sm text-[#0F1C39B2]">No Savings Target History</p>
-      </div>
-      
-       
+      {showNotifications ?  (
+         <div className="lg:mr-8">
+         <NoHistory
+           icon={<TbTargetArrow />}
+           text="No Investment History"
+         />
+         <div onClick={() => setShowNotifications(false)}>
+           <Button ButtonText="With notifications" className="mx-auto" />
+         </div>
+       </div>
+        
+      ) : (
+        <div>Success</div>
+      )}
     </div>
-    
-
   );
 }
