@@ -5,14 +5,14 @@ const transactions = [
     items: [
       {
         description: "Savings Wallet Funding",
-        status: "Completed",
+        status: "Successful",
         amount: "$20",
         time: "11:04 AM",
         isCredit: true,
       },
       {
         description: "Investment Fund Withdrawal",
-        status: "Completed",
+        status: "Successful",
         amount: "-$7",
         time: "9:12 AM",
         isCredit: false,
@@ -24,14 +24,14 @@ const transactions = [
     items: [
       {
         description: "Savings Wallet Funding",
-        status: "Completed",
+        status: "Successful",
         amount: "$20",
         time: "11:04 AM",
         isCredit: true,
       },
       {
         description: "Investment Fund Withdrawal",
-        status: "Completed",
+        status: "Successful",
         amount: "-$7",
         time: "9:12 AM",
         isCredit: false,
@@ -58,14 +58,14 @@ export default function SavingsMobile({onProceed}:SavingsMobileProps) {
             >
               <div className="">
                 <div>
-                  <p className="text-sm text-color-zero font-medium tracking-tight">
+                  <p className="text-sm text-color-zero tracking-tight">
                     {item.description}
                   </p>
                   <p className="text-xs text-color-one">{item.status}</p>
                 </div>
               </div>
               <div className="flex flex-col">
-                <p className={`font-semibold text-sm ${item.isCredit ? 'text-color-six' : 'text-red-500'}`}>
+                <p className={`text-sm ${item.isCredit ? 'text-color-six' : 'text-red-500'}`}>
                   {item.amount}
                 </p>
                 <p className="text-xs text-[rgba(107,115,133,0.7)]">

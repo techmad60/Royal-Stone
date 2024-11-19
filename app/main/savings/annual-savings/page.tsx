@@ -1,3 +1,4 @@
+"use client"
 import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
 import { TbTargetArrow } from "react-icons/tb";
 import Icon from "@/components/ui/Icon";
@@ -5,12 +6,19 @@ import StatRow from "@/components/ui/StatRow";
 import Button from "@/components/ui/Button";
 import SavingsMobile from "@/components/Savings/SavingsMobile";
 import SavingsDesktop from "@/components/Savings/SavingsDesktop";
+import SavingsDetails from "@/components/Savings/SavingsDetails";
+import { useState } from "react";
 const annualSavings = [
   { label: "Fixed Savings", href: "/main/savings" },
   { label: "Annual Rent Savings", href: "/main/savings/annual-savings" },
 ];
 
 export default function AnnualSavings() {
+    const [savingDetailsOpen, setIsSavingDetailOpen] = useState(false);
+
+    const handleSavingDetailsOpen = () => {
+        setIsSavingDetailOpen(true)
+    }
   return (
     <div>
       <div className="lg:flex lg:gap-10 xl:gap-36">
@@ -90,12 +98,15 @@ export default function AnnualSavings() {
         <p className="text-base text-color-zero font-semibold">
           Annual Rent Savings History
         </p>
-        <SavingsMobile />
+        <SavingsMobile onProceed={handleSavingDetailsOpen}/>
         <div className="hidden lg:grid">
-            <SavingsDesktop />
+            <SavingsDesktop onProceed={handleSavingDetailsOpen}/>
         </div>
         
       </div>
+      {savingDetailsOpen && (
+        <SavingsDetails onClose={() => setIsSavingDetailOpen(false)}/>
+      )}
     </div>
   );
 }

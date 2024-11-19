@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const transactions = [
   {
-    description: "Investment Wallet Funding",
+    description: "Savings Wallet Funding",
     amount: "$20",
     date: "Sept 9, 2024",
     time: "9:12 AM",
@@ -12,7 +12,7 @@ const transactions = [
     link: "/portfolio/details",
   },
   {
-    description: "Investment Wallet Funding",
+    description: "Savings Wallet Funding",
     amount: "$20",
     date: "Sept 9, 2024",
     time: "9:12 AM",
@@ -20,7 +20,7 @@ const transactions = [
     link: "/portfolio/details",
   },
   {
-    description: "Investment Wallet Funding",
+    description: "Savings Wallet Funding",
     amount: "$20",
     date: "Sept 9, 2024",
     time: "9:12 AM",
@@ -28,7 +28,7 @@ const transactions = [
     link: "/portfolio/details",
   },
   {
-    description: "Investment Wallet Funding",
+    description: "Savings Wallet Funding",
     amount: "$20",
     date: "Sept 9, 2024",
     time: "9:12 AM",
