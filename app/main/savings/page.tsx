@@ -87,7 +87,7 @@ export default function Savings() {
               <p className="text-base font-semibold text-color-zero">
                 Recent Transactions
               </p>
-              <Link href="/main/investments/investment-history" className="text-sm text-color-one">View All</Link>
+              <Link href="/main/savings/savings-history" className="text-sm text-color-one">View All</Link>
             </div>
             <div className="hidden lg:grid">
                 <HistoryDesktop/>
