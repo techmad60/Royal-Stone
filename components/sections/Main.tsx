@@ -91,7 +91,7 @@ export default function Main() {
           <CardComponent
             title="Make an Investment"
             text="Take control of your financial future. Make informed investment decisions with our expert guidance.
-            Diversify your portfolio, minimize risk, and maximize returns. Whether you're a seasoned investor or just
+            Diversify your portfolio, minimize risk, and maximize returns. Whether you&apos;re a seasoned investor or just
             starting out, our tailored solutions empower you to achieve your goals. Invest in your dreams, secure your
             legacy, and unlock a brighter financial future. Start your investment journey today!"
             icon="/images/make-investment.svg"
@@ -101,7 +101,7 @@ export default function Main() {
           <CardComponent
             title="Create a Savings Target"
             text="Set your financial goals and crush them! Create a savings target that sparks motivation and drives results.
-            Whether it's a dream vacation, down payment, or emergency fund, our tools help you stay focused and
+            Whether it&apos;s a dream vacation, down payment, or emergency fund, our tools help you stay focused and
             on track. Set realistic targets, automate your savings, and watch your progress grow. Start your journey
             to financial freedom today!"
             icon="/images/make-savings.svg"
@@ -114,7 +114,7 @@ export default function Main() {
               <div>
                 <p>
                   Unlock your financial potential. Invest in stocks and tap into
-                  the world's top-performing companies. Diversify your
+                  the world&apos;s top-performing companies. Diversify your
                   portfolio, minimize risk, and maximize returns. Our expert
                   tools and research help you:
                 </p>

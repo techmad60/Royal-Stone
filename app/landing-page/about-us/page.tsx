@@ -27,10 +27,10 @@ export default function AboutUs() {
               you make informed decisions about your investment options. Our
               exceptional customer service team is always available to address
               your concerns and provide prompt resolutions. By joining the Royal
-              Stone Capital family, you'll experience the difference that comes
+              Stone Capital family, you&apos;ll experience the difference that comes
               with working with a dedicated team of financial professionals. We
               prioritize building long-term relationships, fostering trust, and
-              ensuring your financial well-being. Together, let's achieve
+              ensuring your financial well-being. Together, let&apos;s achieve
               financial freedom and secure your legacy.{" "}
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function AboutUs() {
               financial well-being is our top priority. Join us on this journey,
               and discover a brighter financial future. Explore our investment
               packages, savings options, and stock investment services, and
-              experience the Royal Stone Capital difference. Together, let's
+              experience the Royal Stone Capital difference. Together, let&apos;s
               shape the future of finance{" "}
             </p>
           </div>

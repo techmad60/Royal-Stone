@@ -25,8 +25,8 @@ export default function PrivacyPolicy() {
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
                 Hey! At Royal stone, we value your trust and are committed to
-                protecting your personal information. We've created this Privacy
-                Policy (the “Policy”) to describe your privacy rights regarding
+                protecting your personal information. We&apos;ve created this Privacy
+                Policy (the &quot;Policy&quot;) to describe your privacy rights regarding
                 how we collect, use, process, disclose and protect your
                 information; including any non-public, personal information
                 (Personal Data).
@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
                 This Policy applies to the Personal Data collected by Royal
                 stone when you use our website, mobile application, social media
                 platforms, tools and any other platform belonging to Royal stone
-                (collectively, the "Services") or otherwise interact with us as
+                (collectively, the &quot;Services&quot;) or otherwise interact with us as
                 described below. We may update this Policy from time to time and
                 at our sole discretion. Where updates are made to the Policy, we
                 will notify you of same by revising the date at the top of this
@@ -59,7 +59,7 @@ export default function PrivacyPolicy() {
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
                 Information that identifies or can be used to identify a living
-                individual is known as "personal data." All organizations
+                individual is known as &quot;personal data.&quot; All organizations
                 processing personal data must do so fairly and in accordance
                 with all applicable data protection laws. This includes the
                 obligation for us to tell you how we will use your personal
@@ -140,7 +140,7 @@ export default function PrivacyPolicy() {
                 specific to your needs; To comply with applicable laws where we
                 are obliged to retain and/or disclose certain information;
                 Generating statistics on our users, such as the popularity of
-                certain of our services and about the "traffic" visiting our
+                certain of our services and about the &quot;traffic&quot; visiting our
                 websites in order to improve our services to you; and/or To
                 provide you with information about goods or services we feel may
                 interest you in accordance with applicable laws (please see
