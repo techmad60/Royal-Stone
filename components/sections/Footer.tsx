@@ -15,7 +15,7 @@ export default function Footer ({margin = ""}){
                         <Image src={"/images/logo.svg"} alt="Royal-Stone Logo" width={129} height={24.17}/> 
                     </Link>
                     
-                    <p className='text-sm text-colour-five leading-[25px] sm:w-[300px] lg:w-[330px]'>Purus eget arcu faucibus mi velit. Massa placerat sed in malesuada cum ornare.</p>
+                    <p className='text-sm text-colour-five leading-[25px] sm:w-[300px] lg:w-[330px]'>Elevate your experience with the ultimate solution.</p>
                 </section>
                 
                 <div className='flex w-full justify-between lg:gap-20 xl:gap-28'>

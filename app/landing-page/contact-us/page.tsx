@@ -25,7 +25,7 @@ export default function ContactUs() {
                         <CardComponentThree icon="/images/phone-icon.svg" text="Phone" contact="09010201223" href="tel:+2349010201223"/>
                         
                         {/* Send a Mail */}
-                        <CardComponentThree icon="/images/mail-icon.svg" text="Mail" contact="Support@royalstone.com" href="mailto:Support@royalstone.com"/>
+                        <CardComponentThree icon="/images/mail-icon.svg" text="Mail" contact="INFO@ROYALSTONECAPITAL.COM" href="mailto:INFO@ROYALSTONECAPITAL.COM"/>
                     </div>
 
                     {/* Contact Us Form*/}
