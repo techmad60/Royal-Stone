@@ -56,7 +56,7 @@ export default function Investment() {
           <div className="flex items-center justify-center text-color-one gap-1 lg:flex-col ">
             <Icon icon={<IoIosSend />} />
             <Link
-              href="/main/portfolio/withdraw-funds"
+              href="/main/investments/withdraw-funds"
               className="text-xs whitespace-nowrap"
             >
               Withdraw
