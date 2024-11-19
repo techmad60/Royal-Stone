@@ -31,10 +31,10 @@ export default function Savings() {
             <p className="text-xs whitespace-nowrap">Withdraw</p>
           </div>
 
-          <div className="flex items-center text-color-one gap-2 xl:flex-col">
+          <Link href="/main/savings/create-savings" className="flex items-center  text-color-one gap-2 xl:flex-col">
             <Icon icon={<TbTargetArrow/>}/>
-            <p className="text-xs whitespace-nowrap">Create Savings</p>
-          </div>
+            <p  className="text-xs whitespace-nowrap">Create Savings</p>
+          </Link>
 
           <div className="flex items-center text-color-one gap-2 xl:flex-col">
             <Icon icon={<GoPlus/>}/>

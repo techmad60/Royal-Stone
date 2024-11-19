@@ -1,5 +1,6 @@
 import { TbTargetArrow } from "react-icons/tb";
 import Icon from "../ui/Icon";
+import Link from "next/link";
 interface ProgressCardProps {
     title: string;
     currentAmount: number;
@@ -19,7 +20,7 @@ interface ProgressCardProps {
     status.toLowerCase() === "completed" ? "text-color-six" : "text-color-one";
 
     return (
-      <div className="relative bg-light-grey shadow-sm rounded-common  mt-6 p-4 flex items-center gap-4 h-[86px]">
+      <Link href ="/main/savings/annual-savings" className="relative bg-light-grey shadow-sm rounded-common  mt-6 p-4 flex items-center gap-4 h-[86px]">
         {/* Icon */}
         <div className="absolute -top-[10px] ">
           <Icon icon={<TbTargetArrow className="text-color-one"/>}/>
@@ -52,7 +53,7 @@ interface ProgressCardProps {
             <span className="text-xs text-color-zero">{percentage}%</span>
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
   
