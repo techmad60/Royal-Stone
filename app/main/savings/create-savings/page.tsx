@@ -8,8 +8,6 @@ import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
 import SavingsPreview from "@/components/Savings/SavingsPreview";
 import SavingsTarget from "@/components/Savings/SavingsTarget";
 import SavingsProcessed from "@/components/Savings/SavingsProcessed";
-import TransactionProcessed from "@/components/Portolio/FundTransactionProcessed";
-import TransactionDetails from "@/components/Portolio/FundTransactionDetails";
 import { BsFillWalletFill } from "react-icons/bs";
 import { BiSolidBank } from "react-icons/bi";
 import { IoWallet } from "react-icons/io5";
@@ -25,7 +23,6 @@ export default function CreateSavingsPage() {
   const [savingsPreviewOpen, setIsSavingsPreviewOpen] = useState(false);
   const [savingsTargetOpen, setIsSavingsTargetOpen] = useState(false);
   const [savingsProcessedOpen, setIsSavingsProcessedOpen] = useState(false);
-//   const [transactionDetailsOpen, setIsTransactionDetailsOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
   const openSavingsPreview = () => {

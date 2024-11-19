@@ -1,6 +1,5 @@
 "use client";
 import { useEffect } from "react";
-import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Icon from "../ui/Icon";
 import { TbTargetArrow } from "react-icons/tb";
