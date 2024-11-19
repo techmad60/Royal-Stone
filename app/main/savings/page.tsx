@@ -12,6 +12,7 @@ import Link from "next/dist/client/link";
 import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import ProgressCard from "@/components/Savings/ProgressBar";
+import ProgressBarDesktop from "@/components/Savings/ProgressBarDesktop";
 
 
 export default function Savings() {
@@ -59,9 +60,29 @@ export default function Savings() {
         <div>
           <div>
             <h1 className="text-base font-semibold mt-4 text-color-zero">Savings Target</h1>
-            <ProgressCard title="Annual Rent Savings" status="ONGOING" currentAmount={120} goalAmount={370}/>
-            <ProgressCard title="New Laptop Savings" status="ONGOING" currentAmount={400} goalAmount={1000}/>
-            <ProgressCard title="Tuition Fees Savings" status="COMPLETED" currentAmount={700} goalAmount={1000}/>
+            <div className="lg:hidden">
+              <ProgressCard title="Annual Rent Savings" status="ONGOING" currentAmount={120} goalAmount={370}/>
+              <ProgressCard title="New Laptop Savings" status="ONGOING" currentAmount={400} goalAmount={1000}/>
+              <ProgressCard title="Tuition Fees Savings" status="COMPLETED" currentAmount={1000} goalAmount={1000}/>
+            </div>
+            
+            <div className="hidden lg:grid my-5">
+              <div className="bg-light-grey shadow-sm hidden lg:grid grid-cols-9 p-3 mr-8 rounded-[15px]">
+                <p className="text-xs text-[rgba(15,28,57,0.5)] col-span-2">Plan Name</p>
+                <p className="text-xs text-[rgba(15,28,57,0.5)]">Amount Saved</p>
+                <p className="text-xs text-[rgba(15,28,57,0.5)] col-span-2">Progress</p>
+                <p className="text-xs text-[rgba(15,28,57,0.5)]">Target Amount</p>
+                <p className="text-xs text-[rgba(15,28,57,0.5)]">Status</p>
+                <p className="text-xs text-[rgba(15,28,57,0.5)]">Due Dates</p>
+                <p className="text-xs text-[rgba(15,28,57,0.5)]">Actions</p>
+              </div>
+              <ProgressBarDesktop title="Annual Rent Savings" status="ONGOING" currentAmount={120} goalAmount={370} />
+              <hr className="my-3"/>
+              <ProgressBarDesktop title="New Laptop Savings" status="ONGOING" currentAmount={400} goalAmount={1000} />
+              <hr className="my-3"/>
+              <ProgressBarDesktop title="Annual Rent Savings" status="COMPLETED" currentAmount={1000} goalAmount={1000} />
+            </div>
+            
             <div className="flex justify-between my-4 lg:mr-8">
               <p className="text-base font-semibold text-color-zero">
                 Recent Transactions
