@@ -26,20 +26,20 @@ export default function Savings() {
         </div>
 
         <section className={`flex bg-light-grey shadow-sm rounded-common p-4 my-4 justify-between lg:w-[382px] lg:mx-auto xl:my-0 xl:w-fit xl:gap-4 xl:h-[103px] xl:justify-center xl:items-center`}>
-          <div className="flex items-center text-color-one gap-2 xl:flex-col">
+          <Link href="/main/savings/withdraw-funds" className="flex items-center text-color-one gap-2 xl:flex-col">
             <Icon icon={<IoIosSend/>}/> 
             <p className="text-xs whitespace-nowrap">Withdraw</p>
-          </div>
+          </Link>
 
           <Link href="/main/savings/create-savings" className="flex items-center  text-color-one gap-2 xl:flex-col">
             <Icon icon={<TbTargetArrow/>}/>
             <p  className="text-xs whitespace-nowrap">Create Savings</p>
           </Link>
 
-          <div className="flex items-center text-color-one gap-2 xl:flex-col">
+          <Link href="/main/savings/fund-wallet" className="flex items-center text-color-one gap-2 xl:flex-col">
             <Icon icon={<GoPlus/>}/>
             <p className="text-xs whitespace-nowrap">Fund Wallet</p>
-          </div>
+          </Link>
         </section>
       </div>
       
