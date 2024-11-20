@@ -1,14 +1,18 @@
-//signup/step-one/page.tsx
+//signup/with-mail/page.tsx
 "use client";
 import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import SignUpNavigator from "@/components/registration/SignUpNavigator";
+import Navigator from "@/components/ui/Navigator";
 import CheckBox from "@/components/ui/Checkedbox";
 import EmptyBox from "@/components/ui/UncheckedBox";
-import FormButton from "@/components/ui/FormButton";
+import Button from "@/components/ui/FormButton";
 import Link from "next/link";
 
+const signupSteps = [
+  { label: "Create Account", href: "/auth/signup" },
+  { label: "With Mail", href: "/main/signup/withimail" },
+];
 export default function StepOne() {
   const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -21,9 +25,10 @@ export default function StepOne() {
   const toggleCheckbox = () => {
     setIsChecked(!isChecked);
   };
+
   return (
     <div className="flex flex-col">
-      <SignUpNavigator currentStep={1} />
+      <Navigator currentStep={1} steps={signupSteps}/>
       {/* Step One Content Here */}
       <form className={`flex flex-col mt-8 space-y-8 max-w-[33.5rem]`}>
         {/* Name */}
@@ -106,7 +111,7 @@ export default function StepOne() {
           </p>
         </div>
         <Link href="/auth/signup/step-two">
-          <FormButton ButtonText="Create Account" className="py-3" />
+          <Button ButtonText="Create Account" className="py-3" />
         </Link>
       </form>
         <p className="text-slate-400 text-center mt-8">

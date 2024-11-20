@@ -4,11 +4,11 @@ import CardComponentFour from "@/components/ui/CardComponentFour";
 
 export default function SignUp() {
     return (
-        <section className="flex flex-col space-y-6 mt-4 lg:pr-8">
+        <section className="flex flex-col space-y-6 mt-4 sm:space-y-8 lg:pr-8 lg:space-y-6">
             <section className="flex flex-col space-y-4">
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-2 sm:gap-6 sm:mt-4 lg:mt-0 lg:gap-2">
                     {/* Signup with Email */}
-                    <CardComponentFour icon="/images/mail-icon.svg" textStart="Continue" textEnd="Email" href="/auth/signup/step-one" className="lg:h-[83px]" />
+                    <CardComponentFour icon="/images/mail-icon.svg" textStart="Continue" textEnd="Email" href="/auth/signup/with-mail" className="lg:h-[83px]" />
 
                     {/* Signup with Google */}
                     <CardComponentFour icon="/images/google-icon.svg" textStart="Continue" textEnd="Google" className="lg:h-[83px]" />

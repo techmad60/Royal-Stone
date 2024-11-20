@@ -16,6 +16,9 @@ export default function PrivacyPolicy() {
             >
               Privacy Policy
             </h1>
+            <p className="text-sm text-colour-five mb-4 lg:text-base">
+            Updated Last: 30th September 2024
+            </p>
           </section>
           <section className="flex flex-col justify-start items-start space-y-4 py-4 lg:space-y-20">
             {/* Introduction */}

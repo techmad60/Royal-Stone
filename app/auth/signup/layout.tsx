@@ -8,7 +8,7 @@ export default function SignUpLayout({
 }) {
   return (
     <div className="flex flex-col bg-white">
-      <div className="p-4 lg:grid grid-cols-2 lg:p-0 gap-12">
+      <div className="p-4 sm:p-12 lg:grid grid-cols-2 lg:p-0 gap-12">
         <div>
           <Prompt prompt="1,000+ users are making smart investment choices. Why not be one of them? 🤔"/>
         </div>
