@@ -41,7 +41,7 @@ export default function ContactUs() {
                                     name="name" 
                                     required 
                                     className="rounded-sm  h-[40px] placeholder:text-black"
-                                    placeholder="Kolawole Osindeinde"/>
+                                    placeholder=""/>
                                 </div>
                                 
                                 {/* Phone Number */}
@@ -51,7 +51,7 @@ export default function ContactUs() {
                                     type="tel" 
                                     required 
                                     className="rounded-sm border-b border-slate-200 h-[40px] placeholder:text-black"
-                                    placeholder="+234 8103763064"/>
+                                    placeholder=""/>
                                 </div>
                             </div>
                             
@@ -64,7 +64,7 @@ export default function ContactUs() {
                                     name="email" 
                                     required 
                                     className="rounded-sm border-b border-slate-200 h-[40px] placeholder:text-black"
-                                    placeholder="kola-osin@gmail.com"/>
+                                    placeholder=""/>
                                 </div>
 
                                 {/* Message */}
