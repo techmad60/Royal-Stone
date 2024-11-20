@@ -16,7 +16,7 @@ export default function TermsOfService() {
             >
               TERMS AND CONDITION
             </h1>
-            <p>
+            <p className="text-sm text-colour-five mb-4 lg:text-base">
               By accessing, viewing the Platform or using the Services through
               any means, you accept our terms and conditions and agree to be
               bound.
@@ -49,12 +49,12 @@ export default function TermsOfService() {
                 electronically or otherwise through the platform.
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                1.1.2 &quots;APIs&quots; means programmatic web application
+                1.1.2 &quot;APIs&quot; means programmatic web application
                 programming interfaces and associated tools and documentation
                 that provide access to certain data displayed on the Platform.
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                1.1.3 &quots;Applicable Law&quots; means, any constitution,
+                1.1.3 &quot;Applicable Law&quot; means, any constitution,
                 statute, law, rule, regulation, ordinance, judgement, order,
                 decree of the United States of America, or any published
                 directive, guideline, requirement or other governmental
@@ -63,33 +63,33 @@ export default function TermsOfService() {
                 America.
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                1.1.4 &quots;Client&quots;, &quots;Customer&quots;,
-                &quots;you&quots;, &quots;your&quots; means a party using and
-                utilising our Services through our Platform.
+                1.1.4 &quot;Client&quot;, &quot;Customer&quot;, &quot;you&quot;,
+                &quot;your&quot; means a party using and utilising our Services
+                through our Platform.
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                1.1.5 &quots;Royal stone&quots;, We&quots;, &quots;us&quots;,
-                and &quots;our&quots; means Royal stone capital and its
-                successors, affiliates, and assignees. &quots;Royal stone
-                Account&quots; means a Client or Customer&apos;s account with
-                Royal stone for the Services we render.
+                1.1.5 &quot;Royal stone&quot;, We&quot;, &quot;us&quot;, and
+                &quot;our&quot; means Royal stone capital and its successors,
+                affiliates, and assignees. &quot;Royal stone Account&quot; means
+                a Client or Customer&apos;s account with Royal stone for the
+                Services we render.
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                1.1.6 &quots;Partner Program&quots; refers to contractual
+                1.1.6 &quot;Partner Program&quot; refers to contractual
                 relationships entered into between Royal stone and thirdparty
                 service providers to enhance or build on Royal stone&apos;s
                 product offerings.
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                1.1.7 &quots;Platform&quots; means collectively, Royal
+                1.1.7 &quot;Platform&quot; means collectively, Royal
                 stone&apos;s website, mobile applications, and blog and includes
                 any updates or replacements as may be applicable.
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                1.1.8 &quots;Services&quots; means the management of a Client&apos;s
-                savings and investments made through the Platform and/or other
-                services as may be agreed between the parties but subject always
-                to the terms of our license.
+                1.1.8 &quot;Services&quot; means the management of a
+                Client&apos;s savings and investments made through the Platform
+                and/or other services as may be agreed between the parties but
+                subject always to the terms of our license.
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
                 1.1.9 &apos;Terms of Use&apos; means these terms of use.
@@ -99,199 +99,191 @@ export default function TermsOfService() {
             {/* Whys? */}
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                1. Why have a privacy policy?
+                1.2 Purpose
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Information that identifies or can be used to identify a living
-                individual is known as &quot;personal data.&quot; All
-                organizations processing personal data must do so fairly and in
-                accordance with all applicable data protection laws. This
-                includes the obligation for us to tell you how we will use your
-                personal data. We treat all of our legal obligations seriously
-                and take all steps necessary to ensure compliance when storing
-                and processing your personal data.
+                We offer an automated savings and investment service as a
+                licensed fund/portfolio manager. As our Client, we will use best
+                efforts and reasonable care to manage your savings and
+                investments made through our Platform on your behalf to maximize
+                your returns.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                These Terms of Use set out the terms and conditions under which
+                Royal stone will provide the Services to its Clients and under
+                which they may access the Platform.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Please read the privacy policy carefully before accessing the
+                Platform or using the Services.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                References to &quot;you&quot; or &quot;your&quot; are references
+                to any person accessing or using the Platform, and/or Services
+                by any means.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                2. What personal data do we collect about you and how?
+                1.3 Scope of Terms of Use
               </h2>
 
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                We may collect the following information about you: Your contact
-                details such as your name, address, telephone number and email
-                address; Your date of birth, nationality, country of birth,
-                country of residence, employment status and tax identification
-                number (e.g. National Insurance Number); Passport details,
-                driving license and utility bills; Details of the services you
-                request from us; and Certain additional information which may be
-                necessary in order for us to provide particular services to you.
+                Subject to the provisions of clause 7 (Termination), these Terms
+                of Use remain in effect until you discontinue your use of the
+                Services/access to the Platform and all financial obligations
+                with regard to your use of the Services have been fulfilled.
               </p>
 
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                We collect your personal data in a number of different ways,
-                including (but not limited to) the following: If you provide it
-                when communicating with us (for example when registering for our
-                services); If you order any of our products or services; If you
-                enter a competition or promotion; If you make payments or modify
-                your account details; and When you visit our websites (for
-                example by cookies, your IP address and other browser-generated
-                information).
+                Royal stone reserves the right to amend, modify or change any
+                portion of the Terms of Use without prior notice to you and
+                without your consent. Where any portion of the Terms of Use are
+                amended or modified, such changes shall be effective
+                immediately.
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                We record all service calls for quality and training purposes,
-                to enable us to deal effectively with queries and complaints
-                and, in the case of calls where customers place transactions on
-                regulated markets, in order to comply with our regulatory
-                obligations. In most cases, you are not obliged to provide any
-                personal data to us, but if you have requested information or
-                you have ordered a service from us, we must obtain, and it is a
-                contractual requirement for you to provide, certain information
-                so that we can verify your identity and in order for us to meet
-                our legal obligations. Please see section 7 below for further
-                details.
+                We suggest that you review these Terms of Use periodically for
+                such changes and/or modifications. You acknowledge that by
+                accessing our Platform and using the Services after such
+                change/modifications, you agree to these terms as modified.
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Some of the information that we collect about you or which you
-                provide to us about you or your family members may be special
-                category data for the purposes of applicable data protection
-                laws. Special category data includes information about physical
-                and mental health, racial or ethnic origin, sexual orientation,
-                trade union membership and biometric data. We take special care
-                of this data in accordance with applicable data protection laws.
+                If you do not agree with these Terms of Use, please do not
+                proceed with utilising the Platform and our Services. Please
+                note that if you are an existing Client, these Terms of Use will
+                apply in addition to those contained in any agreement entered
+                into between Royal stone and third parties in relation to
+                provision of the Services.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                3. How do we use your personal data?
+                2. Obligations
               </h2>
+              <p className="font-bold text-colour-five lg:text-base">
+                2.1 Eligibility
+              </p>
 
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                We retain and use your personal data for some or all of the
-                following purposes: Security, payment verification, insurance,
-                debt tracing and debt recovery; Dealing with any queries,
-                complaints or problems reported by you; Enabling you to
-                participate in our promotions and competitions; Enabling you to
-                participate in the interactive features of the website and
-                ensuring content from our website is presented in the most
-                Effective manner for you and your computer or device; Notifying
-                you about changes to our service and/ or the terms on which the
-                services are provided; To ensure the proper operation of our
-                systems; To keep our client records up to date; To better
-                understand your requirements and provide you with services
-                specific to your needs; To comply with applicable laws where we
-                are obliged to retain and/or disclose certain information;
-                Generating statistics on our users, such as the popularity of
-                certain of our services and about the &quot;traffic&quot;
-                visiting our websites in order to improve our services to you;
-                and/or To provide you with information about goods or services
-                we feel may interest you in accordance with applicable laws
-                (please see further details on our marketing activities at
-                section 6 below).
+                Our services are available to individuals aged 18+ who meet our
+                eligibility criteria.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Any access to the Platform or use of the Services by any person
+                or entity who does not meet up with the above criteria is not
+                allowed or permitted, and shall be in violation of these Terms
+                of Use.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                4. Data Retention
+                2.2 Your Access
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                We will only keep your personal data for as long as we need to
-                in order to fulfil the relevant purpose(s) it was collected for,
-                as set out above in this privacy policy and for as long as we
-                are required to keep it by law. We retain copies of our customer
-                contracts in order to enable us to deal with any legal issues
-                along with the information provided to us for identification
-                verification checks and anti-money laundering checks (as
-                required by law) for 6 years after termination or expiry of our
-                contract with you. Details of complaints are retained for 5
-                years from receipt. If you have a query in relation to how long
-                we retain your personal data for, please contact us using the
-                contact details provided below.
+                In order to access certain features of the Platform, you must
+                register to create an account (&quot;Client Account&quot;). When
+                you register, you will be asked to choose a password which you
+                will be required to provide in order to access your Account.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Royal stone has physical, electronic, and procedural safeguards
+                that comply with regulatory standards under Applicable Law to
+                guard Clients&apos; personal information (see privacy policy).
+                You are responsible for safeguarding your password and other
+                Account information. You agree not to disclose your password to
+                any third party and you will notify Royal stone immediately if
+                your password is lost or stolen or if you suspect any
+                unauthorised use of your Account.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                As a Client, you agree that you shall be solely responsible for
+                any activities or actions under your Royalstone Account and that
+                Royal stone is irrevocably authorised to comply with any
+                instructions received on the Services on your behalf for your
+                use of the Services. Such instructions shall be irrevocably
+                deemed to have been authorised by you.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                If you do not use the Services/Platform for a certain period of
+                time, Applicable Law may require us to report the funds in your
+                Client Account as unclaimed property. If this occurs, we may try
+                to locate you or your next of kin at the address shown in our
+                records. If we are unable to locate you, we may be required to
+                deliver any funds in your Client Account to the applicable state
+                as unclaimed property. The specified period of time to report
+                and deliver funds to a state varies by state.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                In the event of death, payments of all monies/interest in a
+                Client Account shall be made in accordance with the Applicable
+                Law.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                4. Data Retention
+                2.3 Alerts, Notifications and Service Communications
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                We will only keep your personal data for as long as we need to
-                in order to fulfil the relevant purpose(s) it was collected for,
-                as set out above in this privacy policy and for as long as we
-                are required to keep it by law. We retain copies of our customer
-                contracts in order to enable us to deal with any legal issues
-                along with the information provided to us for identification
-                verification checks and anti-money laundering checks (as
-                required by law) for 6 years after termination or expiry of our
-                contract with you. Details of complaints are retained for 5
-                years from receipt. If you have a query in relation to how long
-                we retain your personal data for, please contact us using the
-                contact details provided below.
+                By creating a Client Account, you automatically sign up for
+                various types of alerts via e-mail and mobile notification. We
+                never include your password in these communications, but we may
+                include your name, or email address and information about your
+                portfolio(s) if you are a Client. Anyone with access to your
+                e-mail or mobile device will be able to view these alerts. You
+                may unsubscribe from marketing oriented emails at any time.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                5. What is the legal basis upon which we deal with your data?
+                2.4 Confidentiality
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Whenever we collect or use your personal data, we will make sure
-                we do this for a valid legal reason which will generally include
-                at least one of the following reasons: Because it is necessary
-                to fulfil the terms of our contract with you; Because it is
-                necessary to support the legitimate interests of our business or
-                the legitimate interests of others. Whenever we use this legal
-                basis, we will undertake a balancing test to ensure that our
-                legitimate interests are not outweighed by your personal
-                interests or fundamental rights and freedoms which require
-                protection. Our legitimate interests are to; Undertake group
-                administrative exercises Provide client services Run, develop
-                and/ or grow our business; and Undertake market research and
-                marketing (nb. please see Section 6 for your rights to opt-out
-                of receiving marketing). Because it is necessary to fulfil a
-                legal obligation; and/or Where we have obtained your consent -
-                we will always make it clear when we need your consent and how
-                you can change your permissions and/or withdraw your consent at
-                any time thereafter. If you would like to know more about our
-                legal basis for using your personal data in any particular way,
-                you can contact us at any time using the details at section 13
-                below.
+                All information and documents obtained by Royal stone or its
+                employees, consultants or agents which are not published or
+                otherwise publicly available shall be kept confidential and not
+                disclosed to third parties or the public. This restriction shall
+                not apply to any information disclosed to legal advisers, or to
+                a third party to the extent that this is deemed by Royal stone
+                as required, by any court of competent jurisdiction, or by a
+                governmental or regulatory authority. This covenant shall
+                survive termination of these Terms of Use.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                6. Marketing
+                3. Fund/Portfolio Manager services
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                We (or a third party acting for us) may use the information you
-                provide us with to keep you informed about products and services
-                which we believe you may be interested in, carry out market
-                research and/or to review how you use your account in order to
-                maximise customer engagement and assess customer satisfaction.
-                This information may be sent to you by e mail, SMS, other
-                electronic means, telephone and/or post.
+                The Client hereby appoints Royal stone as its fund/portfolio
+                manager and grants a limited power-of-attorney with
+                discretionary trading authority to manage the assets in your
+                Customer Account. Royal stone accepts this appointment under the
+                terms and conditions set forth.
               </p>
 
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                In most cases, we will only conduct such marketing activities
-                where we have obtained your consent, a third party has obtained
-                consent on our behalf or otherwise in accordance with applicable
-                laws. Depending on the nature of the consent collected, we (or a
-                third party acting for us) may carry out targeted electronic
-                marketing based on, for example, location or profiling data.
+                Our authority will include the ability to manage your Customer
+                Account utilising your selected Royal stone investment model to:
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Buy, sell and trade stocks;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Invest in different investment packages;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Manage cash balances within your Client Account and
               </p>
 
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                In summary, the Soft Opt-In allows a business send direct
-                marketing providing it has obtained the contact details of the
-                recipient in the course of establishing a service relationship
-                (or the sale of a product), the marketing is in respect of
-                similar products and services and the legitimate interests
-                balancing test set out in section 5 is met.
+                Periodically rebalance your portfolio
               </p>
 
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
