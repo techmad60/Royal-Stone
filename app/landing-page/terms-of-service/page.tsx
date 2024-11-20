@@ -2,7 +2,6 @@
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import DownloadApp from "@/components/ui/DownloadApp";
-import Link from "next/link";
 
 export default function TermsOfService() {
   return (
@@ -287,282 +286,733 @@ export default function TermsOfService() {
               </p>
 
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                In such circumstances, we will provide you with a simple means
-                of opting-out of such marketing at the time that we collect your
-                contact details and in any subsequent communications. The Soft
-                Opt-In cannot be used to promote third party products and
-                services.
+                You acknowledge that:
               </p>
 
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                If you do not want to receive any marketing communications from
-                us, you can unsubscribe when we initially obtain your details,
-                or by contacting us in writing at any time or by opting out by
-                following the opt out instructions on our website or app or
-                contained in the relevant telephone, SMS, other electronic
-                means, post, or email marketing communication.
+                Royal stone will deliver the Services exclusively through the
+                Platform;
               </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Please note that your opting out of marketing communications
-                will not prevent us from continuing to communicate with you as
-                necessary to manage your account (such service messages may
-                include, for example, where we consider it suitable or proper,
-                in the circumstances, to make you aware of economic matters
-                which may require your attention, and that you may otherwise
-                have been unaware). Please refer to www.ii.co.uk for details of
-                our products and services. Any such opt-out requests will not
-                affect the running of your existing account or the services you
-                request from us, in respect of which we will still process your
-                personal data in accordance with this policy.
+                All Client assets/investments are held with a licensed custodian
+                for safekeeping in order to minimize the risk of their
+                misappropriation, misuse, theft, and/or loss and in accordance
+                with Applicable Law;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                In addition to the Platform, Royal stone may provide Services in
+                person, over the phone, or through any other medium; and
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                With respect to Client Account where we have discretion to
+                effect trades without your prior consultation or approval
+                (&quot;Discretionary Accounts&quot;), you may contact Royal
+                stone by email during its business hours regarding questions
+                about the Platform or Services.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                You acknowledge that Royal stone does not provide:
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Financial planning services, and its Services are not a complete
+                investment program; tax, accounting, investment or legal advice;
+                You are encouraged to consider additional asset classes,
+                strategies and investments to supplement your overall plan; and
+                to consult with your tax advisor regarding any tax consequences
+                related to your Royalstone Account.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                You acknowledge that neither the information, nor any opinion,
+                contained on the Platform constitutes a solicitation or offer by
+                Royal stone or its affiliates to buy or sell any securities.
+                Decisions based on information contained on the Platform are the
+                sole responsibility of the Client/Customer. The information
+                contained on our Platform is for informational purposes only and
+                is not intended to be relied upon as a forecast, research or
+                investment advice. The information on this Platform does not
+                constitute a recommendation, offer or solicitation to buy or
+                sell any securities or to adopt any investment strategy.
+                Although the material on our Platform is based upon information
+                that Royal stone considers reliable and endeavours to keep
+                current, Royal stone does not assure that this material is
+                accurate, current or complete, and it should not be relied upon
+                as such. Any opinions expressed on the Platform may change as
+                subsequent conditions vary. Past performance is no guarantee of
+                future results.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                7. Breach of Personal Data
+                3.1 Savings Terms and Conditions
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                In the event of a breach of security leading to the accidental
-                or unlawful destruction, loss, alteration, unauthorized
-                disclosure of, or access to Personal Data, we shall, within 72
-                (Seventy-Two) hours of having knowledge of such breach, report
-                the details of the breach to the relevant regulatory body.
+                By using and continuing to use and/or utilise our Services/the
+                Platform, you hereby acknowledge and undertake as follows:
               </p>
 
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Furthermore, where we ascertain that such breach is detrimental
-                to your rights and freedom in relation to your Personal Data, we
-                shall within 7 (Seven) working days of having knowledge of the
-                occurrence of such breach take steps to inform you of the breach
-                incident, the risk to your rights and freedom and any course of
-                action to remedy said breach.
+                The lock period and interest rates of all plans in our Platform
+                shall be as stated in each savings plan (as may be revised or
+                amended by Royal stone from time to time) subject to Applicable
+                Law and/or current market circumstances;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Royal stone may, with or without any prior notice to the Client,
+                revise, change or amend the applicable lock periods and/or
+                interest rates of any of the plans on the Platform. You hereby
+                undertake to hold Royal stone, its directors, officers,
+                employees, agents, successors or assigns harmless free from, and
+                against all claims, losses, damages, liabilities, costs and
+                expenses (including but not limited to reasonable legal fees)
+                that may arise as a result of the provision of this clause.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                8. Cookies
+                3.2 Fee and Expenses
               </h2>
+              <p className="font-bold text-colour-five lg:text-base">
+                Advisory Fee
+              </p>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Most web browsers are set to accept cookies by default. If you
-                prefer, you can usually choose to set your browser to remove or
-                reject browser cookies. Please note that if you choose to remove
-                or reject cookies, this could affect the availability and
-                functionality of our Services.
+                The management fee for each strategy is based on the aggregate
+                net asset value in the Client&apos;s Account.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                The annual management fee will be accrued daily and collected
+                monthly or will be pro-rated (if a Client terminates his or her
+                account before a month-end). Management fees will also be
+                pro-rated based on additions or withdrawals to the Client&apos;s
+                Royal Stone Account during the applicable billing period. If a
+                Client requests a withdrawal that will result in insufficient
+                assets to pay any fees that are due at the time of the
+                withdrawal, fees will be collected at the time of the
+                withdrawal.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                9. Who is your personal data shared with?
+                Other Fees
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                We may disclose your personal data to: Entities within our
-                Group; Law enforcement bodies and/or other regulatory entities
-                in order to comply with any legal obligation; Third parties who
-                we use to carry out the checks that we need to carry out on you,
-                such as identification verification, account verification,
-                anti-money laundering checks, including financial crime
-                prevention agencies and utility companies, and as specified in
-                the terms of service; Other parties who help us to deliver the
-                services to you who may be located in or outside the European
-                Economic Area (EEA); Third parties for marketing purposes
-                subject to the limitations set out in section 6; Third parties
-                to run, develop and/or grow our business, when it is in our
-                legitimate interests to do so; Your employer (or the employer of
-                a person who you are connected to) and/or an agent designated by
-                your employer, if required by law or regulation which the
-                relevant employer is subject to and you have consented to such
-                data sharing.
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Third parties who we share your personal data with may only use
-                it for the purposes set out in this policy and in accordance
-                with all applicable laws. If we transfer your data outside of
-                the EEA, we will always ensure that appropriate controls are in
-                place to protect your data in accordance with applicable data
-                protection laws.
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                For details of the potential transfers of or access to your
-                personal data within or outside of the EEA and the safeguards
-                that we have in place when transferring, or allowing access to,
-                your personal data, (and for a copy of the safeguards, where
-                applicable) please contact our Data Protection Officer via email
-                at EMAIL ADDRESS or using the postal address given at the end of
-                this policy. Your information may also be collected and used by
-                any of the parties detailed in this section.
+                You hereby acknowledge that you may incur certain other charges
+                imposed by third-party financial institutions. These additional
+                costs may include, and are not limited to bank transfer fees,
+                transfer taxes etc. You understand that these fees are not
+                included in the fee that you pay to Royal stone.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                10. Safeguarding your personal data
+                Fee Payment
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                We take all reasonable care in the collection, storage,
-                processing and disclosure of your personal data and have
-                implemented internal security procedures to minimize the risk
-                that unauthorized parties will be able to access and misuse the
-                information. It is because of these security procedures that we
-                may ask for proof of identity before we disclose any personal
-                information about you.
+                By using the Services, you authorize Royalstone to deduct any
+                fees applicable to your Client Account directly from your Royal
+                Stone Account (the &quot;Account Fees&quot;).
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Payment of fees generally will be made first from Client Account
+                assets in cash, next from the liquidation of cash equivalents,
+                and finally from liquidation of assets held in your Account.
+                Until you terminate your Account, you will be deemed to reaffirm
+                continuously your agreement that Royal stone may deduct the
+                Account Fees from your Client Account.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                11. Sale of the business
+                4. Disclaimer and Limit of Liability
               </h2>
+              <p className="font-bold text-colour-five lg:text-base">
+                4.1 For a Prospect who is not a Client
+              </p>
+
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                In the event that we are sold (fully or partially), integrated
-                with another business or dispose of our rights and obligations
-                under any agreement with you, your records may be disclosed
-                under appropriate confidentiality terms to our advisers and any
-                prospective purchaser&apos;s adviser, and will be passed onto
-                the new owners in accordance with all applicable laws. In the
-                event that we buy any business or assets, we may disclose your
-                personal data to the prospective seller of such business or
-                assets under appropriate confidentiality terms and in accordance
-                with all applicable laws.
+                You understand and acknowledge that the investment results you
+                could obtain from investment information and financial insights
+                provided by Royal stone cannot be guaranteed and that Royal
+                stone cannot be held responsible. All investments entail a risk
+                of loss and that you may lose money. Your election to engage our
+                savings and investment services are subject to your explicit
+                enrolment and acceptance of these Terms of Use. You agree and
+                understand that your use of Royal stone is for educational
+                purposes only and is not intended to provide legal, tax or
+                financial planning advice. You agree as a Client that you are
+                responsible for your own investment research and investment
+                decisions, that Royal stone is only one of many tools you may
+                use as part of a comprehensive investment education process,
+                that you should not and will not rely on Royal stone as the
+                primary basis of your investment decisions and, except as
+                otherwise provided for herein, Royal stone will not be liable
+                for decisions/actions you take or authorise third parties to
+                take on your behalf based on information you receive as a Client
+                of Royal stone or information you otherwise see on our Platform.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                12. Third Party Links
+                4.2 Non-Exclusive Services
               </h2>
+
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Please bear in mind that this policy only applies to websites
-                and services operated by us and not those operated by third
-                parties, including those to which our websites may link. We
-                suggest that you make yourself familiar with any privacy policy
-                provided by such third-party websites before providing personal
-                information about yourself.
+                You understand and agree that we provide the Services for other
+                Clients. You further understand that we and our affiliates may
+                take investment action on behalf of such other Clients, that
+                differ from investment action taken on behalf of your account.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                13. Your rights and contacting us
+                4.3 Investment Risks
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Subject to certain exemptions, and in some cases dependent upon
-                the processing activity we are undertaking, you have certain
-                rights in relation to your personal information, as follows:
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                To ask us not to process your personal data for marketing
-                purposes;
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                To access personal information held about you and to obtain a
-                copy of it (Please note: If you require information about your
-                account and/or about any services we have provided to you,
-                please contact our Customer Services team in the first instance.
-                In most cases, we should be able to provide the information you
-                require, and this will typically be quicker than submitting a
-                Data Subject Access Request (DSAR));
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                To restrict or object to the processing of your personal data
-                and to request its erasure under certain circumstances. Please
-                note that we will not be able to erase personal data where we
-                have a legal obligation to retain such data or if we need to
-                hold onto such data for other legitimate purposes e.g. defending
-                any potential legal claim. In most cases, this means that we
-                need to retain all or some of your personal data for 6 years
-                after the closure of your account with us;
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                To prevent any processing of a record of personal data that is
-                causing or is likely to cause unwarranted and substantial damage
-                or distress to you or another individual;
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                In certain circumstances, to request that the personal data
-                which you have provided to us, be transmitted to another data
-                controller in a structured, commonly used, and machine-readable
-                format without hindrance, where technically feasible;
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                To obtain a copy of personal information safeguards used for
-                transfers outside your jurisdiction;
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                To lodge a complaint about the way in which your personal data
-                is being shared with a supervisory authority; and Where we rely
-                on your consent to use your personal data, you have the right to
-                withdraw that consent at any time.
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                If you wish to exercise any of the above mentioned rights, we
-                may ask you for additional information to confirm your identity
-                and for security purposes, in particular before disclosing
-                personal information to you. We reserve the right to charge a
-                fee where permitted by law, for example if your request is
-                manifestly unfounded or excessive.
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                You can exercise your rights by contacting us using the details
-                below. Subject to legal and other permissible considerations, we
-                will make every reasonable effort to honour your request
-                promptly or inform you if we require further information in
-                order to fulfil your request.
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Please note that we may not always be able to fully address your
-                request, for example if it would impact the duty of
-                confidentiality we owe to others, or if we are legally permitted
-                to deal with the request in a different way.
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                If you have any queries about this policy or our use of your
-                personal data, please contact our Data Protection Officer at{" "}
-                <span className="font-semibold">EMAIL ADRESS</span> or in
-                writing at:
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] font-semibold lg:text-lg lg:leading-[44px]">
-                PHYSICAL ADERESS
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                If you have any queries about any of our terms of service
-                documents or the website in general, do not hesitate to contact
-                us at:
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Customer Services
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Royal Stone Capital
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] font-semibold lg:text-lg lg:leading-[44px]">
-                PHYSICAL ADERESS
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Tel:
-              </p>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                Email:
+                While we provide indicative interest rates/returns with respect
+                to certain plans on our Platform, you recognize that there may
+                be loss or depreciation of the value of any investment and the
+                assets due to the fluctuation of market values, and accordingly
+                the value of assets/interest rates (as applicable) in your
+                Royalstone Account may or decrease based on prevailing market
+                circumstances. You represent that we have not made any
+                guarantee, either oral or written, that your investment
+                objective will be achieved or that the value of any Client
+                Account assets will not decline.
               </p>
             </section>
 
             <section className="space-y-5">
               <h2 className="font-bold text-colour-five lg:text-base">
-                14. Complaints
+                4.4 Disclaimer Warranties
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
-                If you have any concerns or complaints as to how we have handled
-                your personal data you may lodge a complaint with the USA&apos;s
-                data protection regulator, the FTC, who can be contacted through
-                their website at{" "}
-                <Link
-                  href="https://www.ftc.gov/about-ftc/contact"
-                  className="text-color-one duration-300 hover:text-green-700"
-                >
-                  https://www.ftc.gov/about-ftc/contact
-                </Link>
-                .
+                Your use of Royalstone&apos;s Platform, and the personal
+                information you provide is at your sole discretion. Royal
+                stone&apos;s Platform and all materials, information, products
+                and services included therein, are provided on an AS IS and AS
+                AVAILABLE basis without warranties of any kind from Royal stone.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                ROYAL STONE EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND,
+                EXPRESS, IMPLIED OR STATUTORY, RELATING TO ROYAL STONE&apos;S
+                PLATFORM AND/OR SERVICES, CONTENT AND/OR CLIENT INFORMATION,
+                INCLUDING WITHOUT LIMITATION TO THE WARRANTIES OF TITLE,
+                MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+                NON-INFRINGEMENT OF PROPRIETARY RIGHTS, COURSE OF DEALING OR
+                COURSE OF PERFORMANCE. ROYAL STONE DISCLAIMS ANY WARRANTIES,
+                EXPRESS OR IMPLIED:
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                REGARDING THE AVAILABILITY, SECURITY, ACCURACY, RELIABILITY,
+                TIMELINESS AND PERFORMANCE OF ROYAL STONE&apos;S PLATFORM,
+                SERVICES CONTENT AND/OR CLIENT INFORMATION;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                REGARDING ACTIONS/INACTIONS BY THIRD PARTIES;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                THAT ROYAL STONE&apos;S PLATFORM WILL BE ERROR-FREE OR THAT ANY
+                ERRORS WILL BE CORRECTED;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                THAT ROYAL STONE&apos;S PLATFORM WILL BE FREE FROM ELECTRONIC
+                VIRUSES; OR
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                REGARDING THE PERFORMANCE OF OR ACCURACY, QUALITY, CURRENCY,
+                COMPLETENESS OR USEFULNESS OF ANY INFORMATION PROVIDED BY ROYAL
+                STONE ON ITS PLATFORM INCLUDING BUT NOT LIMITED TO INFORMATION
+                OBTAINED THROUGH SOCIAL MEDIA.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                No advice or information, whether oral or written, obtained by
+                you from Royalstone&apos;s Platform, shall create any warranty
+                not expressly stated in these Terms of Use. If you choose to
+                rely on such information, you do so solely at your own risk
+              </p>
+            </section>
+
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                4.5 Indemnity
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                You hereby undertake to defend, indemnify and hold harmless the
+                Royal stone, its directors, officers, employees, agents,
+                successors or assigns from and against any and all claims,
+                losses, damages, liabilities, costs and expenses (including but
+                not limited to reasonable legal fees) while acting in accordance
+                with the terms of these Terms of Use and that are not a direct
+                result of a breach of the terms herein state, bad faith, gross
+                negligence, and material violation of Applicable Law.
+              </p>
+              <p>
+                Royal stone shall not be liable for any loss affecting the
+                assets held by it on behalf of the Client, where such losses are
+                the result of unforeseen adverse market conditions, government
+                restrictions, exchange or market rulings or suspension of
+                trading.
+              </p>
+              <p>
+                Royal stone shall not be liable for any act or failure to act by
+                any third party.
+              </p>
+            </section>
+
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                4.6 Limitation of Liability
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                IN NO EVENT SHALL ROYAL STONE OR ANY OF ITS OFFICERS, DIRECTORS,
+                EMPLOYEES, OR AGENTS BE LIABLE TO YOU FOR ANY DAMAGES
+                WHATSOEVER, INCLUDING WITHOUT LIMITATION INDIRECT, INCIDENTAL,
+                SPECIAL, PUNITIVE, OR CONSEQUENTIAL DAMAGES, ARISING OUT OF OR
+                IN CONNECTION WITH YOUR USE OF ROYALSTONE, CONTENT AND/OR CLIENT
+                INFORMATION, INCLUDING BUT NOT LIMITED TO THE QUALITY, ACCURACY,
+                OR UTILITY OF THE INFORMATION PROVIDED AS PART OF OR THROUGH
+                ROYALSTONE OR FOR ANY INVESTMENT DECISIONS MADE ON THE BASIS OF
+                SUCH INFORMATION, WHETHER THE DAMAGES ARE FORESEEABLE AND
+                WHETHER OR NOT ROYAL STONE HAS BEEN ADVISED OF THE POSSIBILITY
+                OF SUCH DAMAGES. THE FOREGOING LIMITATION OF LIABILITY SHALL
+                APPLY TO THE FULLEST EXTENT PERMITTED BY LAW IN THE APPLICABLE
+                JURISDICTION AND IN NO EVENT SHALL ROYAL STONE&apos;S CUMULATIVE
+                LIABILITY TO YOU EXCEED $1,000.00 OR ITS EQUIVALENT IN ANY
+                CURRENCY.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                4.7 Feedback Release
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                We may from time to time reach out to Clients to provide
+                feedback/testimonials in respect of our Services and/or the
+                Platform. This would usually involve the use of your images,
+                biographical information, recordings, video/audio clips (the
+                &quot;Material&quot;). You acknowledge that the Material may be
+                used in diverse settings within an unrestricted geographic area.
+                You hereby release Royal stone, its representatives, employees,
+                managers, members, officers, parent companies, subsidiaries, and
+                directors, from all claims and demands arising out of or in
+                connection with any use of the Material, including, without
+                limitation, all claims for invasion of privacy, infringement of
+                your right of publicity, defamation and any other personal
+                and/or property rights. Additionally, you waive any right to
+                royalties or other compensation arising or related to the use of
+                the Material.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                5. Anti-Money Laundering
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                You represent and warrant the following and shall promptly
+                notify Royal stone if any of the following ceases to be true and
+                accurate:
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                To the best of your knowledge (having made due and careful
+                enquiries), none of the cash or assets that will be managed by
+                Royalstone has been or shall be derived from or related to any
+                activity that is deemed to be in contravention or breach of
+                Applicable Law;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                No contribution or payment by you to Royalstone shall cause
+                Royalstone to be in violation of Applicable Law.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Where we discover that the representations above are untrue or
+                inaccurate or that our Platform and or Services are being used
+                contrary to Applicable Law or for any suspicious transactions;
+                as determined by us, you undertake to indemnify us against any
+                loss, damages or expenses that we may incur as a result of it
+                and further acknowledge that we have an obligation to report
+                your activities to the relevant authorities without recourse to
+                you.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                6. Representations and Warranties
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                6.1 You represent and warrant that:
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                You have full power, capacity, and authority to access the
+                Platform/use the Services;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                The terms hereof do not violate any obligation by which you are
+                bound, whether arising by contract or operation of law, or
+                otherwise;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                The assets in the Client&apos;s Accounts are free from all liens
+                and charges; and
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                You shall promptly notify Royal stone if any of your
+                representations or warranties in this Agreement are no longer
+                true or completely accurate.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                7. Termination
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                We may terminate or suspend your use of the Services, at any
+                time without prior notice to you if your Royalstone Account is
+                found to be fraudulent, in the case of bankruptcy/insolvency (as
+                may be applicable), if required (acting reasonably) or, if you
+                have breached any part of these Terms of Use.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                We will fully cooperate with any law enforcement authorities or
+                court order requesting or directing us to disclose the identity
+                of anyone posting, publishing, or otherwise making available any
+                Client&apos;s information, emails, or other materials that are
+                believed to violate these Terms of Use. Any suspension,
+                termination, or cancellation shall not affect your obligations
+                to Royal stone under these Terms of Use (including but not
+                limited to ownership, indemnification, and limitation of
+                liability), which by their sense and context are intended to
+                survive such suspension, termination, or cancellation.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                You may terminate your relationship with us at any time subject
+                to specific rules/guidelines applicable to your Royalstone
+                Account. Termination is without prejudice to rights and
+                obligations arising prior to the date of termination.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                8. Royal stone &quot;Dos&quot; and &quot;Don&apos;ts&quot;
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Royal stone grants you a limited and non-exclusive license to
+                use our Platform so long as you comply with all our rules.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                8.1 Dos: You agree you will:
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Comply with Applicable Law;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Provide accurate and updated information to us, whether reported
+                directly or through a third party who you authorise;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Use the Services solely for your personal, non-commercial use;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Use your real name on your profile and keep your password
+                confidential;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Use the Services in a professional manner.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                8.2 Donts: You agree you won&apos;t:
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Circumvent, disable, or otherwise interfere with
+                security-related features of the Platform or features that
+                prevent or restrict use or copying of any content or Client
+                information;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Upload, email, transmit, provide, or otherwise make available:
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Any Client information which you do not have the lawful right to
+                use, copy, transmit, display, or make available (including any
+                Client information that would violate any confidentiality or
+                fiduciary obligations that you might have with respect to the
+                Client information); or
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Any Client information that infringes the intellectual property
+                rights of, or violates the privacy rights of, any third-party
+                (including without limitation copyright, trademark, patent,
+                trade secret, or other intellectual property right, moral right,
+                or right of publicity); or
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Unsolicited or unauthorised advertising, promotional materials,
+                junk mail, spam, chain letters, pyramid schemes, or any other
+                form of solicitation; or
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Any personal information that is unlawful, obscene, harmful,
+                threatening, harassing, defamatory, or hateful, or that contain
+                objects or symbols of hate, invade the privacy of any
+                third-party, contain nudity, are deceptive, threatening,
+                abusive, inciting of unlawful action, or are otherwise
+                objectionable in the sole discretion of Royal stone; or
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Any personal information that contains software viruses or any
+                other computer code, files, or programs designed to (i)
+                interrupt, destroy, or limit the functionality of any computer
+                software; or (ii) interfere with the access of any Client, host
+                or network, including without limitation overloading, flooding,
+                spamming, mail-bombing, or sending a virus to Royal stone; or
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Any personal information that includes code that is hidden or
+                otherwise surreptitiously contained within the Client
+                information;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Use any meta tags or other hidden text or metadata utilising a
+                Royal stone name, trademark, URL or product name;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Forge any TCP/IP packet header or any part of the header
+                information in any posting, or in any way use Royal stone to
+                send altered, deceptive, or false source- identifying
+                information;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Interfere with or disrupt (or attempt to interfere with or
+                disrupt) any Royal stone web page, server, or network, or the
+                technical delivery systems of Royal stone&apos;s providers, or
+                disobey any requirements, procedures, policies, or regulations
+                of networks connected to Royal stone.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Attempt to probe, scan, or test the vulnerability of any Royal
+                stone system or network or breach or impair or circumvent any
+                security or authentication measures protecting Royal stone;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Attempt to decipher, decompile, disassemble, or reverse-engineer
+                any of the software used to provide Royal stone;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Attempt to access, search, or meta-search Royal stone or content
+                thereon with any engine, software, tool, agent, device, or
+                mechanism other than software and/or search agents provided by
+                Royal stone or other generally available third- party web
+                browsers, including without limitation any software that sends
+                queries to Royal stone to determine how a website or web page
+                ranks;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Violate the Terms of Use or any other rule or agreement
+                applicable to you or Royal stone&apos;s inclusion in, reference
+                to, or relationship with any third party or third-party site or
+                service, or your use of any such third-party site or service;
+                Collect or store personal information about other clients
+                without their express permission;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Impersonate or misrepresent your affiliation with any person or
+                entity, through pretexting or some other form of social
+                engineering, or commit fraud;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Solicit any Client for any investment or other commercial or
+                promotional transaction;
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Scrape or copy information through any means (including
+                crawlers, browser plugins and add-ons, and any other technology
+                or manual work);
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Use, launch, or permit to be used any automated system,
+                including without limitation &quot;robots,&quot;
+                &quot;crawlers,&quot; or &quot;spiders&quot;; or
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Copy or use the information, content or data on Royal stone in
+                connection with a competitive service (as determined by Royal
+                stone);
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Monitor Royal stone&apos;s availability, performance or
+                functionality for any competitive purposes.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Use Royal stone or content thereon in any manner not permitted
+                by these Terms of Use.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                9. Copyright and Other Intellectual Property
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                The content contained on this Platform is owned or licensed by
+                Royal stone and its third-party information providers and is
+                protected by applicable copyrights, trademarks, service marks,
+                and/or other intellectual property rights. Such content is
+                solely for your personal, non-commercial use. Accordingly, in
+                addition to specific restrictions outlined under clause 8.2, you
+                may not copy, distribute, modify, post, frame or deep link this
+                Platform, including any text, graphics, video, audio, software
+                code, user interface design or logos.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                You may download material displayed on the Platform for your
+                personal use provided you also retain all copyright and other
+                proprietary notices contained on the materials. You may not
+                distribute, modify, transmit, reuse, repost, or use the content
+                on the Platform for public or commercial purposes, including all
+                text, images, audio, and video. Modification or use of the
+                materials for any other purpose violates Royal stone&apos;s
+                intellectual property rights.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                All trademarks, service marks, trade names, and logos displayed
+                on the Platform are proprietary to Royal stone and/or their
+                respective owners. Nothing contained on the Platform should be
+                construed as granting, by implication, estoppel, or otherwise,
+                any license or right to use any trademark displayed on the
+                Platform without the written permission of Royal stone or such
+                other third party that may own the trademark displayed on the
+                Platform. Your use of the trademarks displayed on the Platform,
+                except as provided herein, is strictly prohibited.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                The use of the images displayed on the Platform by you, or
+                anyone else authorised by you, is prohibited. Any unauthorised
+                use of the images may violate copyright laws, trademark laws,
+                and the laws of privacy and publicity, and communications, as
+                well as other regulations and statutes. If you download any
+                information from the Platform, you agree that you will not copy
+                it or remove or obscure any copyright or other notices or
+                legends contained in any such information.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                10. General Terms
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                In the event that any provision in these Terms of Use is held to
+                be invalid or unenforceable, the remaining provisions will
+                remain in full force and effect. The failure of a party to
+                enforce any right or provision of these Terms of Use will not be
+                deemed a waiver of such right or provision. You may not assign
+                your rights or novate or delegate your obligations under these
+                Terms of Use (by operation of law or otherwise) without the
+                prior written consent of Royal stone, and any prohibited
+                assignment will be null and void.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Royal stone may assign these Terms of Use or any rights
+                hereunder without your consent. The relationship of the parties
+                under these Terms of Use is that of independent contractors, and
+                these Terms of Use will not be construed to imply that either
+                party is the agent, employee, or joint venture of the other.
+                Note that if you elect to become a Client, the relationship of
+                the parties will be governed by these Terms of Use and any
+                additional terms to which you agree when you create and fund an
+                investment account.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                11. Miscellaneous
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                These Terms of Use, together with all guidance notes in respect
+                of Client Accounts as set out on the Platform and any Client
+                agreement (if applicable) form the complete and exclusive
+                agreement between you and Royal stone with respect to your use
+                of our Platform and Services superseding and replacing any, and
+                all prior or contemporaneous agreements, communications, and
+                understandings, both oral and written, regarding the subject
+                matter.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                11.1 Governing Law and Dispute Resolution
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                These Terms of Use shall be governed, construed, and enforced
+                pursuant to the laws of the United States America.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Any disagreement, dispute or difference howsoever arising, from
+                these Terms of Use including its interpretation and validity or
+                as to the rights, duties and liabilities of the parties hereto
+                or as to any other matter in any way connected with or arising
+                out of or in relation to the subject matter of these Terms of
+                Use, which cannot be amicably resolved by the parties within 30
+                (thirty) days shall be referred to arbitration in accordance
+                with and subject to the provisions of the Arbitration and
+                Conciliation Act, Laws of the United States of America.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                11.2 Governing Law and Dispute Resolution
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                If any provision of these Terms of Use is found to be illegal,
+                unenforceable or invalid, that provision will be limited or
+                eliminated to the minimum extent necessary so that these Terms
+                of Use will otherwise remain in full force and effect.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                11.3 Waivers
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                The failure of either party to exercise in any respect any right
+                provided for herein shall not be deemed a waiver of any further
+                rights hereunder.
+              </p>
+            </section>
+            <section className="space-y-5">
+              <h2 className="font-bold text-colour-five lg:text-base">
+                11.4 Communication: Any notice or communication will be in
+                writing by email
+              </h2>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                By accepting to use the Services and access the Platform you
+                further agree and acknowledge that these Terms of Use and the
+                rules, restrictions, and policies contained herein, and Royal
+                stone&apos;s enforcement thereof, are not intended to confer and do
+                not confer any rights or remedies on any person other than you
+                and Royal stone.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                You hereby authorize the delivery of notices by (a) Royal stone
+                via email (in each case to the address that you provide), or (b)
+                you, via email to hello@Royalstone.com or to such other
+                addresses as Royal stone may specify. The date of receipt shall
+                be deemed the date on which such notice is transmitted.
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                You can also contact Royal stone by phone at +1 (0) 96758888
+                ROYAL STONE or via physical mail at:
+              </p>
+              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+                Royal stone.{" "}
+                <span className="font-bold">PHYSICAL ADDRESS.</span>
               </p>
             </section>
           </section>
