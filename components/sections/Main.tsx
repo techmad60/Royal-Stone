@@ -5,6 +5,8 @@ import GooglePlayButton from "../ui/GooglePlayButton";
 import DownloadApp from "../ui/DownloadApp";
 import CardComponent from "../ui/CardComponent";
 import CardComponentTwo from "../ui/CardComponentTwo";
+import { GrSend } from "react-icons/gr";
+
 
 export default function Main() {
   return (
@@ -21,14 +23,19 @@ export default function Main() {
           <p className="text-sm w-[340px] xs:w-[345px] font-normal text-colour-five lg:px-0 lg:w-[425px] lg:leading-[28px] lg:text-base xl:w-[644px]">
             Protect your wealth and secure your future with our comprehensive
             investment strategies.
-            <div>
-              <p>- Long-term growth</p>
-              <p>- Risk management</p>
-              <p>- Tax-efficient solutions</p>
-              <p>- Retirement planning</p>
-              <p>Start securing your future today.</p>
-            </div>
           </p>
+          <div className="grid grid-cols-2 gap-2 xl:grid-cols-3">
+              <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold "> <span className="text-color-one"><GrSend />
+              </span> Long-term growth</p>
+              <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold "> <span className="text-color-one"><GrSend />
+              </span> Risk management</p>
+              <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold "> <span className="text-color-one"><GrSend />
+              </span> Tax-efficient solutions</p>
+              <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold "> <span className="text-color-one"><GrSend />
+              </span> Retirement planning</p>
+              
+            </div>
+            <p className="text-colour-five text-sm lg:text-base">Start securing your future today!</p>
           <div className="flex gap-4 pt-6">
             <AppStoreButton
               textColor="text-white"
