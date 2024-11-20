@@ -67,7 +67,7 @@ export default function Main() {
       </section>
 
       {/* Our Services Section */}
-      <section className="flex flex-col justify-start items-start bg-white pl-4 py-12 xs:px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-[9rem] xl:pb-0 overflow-x-hidden">
+      <section className="flex flex-col justify-start items-start bg-white pl-4 py-12 xs:px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-[5rem] xl:pb-0 overflow-x-hidden">
         <div className="flex flex-col justify-center">
           <div className="flex flex-col justify-start items-start">
             <h2
@@ -122,12 +122,8 @@ export default function Main() {
                 <p>
                   Unlock your financial potential. Invest in stocks and tap into
                   the world&apos;s top-performing companies. Diversify your
-                  portfolio, minimize risk, and maximize returns. Our expert
-                  tools and research help you:
+                  portfolio, minimize risk, and maximize returns.
                 </p>
-                <p>- Identify emerging trends</p>
-                <p>- Make informed decisions</p>
-                <p>- Grow your wealth</p>
                 <p>Start building your stock portfolio today and secure your financial future.</p>
               </div>
             }
