@@ -45,7 +45,7 @@ interface ProgressCardProps {
           <p className="text-sm text-color-zero ">{goalAmount}</p>
           <p className={`text-sm ${statusTextColor}`}>{status}</p>
           <p className="text-sm text-color-zero">Sept 9, 2024</p>
-          <Link href="" className="flex items-center justify-center border rounded-[20px] gap-2 w-[78px] h-[22px]">
+          <Link href="/main/savings/annual-savings" className="flex items-center justify-center border rounded-[20px] gap-2 w-[78px] h-[22px]">
             <p className="text-xs text-color-form">View</p>
             <IoIosArrowForward className="text-color-form text-sm" />
           </Link>

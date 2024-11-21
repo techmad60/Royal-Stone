@@ -1,12 +1,18 @@
-//signup/step-three/page.tsx
+//signup/complete-setup/page.tsx
 "use client";
 import { useState } from "react";
-import StepNavigator from "@/components/registration/SignUpNavigator";
+import Navigator from "@/components/ui/Navigator";
 import FormButton from "@/components/ui/FormButton";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import Link from "next/link";
 
-export default function StepThree() {
+const signupSteps = [
+  { label: "Create Account", href: "/auth/signup" },
+  { label: "With Mail", href: "/auth/signup/with-mail" },
+  { label: "Verify Email", href: "/auth/signup/verify-mail" },
+  { label: "Complete Setup", href: "/auth/signup/verify-mail" },
+];
+export default function CompleteSetup() {
   const [isArrowUp, setIsArrowUp] = useState(true);
 
   // Toggle the state
@@ -15,7 +21,7 @@ export default function StepThree() {
   };
   return (
     <div className="flex flex-col">
-      <StepNavigator currentStep={3} />
+      <Navigator currentStep={3} steps={signupSteps}/>
       <div className="flex items-center justify-between max-w-[535px]">
         <h1 className="text-colour-five text-base mt-8 lg:text-[18px]">
           Complete Setup

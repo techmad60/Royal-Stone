@@ -11,9 +11,9 @@ import Link from "next/link";
 
 const signupSteps = [
   { label: "Create Account", href: "/auth/signup" },
-  { label: "With Mail", href: "/main/signup/withimail" },
+  { label: "With Email", href: "/auth/signup/with-mail" },
 ];
-export default function StepOne() {
+export default function SignupWithMail() {
   const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   //Toggle Password Visibility
@@ -110,7 +110,7 @@ export default function StepOne() {
             </span>
           </p>
         </div>
-        <Link href="/auth/signup/step-two">
+        <Link href="/auth/signup/with-mail/verify-mail">
           <Button ButtonText="Create Account" className="py-3" />
         </Link>
       </form>
