@@ -11,23 +11,24 @@ export default function TermsOfService() {
         <div className="flex flex-col px-4 mx-auto lg:max-w-[57.5rem] xl:max-w-[75.5rem] ">
           <section className="flex flex-col justify-start items-start mt-32">
             <h1
-              className={`text-color-zero text-lg-base font-extrabold my-4 text-start lg:text-[39px]`}
+              className={`text-color-zero text-lg-base leading-none font-extrabold my-4 text-start lg:text-[39px]`}
             >
-              TERMS AND CONDITION
+              Terms and Condition
             </h1>
-            <p className="text-sm text-colour-five mb-4 lg:text-base">
+            <p className="text-sm text-colour-five mb-1 leading-none lg:text-base">
+            Updated Last: 1st of January, 2025.
+            </p>
+            <p className="text-sm text-colour-five mt-6 mb-4 lg:text-base">
               By accessing, viewing the Platform or using the Services through
               any means, you accept our terms and conditions and agree to be
               bound.
             </p>
-            <p className="text-sm text-colour-five mb-4 lg:text-base">
-              Updated Last: 30th September 2024
-            </p>
+            
           </section>
-          <section className="flex flex-col justify-start items-start space-y-4 py-4 lg:space-y-20">
+          <section className="flex flex-col justify-start items-start space-y-4 py-8 lg:space-y-20">
             {/* Introduction */}
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 Introduction
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -40,10 +41,10 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 1.1 Definitions
               </h2>
-              <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
+              <p className="text-sm text-colour-five leading-[12px] lg:text-lg lg:leading-[44px]">
                 This agreement will be effective on your acceptance of its terms
                 electronically or otherwise through the platform.
               </p>
@@ -97,7 +98,7 @@ export default function TermsOfService() {
 
             {/* Whys? */}
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 1.2 Purpose
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -124,7 +125,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 1.3 Scope of Terms of Use
               </h2>
 
@@ -159,7 +160,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 2. Obligations
               </h2>
               <p className="font-bold text-colour-five lg:text-base">
@@ -179,7 +180,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 2.2 Your Access
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -224,7 +225,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 2.3 Alerts, Notifications and Service Communications
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -239,7 +240,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 2.4 Confidentiality
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -256,7 +257,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 3. Fund/Portfolio Manager services
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -343,7 +344,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 3.1 Savings Terms and Conditions
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -370,7 +371,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 3.2 Fee and Expenses
               </h2>
               <p className="font-bold text-colour-five lg:text-base">
@@ -407,7 +408,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 Fee Payment
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -426,7 +427,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 4. Disclaimer and Limit of Liability
               </h2>
               <p className="font-bold text-colour-five lg:text-base">
@@ -457,7 +458,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 4.2 Non-Exclusive Services
               </h2>
 
@@ -470,7 +471,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 4.3 Investment Risks
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -488,7 +489,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 4.4 Disclaimer Warranties
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -539,7 +540,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 4.5 Indemnity
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -566,7 +567,7 @@ export default function TermsOfService() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 4.6 Limitation of Liability
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -588,7 +589,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 4.7 Feedback Release
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -610,7 +611,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 5. Anti-Money Laundering
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -641,7 +642,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 6. Representations and Warranties
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -667,7 +668,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 7. Termination
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -697,7 +698,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 8. Royal stone &quot;Dos&quot; and &quot;Don&apos;ts&quot;
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -706,7 +707,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 8.1 Dos: You agree you will:
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -728,7 +729,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 8.2 Donts: You agree you won&apos;t:
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -857,7 +858,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 9. Copyright and Other Intellectual Property
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -904,7 +905,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 10. General Terms
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -931,7 +932,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 11. Miscellaneous
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -946,7 +947,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 11.1 Governing Law and Dispute Resolution
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -966,7 +967,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 11.2 Governing Law and Dispute Resolution
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -977,7 +978,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 11.3 Waivers
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -987,7 +988,7 @@ export default function TermsOfService() {
               </p>
             </section>
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 11.4 Communication: Any notice or communication will be in
                 writing by email
               </h2>

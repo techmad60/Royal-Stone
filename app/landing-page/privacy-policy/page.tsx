@@ -17,13 +17,13 @@ export default function PrivacyPolicy() {
               Privacy Policy
             </h1>
             <p className="text-sm text-colour-five mb-4 lg:text-base">
-            Updated Last: 30th September 2024
+            Updated Last: 1st of January, 2025.
             </p>
           </section>
           <section className="flex flex-col justify-start items-start space-y-4 py-4 lg:space-y-20">
             {/* Introduction */}
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 Introduction
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
 
             {/* Whys? */}
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 1. Why have a privacy policy?
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -73,7 +73,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 2. What personal data do we collect about you and how?
               </h2>
 
@@ -123,7 +123,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 3. How do we use your personal data?
               </h2>
 
@@ -152,7 +152,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 4. Data Retention
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -172,7 +172,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 4. Data Retention
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -192,7 +192,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 5. What is the legal basis upon which we deal with your data?
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -221,7 +221,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 6. Marketing
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -284,7 +284,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 7. Breach of Personal Data
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -306,7 +306,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 8. Cookies
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -319,7 +319,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 9. Who is your personal data shared with?
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -362,7 +362,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 10. Safeguarding your personal data
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -377,7 +377,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 11. Sale of the business
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -395,7 +395,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 12. Third Party Links
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -409,7 +409,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 13. Your rights and contacting us
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">
@@ -514,7 +514,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="space-y-5">
-              <h2 className="font-bold text-colour-five lg:text-base">
+              <h2 className="font-bold text-colour-five leading-none lg:text-base">
                 14. Complaints
               </h2>
               <p className="text-sm text-colour-five leading-[28px] lg:text-lg lg:leading-[44px]">

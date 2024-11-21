@@ -101,12 +101,13 @@ export default function AboutUs() {
             <p className="text-sm xs:w-[345px] font-normal text-colour-five lg:px-0 lg:w-[460px] lg:leading-[28px] lg:text-base xl:w-[663px]">
               Our mission is to empower individuals, families, and institutions
               to reach their financial goals through personalized investment
-              strategies and secure savings options. Our vision is to be the
+              strategies and secure savings options. 
+            </p>
+            <p className="text-sm xs:w-[345px] font-normal text-colour-five lg:px-0 lg:w-[460px] lg:leading-[28px] lg:text-base xl:w-[663px]">Our vision is to be the
               leading investment and savings company, renowned for excellence,
               innovation, and customer satisfaction, creating a financial
               ecosystem where individuals and institutions can thrive, achieve
-              financial freedom, and secure their legacies.
-            </p>
+              financial freedom, and secure their legacies.</p>
           </div>
 
           {/* Responsive Fund Wallet Image  */}

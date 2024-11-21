@@ -35,7 +35,7 @@ export default function Main() {
               </span> Retirement planning</p>
               
             </div>
-            <p className="text-colour-five text-sm lg:text-base">Start securing your future today!</p>
+            <p className="text-colour-five text-sm whitespace-nowrap lg:text-base">Start securing your future today!</p>
           <div className="flex gap-4 pt-6">
             <AppStoreButton
               textColor="text-white"
@@ -67,7 +67,7 @@ export default function Main() {
       </section>
 
       {/* Our Services Section */}
-      <section className="flex flex-col justify-start items-start bg-white pl-4 py-12 xs:px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:gap-[5rem] xl:pb-0 overflow-x-hidden">
+      <section className="flex flex-col justify-start items-start bg-white pl-4 py-12 xs:px-4 sm:justify-center sm:items-center lg:flex-row lg:gap-8 xl:pb-0 overflow-x-hidden">
         <div className="flex flex-col justify-center">
           <div className="flex flex-col justify-start items-start">
             <h2
@@ -93,7 +93,7 @@ export default function Main() {
           />
         </div>
 
-        <div className="flex flex-col space-y-6 justify-center items-center mt-12 lg:mt-0 lg:border-l lg:pl-12 xl:pl-24">
+        <div className="flex flex-col space-y-6 justify-center items-center mt-12 lg:mt-0 lg:border-l lg:pl-12 xl:pl-12">
           {/* Make an Investment */}
           <CardComponent
             title="Make an Investment"
@@ -124,7 +124,7 @@ export default function Main() {
                   the world&apos;s top-performing companies. Diversify your
                   portfolio, minimize risk, and maximize returns.
                 </p>
-                <p>Start building your stock portfolio today and secure your financial future.</p>
+                <p>Start building your stock portfolio today and secure your financial future. Stay ahead of the game with smart investments and watch your wealth grow steadily over time.</p>
               </div>
             }
             icon="/images/buy-stocks.svg"
