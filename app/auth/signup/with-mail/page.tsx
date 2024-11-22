@@ -43,11 +43,11 @@ export default function SignupWithMail() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     // Clear previous errors
     setPasswordError(null);
     setEmailError(null);
-
+  
     // Check for empty fields manually
     if (
       !formData.name ||
@@ -58,7 +58,7 @@ export default function SignupWithMail() {
       setError("All fields are required.");
       return;
     }
-
+  
     // Password validation regex
     const passwordRegex =
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
@@ -68,24 +68,25 @@ export default function SignupWithMail() {
       );
       return;
     }
-
+  
     // Email validation (e.g., check if the email is valid)
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(formData.email)) {
       setEmailError("Please enter a valid email address.");
       return;
     }
-
+  
     if (!isChecked) {
       setError("You must accept the terms and conditions.");
       return;
     }
-
+  
     setError(null);
     setLoading(true);
-
+  
     try {
-      const response = await fetch(
+      // Step 1: Register the user
+      const registerResponse = await fetch(
         "https://api-royal-stone.softwebdigital.com/api/auth/register",
         {
           method: "POST",
@@ -101,15 +102,38 @@ export default function SignupWithMail() {
           }),
         }
       );
-
-      const result = await response.json();
-      setLoading(false);
-
-      if (!response.ok) {
-        throw new Error(result.message || "Registration failed");
+  
+      const registerResult = await registerResponse.json();
+  
+      if (!registerResponse.ok) {
+        throw new Error(registerResult.message || "Registration failed");
       }
-
-      console.log("Registration successful:", result);
+  
+      console.log("Registration successful:", registerResult);
+  
+      // Step 2: Verify the account (PATCH request)
+      const verifyResponse = await fetch(
+        "https://api-royal-stone.softwebdigital.com/api/auth/verify-account",
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: formData.email, // Email to identify the account
+          }),
+        }
+      );
+  
+      const verifyResult = await verifyResponse.json();
+  
+      if (!verifyResponse.ok) {
+        throw new Error(verifyResult.message || "Verification failed");
+      }
+  
+      console.log("Account verification successful:", verifyResult);
+  
+      // Redirect to the email verification page or success page
       router.push("/auth/signup/with-mail/verify-mail");
     } catch (err) {
       if (err instanceof Error) {
@@ -118,9 +142,11 @@ export default function SignupWithMail() {
         setError("An unexpected error occurred.");
       }
       setLoading(false);
+    } finally {
+      setLoading(false);
     }
   };
-
+  
   return (
     <div className="flex flex-col">
       <Navigator currentStep={1} steps={signupSteps} />
