@@ -69,7 +69,7 @@ export default function SignupWithMail() {
       return;
     }
   
-    // Email validation (e.g., check if the email is valid)
+    // Email validation
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(formData.email)) {
       setEmailError("Please enter a valid email address.");
@@ -86,7 +86,7 @@ export default function SignupWithMail() {
   
     try {
       // Step 1: Register the user
-      const registerResponse = await fetch(
+      const registrationResponse = await fetch(
         "https://api-royal-stone.softwebdigital.com/api/auth/register",
         {
           method: "POST",
@@ -103,56 +103,54 @@ export default function SignupWithMail() {
         }
       );
   
-      const registerResult = await registerResponse.json();
+      const registrationResult = await registrationResponse.json();
   
-      if (!registerResponse.ok) {
-        throw new Error(registerResult.message || "Registration failed");
+      if (!registrationResponse.ok) {
+        throw new Error(registrationResult.message || "Registration failed");
       }
   
-      console.log("Registration successful:", registerResult);
+      console.log("Registration successful:", registrationResult);
   
-      // Step 2: Verify the account (PATCH request)
-      const verifyResponse = await fetch(
-        "https://api-royal-stone.softwebdigital.com/api/auth/verify-account",
+      // Step 2: Trigger email verification
+      const verificationResponse = await fetch(
+        `https://api-royal-stone.softwebdigital.com/api/auth/request-verification?email=${encodeURIComponent(
+          formData.email
+        )}`,
         {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: formData.email, // Email to identify the account
-          }),
+          method: "GET",
         }
       );
   
-      const verifyResult = await verifyResponse.json();
+      const verificationResult = await verificationResponse.json();
   
-      if (!verifyResponse.ok) {
-        throw new Error(verifyResult.message || "Verification failed");
+      if (!verificationResponse.ok) {
+        throw new Error(
+          verificationResult.message || "Failed to send verification email"
+        );
       }
   
-      console.log("Account verification successful:", verifyResult);
+      console.log("Verification email sent:", verificationResult);
   
-      // Redirect to the email verification page or success page
-      router.push("/auth/signup/with-mail/verify-mail");
+      // Navigate to the verification page with the email as a query parameter
+      router.push(`/auth/signup/with-mail/verify-mail?email=${encodeURIComponent(formData.email)}`);
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
       } else {
         setError("An unexpected error occurred.");
       }
-      setLoading(false);
     } finally {
       setLoading(false);
     }
   };
   
+
   return (
     <div className="flex flex-col">
       <Navigator currentStep={1} steps={signupSteps} />
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col mt-8 space-y-8 lg:w-[420px] xl:w-[33.5rem]"
+        className="flex flex-col mt-8 space-y-8 lg:w-[417px] xl:w-[33.5rem]"
       >
         {/* Name */}
         <div className="flex flex-col gap-2">
@@ -257,11 +255,11 @@ export default function SignupWithMail() {
         <Button
           type="submit"
           ButtonText={loading ? "Creating Account..." : "Create Account"}
-          className="py-3 w-full mt-2 lg:w-[420px] xl:w-[536px]"
+          className="py-3 w-full mt-2 lg:w-[417px] xl:w-[536px]"
           disabled={loading}
         />
       </form>
-      <p className="text-slate-400 text-center mt-8 lg:w-[420px] xl:w-[536px]">
+      <p className="text-slate-400 text-center mt-8 lg:w-[417px] xl:w-[536px]">
         Already have an account?{" "}
         <span className="font-semibold text-color-one duration-300 hover:text-green-700">
           <Link href="/auth/login">Sign in</Link>
