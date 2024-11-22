@@ -1,13 +1,18 @@
-//app/forgot-password/step-two/page.tsx
+//app/forgot-password/login/page.tsx
 "use client"
 import { useState } from "react";
-import LogInNavigator from "@/components/registration/LogInNavigator";
+import Navigator from "@/components/ui/Navigator";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import FormButton from "@/components/ui/FormButton";                
 import Link from "next/link";
 
-export default function StepTwo() {
+const loginSteps = [
+  { label: "Sign in with", href: "/auth/login" },
+  { label: "With Email", href: "/auth/login/with-mail" },
+  { label: "Forgot Password", href: "/auth/login/with-mail/forgot-password" },
+];
+export default function ResetPassword() {
   const [showPassword, setShowPassword] = useState(false);
 
   //Toggle Password Visibility
@@ -17,7 +22,7 @@ export default function StepTwo() {
 
   return (
     <div className="flex flex-col">
-      <LogInNavigator currentStep={2} />
+      <Navigator currentStep={2} steps={loginSteps}/>
       <h1 className="text-colour-five text-base mt-8 lg:text-[18px]">Reset Password</h1>
       <p className="text-sm text-color-form mt-2">
         Proovide your new password

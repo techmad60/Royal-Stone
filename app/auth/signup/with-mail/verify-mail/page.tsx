@@ -1,4 +1,4 @@
-//app/signup/step-two/page.tsx
+//app/signup/verify-mail/page.tsx
 import Navigator from "@/components/ui/Navigator";
 import VerifyEmail from "@/components/registration/VerifyEmail";
 import Button from "@/components/ui/Button";
@@ -17,7 +17,7 @@ export default function VerifyMail() {
       {/* Step Two Content Here */}
       <VerifyEmail  />
       <Link href="/auth/signup/with-mail/verify-mail/complete-setup">
-          <Button ButtonText="Verify" className="py-3 w-full"/>
+          <Button ButtonText="Verify" className="py-3 mt-8 w-full lg:w-[417px]"/>
       </Link>
       
     </div>

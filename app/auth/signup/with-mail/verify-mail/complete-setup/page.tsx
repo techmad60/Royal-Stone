@@ -2,15 +2,15 @@
 "use client";
 import { useState } from "react";
 import Navigator from "@/components/ui/Navigator";
-import FormButton from "@/components/ui/FormButton";
+import Button from "@/components/ui/Button";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import Link from "next/link";
 
 const signupSteps = [
   { label: "Create Account", href: "/auth/signup" },
-  { label: "With Mail", href: "/auth/signup/with-mail" },
-  { label: "Verify Email", href: "/auth/signup/verify-mail" },
-  { label: "Complete Setup", href: "/auth/signup/verify-mail" },
+  { label: "With Mail", href: "/auth/signup/with-mail"},
+  { label: "Verify Email", href: "/auth/signup/with-mail/verify-mail" },
+  { label: "Complete Setup", href: "/auth/signup/with-mail/verify-mail/complete-setup" },
 ];
 export default function CompleteSetup() {
   const [isArrowUp, setIsArrowUp] = useState(true);
@@ -22,7 +22,7 @@ export default function CompleteSetup() {
   return (
     <div className="flex flex-col">
       <Navigator currentStep={3} steps={signupSteps}/>
-      <div className="flex items-center justify-between max-w-[535px]">
+      <div className="flex items-center justify-between lg:w-[420px] xl:w-[535px]">
         <h1 className="text-colour-five text-base mt-8 lg:text-[18px]">
           Complete Setup
         </h1>
@@ -33,7 +33,7 @@ export default function CompleteSetup() {
           Skip
         </Link>
       </div>
-      <form className={`flex flex-col mt-8 space-y-8 max-w-[535px]`}>
+      <form className={`flex flex-col mt-8 space-y-8 lg:w-[420px] xl:w-[535px]`}>
         {/* Name */}
         <div className="flex flex-col gap-2">
           <label className="text-color-form text-sm">Gender</label>
@@ -114,7 +114,7 @@ export default function CompleteSetup() {
         </div>
       </form>
       <Link href="/auth/auth-dashboard">
-          <FormButton ButtonText="Proceed" className="py-3 mt-20" />
+          <Button ButtonText="Proceed" className="py-3 mt-20 w-full lg:w-[420px] xl:w-[536px]" />
       </Link>
       
     </div>
