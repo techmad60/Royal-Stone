@@ -1,22 +1,22 @@
-"use client"
+"use client";
+
 import { useState, useEffect } from "react";
 import Navigator from "@/components/ui/Navigator";
 import Button from "@/components/ui/Button";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const signupSteps = [
-  { label: "Create Account", href: "/auth/signup" },
-  { label: "With Email", href: "/auth/signup/with-mail" },
-  { label: "Verify Email", href: "/auth/signup/with-mail/verify-mail" },
+const loginSteps = [
+  { label: "Sign in", href: "/auth/login" },
+  { label: "With email", href: "/auth/login/with-mail" },
+  { label: "Forgot Password", href: "/auth/login/with-mail/forgot-password" },
 ];
 
 export default function VerifyMail() {
   const [otp, setOtp] = useState<string[]>(["", "", "", "", "", ""]);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState<string | null>(null);
-  const [resendStatus, setResendStatus] = useState<string | null>(null);
   const [resendLoading, setResendLoading] = useState(false);
+  const [resendStatus, setResendStatus] = useState<string | null>(null);
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -30,9 +30,9 @@ export default function VerifyMail() {
     }
   }, [searchParams]);
 
-  const handleResendEmail = async () => {
+  const handleResendOtp = async () => {
     if (!email) {
-      setError("Email is missing. Cannot resend verification email.");
+      setError("Email is missing. Cannot resend OTP.");
       return;
     }
 
@@ -41,21 +41,16 @@ export default function VerifyMail() {
 
     try {
       const response = await fetch(
-        `https://api-royal-stone.softwebdigital.com/api/auth/request-verification?email=${encodeURIComponent(
-          email
-        )}`,
-        {
-          method: "GET",
-        }
+       "https://api-royal-stone.softwebdigital.com/api/auth/request-verification?email=${encodeURIComponent(email)}",
+        { method: "GET" }
       );
 
-      const result = await response.json();
-
       if (!response.ok) {
-        throw new Error(result.message || "Failed to resend verification email.");
+        const result = await response.json();
+        throw new Error(result.message || "Failed to resend OTP.");
       }
 
-      setResendStatus("Verification email sent successfully.");
+      setResendStatus("OTP sent successfully to your email.");
     } catch (err: unknown) {
       setResendStatus(
         err instanceof Error ? err.message : "An unexpected error occurred."
@@ -88,52 +83,28 @@ export default function VerifyMail() {
     }
 
     if (!email) {
-      setError("Email is missing. Cannot verify OTP.");
+      setError("Email is missing. Cannot proceed.");
       return;
     }
 
-    setLoading(true);
-    try {
-      const response = await fetch(
-        "https://api-royal-stone.softwebdigital.com/api/auth/verify-account",
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            verificationCode: fullOtp,
-          }),
-        }
-      );
-
-      const result = await response.json();
-      setLoading(false);
-
-      if (!response.ok) {
-        const errorMessage = result.message || "OTP verification failed.";
-        throw new Error(errorMessage);
-      }
-
-      console.log("OTP verified successfully:", result);
-      router.push("/main/dashboard");
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "An unexpected error occurred.");
-      setLoading(false);
-    }
+    // Redirect to the reset password page with OTP and email
+    router.push(
+      `/auth/login/with-mail/forgot-password/verify-email/reset-password?email=${encodeURIComponent(
+        email
+      )}&otp=${encodeURIComponent(fullOtp)}`
+    );
   };
 
   return (
     <div className="flex flex-col">
-      <Navigator currentStep={2} steps={signupSteps} />
+      <Navigator currentStep={2} steps={loginSteps} />
       <section className="flex flex-col max-w-[417px]">
         <h1 className="text-colour-five text-base mt-8 lg:text-[18px]">
           Verify Email
         </h1>
         <p className="text-sm text-color-form mt-2">
           Kindly input the OTP sent to <strong>{email}</strong> to verify your account and complete
-          the signup process.
+          your password change.
         </p>
         <form onSubmit={handleSubmit} className="flex flex-col w-full">
           <section className="flex items-center gap-2 w-full bg-light-grey rounded-[10px] h-[70px] space-x-4 justify-between px-6 mt-8 border border-slate-100">
@@ -154,14 +125,12 @@ export default function VerifyMail() {
             ))}
           </section>
 
-          {error && (
-            <p className="text-red-500 text-xs mt-4 text-start">{error}</p>
-          )}
+          {error && <p className="text-red-500 text-xs mt-4">{error}</p>}
 
           <p className="text-slate-400 text-xs mt-8">
-            Didn&apos;t get any email?{" "}
+            Didn&apos;t get the email?{" "}
             <button
-              onClick={handleResendEmail}
+              onClick={handleResendOtp}
               className="text-color-one duration-300 hover:text-green-700"
               disabled={resendLoading}
             >
@@ -170,7 +139,7 @@ export default function VerifyMail() {
           </p>
           {resendStatus && (
             <p
-              className={`text-xs mt-2 text-start ${
+              className={`text-xs mt-2 ${
                 resendStatus.includes("successfully")
                   ? "text-green-500"
                   : "text-red-500"
@@ -182,9 +151,8 @@ export default function VerifyMail() {
 
           <Button
             type="submit"
-            ButtonText={loading ? "Verifying..." : "Verify"}
-            className="py-3 mt-8 w-full lg:w-[417px]"
-            disabled={loading}
+            ButtonText="Verify"
+            className="py-3 mt-12 w-full lg:w-[417px]"
           />
         </form>
       </section>

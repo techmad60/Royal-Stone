@@ -118,11 +118,11 @@ export default function WithMail() {
         <Button
           type="submit"
           ButtonText={loading ? "Signing in..." : "Sign in"}
-          className="py-3 mt-4 w-full lg:w-[420px] xl:w-[535px]"
+          className="py-3 mt-4 w-full lg:w-[417px] xl:w-[535px]"
           disabled={loading}
         />
       </form>
-      <p className="text-slate-400 text-sm text-center mt-8 lg:w-[420px] xl:w-[535px]">
+      <p className="text-slate-400 text-sm text-center mt-8 lg:w-[417px] xl:w-[535px]">
         Don&apos;t have an account?{" "}
         <span className="font-semibold text-color-one duration-300 hover:text-green-700">
           <Link href="/auth/signup">Sign up</Link>
