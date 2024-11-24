@@ -142,7 +142,7 @@ export default function ResetPassword() {
         {error && <p className="text-red-500 text-xs mt-2">{error}</p>}
 
         <Button
-          ButtonText={loading ? "Saving..." : "Save"}
+          ButtonText={loading ? "Saving..." : "Save New Password"}
           className="py-3 mt-24 lg:w-[417px] lg:mt-16 xl:w-[535px]"
           disabled={loading}
         />

@@ -117,7 +117,7 @@ export default function VerifyMail() {
       }
 
       console.log("OTP verified successfully:", result);
-      router.push("/main/dashboard");
+      router.push("/auth/signup/with-mail/verify-mail/complete-setup");
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "An unexpected error occurred.");
       setLoading(false);
