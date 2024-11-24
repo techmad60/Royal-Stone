@@ -108,8 +108,11 @@ export default function SignupWithMail() {
       if (!registrationResponse.ok) {
         throw new Error(registrationResult.message || "Registration failed");
       }
-  
-      console.log("Registration successful:", registrationResult);
+      // Save tokens in localStorage
+    const { accessToken, refreshToken } = registrationResult.data;
+    localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("refreshToken", refreshToken);
+    console.log("Tokens stored successfully:", { accessToken, refreshToken });
   
       // Step 2: Trigger email verification
       const verificationResponse = await fetch(

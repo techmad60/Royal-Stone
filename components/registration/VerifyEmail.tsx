@@ -15,6 +15,7 @@ export default function VerifyMail() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState<string | null>(null);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
   const [resendStatus, setResendStatus] = useState<string | null>(null);
   const [resendLoading, setResendLoading] = useState(false);
 
@@ -29,6 +30,17 @@ export default function VerifyMail() {
       setEmail(emailParam);
     }
   }, [searchParams]);
+  
+  // Retrieve access token from localStorage
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      setAccessToken(token);
+      console.log("Access token retrieved:", token); // Optional: for debugging
+    } else {
+      console.warn("No access token found in localStorage.");
+    }
+  }, []);
 
   const handleResendEmail = async () => {
     if (!email) {
@@ -100,6 +112,7 @@ export default function VerifyMail() {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
           },
           body: JSON.stringify({
             email,
