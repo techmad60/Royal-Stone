@@ -112,6 +112,7 @@ export default function SignupWithMail() {
     const { accessToken, refreshToken } = registrationResult.data;
     localStorage.setItem("accessToken", accessToken);
     localStorage.setItem("refreshToken", refreshToken);
+    localStorage.setItem("userName", formData.name); // Save the name
     console.log("Tokens stored successfully:", { accessToken, refreshToken });
   
       // Step 2: Trigger email verification

@@ -53,10 +53,11 @@ export default function WithMail() {
         throw new Error(result.message || "Login failed");
       }
        // Save tokens in localStorage
-    const { accessToken, refreshToken } = result.data;
-    localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", refreshToken);
-    console.log("Tokens stored successfully:", { accessToken, refreshToken });
+      const { accessToken, refreshToken, account } = result.data;
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+      localStorage.setItem("userName", account.username); // Save user's full name
+      console.log("Tokens stored successfully:", { accessToken, refreshToken, account});
 
       // Navigate to dashboard or next step
       router.push("/auth/auth-dashboard");

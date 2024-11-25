@@ -39,6 +39,8 @@ const config: Config = {
       screens: {
         "xs": '375px',
         "2xs": '320px',
+        "xlg": '1280px',
+        "2xlg": "1440px",
       },
       lineHeight: {
         "base": "30px",
