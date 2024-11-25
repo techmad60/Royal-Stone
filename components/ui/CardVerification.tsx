@@ -4,13 +4,15 @@ interface CardFiveProps {
     status: string;
     showArrow: string;
     showSwitch: string,
+    href: string;
+    onClick?: () => void
 }
 import Image from "next/image";
 import { MdArrowForwardIos } from "react-icons/md";
 import ToggleSwitch from "./ToogleSwitch";
-export default function CardVerification({icon, label, status, showArrow, showSwitch}: CardFiveProps) {
+export default function CardVerification({icon, label, status, showArrow, showSwitch, href, onClick}: CardFiveProps) {
     return (
-        <section className="flex justify-between items-center bg-light-grey hover:bg-slate-100 duration-300 cursor-pointer rounded-common p-4 xl:w-[765px]">
+        <section className={`flex justify-between items-center bg-light-grey hover:bg-slate-100 duration-300 cursor-pointer rounded-common p-4 xl:w-[765px] ${href}`} onClick={onClick}>
             <div className="flex gap-4">
                 <div className="flex justify-center items-center">
                     <Image src={icon} alt="icon" width={33} height={33}/>

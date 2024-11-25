@@ -1,9 +1,11 @@
 "use client"
 import { TbTargetArrow } from "react-icons/tb";
 import { BsFileBarGraphFill } from "react-icons/bs";
+import BankInformation from "@/components/ui/BankInformation";
 import CardComponentFive from "@/components/ui/CardComponentFive";
 import CardVerification from "@/components/ui/CardVerification";
 import { useEffect, useState } from "react";
+
 
 
 export default function Dashboard() {
@@ -14,6 +16,11 @@ export default function Dashboard() {
     }
   }, []);
   const [userName, setUserName] = useState("");
+  const [openBankInfo, setIsOpenBankInfo] = useState(false);
+
+  const handleOpenBankInfo = () => {
+    setIsOpenBankInfo(true)
+  }
 
   return (
     <div className="flex flex-col space-y-4 lg:pr-8">
@@ -24,11 +31,15 @@ export default function Dashboard() {
       </div>
 
       <div className="border-t flex-col space-y-4 py-6">
-        <CardVerification icon="/images/bank.svg" label="Bank Information" status="Not Set" showArrow="flex" showSwitch="hidden"/>
-        <CardVerification icon="/images/kyc.svg" label="KYC" status="Not Set" showArrow="flex" showSwitch="hidden"/>
-        <CardVerification icon="/images/kin.svg" label="Next of Kin" status="Not Set" showArrow="flex" showSwitch="hidden"/>
-        <CardVerification icon="/images/biometrics.svg" label="Enable Biometrics" status="Not Set" showArrow="hidden" showSwitch="flex"/>
+        <CardVerification icon="/images/bank.svg" label="Bank Information" status="Not Set" showArrow="flex" showSwitch="hidden" href="" onClick={handleOpenBankInfo}/>
+        <CardVerification icon="/images/kyc.svg" label="KYC" status="Not Set" showArrow="flex" showSwitch="hidden" href=""/>
+        <CardVerification icon="/images/kin.svg" label="Next of Kin" status="Not Set" showArrow="flex" showSwitch="hidden" href=""/>
+        <CardVerification icon="/images/biometrics.svg" label="Enable Biometrics" status="Not Set" showArrow="hidden" showSwitch="flex" href=""/>
       </div>
+
+      {openBankInfo &&(
+        <BankInformation onClose={() => setIsOpenBankInfo(false)}/>
+      )}
     </div>
 
   );

@@ -108,10 +108,10 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
                     />
                 </li>
                 <hr className="my-6"/>
-                <li>
+                <li className="">
                     <NavLink
                         href="/auth/login"
-                        icon={<FiLogOut />}
+                        icon={<FiLogOut className=""/>}
                         label="Log Out"
                         />
                 </li>
