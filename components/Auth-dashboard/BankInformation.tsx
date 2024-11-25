@@ -1,12 +1,13 @@
 import { useEffect } from "react";
-import Button from "./Button";
+import Button from "../ui/Button";
 import { BiSolidBank } from "react-icons/bi";
 
 interface BankInformationProps {
   onClose: () => void;
+  onAdd: () => void;
 }
 
-export default function BankInformation({ onClose }: BankInformationProps) {
+export default function BankInformation({ onClose, onAdd }: BankInformationProps) {
   // Prevent background scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -21,7 +22,7 @@ export default function BankInformation({ onClose }: BankInformationProps) {
         <div className="flex justify-center items-center mt-4 lg:hidden">
           <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
         </div>
-        <div className="flex items-center border-b w-full pb-2 p-4">
+        <div className="flex items-center border-b w-full pb-2 p-4 sm:p-8 lg:p-4">
           <p
             onClick={onClose}
             className="text-color-form text-sm cursor-pointer"
@@ -48,6 +49,7 @@ export default function BankInformation({ onClose }: BankInformationProps) {
             <Button
               ButtonText="Add Bank Account"
               className="w-[200px] rounded-[12px] h-[35px] flex justify-center items-center"
+              onClick={onAdd}
             />
           </div>
         </div>

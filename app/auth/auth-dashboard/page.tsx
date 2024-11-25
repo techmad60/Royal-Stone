@@ -1,7 +1,8 @@
 "use client"
 import { TbTargetArrow } from "react-icons/tb";
 import { BsFileBarGraphFill } from "react-icons/bs";
-import BankInformation from "@/components/ui/BankInformation";
+import BankInformation from "@/components/Auth-dashboard/BankInformation";
+import AddBankInformation from "@/components/Auth-dashboard/AddBank";
 import CardComponentFive from "@/components/ui/CardComponentFive";
 import CardVerification from "@/components/ui/CardVerification";
 import { useEffect, useState } from "react";
@@ -17,9 +18,14 @@ export default function Dashboard() {
   }, []);
   const [userName, setUserName] = useState("");
   const [openBankInfo, setIsOpenBankInfo] = useState(false);
+  const [openAddBankInfo, setIsOpenAddBankInfo] = useState(false);
 
   const handleOpenBankInfo = () => {
     setIsOpenBankInfo(true)
+  }
+  const handleOpenAddBankInfo = () => {
+    setIsOpenBankInfo(false)
+    setIsOpenAddBankInfo(true)
   }
 
   return (
@@ -38,7 +44,11 @@ export default function Dashboard() {
       </div>
 
       {openBankInfo &&(
-        <BankInformation onClose={() => setIsOpenBankInfo(false)}/>
+        <BankInformation onClose={() => setIsOpenBankInfo(false)} onAdd={handleOpenAddBankInfo}/>
+      )}
+
+      {openAddBankInfo &&(
+        <AddBankInformation onClose={() => setIsOpenAddBankInfo(false)}/>
       )}
     </div>
 
