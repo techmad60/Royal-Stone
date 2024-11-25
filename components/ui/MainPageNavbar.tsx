@@ -9,6 +9,7 @@ import { RiMouseFill, RiStockLine } from "react-icons/ri";
 import { BsFileBarGraphFill, BsPeopleFill } from "react-icons/bs";
 import { FaClock } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
+import { FiLogOut } from "react-icons/fi";
 import NavLink from "@/components/ui/MainPageNavLink";
 
 interface MainPageNavbarProps {
@@ -106,7 +107,16 @@ export default function MainPageNavbar({ isNavOpen, toggleNav }: MainPageNavbarP
                     label="Settings"
                     />
                 </li>
+                <hr className="my-6"/>
+                <li>
+                    <NavLink
+                        href="/auth/login"
+                        icon={<FiLogOut />}
+                        label="Log Out"
+                        />
+                </li>
             </ul>
+           
           </nav>
         </div>
      
