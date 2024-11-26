@@ -5,6 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 interface AddBankInformationProps {
   onClose: () => void;
+  onSave: (status: boolean) => void;
 }
 
 interface Bank {
@@ -15,13 +16,31 @@ interface Bank {
 
 export default function AddBankInformation({
   onClose,
+  onSave
 }: AddBankInformationProps) {
   const [userName, setUserName] = useState("");
   const [banks, setBanks] = useState<Bank[]>([]);
   const [selectedBank, setSelectedBank] = useState<Bank | null>(null);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
+  const [accountNumber, setAccountNumber] = useState(""); // Added state for account number
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Added for arrow rotation
 
   // Fetch banks from API
+  // Retrieve access token from localStorage
+useEffect(() => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      if (token) {
+        setAccessToken(token);
+        console.log("Access token retrieved:", token);
+      } else {
+        console.warn("Access token not found in localStorage.");
+      }
+    } catch (error) {
+      console.error("Error accessing localStorage:", error);
+    }
+  }, []);
+
   useEffect(() => {
     const fetchBanks = async () => {
       try {
@@ -35,7 +54,7 @@ export default function AddBankInformation({
 
     fetchBanks();
 
-    // Prevent background scroll when modal is open
+    // Load saved user name and prevent background scrolling
     const savedName = localStorage.getItem("userName");
     if (savedName) {
       setUserName(savedName);
@@ -53,9 +72,53 @@ export default function AddBankInformation({
     setSelectedBank(bank || null);
   };
 
+  // Handle Account Number Input
+  const handleAccountNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAccountNumber(event.target.value);
+  };
+
   // Handle Dropdown Toggle
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
+  };
+
+  // Handle Form Submission
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault(); // Prevent default form behavior
+
+    if (!selectedBank || !accountNumber) {
+      alert("Please select a bank and enter an account number.");
+      return;
+    }
+
+    const payload = {
+      bankName: selectedBank.name,
+      bankCode: selectedBank.code,
+      accountNumber: accountNumber,
+    };
+
+    try {
+      const response = await fetch( "https://api-royal-stone.softwebdigital.com/api/bank", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        alert("Bank details saved successfully!");
+        onSave(true); 
+        onClose(); // Close the modal after success
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.message || "Failed to save bank details."}`);
+      }
+    } catch (error) {
+      console.error("Error saving bank details:", error);
+      alert("An error occurred while saving bank details.");
+    }
   };
 
   return (
@@ -76,7 +139,7 @@ export default function AddBankInformation({
           <p className="text-color-form text-sm p-4">
             Provide your bank account details
           </p>
-          <form className="flex flex-col px-4">
+          <form className="flex flex-col px-4" onSubmit={handleSubmit}>
             <div className="flex flex-col space-y-4">
               {/* Bank Selection */}
               <div className="flex flex-col gap-1">
@@ -93,8 +156,9 @@ export default function AddBankInformation({
                     <select
                       className="appearance-none w-full text-sm border-none pr-8 focus:outline-none"
                       onChange={handleBankSelection}
-                      onClick={toggleDropdown} // Toggle dropdown state on click
-                      onBlur={() => setIsDropdownOpen(false)} // Close on blur
+                      onClick={toggleDropdown}
+                      onBlur={() => setIsDropdownOpen(false)}
+                      required
                     >
                       <option value="">Select a bank</option>
                       {banks.map((bank) => (
@@ -122,20 +186,26 @@ export default function AddBankInformation({
                   <div className="flex justify-between py-2">
                     <input
                       type="text"
+                      value={accountNumber}
+                      onChange={handleAccountNumberChange}
                       required
-                      className="rounded-sm placeholder:text-color-zero placeholder:text-sm"
+                      className="outline-none rounded-sm placeholder:text-sm w-[300px] placeholder:text-slate-400 text-colour-five"
                       placeholder="2010100191"
                     />
                     <div>
                       <p className="text-sm text-color-one border-b border-color-one leading-none">
-                        {userName}
+                        {userName || "User Name"}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <Button ButtonText="Save" className="py-3 w-full mt-12 lg:w-full" />
+            <Button
+              ButtonText="Save"
+              className="py-3 w-full mt-12 lg:w-full"
+              type="submit"
+            />
           </form>
         </div>
       </div>

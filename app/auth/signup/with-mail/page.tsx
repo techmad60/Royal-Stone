@@ -109,7 +109,9 @@ export default function SignupWithMail() {
         throw new Error(registrationResult.message || "Registration failed");
       }
       // Save tokens in localStorage
-    const { accessToken, refreshToken } = registrationResult.data;
+    const { accessToken, refreshToken, data } = registrationResult;
+    const userId = data.account.id;
+    localStorage.setItem("userId", userId);
     localStorage.setItem("accessToken", accessToken);
     localStorage.setItem("refreshToken", refreshToken);
     localStorage.setItem("userName", formData.name); // Save the name
