@@ -105,7 +105,6 @@ export default function Dashboard() {
           } // Dynamically set the class for text color
           showArrow={isBankInfoProvided ? "hidden" : "flex"} // Hide arrow if provided
           showSwitch="hidden"
-          href=""
           onClick={isBankInfoProvided ? undefined : handleOpenBankInfo} // Disable onClick if provided
         />
         <CardVerification
@@ -114,7 +113,6 @@ export default function Dashboard() {
           status="Not Set"
           showArrow="flex"
           showSwitch="hidden"
-          href=""
           onClick={handleOpenKycInfo}
         />
         <CardVerification
@@ -123,7 +121,6 @@ export default function Dashboard() {
           status="Not Set"
           showArrow="flex"
           showSwitch="hidden"
-          href=""
         />
         <CardVerification
           iconImg={<LuScanFace className="text-xl text-color-one" />}
@@ -131,7 +128,6 @@ export default function Dashboard() {
           status="Not Set"
           showArrow="hidden"
           showSwitch="flex"
-          href=""
         />
       </div>
 
