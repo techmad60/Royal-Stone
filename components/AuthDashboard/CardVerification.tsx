@@ -1,36 +1,37 @@
-import Image from "next/image";
 import { MdArrowForwardIos } from "react-icons/md";
 import ToggleSwitch from "../ui/ToogleSwitch";
+import Icon from "../ui/Icon";
+import { ReactNode } from "react";
 
 interface CardFiveProps {
-  icon: string;
+  iconImg?: ReactNode;
   label: string;
   status: string;
   statusClass?: string; // New prop for dynamic styling
   showArrow: string;
   showSwitch?: string;
-  href: string;
+  style?: string;
   onClick?: () => void;
 }
 
 export default function CardVerification({
-  icon,
+  iconImg,
   label,
   status,
   statusClass,
   showArrow,
   showSwitch,
-  href,
+  style,
   onClick,
 }: CardFiveProps) {
   return (
     <section
-      className={`flex justify-between items-center bg-light-grey hover:bg-slate-100 duration-300 cursor-pointer rounded-common p-4 xl:w-[765px] ${href}`}
+      className={`flex justify-between items-center bg-light-grey hover:bg-slate-100 duration-300 cursor-pointer rounded-common p-4 xl:w-[765px] ${style}`}
       onClick={onClick}
     >
       <div className="flex gap-4">
         <div className="flex justify-center items-center">
-          <Image src={icon} alt="icon" width={33} height={33} />
+          <Icon icon={iconImg} containerSize="w-[39.6px] h-[39.6px]"/>
         </div>
         <div className="flex flex-col">
           <p className="text-sm font-medium text-color-zero lg:text-base">
