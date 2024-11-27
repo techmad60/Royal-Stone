@@ -7,9 +7,12 @@ import { FaRegImage } from "react-icons/fa6";
 
 interface KycInformationProps {
   onClose: () => void;
+  onClickValidId: () => void;
+  onClickNextOfKin: () => void;
+  onClickBvn: () => void;
 }
 
-export default function KycInformation({ onClose }: KycInformationProps) {
+export default function KycInformation({ onClose, onClickValidId, onClickNextOfKin, onClickBvn }: KycInformationProps) {
   // Prevent background scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -45,6 +48,7 @@ export default function KycInformation({ onClose }: KycInformationProps) {
             showArrow="flex"
             showSwitch="hidden"
             style="xl:w-auto"
+            onClick={onClickValidId}
           />
           <CardVerification
             iconImg={<IoPeople className="text-xl text-color-one" />}
@@ -53,6 +57,7 @@ export default function KycInformation({ onClose }: KycInformationProps) {
             showArrow="flex"
             showSwitch="hidden"
             style="xl:w-auto"
+            onClick={onClickNextOfKin}
           />
           <CardVerification
             iconImg={<FaRegImage className="text-xl text-color-one" />}
@@ -70,6 +75,7 @@ export default function KycInformation({ onClose }: KycInformationProps) {
             showArrow="flex" // Hide arrow if provided
             showSwitch="hidden"
             style="xl:w-auto"
+            onClick={onClickBvn}
           />
         </div>
       </div>

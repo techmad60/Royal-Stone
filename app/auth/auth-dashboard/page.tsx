@@ -4,15 +4,17 @@ import { TbTargetArrow } from "react-icons/tb";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import { BsPersonCheck } from "react-icons/bs";
 import { BiSolidBank } from "react-icons/bi";
-import { IoPeople } from "react-icons/io5";
+// import { IoPeople } from "react-icons/io5";
 import { LuScanFace } from "react-icons/lu";
 import CardComponentFive from "@/components/ui/CardComponentFive";
 import CardVerification from "@/components/AuthDashboard/CardVerification";
 import BankInformation from "@/components/AuthDashboard/BankInformation";
 import AddBankInformation from "@/components/AuthDashboard/AddBank";
 import KycInformation from "@/components/AuthDashboard/KycInformation";
+import ValidIdInformation from "@/components/AuthDashboard/ValidID";
+import NextOfKinInformation from "@/components/AuthDashboard/NextOfKin";
+import BvnInformation from "@/components/AuthDashboard/BVN";
 
-// import Image from "next/image";
 
 export default function Dashboard() {
   const [userName, setUserName] = useState("");
@@ -21,6 +23,9 @@ export default function Dashboard() {
   const [openAddBankInfo, setIsOpenAddBankInfo] = useState(false);
   const [isBankInfoProvided, setIsBankInfoProvided] = useState(false);
   const [openKycInfo, setIsOpenKycInfo] = useState(false);
+  const [openValidIdInfo, setIsOpenValidIdInfo] = useState(false);
+  const [openNextOfKinInfo, setIsOpenNextOfKinInfo] = useState(false);
+  const [openBvnInfo, setIsOpenBvnInfo] = useState(false);
 
   useEffect(() => {
     const savedName = localStorage.getItem("userName");
@@ -64,7 +69,6 @@ export default function Dashboard() {
   };
 
   // Handle successful save of bank details
-  // Dashboard Component
   const handleBankInfoSaved = (status: boolean) => {
     setIsBankInfoProvided(status); // Update bank info state
     setIsOpenAddBankInfo(false); // Close the modal
@@ -74,12 +78,22 @@ export default function Dashboard() {
     setIsOpenKycInfo(true);
   };
 
+  const handleOpenValidIdInfo = () => {
+    setIsOpenValidIdInfo(true)
+  }
+  const handleOpenNextOfKinInfo = () => {
+    setIsOpenNextOfKinInfo(true)
+  }
+  const handleOpenBvnInfo = () => {
+    setIsOpenBvnInfo(true)
+  }
+
   return (
-    <div className="flex flex-col space-y-4 lg:pr-8">
+    <div className="flex flex-col lg:pr-8">
       <p className="text-lg text-color-form py-4 lg:text-start">
         Welcome, {userName || "Guest"}! 👋🏻
       </p>
-      <div className="flex gap-4 pb-3 sm:justify-center lg:justify-start">
+      <div className="flex gap-4 pb-3 my-4 sm:justify-center lg:justify-start">
         <CardComponentFive
           icon={<TbTargetArrow className="text-sm lg:text-base" />}
           label="Total Savings Target"
@@ -115,13 +129,13 @@ export default function Dashboard() {
           showSwitch="hidden"
           onClick={handleOpenKycInfo}
         />
-        <CardVerification
+        {/* <CardVerification
           iconImg={<IoPeople className="text-xl text-color-one" />}
           label="Next of Kin"
           status="Not Set"
           showArrow="flex"
           showSwitch="hidden"
-        />
+        /> */}
         <CardVerification
           iconImg={<LuScanFace className="text-xl text-color-one" />}
           label="Enable Biometrics"
@@ -148,7 +162,25 @@ export default function Dashboard() {
 
       {openKycInfo && (
         <KycInformation
+          onClickNextOfKin={handleOpenNextOfKinInfo}
+          onClickValidId={handleOpenValidIdInfo}
+          onClickBvn={handleOpenBvnInfo}
           onClose={() => setIsOpenKycInfo(false)}
+        />
+      )}
+      {openValidIdInfo && (
+        <ValidIdInformation
+          onClose={() => setIsOpenValidIdInfo(false)}
+        />
+      )}
+      {openNextOfKinInfo && (
+        <NextOfKinInformation
+          onClose={() => setIsOpenNextOfKinInfo(false)}
+        />
+      )}
+      {openBvnInfo && (
+        <BvnInformation
+          onClose={() => setIsOpenBvnInfo(false)}
         />
       )}
     </div>
