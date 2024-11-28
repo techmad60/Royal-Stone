@@ -145,13 +145,6 @@ useEffect(() => {
               <div className="flex flex-col gap-1">
                 <label className="text-color-form text-sm">Bank</label>
                 <div className="flex gap-2 items-center border-b pb-3 relative mt-2">
-                  {selectedBank && (
-                    <img
-                      src={selectedBank.logo}
-                      alt={`${selectedBank.name} Logo`}
-                      className="w-8 h-8"
-                    />
-                  )}
                   <div className="relative w-full">
                     <select
                       className="appearance-none w-full text-sm border-none pr-8 focus:outline-none"

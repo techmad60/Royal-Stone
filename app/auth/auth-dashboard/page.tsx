@@ -16,7 +16,7 @@ import NextOfKinInformation from "@/components/AuthDashboard/NextOfKin";
 import BvnInformation from "@/components/AuthDashboard/BVN";
 
 
-export default function Dashboard() {
+export default function AuthDashboard() {
   const [userName, setUserName] = useState("");
   const [userId, setUserId] = useState(""); // New state for userId
   const [openBankInfo, setIsOpenBankInfo] = useState(false);
