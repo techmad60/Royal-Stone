@@ -30,7 +30,7 @@ export default function ReferralList() {
             {users.map((user, index) => (
                 <section key={index} className="flex justify-between  bg-light-grey shadow-sm shadow-[#00000026] p-4 rounded-common my-4">
                     <div className="flex gap-4">
-                        <Icon icon={<Image src={user.iconSrc} height={90} width={90} alt="User"/>} containerSize="w-[39.6px] h-[39.6px]"/> 
+                        <Icon icon={<Image src={user.iconSrc} height={90} width={90} alt="User"/>} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/> 
                         <div className="space-y-1">
                             <p className="text-sm font-medium text-color-zero">{user.name}</p>
                             <p className="text-xs text-[#6B7385B2]">{user.email}</p>
@@ -38,7 +38,7 @@ export default function ReferralList() {
                     </div>
                     <div className="space-y-1">
                         <p className="text-xs text-[#6B7385B2]">Joined {user.joined}</p>
-                        <p className="text-color-one text-xs">{user.status}</p>
+                        <p className="text-color-one text-xs text-end">{user.status}</p>
                     </div>
                 </section>
             ))}

@@ -12,7 +12,7 @@ export default function Referrals() {
     return (
         <div>
             <div className="lg:flex lg:w-full items-end lg:my-6 lg:gap-12 lg:pr-8">
-                <div className="lg:space-y-4 border-r lg:pr-16">
+                <div className="lg:space-y-4 lg:border-r lg:pr-16">
                     <div className="flex flex-col justify-center items-center my-6 gap-4 lg:justify-start lg:items-start lg:my-0">
                         <Icon icon={<BsPeopleFill className="text-color-one text-3xl" />} containerSize="w-[49.5px] h-[49.5px]" iconSize="w-[30px] h-[30px]"/>
                         <p className="text-color-zero text-sm text-center font-semibold lg:text-start ">Earn N500 on each transaction performed by a friend referred by you</p>
