@@ -1,16 +1,22 @@
-import ProductNavigator from "@/components/ui/ProductNavigator"
+import Navigator from "@/components/ui/Navigator"
 import Image from "next/image"
 import { MdLocationOn } from "react-icons/md";
 import TextToggle from "@/components/ui/TextToggle";
 import Button from "@/components/ui/Button";
 import StatRow from "@/components/ui/StatRow";
 
+const productSteps = [
+    { label: "Products", href: "/main/product" },
+    { label: "Product details", href: "/main/product/product-details" },
+    { label: "Images", href: "/main/product/product-details/images" },
+];
+
 export default function ProductDetails() {
     return (
         <div>
-            <ProductNavigator currentStep={1} />
+            <Navigator currentStep={1} steps={productSteps}/>
             {/* Small Screen */}
-            <section className="flex overflow-scroll gap-2 my-4 lg:hidden ">
+            <section className="flex overflow-scroll gap-2 my-4 sm:hidden ">
                 <div className="w-[110px] h-[111px] flex-shrink-0 col-span-2 row-span-2">
                     <Image src={"/images/potato-3.svg"} alt="product-details" width={110} height={111} className=""/>
                 </div>
@@ -29,7 +35,7 @@ export default function ProductDetails() {
             </section>
 
             {/* Large Screen */}
-            <section className="hidden overflow-scroll my-4 lg:grid grid-cols-4 gap-x-2">
+            <section className="hidden overflow-scroll my-4 sm:grid grid-cols-4 gap-x-2">
                 <div className="col-span-2">
                     <Image src={"/images/potato-0.png"} alt="product-details" width={549} height={337} className=""/>
                 </div>
@@ -57,7 +63,7 @@ export default function ProductDetails() {
                         <StatRow label="Total Units" value="1000 Units" valueClass="text-color-six text-sm" />
                         <StatRow label="Available Units" value="500 Units" valueClass="text-color-six text-sm" />
                         <StatRow label="Cost Per Unit" value="$2,000/units" valueClass="text-color-six text-sm" />
-                        <StatRow label="ROI" value="32%" valueClass="text-color-six text-sm" />
+                        <StatRow label="ROI" value="32%" valueClass="text-color-six text-sm" isLast={true}/>
                     </section>
                     <Button ButtonText="Invest" className="w-full mt-8"/>
                 </div>

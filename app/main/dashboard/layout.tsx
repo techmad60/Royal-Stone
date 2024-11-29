@@ -15,7 +15,7 @@ export default function DashboardLayout({
   return (
     <div className="flex flex-col bg-white">
      
-      <div className={`p-4 lg:grid lg:p-0 lg:grid-cols-4 xl:grid-cols-5 xl:gap-44 2xlg:gap-0`}>
+      <div className={`p-4 sm:p-8 lg:grid lg:p-0 lg:grid-cols-4 xl:grid-cols-5 xl:gap-44 2xlg:gap-0`}>
         <MainPageNavbar isNavOpen={isNavOpen} toggleNav={toggleNav} />
         {/* Item 2 */}
         <div className="flex flex-col lg:col-span-3 xl:col-span-4">

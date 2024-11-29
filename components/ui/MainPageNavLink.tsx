@@ -26,7 +26,7 @@ export default function NavLink({ href, icon, label }: NavLinkProps) {
       >
         <span className="transform -rotate-45">{icon}</span> {/* Counter-rotate icon */}
       </div>
-      <p className="text-sm duration-300">{label}</p>
+      <p className="text-sm">{label}</p>
     </Link>
   );
 }

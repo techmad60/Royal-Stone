@@ -18,14 +18,12 @@ export default function Dashboard() {
   useEffect(() => {
     const savedName = localStorage.getItem("userName");
     if (savedName) setUserName(savedName);
-  }, []);
-
-  useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
 
+
   return (
-    <div className="flex flex-col sm:p-8 lg:p-0 lg:pr-8">
+    <div className="flex flex-col lg:p-0 lg:pr-8">
       <p className="text-base text-color-form py-4">
         Welcome, {userName || "Guest"}! 👋🏻
       </p>

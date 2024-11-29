@@ -50,13 +50,13 @@ export default function ProductDesktop({ products }: { products: Product[] }) {
             </div>
             <div className="flex gap-2">
               <Link
-                href={product.link || "/main/product/product-details"}
+                href={`/main/product/product-details/${product.id}`}
                 className="text-xs text-color-one rounded-[20px] shadow-sm bg-light-grey font-semibold hover:bg-green-700 hover:text-white duration-300 h-[22px] w-[57px] flex items-center justify-center"
               >
                 Invest
               </Link>
               <Link
-                href={product.link || "/main/product/product-details"}
+                href={`/main/product/product-details/${product.id}`}
                 className="text-xs font-medium hover:text-green-700 duration-300 flex items-center text-color-form"
               >
                 View <MdArrowForwardIos />

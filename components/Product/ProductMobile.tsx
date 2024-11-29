@@ -4,11 +4,10 @@ import { MdArrowForwardIos } from "react-icons/md";
 
 interface Product {
   id: string;
-  name: string
+  name: string;
   availableUnits: number;
   description: string;
   images: string[];
-  link: string;
 }
 
 export default function ProductMobile({ products }: { products: Product[] }) {
@@ -24,6 +23,7 @@ export default function ProductMobile({ products }: { products: Product[] }) {
             alt={product.name}
             width={50}
             height={50}
+            className="rounded-md"
           />
           <div className="flex flex-col space-y-1 w-full">
             <p className="text-[10px] text-color-one">
@@ -32,7 +32,7 @@ export default function ProductMobile({ products }: { products: Product[] }) {
             <p className="text-sm">{product.description}</p>
             <div className="flex items-center justify-between">
               <Link
-                href={product.link || "/main/product/product-details"}
+                href={`/main/product/product-details/${product.id}`} // Pass the product ID in the URL
                 className="flex items-center justify-center text-xs text-color-one font-semibold bg-light-grey shadow-sm w-[57px] h-[22px] rounded-common"
               >
                 Invest
