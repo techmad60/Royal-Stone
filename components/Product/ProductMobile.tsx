@@ -1,6 +1,6 @@
-// import Image from "next/image";
-import Link from "next/link";
+// import Image from "next/imag3";
 import { MdArrowForwardIos } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 interface Product {
   id: string;
@@ -11,6 +11,13 @@ interface Product {
 }
 
 export default function ProductMobile({ products }: { products: Product[] }) {
+  const router = useRouter();
+
+  // Pass `productId` as a parameter to the function
+  const viewProduct = (productId: string) => {
+    router.push(`/products/details?id=${encodeURIComponent(productId)}`);
+  };
+
   return (
     <div>
       {products.map((product) => (
@@ -31,12 +38,12 @@ export default function ProductMobile({ products }: { products: Product[] }) {
             </p>
             <p className="text-sm">{product.description}</p>
             <div className="flex items-center justify-between">
-              <Link
-                href={`/main/product/product-details/${product.id}`} // Pass the product ID in the URL
+              <button
+                onClick={() => viewProduct(product.id)} // Pass the current product's ID
                 className="flex items-center justify-center text-xs text-color-one font-semibold bg-light-grey shadow-sm w-[57px] h-[22px] rounded-common"
               >
                 Invest
-              </Link>
+              </button>
               <MdArrowForwardIos className="text-sm text-color-form font-semibold" />
             </div>
           </div>
