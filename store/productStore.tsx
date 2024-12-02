@@ -1,37 +1,61 @@
 import { create } from "zustand";
 
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  totalUnits: number;
+  availableUnits: number;
+  costPerUnit: number;
+  ROI: { value: number; duration: number };
+  images: string[];
+  link: string;
+  status: string;
+  isDeleted: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
 interface ProductStore {
-  products: []; // Replace `any` with the actual type of your product data
-  fetchProducts: () => Promise<void>;
+  products: Product[];
+  currentPage: number;
+  totalPages: number;
   isLoading: boolean;
   error: string | null;
+  fetchProducts: () => Promise<void>;
+  setCurrentPage: (page: number) => void;
 }
 
 const useProductStore = create<ProductStore>((set) => ({
   products: [],
+  currentPage: 1,
+  totalPages: 1,
   isLoading: false,
   error: null,
   fetchProducts: async () => {
     set({ isLoading: true, error: null }); // Start loading
     try {
       const response = await fetch(
-        "https://api-royal-stone.softwebdigital.com/api/products"
-      );
+        `https://api-royal-stone.softwebdigital.com/api/products?page=1`
+      ); // Always fetch from page 1 initially
       const data = await response.json();
       if (data.status) {
-        set({ products: data.data.data });
+        set({
+          products: data.data.data,
+          currentPage: data.data.currentPage,
+          totalPages: data.data.totalPages,
+        });
       } else {
         set({ error: "Failed to fetch products." });
       }
     } catch (error: unknown) {
-      // Safely handle unknown error
       const errorMessage = error instanceof Error ? error.message : "Unknown error occurred.";
       set({ error: errorMessage });
     } finally {
       set({ isLoading: false }); // Loading complete
     }
   },
+  setCurrentPage: (page) => set({ currentPage: page }), // Update currentPage
 }));
-
 
 export default useProductStore;

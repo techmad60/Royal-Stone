@@ -15,7 +15,7 @@ export default function ProductMobile({ products }: { products: Product[] }) {
 
   // Pass `productId` as a parameter to the function
   const viewProduct = (productId: string) => {
-    router.push(`/products/details?id=${encodeURIComponent(productId)}`);
+    router.push(`/main/product/product-details?id=${encodeURIComponent(productId)}`);
   };
 
   return (
