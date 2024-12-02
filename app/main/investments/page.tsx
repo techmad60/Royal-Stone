@@ -20,8 +20,6 @@ export default function Investment() {
     fetchProducts,
     isLoading,
     error,
-    totalPages,
-    setCurrentPage,
   } = useProductStore();
   const [showNotifications, setShowNotifications] = useState(false);
 
