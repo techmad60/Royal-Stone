@@ -11,7 +11,7 @@ const investmentProduct = [
     { label: "Create Investment", href: "/main/investments/create-investment" },
     { label: "Investment Product", href: "/main/investments/create-investment/investment-product" },
 ];
-export default function ProductDetails() {
+export default function investmentDetails() {
     return (
         <div>
             <InvestmentNavigator currentStep={2} steps={investmentProduct}/>

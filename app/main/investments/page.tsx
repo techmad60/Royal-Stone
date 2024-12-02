@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosSend } from "react-icons/io";
 import { GoPlus } from "react-icons/go";
 import { BsFileBarGraphFill } from "react-icons/bs";
@@ -9,14 +9,25 @@ import NoHistory from "@/components/ui/NoHistory";
 import Icon from "@/components/ui/Icon";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
-import ProductsMobile from "@/components/Investments/ProductsMobile";
-import ProductsDesktop from "@/components/Investments/ProductsDesktop";
+import ProductMobile from "@/components/Product/ProductMobile";
+import ProductDesktop from "@/components/Product/ProductDesktop";
 import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
-
-
+import useProductStore from "@/store/productStore";
 
 export default function Investment() {
+  const {
+    products,
+    fetchProducts,
+    isLoading,
+    error,
+    totalPages,
+    setCurrentPage,
+  } = useProductStore();
   const [showNotifications, setShowNotifications] = useState(false);
+
+  useEffect(() => {
+    fetchProducts(); // Fetch products when the component is mounted
+  }, [fetchProducts]);
   return (
     <div>
       <div className="lg:mr-8 lg:gap-4 xl:flex items-end lg:mb-6 ">
@@ -64,7 +75,10 @@ export default function Investment() {
           </div>
           <div className="flex items-center justify-center text-color-one gap-1 lg:flex-col ">
             <Icon icon={<BsFileBarGraphFill />} />
-            <Link href="/main/investments/create-investment" className="text-xs whitespace-nowrap">
+            <Link
+              href="/main/investments/create-investment"
+              className="text-xs whitespace-nowrap"
+            >
               Create Investment
             </Link>
           </div>
@@ -97,55 +111,83 @@ export default function Investment() {
             <h1 className="text-base font-semibold mt-2 lg:text-xl">
               All Investments
             </h1>
-           <ProductsMobile/>
-           <ProductsDesktop />
-          
+            {isLoading ? (
+              <p>Loading products...</p>
+            ) : error ? (
+              <p className="text-red-500">
+                Failed to load products. Please try again later.
+              </p>
+            ) : (
+              <>
+                <ProductMobile products={products} navigateTo="investment"/>
+                <ProductDesktop products={products} showViewButton={false} navigateTo="investment"/>
+              </>
+            )}
+
+
             <hr />
             <div className="flex justify-between my-4 lg:mr-8">
               <p className="text-base font-semibold text-color-zero">
                 Recent Transactions
               </p>
-              <Link href="/main/investments/investment-history" className="text-sm text-color-one">View All</Link>
+              <Link
+                href="/main/investments/investment-history"
+                className="text-sm text-color-one"
+              >
+                View All
+              </Link>
             </div>
             <div className="hidden lg:grid">
-                <HistoryDesktop/>
+              <HistoryDesktop />
             </div>
-          
+
             <div className="lg:hidden">
-                <section>
-                    <p className="text-color-form text-sm">Today</p>
-                    <hr className="my-3"/>
-                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common mt-2 lg:w-[361px] xl:w-[520px]">
-                        <div className="flex gap-4 lg:gap-3">
-                            <Icon icon={<GoPlus className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
-                            <div>
-                                <p className="text-sm text-color-zero font-medium">Wallet Funding</p>
-                                <p className="text-xs text-color-one">Completed</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p className="text-color-six">$20</p>
-                            <p className="text-slate-400 text-xs">11:04 AM</p>
-                        </div>
-                    </section>
+              <section>
+                <p className="text-color-form text-sm">Today</p>
+                <hr className="my-3" />
+                <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common mt-2 lg:w-[361px] xl:w-[520px]">
+                  <div className="flex gap-4 lg:gap-3">
+                    <Icon
+                      icon={<GoPlus className="text-color-one text-lg" />}
+                      containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"
+                    />
+                    <div>
+                      <p className="text-sm text-color-zero font-medium">
+                        Wallet Funding
+                      </p>
+                      <p className="text-xs text-color-one">Completed</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-color-six">$20</p>
+                    <p className="text-slate-400 text-xs">11:04 AM</p>
+                  </div>
                 </section>
-                <section className="my-5">
-                    <p className="text-color-form text-sm">September 11th, 2024</p>
-                    <hr className="my-3"/>
-                    <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common lg:w-[361px] xl:w-[520px]">
-                        <div className="flex gap-4 lg:gap-3">
-                            <Icon icon={<BsFileBarGraphFill className="text-color-one text-lg" />} containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"/>
-                            <div>
-                                <p className="text-sm text-color-zero font-medium">Investment Purchase</p>
-                                <p className="text-xs text-color-one">Successful</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p className="text-color-six">$20</p>
-                            <p className="text-slate-400 text-xs">11:04 AM</p>
-                        </div>
-                    </section>
+              </section>
+              <section className="my-5">
+                <p className="text-color-form text-sm">September 11th, 2024</p>
+                <hr className="my-3" />
+                <section className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common lg:w-[361px] xl:w-[520px]">
+                  <div className="flex gap-4 lg:gap-3">
+                    <Icon
+                      icon={
+                        <BsFileBarGraphFill className="text-color-one text-lg" />
+                      }
+                      containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px]"
+                    />
+                    <div>
+                      <p className="text-sm text-color-zero font-medium">
+                        Investment Purchase
+                      </p>
+                      <p className="text-xs text-color-one">Successful</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-color-six">$20</p>
+                    <p className="text-slate-400 text-xs">11:04 AM</p>
+                  </div>
                 </section>
+              </section>
             </div>
           </div>
 

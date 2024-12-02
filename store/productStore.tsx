@@ -22,7 +22,7 @@ interface ProductStore {
   totalPages: number;
   isLoading: boolean;
   error: string | null;
-  fetchProducts: () => Promise<void>;
+  fetchProducts: (page? : number) => Promise<void>;
   setCurrentPage: (page: number) => void;
 }
 
@@ -32,17 +32,17 @@ const useProductStore = create<ProductStore>((set) => ({
   totalPages: 1,
   isLoading: false,
   error: null,
-  fetchProducts: async () => {
+  fetchProducts: async (page = 1) => {
     set({ isLoading: true, error: null }); // Start loading
     try {
       const response = await fetch(
-        `https://api-royal-stone.softwebdigital.com/api/products?page=1`
+         `https://api-royal-stone.softwebdigital.com/api/products?page=${page}`
       ); // Always fetch from page 1 initially
       const data = await response.json();
       if (data.status) {
         set({
           products: data.data.data,
-          currentPage: data.data.currentPage,
+          currentPage: page,
           totalPages: data.data.totalPages,
         });
       } else {

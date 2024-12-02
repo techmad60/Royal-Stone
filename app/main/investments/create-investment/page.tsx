@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
 import ProductMobile from "@/components/Product/ProductMobile";
 import ProductDesktop from "@/components/Product/ProductDesktop";
-import Pagination from "@/components/ui/Pagination";
 import useProductStore from "@/store/productStore";
+import PaginationComponent from "@/components/ui/PaginationComponent";
 
 
 const createInvestment = [
@@ -35,11 +35,11 @@ export default function CreateInvestment() {
         </p>
       ) : (
         <>
-          <ProductMobile products={products} />
-          <ProductDesktop products={products} />
+          <ProductMobile products={products} navigateTo="investment"/>
+          <ProductDesktop products={products} showViewButton={false} navigateTo="investment"/>
         </>
       )}
-      <Pagination />
+      <PaginationComponent/>
     </div>
   );
 }

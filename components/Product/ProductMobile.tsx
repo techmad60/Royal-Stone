@@ -1,4 +1,3 @@
-// import Image from "next/imag3";
 import { MdArrowForwardIos } from "react-icons/md";
 import { useRouter } from "next/navigation";
 
@@ -10,12 +9,21 @@ interface Product {
   images: string[];
 }
 
-export default function ProductMobile({ products }: { products: Product[] }) {
+export default function ProductMobile({
+  products,
+  navigateTo = "product",
+}: {
+  products: Product[];
+  navigateTo?: "product" | "investment";
+}) {
   const router = useRouter();
 
-  // Pass `productId` as a parameter to the function
-  const viewProduct = (productId: string) => {
-    router.push(`/main/product/product-details?id=${encodeURIComponent(productId)}`);
+  const handleNavigation = (productId: string) => {
+    const basePath =
+      navigateTo === "investment"
+        ? "/main/investments/create-investment/investment-product"
+        : "/main/product/product-details";
+    router.push(`${basePath}?id=${encodeURIComponent(productId)}`);
   };
 
   return (
@@ -23,7 +31,8 @@ export default function ProductMobile({ products }: { products: Product[] }) {
       {products.map((product) => (
         <section
           key={product.id}
-          className="flex items-center gap-2 bg-light-grey rounded-common p-2 shadow-sm mt-4 lg:hidden"
+          className="flex items-center gap-2 bg-light-grey rounded-common p-2 shadow-sm mt-4 lg:hidden cursor-pointer"
+          onClick={() => handleNavigation(product.id)}
         >
           <img
             src={product.images[0] || "/placeholder-image.png"}
@@ -36,11 +45,15 @@ export default function ProductMobile({ products }: { products: Product[] }) {
             <p className="text-[10px] text-color-one">
               {product.availableUnits} Units Available
             </p>
-            <p className="text-sm">{product.description}</p>
+            <p className="text-sm">
+              {product.description?.length > 50
+                ? `${product.description.substring(0, 50)}...`
+                : product.description || "No description available"}
+            </p>
             <div className="flex items-center justify-between">
               <button
-                onClick={() => viewProduct(product.id)} // Pass the current product's ID
                 className="flex items-center justify-center text-xs text-color-one font-semibold bg-light-grey shadow-sm w-[57px] h-[22px] rounded-common"
+                aria-label={`Invest in ${product.name}`}
               >
                 Invest
               </button>
