@@ -25,7 +25,7 @@ const steps = {
   ],
 };
 
-export default function ProductDetailsPage({
+export default function ProductDetails({
   type,
 }: {
   type: "investment" | "product";
@@ -56,7 +56,7 @@ export default function ProductDetailsPage({
   // Unified navigation logic for the Invest button
   const handleInvestClick = () => {
     router.push(
-      `/main/investments/create-investment/investment-details?id=${encodeURIComponent(
+      `/main/investments/create-investment/investment-product/investment-details?id=${encodeURIComponent(
         product.id
       )}`
     );

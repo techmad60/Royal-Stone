@@ -1,6 +1,6 @@
 "use client"
 import { useEffect } from "react";
-import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
+import Navigator from "@/components/ui/Navigator";
 import ProductMobile from "@/components/Product/ProductMobile";
 import ProductDesktop from "@/components/Product/ProductDesktop";
 import useProductStore from "@/store/productStore";
@@ -17,10 +17,10 @@ export default function CreateInvestment() {
    useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
-
+  
   return (
     <div className="lg:h-screen">
-      <InvestmentNavigator currentStep={1} steps={createInvestment} />
+      <Navigator currentStep={1} steps={createInvestment} />
       <div className="space-y-2 mt-4">
         <h1 className="text-base font-semibold text-color-zero">
           Create Investment

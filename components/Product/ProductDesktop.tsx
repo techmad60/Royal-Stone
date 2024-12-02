@@ -66,7 +66,7 @@ export default function ProductDesktop({
             <div>
               <span
                 className={`text-sm font-semibold px-2 py-1 rounded-full ${
-                  product.status.toLowerCase() === "active"
+                  product.status === "available"
                     ? "bg-green-100 text-green-700"
                     : "bg-red-100 text-red-700"
                 }`}
