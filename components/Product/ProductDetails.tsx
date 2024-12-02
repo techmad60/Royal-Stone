@@ -1,5 +1,5 @@
-"use client";
-import { useSearchParams } from "next/navigation";
+"use client"
+import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import useProductStore from "@/store/productStore"; // Import your Zustand store
 import Navigator from "@/components/ui/Navigator";
@@ -9,26 +9,42 @@ import TextToggle from "@/components/ui/TextToggle";
 import Button from "@/components/ui/Button";
 import StatRow from "@/components/ui/StatRow";
 
+const steps = {
+  investment: [
+    { label: "Investments", href: "/main/investments" },
+    { label: "Create Investment", href: "/main/investments/create-investment" },
+    {
+      label: "Investment Product",
+      href: "/main/investments/create-investment/investment-product",
+    },
+  ],
+  product: [
+    { label: "Products", href: "/main/product" },
+    { label: "Product details", href: "/main/product/product-details" },
+    { label: "Images", href: "/main/product/product-details/images" },
+  ],
+};
 
-const productSteps = [
-  { label: "Products", href: "/main/product" },
-  { label: "Product details", href: "/main/product/product-details" },
-  { label: "Images", href: "/main/product/product-details/images" },
-];
-
-export default function ProductDetails() {
+export default function ProductDetailsPage({
+  type,
+}: {
+  type: "investment" | "product";
+}) {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
+  const router = useRouter();
 
   // Use Zustand store to manage product details
-  const { products, fetchProducts, error} = useProductStore();
+  const { products, fetchProducts, error } = useProductStore();
 
   useEffect(() => {
     if (products.length === 0) {
       fetchProducts(); // Fetch products if not already fetched
     }
   }, [products, fetchProducts]);
+
   const product = products.find((product) => product.id === id);
+
   if (error)
     return (
       <p className="text-red-500">
@@ -37,9 +53,21 @@ export default function ProductDetails() {
     );
   if (!product) return <p>No product found.</p>;
 
+  // Unified navigation logic for the Invest button
+  const handleInvestClick = () => {
+    router.push(
+      `/main/investments/create-investment/investment-details?id=${encodeURIComponent(
+        product.id
+      )}`
+    );
+  };
+
   return (
     <div>
-      <Navigator currentStep={1} steps={productSteps} />
+      <Navigator
+        currentStep={type === "investment" ? 2 : 1}
+        steps={steps[type]}
+      />
 
       {/* Small Screen */}
       <section className="flex overflow-scroll gap-2 my-4 sm:hidden ">
@@ -170,12 +198,13 @@ export default function ProductDetails() {
               isLast={true}
             />
           </section>
-          <Button ButtonText="Invest" className="w-full mt-8" />
+          <Button
+            ButtonText="Invest"
+            className="w-full mt-8"
+            onClick={handleInvestClick}
+          />
         </div>
       </div>
     </div>
   );
 }
-{/* <Suspense fallback={<div>Loading...</div>}>
-<VerifyMail />
-</Suspense> */}
