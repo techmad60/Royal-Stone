@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
+import Navigator from "@/components/ui/Navigator";
 import SavingsHistoryMobile from "@/components/Savings/SavingsHistoryMobile";
 import SavingsHistoryDesktop from "@/components/Savings/SavingsHistoryDesktop";
 import SavingsDetails from "@/components/Savings/SavingsDetails";
@@ -17,7 +17,7 @@ export default function SavingsHistory () {
     }
     return (
         <div>
-            <InvestmentNavigator currentStep={1} steps={savingsHistory}/>
+            <Navigator currentStep={1} steps={savingsHistory}/>
             <div className="mt-4">
                 <SavingsHistoryMobile onProceed={handleSavingDetailsOpen}/>
             </div>

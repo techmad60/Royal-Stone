@@ -10,7 +10,7 @@ interface MyComponentProps {
   amount: string;
 }
 
-export default function MakeInvestment({
+export default function BankTransfer({
   onClose,
   onProceed,
   amount,

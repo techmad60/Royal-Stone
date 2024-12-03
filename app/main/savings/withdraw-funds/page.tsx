@@ -6,7 +6,7 @@ import BankComponent from "@/components/ui/BankComponent";
 import CreateBank from "@/components/Portolio/CreateNewBank";
 import TransactionProcessed from "@/components/Portolio/WithdrawTransactionProcessed";
 import TransactionDetails from "@/components/Portolio/WithdrawTransactionDetails";
-import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
+import Navigator from "@/components/ui/Navigator";
 import WithdrawPreview from "@/components/Portolio/WithdrawPreview";
 import CircleToggle from "@/components/ui/CircleToggle";
 
@@ -40,7 +40,7 @@ export default function WithdrawFundsPage() {
 
     return (
         <div>
-            <InvestmentNavigator currentStep={1} steps={WithdrawSteps}/>
+            <Navigator currentStep={1} steps={WithdrawSteps}/>
 
             <p className="text-color-zero text-base font-semibold py-4 lg:text-lg">Withdraw Funds</p>
             <form className="flex flex-col space-y-4 mt-2">
