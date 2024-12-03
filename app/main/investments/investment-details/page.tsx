@@ -1,4 +1,4 @@
-import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
+import Navigator from "@/components/ui/Navigator";
 import Image from "next/image";
 import Icon from "@/components/ui/Icon";
 // For Profile Settings
@@ -9,7 +9,7 @@ const detailsSteps = [
 export default function InvestmentDetails () {
     return (
         <div>
-            <InvestmentNavigator currentStep={1} steps={detailsSteps}/>
+            <Navigator currentStep={1} steps={detailsSteps}/>
             <div className="flex justify-between lg:mr-8">
                 <div className="flex flex-col py-2 space-y-2">
                     <p className="text-base font-medium text-color-zero">Pharetra diam vitae duis vash aliquet</p>

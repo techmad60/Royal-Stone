@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
+import Navigator from "@/components/ui/Navigator";
 import TransactionList from "@/components/Portolio/HistoryMobile";
 import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
 import InvestmentHistoryModal from "@/components/Investments/InvestmentHistoryModal";
@@ -19,7 +19,7 @@ export default function InvestmentHistory () {
 
     return (
         <div>
-            <InvestmentNavigator  currentStep={1} steps={historySteps}/>
+            <Navigator  currentStep={1} steps={historySteps}/>
             <div className="mt-6">
                 <TransactionList onProceed = {handleIsInvestmentHistoryModalOpen}/>
             </div>

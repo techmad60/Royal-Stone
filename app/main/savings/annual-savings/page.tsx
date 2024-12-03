@@ -1,5 +1,5 @@
 "use client"
-import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
+import Navigator from "@/components/ui/Navigator";
 import { TbTargetArrow } from "react-icons/tb";
 import Icon from "@/components/ui/Icon";
 import StatRow from "@/components/ui/StatRow";
@@ -23,7 +23,7 @@ export default function AnnualSavings() {
     <div>
       <div className="lg:flex lg:gap-10 xl:gap-36">
         <div>
-          <InvestmentNavigator currentStep={1} steps={annualSavings} />
+          <Navigator currentStep={1} steps={annualSavings} />
           <div className="flex gap-4 items-center mt-8">
             <Icon
               icon={<TbTargetArrow className="text-color-one text-2xl" />}

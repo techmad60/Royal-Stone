@@ -4,7 +4,7 @@ import CircleToggle from "@/components/ui/CircleToggle";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import BankComponent from "@/components/ui/BankComponent";
-import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
+import Navigator from "@/components/ui/Navigator";
 import TransactionProcessed from "@/components/Portolio/FundTransactionProcessed";
 import TransactionDetails from "@/components/Portolio/FundTransactionDetails";
 
@@ -28,7 +28,7 @@ export default function FundWalletPage() {
     };
     return (
         <div>
-            <InvestmentNavigator currentStep={1} steps={fundSteps}/>
+            <Navigator currentStep={1} steps={fundSteps}/>
 
             <p className="text-color-zero text-base font-semibold py-4 lg:text-lg">Fund Wallet</p>
             <form className="flex flex-col space-y-4 mt-2">

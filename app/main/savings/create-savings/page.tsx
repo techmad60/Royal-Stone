@@ -4,7 +4,7 @@ import CircleToggle from "@/components/ui/CircleToggle";
 import { IoIosArrowDown } from "react-icons/io";
 import Button from "@/components/ui/Button";
 import BankComponent from "@/components/ui/BankComponent";
-import InvestmentNavigator from "@/components/Investments/InvestmentNavigator";
+import Navigator from "@/components/ui/Navigator";
 import SavingsPreview from "@/components/Savings/SavingsPreview";
 import SavingsTarget from "@/components/Savings/SavingsTarget";
 import SavingsProcessed from "@/components/Savings/SavingsProcessed";
@@ -51,7 +51,7 @@ export default function CreateSavingsPage() {
 //   };
   return (
     <div>
-      <InvestmentNavigator currentStep={1} steps={createSavings} />
+      <Navigator currentStep={1} steps={createSavings} />
 
       <p className="text-color-zero text-base font-semibold py-4 lg:text-lg">
         Create Savings Target

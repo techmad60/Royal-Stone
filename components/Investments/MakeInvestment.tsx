@@ -7,11 +7,14 @@ import StatRow from "../ui/StatRow";
 interface MyComponentProps {
   onClose: () => void;
   onProceed: () => void;
+  amount: string;
 }
 
 export default function MakeInvestment({
   onClose,
   onProceed,
+  amount,
+
 }: MyComponentProps) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -38,7 +41,7 @@ export default function MakeInvestment({
           </p>
         </div>
         <p className="text-color-form text-sm mx-4 py-4">
-          You are required to make a bank transfer of N200,000 to the details
+          You are required to make a bank transfer of ${amount} to the details
           provided within an hour to proceed with your investment payment
         </p>
         <section className="flex flex-col justify-center items-center rounded-[10px] h-[91px] space-y-4 shadow-sm mx-4 text-sm  lg:p-5 lg:w-[572px]">
@@ -52,7 +55,7 @@ export default function MakeInvestment({
           </div>
         </section>
         <section className="flex flex-col mt-4 bg-light-grey mx-6 rounded-[10px] px-4 shadow-sm">
-            <StatRow label="Amount" value="N20,000.00" valueClass="text-color-six text-sm" />
+            <StatRow label="Amount" value={`$${amount}`} valueClass="text-color-six text-sm" />
             <StatRow label="Bank Name" value="Wema Bank" valueClass="text-color-six text-sm" />
             <StatRow label="Account Number" value="3102991190" valueClass="text-color-six text-sm" />
             <StatRow label="Account Name" value="Admin Checkout-Royal" valueClass="text-color-six text-sm" isLast={true}/>

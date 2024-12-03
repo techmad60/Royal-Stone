@@ -10,6 +10,7 @@ import BankComponent from "@/components/ui/BankComponent";
 import InvestPreview from "@/components/Investments/InvestmentPreview";
 import MakeInvestment from "@/components/Investments/MakeInvestment";
 import InvestmentProcessed from "@/components/Investments/InvestmentProcessed";
+
 import CircleToggle from "@/components/ui/CircleToggle";
 import { BiSolidBank } from "react-icons/bi";
 import { IoWallet } from "react-icons/io5";
@@ -39,6 +40,9 @@ export default function InvestmenttDetails() {
   const [noOfUnits, setNoOfUnits] = useState("");
   const [amount, setAmount] = useState("");
   const [formError, setFormError] = useState("");
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
     if (products.length === 0) {
@@ -68,7 +72,6 @@ export default function InvestmenttDetails() {
     setIsInvestPreviewOpen(true);
   };
 
-
   const handleMakeInvestmentClick = () => {
     setIsInvestPreviewOpen(false);
     setIsMakeInvestmentOpen(true);
@@ -79,6 +82,9 @@ export default function InvestmenttDetails() {
     setIsInvestmentProcessedOpen(true);
   };
 
+  const handlePaymentSelection = (method: string) => {
+    setSelectedPaymentMethod(method);
+  };
   return (
     <div>
       <Navigator currentStep={3} steps={investmentDetails} />
@@ -145,25 +151,47 @@ export default function InvestmenttDetails() {
           </label>
           <div className="grid grid-cols-2 grid-rows-2 gap-4 py-4 lg:flex">
             <BankComponent
-              style="h-[110px]"
+              style={
+                selectedPaymentMethod === "bank" ? "bg-[#E4FFE2]" : "h-[110px]"
+              }
               bankImage={<BiSolidBank className="text-color-one" />}
               bankName="Pay Via Bank Transfer"
-              textStyle="text-sm font-medium whitespace-wrap"
-              icon={<CircleToggle />}
+              textStyle={selectedPaymentMethod === "bank" ? "text-[#419444]" :"text-sm font-medium whitespace-wrap"}
+              icon={
+                <CircleToggle
+                  isClicked={selectedPaymentMethod === "bank"}
+                  onClick={() => handlePaymentSelection("bank")}
+                />
+              }
+             
             />
             <BankComponent
-              style="h-[110px]"
+              style={
+                selectedPaymentMethod === "wallet" ? "bg-[#E4FFE2]" : "h-[110px]"
+              }
               bankImage={<IoWallet className="text-color-one" />}
               bankName="Pay via Wallet"
-              textStyle="text-sm font-medium whitespace-wrap"
-              icon={<CircleToggle />}
+              textStyle={selectedPaymentMethod === "wallet" ? "text-[#419444]" :"text-sm font-medium whitespace-wrap"}
+              icon={
+                <CircleToggle
+                  isClicked={selectedPaymentMethod === "wallet"}
+                  onClick={() => handlePaymentSelection("wallet")}
+                />
+              }
             />
             <BankComponent
-              style="h-[110px]"
+              style={
+                selectedPaymentMethod === "card" ? "bg-[#E4FFE2]" : "h-[110px]"
+              }
               bankImage={<BsFillWalletFill className="text-color-one" />}
               bankName="Pay via Card"
-              textStyle="text-sm font-medium whitespace-wrap"
-              icon={<CircleToggle />}
+              textStyle={selectedPaymentMethod === "card" ? "text-[#419444]" :"text-sm font-medium whitespace-wrap"}
+              icon={
+                <CircleToggle
+                  isClicked={selectedPaymentMethod === "card"}
+                  onClick={() => handlePaymentSelection("card")}
+                />
+              }
             />
           </div>
         </div>
@@ -173,6 +201,7 @@ export default function InvestmenttDetails() {
           type="submit" // Triggers the form submission
           ButtonText="Proceed"
           className="py-3 mt-12 w-full lg:w-[528px]"
+          disabled={!selectedPaymentMethod}
         />
       </form>
 
@@ -189,6 +218,7 @@ export default function InvestmenttDetails() {
         <MakeInvestment
           onClose={() => setIsMakeInvestmentOpen(false)}
           onProceed={handleInvestmentProcessedClick}
+          amount={amount}
         />
       )}
       {investmentProcessedOpen && (

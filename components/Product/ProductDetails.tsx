@@ -1,6 +1,6 @@
 "use client"
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useProductStore from "@/store/productStore"; // Import your Zustand store
 import Navigator from "@/components/ui/Navigator";
 import Image from "next/image";
@@ -8,22 +8,6 @@ import { MdLocationOn } from "react-icons/md";
 import TextToggle from "@/components/ui/TextToggle";
 import Button from "@/components/ui/Button";
 import StatRow from "@/components/ui/StatRow";
-
-const steps = {
-  investment: [
-    { label: "Investments", href: "/main/investments" },
-    { label: "Create Investment", href: "/main/investments/create-investment" },
-    {
-      label: "Investment Product",
-      href: "/main/investments/create-investment/investment-product",
-    },
-  ],
-  product: [
-    { label: "Products", href: "/main/product" },
-    { label: "Product details", href: "/main/product/product-details" },
-    { label: "Images", href: "/main/product/product-details/images" },
-  ],
-};
 
 export default function ProductDetails({
   type,
@@ -36,21 +20,64 @@ export default function ProductDetails({
 
   // Use Zustand store to manage product details
   const { products, fetchProducts, error } = useProductStore();
+  
+  // State for steps
+  const [steps, setSteps] = useState({
+    investment: [
+      { label: "Investments", href: "/main/investments" },
+      { label: "Create Investment", href: "/main/investments/create-investment" },
+      {
+        label: "Investment Product",
+        href: "/main/investments/create-investment/investment-product",
+      },
+    ],
+    product: [
+      { label: "Products", href: "/main/product" },
+      { label: "Product details", href: "/main/product/product-details" },
+      { label: "Images", href: "/main/product/product-details/images" },
+    ],
+    
+  });
 
+  // Fetch products when the component mounts or if products are empty
   useEffect(() => {
     if (products.length === 0) {
       fetchProducts(); // Fetch products if not already fetched
     }
   }, [products, fetchProducts]);
 
+  // Find the product by ID once products are fetched
   const product = products.find((product) => product.id === id);
 
-  if (error)
-    return (
-      <p className="text-red-500">
-        Failed to load product details. Please try again later.
-      </p>
-    );
+  // Update the product step dynamically when product is available
+  useEffect(() => {
+    if (product) {
+      setSteps((prevSteps) => ({
+        ...prevSteps,
+        product: [
+          { label: "Products", href: "/main/product" },
+          { 
+            label: "Product details", 
+            href: `/main/product/product-details?id=${encodeURIComponent(product.id)}` 
+          },
+          { label: "Images", href: "/main/product/product-details/images" },
+        ],
+        investment: [
+          { label: "Investments", href: "/main/investments" },
+          { 
+            label: "Create Investment", 
+            href: "/main/investments/create-investment" 
+          },
+          { 
+            label: "Investment Product", 
+            href: `/main/investments/create-investment/investment-product?id=${encodeURIComponent(product.id)}` 
+          },
+        ],
+      }));
+    }
+  }, [product]); // This effect runs only when product is updated
+
+  if (error) return <p className="text-red-500">Failed to load product details. Please try again later.</p>;
   if (!product) return <p>No product found.</p>;
 
   // Unified navigation logic for the Invest button
@@ -70,7 +97,7 @@ export default function ProductDetails({
       />
 
       {/* Small Screen */}
-      <section className="flex overflow-scroll gap-2 my-4 sm:hidden ">
+       <section className="flex overflow-scroll gap-2 my-4 sm:hidden">
         <div className="w-[110px] h-[111px] flex-shrink-0 col-span-2 row-span-2">
           <Image
             src={"/images/potato-3.svg"}
@@ -155,7 +182,7 @@ export default function ProductDetails({
             className=""
           />
         </div>
-      </section>
+      </section> 
 
       <div className="flex flex-col lg:grid grid-cols-2 lg:gap-12 lg:pr-8 lg:mt-8">
         <section>
