@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import CardVerification from "./CardVerification";
-import { BiSolidBank } from "react-icons/bi";
 import { IoPeople } from "react-icons/io5";
 import { BsPersonCheck } from "react-icons/bs";
 import { FaRegImage } from "react-icons/fa6";

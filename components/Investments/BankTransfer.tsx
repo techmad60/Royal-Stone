@@ -15,8 +15,8 @@ export default function BankTransfer({
   onClose,
   onProceed,
   amount,
-  productId,
-  noOfUnits,
+  // productId,
+  // noOfUnits,
 }: MyComponentProps) {
   const [timeLeft, setTimeLeft] = useState(3600); // 3600 seconds = 1 hour
   // const [loading, setLoading] = useState(false);
