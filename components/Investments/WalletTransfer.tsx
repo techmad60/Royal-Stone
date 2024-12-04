@@ -9,7 +9,7 @@ interface MyComponentProps {
   amount: string;
 }
 
-export default function BankTransfer({
+export default function WalletTransfer({
   onClose,
   onProceed,
   amount,
@@ -39,7 +39,7 @@ export default function BankTransfer({
           </p>
         </div>
         <p className="text-color-form text-sm mx-4 py-4">
-          You are required to make a bank transfer of ${amount} to the details
+          You are required to make a wallet transfer of ${amount} to the details
           provided within an hour to proceed with your investment payment
         </p>
         <section className="flex flex-col justify-center items-center rounded-[10px] h-[91px] space-y-4 shadow-sm mx-4 text-sm  lg:p-5 lg:w-[572px]">
@@ -69,22 +69,16 @@ export default function BankTransfer({
             valueClass="text-color-six text-sm"
           />
           <StatRow
-            label="Bank Name"
-            value="Wema Bank"
+            label="Network"
+            value="TRC 20"
             valueClass="text-color-six text-sm"
           />
 
           <StatRow
-            label="Account Number"
-            value="3102991190"
+            label="Wallet Address"
+            value="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
             valueClass="text-color-six text-sm"
             showCopyIcon
-          />
-
-          <StatRow
-            label="Account Name"
-            value="Admin Checkout-Royal"
-            valueClass="text-color-six text-sm"
             isLast={true}
           />
         </section>

@@ -8,6 +8,8 @@ import Button from "@/components/ui/Button";
 import BankComponent from "@/components/ui/BankComponent";
 import InvestPreview from "@/components/Investments/InvestmentPreview";
 import BankTransfer from "@/components/Investments/BankTransfer";
+import WalletTransfer from "./WalletTransfer";
+import CardTransfer from "./CardTransfer";
 import InvestmentProcessed from "@/components/Investments/InvestmentProcessed";
 
 import CircleToggle from "@/components/ui/CircleToggle";
@@ -20,6 +22,8 @@ export default function InvestmentDetails() {
   const id = searchParams.get("id");
   const [investPreviewOpen, setIsInvestPreviewOpen] = useState(false);
   const [bankTransferOpen, setIsBankTransferOpen] = useState(false);
+  const [walletTransferOpen, setIsWalletTransferOpen] = useState(false);
+  const [cardTransferOpen, setIsCardTransferOpen] = useState(false);
   const [investmentProcessedOpen, setIsInvestmentProcessedOpen] =
     useState(false);
   const { products, fetchProducts, error } = useProductStore();
@@ -132,8 +136,13 @@ export default function InvestmentDetails() {
   if (selectedPaymentMethod === "bank") {
     setIsInvestPreviewOpen(false);
     setIsBankTransferOpen(true);
-  } else {
-    setFormError("This payment method is not yet supported.");
+  } else if (selectedPaymentMethod === "wallet") {
+    setIsInvestPreviewOpen(false);
+    setIsWalletTransferOpen(true);
+  }
+  else {
+    setIsInvestPreviewOpen(false);
+    setIsCardTransferOpen(true);
   }
 };
 
@@ -295,6 +304,20 @@ export default function InvestmentDetails() {
       {bankTransferOpen && (
         <BankTransfer
           onClose={() => setIsBankTransferOpen(false)}
+          onProceed={handleInvestmentProcessedClick}
+          amount={amount}
+        />
+      )}
+      {walletTransferOpen && (
+        <WalletTransfer
+          onClose={() => setIsWalletTransferOpen(false)}
+          onProceed={handleInvestmentProcessedClick}
+          amount={amount}
+        />
+      )}
+      {cardTransferOpen && (
+        <CardTransfer
+          onClose={() => setIsCardTransferOpen(false)}
           onProceed={handleInvestmentProcessedClick}
           amount={amount}
         />
