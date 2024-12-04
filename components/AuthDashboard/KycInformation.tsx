@@ -9,10 +9,10 @@ interface KycInformationProps {
   onClose: () => void;
   onClickValidId: () => void;
   onClickNextOfKin: () => void;
-  onClickBvn: () => void;
+  // onClickBvn: () => void;
 }
 
-export default function KycInformation({ onClose, onClickValidId, onClickNextOfKin, onClickBvn }: KycInformationProps) {
+export default function KycInformation({ onClose, onClickValidId, onClickNextOfKin}: KycInformationProps) {
   // Prevent background scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -68,7 +68,7 @@ export default function KycInformation({ onClose, onClickValidId, onClickNextOfK
             style="xl:w-auto"
           />
           
-          <CardVerification
+          {/* <CardVerification
             iconImg={<BiSolidBank className="text-xl text-color-one" />}
             label="BVN"
             status="Not Set" // Dynamically set the class for text color
@@ -76,7 +76,7 @@ export default function KycInformation({ onClose, onClickValidId, onClickNextOfK
             showSwitch="hidden"
             style="xl:w-auto"
             onClick={onClickBvn}
-          />
+          /> */}
         </div>
       </div>
     </div>

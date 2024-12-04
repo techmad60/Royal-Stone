@@ -13,7 +13,7 @@ import AddBankInformation from "@/components/AuthDashboard/AddBank";
 import KycInformation from "@/components/AuthDashboard/KycInformation";
 import ValidIdInformation from "@/components/AuthDashboard/ValidID";
 import NextOfKinInformation from "@/components/AuthDashboard/NextOfKin";
-import BvnInformation from "@/components/AuthDashboard/BVN";
+// import BvnInformation from "@/components/AuthDashboard/BVN";
 
 
 export default function AuthDashboard() {
@@ -25,7 +25,7 @@ export default function AuthDashboard() {
   const [openKycInfo, setIsOpenKycInfo] = useState(false);
   const [openValidIdInfo, setIsOpenValidIdInfo] = useState(false);
   const [openNextOfKinInfo, setIsOpenNextOfKinInfo] = useState(false);
-  const [openBvnInfo, setIsOpenBvnInfo] = useState(false);
+  // const [openBvnInfo, setIsOpenBvnInfo] = useState(false);
 
   useEffect(() => {
     const savedName = localStorage.getItem("userName");
@@ -84,9 +84,9 @@ export default function AuthDashboard() {
   const handleOpenNextOfKinInfo = () => {
     setIsOpenNextOfKinInfo(true)
   }
-  const handleOpenBvnInfo = () => {
-    setIsOpenBvnInfo(true)
-  }
+  // const handleOpenBvnInfo = () => {
+  //   setIsOpenBvnInfo(true)
+  // }
 
   return (
     <div className="flex flex-col lg:pr-8">
@@ -164,7 +164,7 @@ export default function AuthDashboard() {
         <KycInformation
           onClickNextOfKin={handleOpenNextOfKinInfo}
           onClickValidId={handleOpenValidIdInfo}
-          onClickBvn={handleOpenBvnInfo}
+          // onClickBvn={handleOpenBvnInfo}
           onClose={() => setIsOpenKycInfo(false)}
         />
       )}
@@ -178,11 +178,11 @@ export default function AuthDashboard() {
           onClose={() => setIsOpenNextOfKinInfo(false)}
         />
       )}
-      {openBvnInfo && (
+      {/* {openBvnInfo && (
         <BvnInformation
           onClose={() => setIsOpenBvnInfo(false)}
         />
-      )}
+      )} */}
     </div>
   );
 }
