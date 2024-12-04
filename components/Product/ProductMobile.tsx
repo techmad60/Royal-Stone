@@ -21,7 +21,7 @@ export default function ProductMobile({
   const handleNavigation = (productId: string) => {
     const basePath =
       navigateTo === "investment"
-        ? "/main/investments/create-investment/investment-product"
+        ? "/main/investments/make-investment/investment-product"
         : "/main/product/product-details";
     router.push(`${basePath}?id=${encodeURIComponent(productId)}`);
   };

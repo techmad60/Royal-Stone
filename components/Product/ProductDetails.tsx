@@ -45,7 +45,7 @@ export default function ProductDetails({
         },
         {
           label: "Investment Product",
-          href: `/main/investments/create-investment/investment-product?id=${encodeURIComponent(
+          href: `/main/investments/make-investment/investment-product?id=${encodeURIComponent(
             product.id
           )}`,
         },
@@ -74,7 +74,7 @@ export default function ProductDetails({
   // Unified navigation logic for the Invest button
   const handleInvestClick = () => {
     router.push(
-      `/main/investments/create-investment/investment-product/investment-details?id=${encodeURIComponent(
+      `/main/investments/make-investment/investment-product/investment-details?id=${encodeURIComponent(
         product.id
       )}`
     );

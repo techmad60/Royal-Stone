@@ -77,7 +77,7 @@ export default function Investment() {
               href="/main/investments/create-investment"
               className="text-xs whitespace-nowrap"
             >
-              Create Investment
+              Make Investment
             </Link>
           </div>
           <div className="flex items-center justify-center text-color-one gap-1 lg:flex-col">

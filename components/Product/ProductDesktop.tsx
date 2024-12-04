@@ -23,7 +23,7 @@ export default function ProductDesktop({
   const handleNavigation = (productId: string) => {
     const basePath =
       navigateTo === "investment"
-        ? "/main/investments/create-investment/investment-product/investment-details"
+        ? "/main/investments/make-investment/investment-product/investment-details"
         : "/main/product/product-details";
     router.push(`${basePath}?id=${encodeURIComponent(productId)}`);
   };

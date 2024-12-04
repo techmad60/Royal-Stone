@@ -48,7 +48,7 @@ export default function InvestmentDetails() {
 
   const investmentDetails = [
     { label: "Investments", href: "/main/investments" },
-    { label: "Create Investment", href: "/main/investments/create-investment" },
+    { label: "Make Investment", href: "/main/investments/create-investment" },
     {
       label: "Investment Product",
       href: `/main/investments/create-investment/investment-product?id=${encodeURIComponent(
@@ -305,6 +305,8 @@ export default function InvestmentDetails() {
         <BankTransfer
           onClose={() => setIsBankTransferOpen(false)}
           onProceed={handleInvestmentProcessedClick}
+          productId={product.id}
+          noOfUnits={noOfUnits} 
           amount={amount}
         />
       )}

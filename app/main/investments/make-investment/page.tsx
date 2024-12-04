@@ -9,7 +9,7 @@ import PaginationComponent from "@/components/ui/PaginationComponent";
 
 const createInvestment = [
   { label: "Investments", href: "/main/investments" },
-  { label: "Create Investment", href: "/main/investments/create-investment" },
+  { label: "Make Investment", href: "/main/investments/create-investment" },
 ];
 export default function CreateInvestment() {
   const { products, fetchProducts, isLoading, error } = useProductStore();
