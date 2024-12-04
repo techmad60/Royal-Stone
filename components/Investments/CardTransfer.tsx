@@ -37,7 +37,7 @@ export default function CardTransfer({
           </p>
         </div>
         <p className="text-color-form text-sm mx-4 py-4">
-          You will be debited ${amount} using the card details you'll provide below.
+          You will be debited ${amount} using the card details you&apos;ll provide below.
         </p>
         <form className="flex flex-col mt-4 space-y-6 px-4">
           <div className="flex flex-col gap-2">
