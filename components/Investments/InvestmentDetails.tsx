@@ -10,6 +10,7 @@ import InvestPreview from "@/components/Investments/InvestmentPreview";
 import BankTransfer from "@/components/Investments/BankTransfer";
 import WalletTransfer from "./WalletTransfer";
 import CardTransfer from "./CardTransfer";
+import ReceiptModal from "./Receipt";
 import InvestmentProcessed from "@/components/Investments/InvestmentProcessed";
 
 import CircleToggle from "@/components/ui/CircleToggle";
@@ -26,6 +27,7 @@ export default function InvestmentDetails() {
   const [cardTransferOpen, setIsCardTransferOpen] = useState(false);
   const [investmentProcessedOpen, setIsInvestmentProcessedOpen] =
     useState(false);
+  const [receiptOpen, setIsReceiptOpen] = useState(false);
   const { products, fetchProducts, error } = useProductStore();
   const [noOfUnits, setNoOfUnits] = useState("");
   const [amount, setAmount] = useState("");
@@ -125,7 +127,8 @@ export default function InvestmentDetails() {
       setNoOfUnits("");
     }
   };
-
+  
+  //Make Investment Click
   const handleMakeInvestmentClick = () => {
   const { isValid, error } = validateInputs();
   if (!isValid) {
@@ -146,14 +149,23 @@ export default function InvestmentDetails() {
   }
 };
 
-  const handleInvestmentProcessedClick = () => {
-    setIsBankTransferOpen(false);
-    setIsInvestmentProcessedOpen(true);
+  const handleShowEvidenceClick = () => {
+    if (setIsBankTransferOpen) {
+        setIsBankTransferOpen(false)
+    }
+    if (setIsCardTransferOpen) {
+        setIsCardTransferOpen(false);
+    }
+    if (setIsWalletTransferOpen)(
+        setIsWalletTransferOpen(false)
+    )
+    setIsReceiptOpen(true);
   };
 
   const handlePaymentSelection = (method: string) => {
     setSelectedPaymentMethod(method);
   };
+  
   return (
     <div>
       <Navigator currentStep={3} steps={investmentDetails} />
@@ -304,7 +316,7 @@ export default function InvestmentDetails() {
       {bankTransferOpen && (
         <BankTransfer
           onClose={() => setIsBankTransferOpen(false)}
-          onProceed={handleInvestmentProcessedClick}
+          onProceed={handleShowEvidenceClick}
           productId={product.id}
           noOfUnits={noOfUnits} 
           amount={amount}
@@ -313,23 +325,30 @@ export default function InvestmentDetails() {
       {walletTransferOpen && (
         <WalletTransfer
           onClose={() => setIsWalletTransferOpen(false)}
-          onProceed={handleInvestmentProcessedClick}
+          onProceed={handleShowEvidenceClick}
           amount={amount}
         />
       )}
       {cardTransferOpen && (
         <CardTransfer
           onClose={() => setIsCardTransferOpen(false)}
-          onProceed={handleInvestmentProcessedClick}
+          onProceed={handleShowEvidenceClick}
           amount={amount}
+        />
+      )}
+       {receiptOpen && (
+        <ReceiptModal
+          onClose={() => setIsReceiptOpen(false)}
+        //   onConfirm={() => setIsInvestPreviewOpen}
         />
       )}
       {investmentProcessedOpen && (
         <InvestmentProcessed
           onClose={() => setIsInvestmentProcessedOpen(false)}
-          onConfirm={() => setIsInvestPreviewOpen}
+          onConfirm={() => setIsReceiptOpen(true)}
         />
       )}
+     
     </div>
   );
 }

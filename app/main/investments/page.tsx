@@ -74,7 +74,7 @@ export default function Investment() {
           <div className="flex items-center justify-center text-color-one gap-1 lg:flex-col ">
             <Icon icon={<BsFileBarGraphFill />} />
             <Link
-              href="/main/investments/create-investment"
+              href="/main/investments/make-investment"
               className="text-xs whitespace-nowrap"
             >
               Make Investment
