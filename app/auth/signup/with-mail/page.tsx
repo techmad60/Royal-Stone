@@ -43,11 +43,11 @@ export default function SignupWithMail() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     // Clear previous errors
     setPasswordError(null);
     setEmailError(null);
-  
+
     // Check for empty fields manually
     if (
       !formData.name ||
@@ -58,7 +58,7 @@ export default function SignupWithMail() {
       setError("All fields are required.");
       return;
     }
-  
+
     // Password validation regex
     const passwordRegex =
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
@@ -68,22 +68,22 @@ export default function SignupWithMail() {
       );
       return;
     }
-  
+
     // Email validation
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(formData.email)) {
       setEmailError("Please enter a valid email address.");
       return;
     }
-  
+
     if (!isChecked) {
       setError("You must accept the terms and conditions.");
       return;
     }
-  
+
     setError(null);
     setLoading(true);
-  
+
     try {
       // Step 1: Register the user
       const registrationResponse = await fetch(
@@ -102,21 +102,20 @@ export default function SignupWithMail() {
           }),
         }
       );
-  
+
       const registrationResult = await registrationResponse.json();
-  
+
       if (!registrationResponse.ok) {
         throw new Error(registrationResult.message || "Registration failed");
       }
       // Save tokens in localStorage
-    const { accessToken, refreshToken, data } = registrationResult;
-    const userId = data.account.id;
-    localStorage.setItem("userId", userId);
-    localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", refreshToken);
-    localStorage.setItem("userName", formData.name); // Save the name
-    console.log("Tokens stored successfully:", { accessToken, refreshToken });
-  
+      const { accessToken, refreshToken, account } = registrationResult.data;
+      localStorage.setItem("userId", account.id);
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+      localStorage.setItem("userName", formData.name); // Save the name
+      console.log("Tokens stored successfully:", { accessToken, refreshToken });
+
       // Step 2: Trigger email verification
       const verificationResponse = await fetch(
         `https://api-royal-stone.softwebdigital.com/api/auth/request-verification?email=${encodeURIComponent(
@@ -126,19 +125,23 @@ export default function SignupWithMail() {
           method: "GET",
         }
       );
-  
+
       const verificationResult = await verificationResponse.json();
-  
+
       if (!verificationResponse.ok) {
         throw new Error(
           verificationResult.message || "Failed to send verification email"
         );
       }
-  
+
       console.log("Verification email sent:", verificationResult);
-  
+
       // Navigate to the verification page with the email as a query parameter
-      router.push(`/auth/signup/with-mail/verify-mail?email=${encodeURIComponent(formData.email)}`);
+      router.push(
+        `/auth/signup/with-mail/verify-mail?email=${encodeURIComponent(
+          formData.email
+        )}`
+      );
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -149,7 +152,6 @@ export default function SignupWithMail() {
       setLoading(false);
     }
   };
-  
 
   return (
     <div className="flex flex-col">

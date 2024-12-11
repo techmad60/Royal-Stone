@@ -17,7 +17,7 @@ const signupSteps = [
 export default function CompleteSetup() {
   const [countries, setCountries] = useState<ICountry[]>([]);
   const [states, setStates] = useState<IState[]>([]);
-  // const [accessToken, setAccessToken] = useState<string | null>(null);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [gender, setGender] = useState("");
@@ -40,19 +40,19 @@ export default function CompleteSetup() {
     }
   }, [selectedCountry]);
 // Retrieve access token from localStorage
-// useEffect(() => {
-//   try {
-//     const token = localStorage.getItem("accessToken");
-//     if (token) {
-//       setAccessToken(token);
-//       console.log("Access token retrieved:", token);
-//     } else {
-//       console.warn("Access token not found in localStorage.");
-//     }
-//   } catch (error) {
-//     console.error("Error accessing localStorage:", error);
-//   }
-// }, []);
+useEffect(() => {
+  try {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      setAccessToken(token);
+      console.log("Access token retrieved:", token);
+    } else {
+      console.warn("Access token not found in localStorage.");
+    }
+  } catch (error) {
+    console.error("Error accessing localStorage:", error);
+  }
+}, []);
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -78,7 +78,7 @@ export default function CompleteSetup() {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          // Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify(requestData),
       });
@@ -196,7 +196,7 @@ export default function CompleteSetup() {
 
         <Button
           type="submit"
-          ButtonText={loading ? "Processing" : "Processed"}
+          ButtonText={loading ? "Processing" : "Process"}
           className="py-3 mt-20 w-full lg:w-[417px] xl:w-[535px]"
         />
       </form>
