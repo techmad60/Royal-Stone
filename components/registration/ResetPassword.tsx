@@ -99,7 +99,7 @@ export default function ResetPassword() {
         {/* New Password */}
         <div className="flex flex-col gap-2">
           <label className="text-color-form text-sm">Password</label>
-          <div className="relative">
+          <div className="relative flex items-center">
             <input
               type={showPassword ? "text" : "password"}
               value={password}
@@ -110,7 +110,7 @@ export default function ResetPassword() {
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute inset-y-0 right-3 flex hover:text-color-one"
+              className="absolute right-3 flex hover:text-color-one"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
@@ -120,7 +120,7 @@ export default function ResetPassword() {
         {/* Confirm Password */}
         <div className="flex flex-col gap-2">
           <label className="text-color-form text-sm">Confirm Password</label>
-          <div className="relative">
+          <div className="relative flex items-center">
             <input
               type={showPassword ? "text" : "password"}
               value={confirmPassword}
@@ -132,7 +132,7 @@ export default function ResetPassword() {
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute inset-y-0 right-3 flex hover:text-color-one"
+              className="absolute right-3 flex hover:text-color-one"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>

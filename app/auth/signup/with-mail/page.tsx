@@ -170,6 +170,7 @@ export default function SignupWithMail() {
             value={formData.name}
             onChange={handleChange}
             className="rounded-sm border-b border-slate-200 text-colour-five"
+            placeholder="Cooper Winterwind"
           />
         </div>
 
@@ -183,13 +184,14 @@ export default function SignupWithMail() {
             value={formData.phone}
             onChange={handleChange}
             className="rounded-sm border-b border-slate-200 text-colour-five"
+            placeholder="+1 555-123-4567"
           />
         </div>
 
         {/* Password */}
         <div className="flex flex-col gap-2">
           <label className="text-color-form text-sm">Password</label>
-          <div className="relative">
+          <div className="relative flex items-center">
             <input
               type={showPassword ? "text" : "password"}
               name="password"
@@ -201,7 +203,7 @@ export default function SignupWithMail() {
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute inset-y-0 right-3 flex hover:text-color-one"
+              className="absolute right-3 flex hover:text-color-one"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
@@ -223,6 +225,7 @@ export default function SignupWithMail() {
             value={formData.email}
             onChange={handleChange}
             className="rounded-sm border-b border-slate-200 text-colour-five"
+            placeholder="cooperwind@gmail.com"
           />
           {emailError && (
             <p className="text-red-500 text-xs mt-1 text-start">{emailError}</p>

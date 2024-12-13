@@ -37,7 +37,7 @@ export default function InvestmentDetails () {
             </div>
             
             
-            <div className="overflow-x-scroll flex gap-2 my-4">
+            <div className="overflow-x-scroll hide-scrollbar flex gap-2 my-4">
                 <Image src="/images/potato-2.svg" width={110} height={111} alt="potatoes" className="flex-shrink-0 lg:w-[231px] lg:h-[148px] lg:bg-lime-500 lg:rounded-xl"/>
                 <Image src="/images/potato-2.svg" width={110} height={111} alt="potatoes" className="flex-shrink-0 lg:w-[231px] lg:h-[148px] lg:bg-lime-500 lg:rounded-xl"/>
                 <Image src="/images/potato-2.svg" width={110} height={111} alt="potatoes" className="flex-shrink-0 lg:w-[231px] lg:h-[148px] lg:bg-lime-500 lg:rounded-xl"/>

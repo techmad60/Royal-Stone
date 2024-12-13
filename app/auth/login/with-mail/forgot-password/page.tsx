@@ -81,7 +81,8 @@ export default function ForgotPassword() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="rounded-sm border-b border-slate-200 placeholder:text-colour-five"
+            className="rounded-sm border-b border-slate-200"
+            placeholder="cooperwind@gmail.com"
           />
           {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
         </div>

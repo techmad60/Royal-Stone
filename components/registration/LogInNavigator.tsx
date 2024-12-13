@@ -10,7 +10,7 @@ const steps = [
 
 export default function LogInNavigator({ currentStep }: { currentStep: number }) {
     return (
-        <div className="flex items-center space-x-2 mt-4 overflow-x-scroll">
+        <div className="flex items-center space-x-2 mt-4 overflow-x-scroll hide-scrollbar">
             {steps.slice(0, currentStep + 1).map((step, index) => (
                 <div key={index} className="flex items-center space-x-2">
                     <Link

@@ -7,7 +7,6 @@ import CardComponent from "../ui/CardComponent";
 import CardComponentTwo from "../ui/CardComponentTwo";
 import { GrSend } from "react-icons/gr";
 
-
 export default function Main() {
   return (
     <main className="z-10 w-full">
@@ -25,17 +24,38 @@ export default function Main() {
             investment strategies.
           </p>
           <div className="grid grid-cols-2 gap-2 xl:grid-cols-3">
-              <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold "> <span className="text-color-one"><GrSend />
-              </span> Long-term growth</p>
-              <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold "> <span className="text-color-one"><GrSend />
-              </span> Risk management</p>
-              <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold "> <span className="text-color-one"><GrSend />
-              </span> Tax-efficient solutions</p>
-              <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold "> <span className="text-color-one"><GrSend />
-              </span> Retirement planning</p>
-              
-            </div>
-            <p className="text-colour-five text-sm whitespace-nowrap lg:text-base">Start securing your future today!</p>
+            <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold ">
+              {" "}
+              <span className="text-color-one">
+                <GrSend />
+              </span>{" "}
+              Long-term growth
+            </p>
+            <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold ">
+              {" "}
+              <span className="text-color-one">
+                <GrSend />
+              </span>{" "}
+              Risk management
+            </p>
+            <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold ">
+              {" "}
+              <span className="text-color-one">
+                <GrSend />
+              </span>{" "}
+              Tax-efficient solutions
+            </p>
+            <p className="flex items-center text-sm font-medium gap-[5px] text-colour-five lg:text-base lg:font-semibold ">
+              {" "}
+              <span className="text-color-one">
+                <GrSend />
+              </span>{" "}
+              Retirement planning
+            </p>
+          </div>
+          <p className="text-colour-five text-sm whitespace-nowrap lg:text-base">
+            Start securing your future today!
+          </p>
           <div className="flex gap-4 pt-6">
             <AppStoreButton
               textColor="text-white"
@@ -98,7 +118,7 @@ export default function Main() {
           <CardComponent
             title="Make an Investment"
             text="Take control of your financial future. Make informed investment decisions with our expert guidance.
-            Diversify your portfolio, minimize risk, and maximize returns. Whether you&apos;re a seasoned investor or just
+            Diversify your portfolio, minimize risk, and maximize returns. Whether you're a seasoned investor or just
             starting out, our tailored solutions empower you to achieve your goals. Invest in your dreams, secure your
             legacy, and unlock a brighter financial future. Start your investment journey today!"
             icon="/images/make-investment.svg"
@@ -108,7 +128,7 @@ export default function Main() {
           <CardComponent
             title="Create a Savings Target"
             text="Set your financial goals and crush them! Create a savings target that sparks motivation and drives results.
-            Whether it&apos;s a dream vacation, down payment, or emergency fund, our tools help you stay focused and
+            Whether it's a dream vacation, down payment, or emergency fund, our tools help you stay focused and
             on track. Set realistic targets, automate your savings, and watch your progress grow. Start your journey
             to financial freedom today!"
             icon="/images/make-savings.svg"
@@ -117,16 +137,9 @@ export default function Main() {
           {/* Invest In Stocks */}
           <CardComponent
             title="Invest In Stocks"
-            text={
-              <div>
-                <p>
-                  Unlock your financial potential. Invest in stocks and tap into
-                  the world&apos;s top-performing companies. Diversify your
-                  portfolio, minimize risk, and maximize returns.
-                </p>
-                <p>Start building your stock portfolio today and secure your financial future. Stay ahead of the game with smart investments and watch your wealth grow steadily over time.</p>
-              </div>
-            }
+            text="Unlock your financial potential. Invest in stocks and tap into
+                  the world's top-performing companies. Diversify your
+                  portfolio, minimize risk, and maximize returns. Start building your stock portfolio today and secure your financial future. Stay ahead of the game with smart investments and watch your wealth grow steadily over time."
             icon="/images/buy-stocks.svg"
           />
         </div>
@@ -159,8 +172,9 @@ export default function Main() {
                   Download the Mobile App
                 </h3>
                 <p className="font-light text-sm text-colour-five leading-base my-2 text-start lg:w-[370px]">
-                Take control of your finances anywhere, anytime. Download our mobile app on Playstore or Appstore for
-                seamless investment and convenience.
+                  Take control of your finances anywhere, anytime. Download our
+                  mobile app on Playstore or Appstore for seamless investment
+                  and convenience.
                 </p>
               </div>
             </section>
@@ -182,8 +196,10 @@ export default function Main() {
                   Create an Account
                 </h3>
                 <p className="font-light text-sm text-colour-five leading-base my-2 text-start lg:w-[370px]">
-                Create your account in a few easy steps! Enjoy: Quick registration, Instant access, User-friendly interface,
-                and Secure transactions. Get started now and experience the difference.
+                  Create your account in a few easy steps! Enjoy: Quick
+                  registration, Instant access, User-friendly interface, and
+                  Secure transactions. Get started now and experience the
+                  difference.
                 </p>
               </div>
             </section>
@@ -206,7 +222,9 @@ export default function Main() {
                   Make your First Transaction
                 </h3>
                 <p className="font-light text-sm text-colour-five leading-base my-2 text-start lg:w-[370px]">
-                Start transacting with confidence. Make your first transaction and experience seamless processing, Topnotch security, Instant confirmations and 24/7 support.
+                  Start transacting with confidence. Make your first transaction
+                  and experience seamless processing, Topnotch security, Instant
+                  confirmations and 24/7 support.
                 </p>
               </div>
             </section>
@@ -241,8 +259,8 @@ export default function Main() {
               Why Royal Stone Is The Best Choice
             </h2>
             <p className="text-sm text-colour-five leading-base my-4 w-[340px] xs:w-[345px] xl:w-[487px]">
-            Elevate your expectations with the best-in-class solution by unlocking unmatched benefits with
-            Royal Stone
+              Elevate your expectations with the best-in-class solution by
+              unlocking unmatched benefits with Royal Stone
             </p>
           </div>
 
@@ -281,7 +299,7 @@ export default function Main() {
           </h2>
         </div>
 
-        <div className="flex gap-4 px-4 mt-12 lg:px-16 overflow-x-scroll">
+        <div className="flex gap-4 px-4 mt-12 lg:px-16 overflow-x-scroll hide-scrollbar">
           {/* Product one */}
           <section className="flex flex-col justify-start items-start flex-shrink-0">
             <Image

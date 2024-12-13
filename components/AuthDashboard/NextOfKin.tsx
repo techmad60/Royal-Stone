@@ -43,7 +43,7 @@ export default function NextOfKinInformation({ onClose }: NextOfKinInfoProps) {
               name="name"
               required
               className="rounded-sm border-b border-slate-200 placeholder:text-sm placeholder:text-color-zero"
-              placeholder="Kolawole Osindeinde"
+             
             />
           </div>
 
@@ -55,7 +55,7 @@ export default function NextOfKinInformation({ onClose }: NextOfKinInfoProps) {
               name="email"
               required
               className="rounded-sm border-b border-slate-200 placeholder:text-sm placeholder:text-color-zero"
-              placeholder="kola-osin@gmail.com"
+              
             />
           </div>
 
@@ -66,7 +66,7 @@ export default function NextOfKinInformation({ onClose }: NextOfKinInfoProps) {
               type="tel"
               required
               className="rounded-sm border-b border-slate-200 placeholder:text-sm placeholder:text-color-zero"
-              placeholder="+234 8103763064"
+              
             />
           </div>
 
@@ -77,7 +77,7 @@ export default function NextOfKinInformation({ onClose }: NextOfKinInfoProps) {
               name="name"
               required
               className="rounded-sm border-b border-slate-200 placeholder:text-sm placeholder:text-color-zero"
-              placeholder="31 Olorunjare Street, Pako-Akoka"
+             
             />
           </div>
 
@@ -87,93 +87,6 @@ export default function NextOfKinInformation({ onClose }: NextOfKinInfoProps) {
           />
         </form>
       </div>
-       {/* Small Screen */}
-       {/* <section className="flex overflow-scroll gap-2 my-4 sm:hidden ">
-        <div className="w-[110px] h-[111px] flex-shrink-0 col-span-2 row-span-2">
-          <Image
-            src={"/images/potato-3.svg"}
-            alt="product-details"
-            width={110}
-            height={111}
-            className=""
-          />
-        </div>
-        <div className="w-[110px] h-[111px] flex-shrink-0">
-          <Image
-            src={"/images/potato-3.svg"}
-            alt="product-details"
-            width={110}
-            height={111}
-          />
-        </div>
-        <div className="w-[110px] h-[111px] flex-shrink-0">
-          <Image
-            src={"/images/potato-3.svg"}
-            alt="product-details"
-            width={110}
-            height={111}
-          />
-        </div>
-        <div className="w-[110px] h-[111px] flex-shrink-0">
-          <Image
-            src={"/images/potato-3.svg"}
-            alt="product-details"
-            width={110}
-            height={111}
-          />
-        </div>
-        <div className="w-[110px] h-[111px] flex-shrink-0">
-          <Image
-            src={"/images/potato-3.svg"}
-            alt="product-details"
-            width={110}
-            height={111}
-          />
-        </div>
-      </section> */}
-
-      {/* Large Screen */}
-      {/* <section className="hidden overflow-scroll my-4 sm:grid grid-cols-4 gap-x-2">
-        <div className="col-span-2">
-          <Image
-            src={"/images/potato-0.png"}
-            alt="product-details"
-            width={549}
-            height={337}
-            className=""
-          />
-        </div>
-        <div className="grid grid-cols-2 col-span-2 gap-x-2">
-          <Image
-            src={"/images/potato-small.png"}
-            alt="product-details"
-            width={315}
-            height={166}
-            className=""
-          />
-          <Image
-            src={"/images/potato-small.png"}
-            alt="product-details"
-            width={315}
-            height={166}
-            className=""
-          />
-          <Image
-            src={"/images/potato-small.png"}
-            alt="product-details"
-            width={315}
-            height={166}
-            className=""
-          />
-          <Image
-            src={"/images/potato-small.png"}
-            alt="product-details"
-            width={315}
-            height={166}
-            className=""
-          />
-        </div>
-      </section>  */}
     </div>
   );
 }

@@ -88,7 +88,7 @@ export default function ProductDetails({
       />
 
       {/* Small Screen */}
-      <section className="flex overflow-scroll gap-2 my-4 sm:hidden ">
+      <section className="flex overflow-scroll hide-scrollbar gap-2 my-4 sm:hidden ">
         <div className="w-[110px] h-[111px] flex-shrink-0 col-span-2 row-span-2">
           <Image
             src={"/images/potato-3.svg"}
@@ -133,7 +133,7 @@ export default function ProductDetails({
       </section>
 
       {/* Large Screen */}
-      <section className="hidden overflow-scroll my-4 sm:grid grid-cols-4 gap-x-2">
+      <section className="hidden overflow-scroll hide-scrollbar my-4 sm:grid grid-cols-4 gap-x-2">
         <div className="col-span-2">
           <Image
             src={"/images/potato-0.png"}

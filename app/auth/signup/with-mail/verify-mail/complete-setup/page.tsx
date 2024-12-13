@@ -142,6 +142,7 @@ useEffect(() => {
             onChange={(e) => setUsername(e.target.value)}
             className="rounded-sm border-b border-slate-200 text-colour-five"
             required
+            placeholder="Cooper"
           />
         </div>
 
@@ -173,7 +174,7 @@ useEffect(() => {
             disabled={!states.length}
             required
           >
-            <option value="" disabled>Select State</option>
+            <option value="" disabled className="">Select State</option>
             {states.map((state) => (
               <option key={state.isoCode} value={state.isoCode}>
                 {state.name}
@@ -191,6 +192,7 @@ useEffect(() => {
             onChange={(e) => setAddress(e.target.value)}
             required
             className="rounded-sm border-b border-slate-200 text-colour-five"
+            placeholder="5 lanes, Indiana"
           />
         </div>
 

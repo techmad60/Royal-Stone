@@ -16,7 +16,7 @@ interface SettingsNavigatorProps {
 
 export default function SettingsNavigator({ currentStep, steps, classname }: SettingsNavigatorProps) {
     return (
-        <div className={`flex items-center space-x-2 mt-4 overflow-x-scroll ${classname}`}>
+        <div className={`flex items-center space-x-2 mt-4 overflow-x-scroll hide-scrollbar ${classname}`}>
             {steps.slice(0, currentStep + 1).map((step, index) => (
                 <div key={index} className="flex items-center space-x-2">
                     <Link
