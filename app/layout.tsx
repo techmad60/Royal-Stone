@@ -4,6 +4,9 @@ import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   title: "Royal Stone",
+  icons: {
+    icon: "/images/favicon.svg", // This path is relative to the public folder
+  },
 };
 
 export default function RootLayout({
@@ -12,7 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.className} `}>
+    <html lang="en" className={`${GeistSans.className}`}>
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+      </head>
       <body>{children}</body>
     </html>
   );
