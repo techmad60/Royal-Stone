@@ -100,7 +100,7 @@ export default function WithMail() {
               required
               value={formData.password}
               onChange={handleChange}
-              className="rounded-sm border-b border-slate-200 w-full placeholder:text-colour-five"
+              className="rounded-sm border-b border-slate-200 w-full text-colour-five"
               
             />
             <button

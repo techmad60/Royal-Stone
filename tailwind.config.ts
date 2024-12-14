@@ -26,7 +26,7 @@ const config: Config = {
         "xs": '375px',
         "2xs": '320px',
         "xlg": '1280px',
-        "2xlg": "1440px",
+        "2xlg": "1320px",
       },
       lineHeight: {
         "base": "30px",

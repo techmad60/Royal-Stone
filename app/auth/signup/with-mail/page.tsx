@@ -7,6 +7,8 @@ import EmptyBox from "@/components/ui/UncheckedBox";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const signupSteps = [
   { label: "Create Account", href: "/auth/signup" },
@@ -173,18 +175,50 @@ export default function SignupWithMail() {
             placeholder="Cooper Winterwind"
           />
         </div>
+        
+         {/* Email */}
+         <div className="flex flex-col gap-2">
+          <label className="text-color-form text-sm">Email</label>
+          <input
+            type="email"
+            name="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            className="rounded-sm border-b border-slate-200 text-colour-five"
+            placeholder="cooperwind@gmail.com"
+          />
+          {emailError && (
+            <p className="text-red-500 text-xs mt-1 text-start">{emailError}</p>
+          )}
+        </div>
 
         {/* Phone Number */}
         <div className="flex flex-col gap-2">
           <label className="text-color-form text-sm">Phone Number</label>
-          <input
-            type="tel"
-            name="phone"
-            required
+          <PhoneInput
+            country={"us"} // Default country (you can change it)
             value={formData.phone}
-            onChange={handleChange}
-            className="rounded-sm border-b border-slate-200 text-colour-five"
-            placeholder="+1 555-123-4567"
+            onChange={(phone) => setFormData((prev) => ({ ...prev, phone }))}
+            inputStyle={{
+              width: "100%",
+              color: "#0F1C39", // Adjust the text color if needed
+              fontSize: "14px", // Set a consistent font size
+              border: "none"
+            }}
+            containerStyle={{
+              borderBottom: "1px solid #e2e8f0"
+            }}
+            buttonStyle={{
+              border: "none",
+              backgroundColor: "transparent", // Removes button background
+              // padding: "5px",
+            }}
+            inputProps={{
+              name: 'phone',
+              required: true,
+              autoFocus: true
+            }}
           />
         </div>
 
@@ -215,22 +249,7 @@ export default function SignupWithMail() {
           </div>
         </div>
 
-        {/* Email */}
-        <div className="flex flex-col gap-2">
-          <label className="text-color-form text-sm">Email</label>
-          <input
-            type="email"
-            name="email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-            className="rounded-sm border-b border-slate-200 text-colour-five"
-            placeholder="cooperwind@gmail.com"
-          />
-          {emailError && (
-            <p className="text-red-500 text-xs mt-1 text-start">{emailError}</p>
-          )}
-        </div>
+       
 
         {/* Referral Code */}
         <div className="flex flex-col gap-2">

@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.className}`}>
       <head>
-        <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+        <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
       </head>
       <body>{children}</body>
     </html>

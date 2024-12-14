@@ -81,7 +81,7 @@ export default function MainPageNavbar({
         />
       )}
       <div
-        className={`flex z-50 flex-col bg-light-grey absolute min-h-full top-0 left-0 p-4 space-y-8 w-3/4 lg:w-[230px] lg:static lg:px-8 border-r border-slate-200 xl:w-[268px] ${
+        className={`flex z-50 flex-col bg-light-grey absolute min-h-screen top-0 left-0 p-4 space-y-8 w-3/4 lg:w-[230px] lg:static lg:px-8 border-r border-slate-200 xl:w-[268px] ${
           isNavOpen ? "fixed" : "hidden lg:flex"
         }`}
       >

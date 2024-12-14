@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { IoPerson, IoPeople } from "react-icons/io5";
 import { IoIosLock } from "react-icons/io";
@@ -45,6 +46,45 @@ export default function SettingsPage() {
   };
 
   const [deleteBankOpen, setIsDeleteBankOpen] = useState(false);
+  const router = useRouter()
+
+  const handleDeleteAccount = async () => {
+    const confirmation = confirm("Are you sure you want to delete your account? This action cannot be undone.");
+    if (!confirmation) return;
+  
+    // Retrieve the token from local storage
+    const token = localStorage.getItem("accessToken"); // Replace "authToken" with your actual key if different
+  
+    if (!token) {
+      alert("User is not authenticated. Please log in again.");
+      return;
+    }
+  
+    try {
+      const response = await fetch('https://api-royal-stone.softwebdigital.com/api/account/profile', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+  
+      if (response.ok) {
+        alert("Your account has been deleted successfully.");
+        // Navigate to login or appropriate page
+        router.push("/auth/login");
+      } else {
+        const errorData = await response.json();
+        console.error("Error deleting account:", errorData);
+        alert(errorData?.message || "Failed to delete account. Please try again.");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      alert("An error occurred. Please check your internet connection and try again.");
+    }
+  };
+  
+  
   return (
     <div className="">
       {/* Account Settings and Profile Settings */}
@@ -70,7 +110,7 @@ export default function SettingsPage() {
               </div>
             </div>
             <p className="text-color-zero text-sm font-medium mt-4">
-              Kolawole Osindeinde
+              Cooper Winterwind
             </p>
             <hr className="my-4" />
           </div>
@@ -78,8 +118,8 @@ export default function SettingsPage() {
             className={`${"space-y-4 lg:grid grid-cols-2 grid-rows-3 lg:mt-4 lg:space-y-0 lg:gap-x-20 lg:gap-y-2 xl:gap-x-8 xl:gap-y-8"}`}
           >
             <div
-              className={`cursor-pointer ${
-                activeSetting === "Profile" ? "bg-yellow-500" : "bg-transparent"
+              className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
+                activeSetting === "Profile" ? "bg-color-two" : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Profile")}
             >
@@ -88,16 +128,16 @@ export default function SettingsPage() {
                   <IoPerson className="text-color-one text-2xl lg:text-lg" />
                 }
                 setting="Profile settings"
-                settingText="Egestas netus nisi elementum in"
+                settingText="Update information about yourself."
                 navigate={<MdKeyboardArrowRight className="text-xl"/>}
               />
             </div>
 
             <div
-              className={`cursor-pointer ${
+              className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
                 activeSetting === "Security Setting"
-                  ? "bg-yellow-500"
-                  : "bg-transparent"
+                  ? "bg-color-two"
+                  : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Security Setting")}
             >
@@ -112,10 +152,10 @@ export default function SettingsPage() {
             </div>
 
             <div
-              className={`cursor-pointer ${
+              className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
                 activeSetting === "Bank Setting"
-                  ? "bg-yellow-500"
-                  : "bg-transparent"
+                  ? "bg-color-two"
+                  : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Bank Setting")}
             >
@@ -138,8 +178,8 @@ export default function SettingsPage() {
               navigate={<MdKeyboardArrowRight className="text-xl"/>}
             />
             <div
-              className={`cursor-pointer ${
-                activeSetting === "Support Setting" ? "bg-yellow-500" : "bg-transparent"
+              className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
+                activeSetting === "Support Setting" ? "bg-color-two" : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Support Setting")}
             >
@@ -154,8 +194,8 @@ export default function SettingsPage() {
             </div>
             
             <div
-              className={`cursor-pointer ${
-                activeSetting === "FAQs Setting" ? "bg-yellow-500" : "bg-transparent"
+              className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
+                activeSetting === "FAQs Setting" ? "bg-color-two" : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("FAQs Setting")}
             >
@@ -169,8 +209,8 @@ export default function SettingsPage() {
                 />
             </div>
             <div
-              className={`cursor-pointer ${
-                activeSetting === "Kyc Setting" ? "bg-yellow-500" : "bg-transparent"
+              className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
+                activeSetting === "Kyc Setting" ? "bg-color-two" : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Kyc Setting")}
             >
@@ -186,8 +226,8 @@ export default function SettingsPage() {
            
           </div>
           {/* Delete Account Button */}
-          <section className="flex bg-light-grey p-4 shadow-sm rounded-common w-[167.5px] mt-4">
-            <div className="flex items-center gap-2 lg:gap-4">
+          <section className="flex bg-light-grey cursor-pointer hover:bg-slate-100 duration-300 p-4 shadow-sm rounded-common w-[167.5px] mt-4" onClick={handleDeleteAccount}>
+            <div className="flex  items-center gap-2 lg:gap-4">
               <Icon
                 icon={<RiDeleteBin6Line className="text-sm text-red-500" />}
                 containerSize="w-[24px] h-[24px] rounded-[9px]"

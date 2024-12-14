@@ -303,7 +303,7 @@ export default function Main() {
           {/* Product one */}
           <section className="flex flex-col justify-start items-start flex-shrink-0">
             <Image
-              src={"/images/potato.svg"}
+              src={"/images/small-potato.png"}
               alt="Potato Image"
               className="lg:w-[291px]"
               width={252}
@@ -326,7 +326,7 @@ export default function Main() {
           {/* Product Two */}
           <section className="flex flex-col justify-start items-start flex-shrink-0">
             <Image
-              src={"/images/potato.svg"}
+              src={"/images/small-potato.png"}
               alt="Potato Image"
               className="lg:w-[291px]"
               width={252}
@@ -349,7 +349,7 @@ export default function Main() {
           {/* Product three */}
           <section className="flex flex-col justify-start items-start flex-shrink-0">
             <Image
-              src={"/images/potato.svg"}
+              src={"/images/small-potato.png"}
               alt="Potato Image"
               className="lg:w-[291px]"
               width={252}
@@ -372,7 +372,7 @@ export default function Main() {
           {/* Product four */}
           <section className="flex flex-col justify-start items-start flex-shrink-0">
             <Image
-              src={"/images/potato.svg"}
+              src={"/images/small-potato.png"}
               alt="Potato Image"
               className="lg:w-[291px]"
               width={252}

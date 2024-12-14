@@ -41,67 +41,84 @@ export default function CompleteSetup() {
   }, [selectedCountry]);
 // Retrieve access token from localStorage
 useEffect(() => {
-  try {
-    const token = localStorage.getItem("accessToken");
-    if (token) {
-      setAccessToken(token);
-      console.log("Access token retrieved:", token);
-    } else {
-      console.warn("Access token not found in localStorage.");
-    }
-  } catch (error) {
-    console.error("Error accessing localStorage:", error);
+  const token = localStorage.getItem("accessToken");
+  if (!token) {
+    console.warn("Access token not found. Redirecting to login...");
+    router.push("/auth/login"); // Redirect if no token
+  } else {
+    setAccessToken(token);
   }
-}, []);
+}, [router]);
 
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    // Validate the form fields
-    if (!gender || !username || !selectedCountry || !selectedState || !address) {
-      alert("Please fill all fields before submitting.");
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
+
+  // Validate form fields
+  if (!gender || !username || !selectedCountry || !selectedState || !address) {
+    alert("Please fill all fields before submitting.");
+    setLoading(false);
+    return;
+  }
+
+  // Prepare the data for the API request
+  const requestData = {
+    gender, // Ensure it matches "Male" or "Female"
+    username, // Ensure the input value matches
+    country: countries.find((c) => c.isoCode === selectedCountry)?.name || selectedCountry, // Full country name
+    state: states.find((s) => s.isoCode === selectedState)?.name || selectedState, // Full state name
+    address,
+  };
+
+  console.log("Request Data:", requestData);
+
+  try {
+    if (!accessToken) {
+      alert("Access token not found. Please log in again.");
+      router.push("/auth/login");
       return;
     }
 
-    // Prepare the data for the API request
-    const requestData = {
-      gender,
-      username,
-      country: selectedCountry,
-      state: selectedState,
-      address,
-    };
+    // Send PUT request
+    const response = await fetch("https://api-royal-stone.softwebdigital.com/api/account/profile", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify(requestData),
+    });
 
-    try {
-      const response = await fetch("https://api-royal-stone.softwebdigital.com/api/account/profile", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify(requestData),
-      });
+    // Log raw response
+    const responseText = await response.text();
+    console.log("Raw Response:", responseText);
 
-      if (!response.ok) {
-        throw new Error("Failed to update the profile");
-      }
-
-      const result = await response.json();
-      setLoading(false);
-      router.push(`/auth/auth-dashboard`)
-      console.log("Response data:", result);
-    } catch (error: unknown) {
-      setLoading(false);
-      if (error instanceof Error) {
-        alert("Error updating profile: " + error.message);
-        console.error("Error:", error);
-      } else {
-        alert("An unexpected error occurred.");
-        console.error("Unexpected error:", error);
-      }
+    if (!response.ok) {
+      // Log detailed error if the response is not OK
+      throw new Error(`Error ${response.status}: ${responseText}`);
     }
-  };
+
+    // Parse the response if successful
+    const result = JSON.parse(responseText);
+    console.log("Profile Updated Successfully:", result);
+    alert("Profile updated successfully!");
+    router.push(`/auth/auth-dashboard`);
+  } catch (error) {
+    // Handle and log errors
+    if (error instanceof Error) {
+      console.error("Error Updating Profile:", error.message);
+      alert(`Failed to update profile: ${error.message}`);
+    } else {
+      console.error("Unexpected Error:", error);
+      alert("An unexpected error occurred while updating your profile.");
+    }
+  } finally {
+    setLoading(false);
+  }
+};
+
+
 
   return (
     <div className="flex flex-col">
@@ -128,8 +145,8 @@ useEffect(() => {
             required
           >
             <option value="" disabled>Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
         </div>
 
@@ -192,7 +209,7 @@ useEffect(() => {
             onChange={(e) => setAddress(e.target.value)}
             required
             className="rounded-sm border-b border-slate-200 text-colour-five"
-            placeholder="5 lanes, Indiana"
+            placeholder="5 lanes, Minneapolis"
           />
         </div>
 
