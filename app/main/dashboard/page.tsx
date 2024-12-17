@@ -9,15 +9,15 @@ import CardComponentFive from "@/components/ui/CardComponentFive";
 import Button from "@/components/ui/Button";
 import ProductMobile from "@/components/Product/ProductMobile";
 import ProductDesktop from "@/components/Product/ProductDesktop";
+import useNameStore from "@/store/nameStore";
 import useProductStore from "@/store/productStore";
 
+
 export default function Dashboard() {
-  const [userName, setUserName] = useState("");
+  const fullName = useNameStore((state) => state.fullName);
   const { products, fetchProducts, isLoading, error } = useProductStore();
 
   useEffect(() => {
-    const savedName = localStorage.getItem("userName");
-    if (savedName) setUserName(savedName);
     fetchProducts();
   }, [fetchProducts]);
 
@@ -25,7 +25,7 @@ export default function Dashboard() {
   return (
     <div className="flex flex-col lg:p-0 lg:pr-8">
       <p className="text-base text-color-form py-4">
-        Welcome, {userName || "Guest"}! 👋🏻
+        Welcome, {fullName || "Guest"}! 👋🏻
       </p>
       <div className="flex gap-4 pb-6 border-b">
         <CardComponentFive

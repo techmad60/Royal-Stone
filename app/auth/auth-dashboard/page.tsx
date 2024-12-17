@@ -13,11 +13,12 @@ import AddBankInformation from "@/components/AuthDashboard/AddBank";
 import KycInformation from "@/components/AuthDashboard/KycInformation";
 import ValidIdInformation from "@/components/AuthDashboard/ValidID";
 import NextOfKinInformation from "@/components/AuthDashboard/NextOfKin";
+import useNameStore from "@/store/nameStore";
 // import BvnInformation from "@/components/AuthDashboard/BVN";
 
 
 export default function AuthDashboard() {
-  const [userName, setUserName] = useState("");
+  const fullName = useNameStore((state) => state.fullName);
   const [userId, setUserId] = useState(""); // New state for userId
   const [openBankInfo, setIsOpenBankInfo] = useState(false);
   const [openAddBankInfo, setIsOpenAddBankInfo] = useState(false);
@@ -28,10 +29,10 @@ export default function AuthDashboard() {
   // const [openBvnInfo, setIsOpenBvnInfo] = useState(false);
 
   useEffect(() => {
-    const savedName = localStorage.getItem("userName");
+    // const fullName = nameStore((state) => state.fullName);
     const savedUserId = localStorage.getItem("userId");
 
-    if (savedName) setUserName(savedName);
+   
     if (savedUserId) {
       setUserId(savedUserId);
 
@@ -91,7 +92,7 @@ export default function AuthDashboard() {
   return (
     <div className="flex flex-col lg:pr-8">
       <p className="text-lg text-color-form py-4 lg:text-start">
-        Welcome, {userName || "Guest"}! 👋🏻
+        Welcome, {fullName || "Guest"}! 👋🏻
       </p>
       <div className="flex gap-4 pb-3 my-4 sm:justify-center lg:justify-start">
         <CardComponentFive

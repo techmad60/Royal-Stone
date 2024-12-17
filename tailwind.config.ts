@@ -21,6 +21,7 @@ const config: Config = {
         "color-unit": "rgba(63, 73, 97, 1)",
         "color-form" : "rgba(107, 115, 133, 1)",
         "light-grey" : "rgba(252, 252, 252, 1)",
+        "inactive" : "#88b489"
       },
       screens: {
         "xs": '375px',

@@ -1,7 +1,9 @@
+"use client";
 import { useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import Button from "../ui/Button";
 import Navigator from "./SettingsNavigator";
+import { useRouter } from "next/navigation";
 
 const profileSteps = [
   { label: "Settings", href: "/main/settings" },
@@ -10,7 +12,7 @@ const profileSteps = [
 
 export default function ProfileSettings() {
   const [profile, setProfile] = useState({
-    fullName: "",
+    fullname: "",
     email: "",
     phoneNumber: "",
     username: "",
@@ -18,108 +20,141 @@ export default function ProfileSettings() {
     state: "",
     address: "",
   });
-  const [userName, setUserName] = useState("");
-  
+
+  const [initialProfile, setInitialProfile] = useState(profile); // Store initial profile data
   const [isLoading, setIsLoading] = useState(false);
+  const [isModified, setIsModified] = useState(false); // Track if the form has been modified
+  const router = useRouter();
 
   useEffect(() => {
-    const savedName = localStorage.getItem("userName");
-    if (savedName) setUserName(savedName);
     const fetchProfile = async () => {
       try {
-        const token = localStorage.getItem("accessToken"); // Retrieve token from local storage
+        const token = localStorage.getItem("accessToken");
+        console.log(token);
         if (!token) {
-          throw new Error("Token not found. Please log in again.");
+          router.push("/auth/login");
+          return;
         }
-  
+
         const response = await fetch(
           "https://api-royal-stone.softwebdigital.com/api/account/profile",
           {
             headers: {
-              Authorization: `Bearer ${token}`, // Add token to the Authorization header
+              Authorization: `Bearer ${token}`,
             },
           }
         );
-  
+
         if (!response.ok) {
+          if (response.status === 401) {
+            router.push("/auth/login");
+          }
           throw new Error("Failed to fetch profile data.");
         }
-  
+
         const responseData = await response.json();
-        console.log("Profile data:", responseData);  // Debugging: Check the structure of data
-  
-        if (responseData.status && responseData.data) {
-          setProfile({
-            fullName: responseData.data.fullName || "",
+        console.log("Profile data:", responseData);
+
+        // Ensure the structure matches the API documentation
+        if (responseData?.status && responseData?.data) {
+          const fetchedProfile = {
+            fullname: responseData.data.fullname || "",
             email: responseData.data.email || "",
             phoneNumber: responseData.data.phone || "",
             username: responseData.data.username || "",
             country: responseData.data.country || "",
             state: responseData.data.state || "",
             address: responseData.data.address || "",
-          });
+          };
+          setProfile(fetchedProfile);
+          setInitialProfile(fetchedProfile); // Store the fetched profile as initial state
         } else {
-          console.error("Data is not in the expected format.");
+          console.error("Unexpected data structure:", responseData);
         }
       } catch (error) {
         console.error("Error fetching profile data:", error);
-        // alert(error.message || "An error occurred.");
       }
     };
-  
+
     fetchProfile();
   }, []);
-  
-  
-
 
   // Handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setProfile((prev) => ({ ...prev, [name]: value }));
+    setProfile((prev) => {
+      const updatedProfile = { ...prev, [name]: value };
+      // Check if the updated profile is different from the initial one
+      setIsModified(
+        JSON.stringify(updatedProfile) !== JSON.stringify(initialProfile)
+      );
+      return updatedProfile;
+    });
   };
 
-  // Handle form submission (for updating profile)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-
+  
     try {
       const token = localStorage.getItem("accessToken"); // Retrieve token from local storage
       if (!token) {
-        throw new Error("Token not found. Please log in again.");
+        router.push("/auth/login");
+        return; // Stop execution if the token is not found
       }
-
+  
+      // Prepare only the modified fields
+      const updatedProfile: { [key: string]: string } = {};
+  
+      // Check each field and add it to the updatedProfile if modified
+      if (profile.fullname !== initialProfile.fullname) updatedProfile.fullname = profile.fullname;
+      if (profile.email !== initialProfile.email) updatedProfile.email = profile.email;
+      if (profile.phoneNumber !== initialProfile.phoneNumber) updatedProfile.phoneNumber = profile.phoneNumber;
+      if (profile.username !== initialProfile.username) updatedProfile.username = profile.username;
+      if (profile.country !== initialProfile.country) updatedProfile.country = profile.country;
+      if (profile.state !== initialProfile.state) updatedProfile.state = profile.state;
+      if (profile.address !== initialProfile.address) updatedProfile.address = profile.address;
+  
+      // If there are no modifications, do not send the request
+      if (Object.keys(updatedProfile).length === 0) {
+        alert("No changes made.");
+        setIsLoading(false);
+        return;
+      }
+  
       const response = await fetch(
         "https://api-royal-stone.softwebdigital.com/api/account/profile",
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Add token to the Authorization header
+            Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify(profile),
+          body: JSON.stringify(updatedProfile),
         }
       );
-
+  
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || "Failed to update profile.");
       }
-
+  
       alert("Profile updated successfully!");
+      setInitialProfile(profile); // Update initial profile after a successful save
     } catch (error) {
       console.error("Error updating profile:", error);
-      // alert(error.message || "An error occurred.");
     } finally {
       setIsLoading(false);
     }
   };
+  
 
   return (
     <div>
       <Navigator currentStep={1} steps={profileSteps} classname="lg:hidden" />
-      <h1 className="text-color-zero text-base font-semibold mt-6">Profile Settings</h1>
+      <h1 className="text-color-zero text-base font-semibold mt-6">
+        Profile Settings
+      </h1>
       <form
         className="flex flex-col mt-6 space-y-8 lg:w-[300px] xl:w-[430px] 2xlg:w-[500px]"
         onSubmit={handleSubmit}
@@ -129,8 +164,8 @@ export default function ProfileSettings() {
           <label className="text-color-form text-sm">Full Name</label>
           <input
             type="text"
-            name="fullName"
-            value={userName}
+            name="fullname"
+            value={profile.fullname}
             onChange={handleChange}
             required
             className="rounded-sm border-b border-slate-200 text-color-zero"
@@ -231,10 +266,16 @@ export default function ProfileSettings() {
             placeholder="31 Olorunjare Street, Pako-Akoka"
           />
         </div>
-
         <Button
           ButtonText={isLoading ? "Saving..." : "Save"}
-          className="py-3 lg:w-[300px] xl:w-[430px] 2xlg:w-[500px]"
+          className={`py-3 lg:w-[300px] xl:w-[430px] 2xlg:w-[500px] 
+    ${
+      isModified
+        ? "bg-color-one hover:bg-green-700"
+        : "bg-inactive cursor-not-allowed hover:bg-inactive"
+    }
+  `}
+          disabled={!isModified} // Disable the button if no changes were made
         />
       </form>
     </div>

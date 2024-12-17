@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import PhoneInput from "react-phone-input-2";
+import useNameStore from "@/store/nameStore";
 import "react-phone-input-2/lib/style.css";
 
 const signupSteps = [
@@ -30,6 +31,9 @@ export default function SignupWithMail() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  // Fetching setFullName from your Zustand store
+  const setFullName = useNameStore((state) => state.setFullName);
 
   // Toggle Password Visibility
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
@@ -98,7 +102,7 @@ export default function SignupWithMail() {
           body: JSON.stringify({
             email: formData.email,
             password: formData.password,
-            fullName: formData.name,
+            fullname: formData.name,
             phone: formData.phone,
             referralCode: formData.referralCode || undefined, // optional field
           }),
@@ -115,7 +119,10 @@ export default function SignupWithMail() {
       localStorage.setItem("userId", account.id);
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
-      localStorage.setItem("userName", formData.name); // Save the name
+      
+      //Save fullname to store
+      setFullName(formData.name);
+      
       console.log("Tokens stored successfully:", { accessToken, refreshToken });
 
       // Step 2: Trigger email verification
