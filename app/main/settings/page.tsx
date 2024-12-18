@@ -2,7 +2,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { IoPerson, IoPeople } from "react-icons/io5";
+import useNameStore from "@/store/nameStore";
+import { useLoadFullName } from "@/store/nameStore"; // Import the hook
+import { IoPerson} from "react-icons/io5";
 import { IoIosLock } from "react-icons/io";
 import { TbPencil } from "react-icons/tb";
 import { BiSolidBank, BiSupport } from "react-icons/bi";
@@ -18,7 +20,10 @@ import VerifyEmailSetting from "@/components/Settings/VerifyEmail";
 import SecuritySettings from "@/components/Settings/SecuritySetting";
 import ChangePassword from "@/components/Settings/ChangePassword";
 import BankSetting from "@/components/Settings/BankSettings";
-import NewBank from "@/components/Settings/NewBank";
+import AddBank from "@/components/Settings/AddBank";
+import AddBankDetails from "@/components/Settings/AddBankDetails";
+import AddCryptoDetails from "@/components/Settings/AddCryptoDetails";
+// import BankAdded from "@/components/Settings/BankAdded";
 import DeleteBank from "@/components/Settings/DeleteBank";
 import Support from "@/components/Settings/SupportSetting";
 import FAQs from "@/components/Settings/FaqsSettings";
@@ -33,6 +38,10 @@ export default function SettingsPage() {
   const [activeSetting, setActiveSetting] = useState<string | null>(
     isDesktop ? "Profile" : null
   );
+  const [parentSetting, setParentSetting] = useState<string | null>(null); // Track the parent setting
+  const fullName = useNameStore((state) => state.fullName);
+  useLoadFullName()
+  
 
   useEffect(() => {
     // Set activeSetting to "Profile" if on desktop
@@ -41,8 +50,9 @@ export default function SettingsPage() {
     }
   }, [isDesktop, activeSetting]);
 
-  const handleSettingClick = (setting: string) => {
+  const handleSettingClick = (setting: string, parent: string | null = null) => {
     setActiveSetting(setting);
+    setParentSetting(parent);
   };
 
   const [deleteBankOpen, setIsDeleteBankOpen] = useState(false);
@@ -109,8 +119,8 @@ export default function SettingsPage() {
                 <TbPencil className="text-white transform -rotate-45" />
               </div>
             </div>
-            <p className="text-color-zero text-sm font-medium mt-4">
-              Cooper Winterwind
+            <p className="text-color-zero font-medium tracking-tight mt-4">
+              {fullName || "Guest"}
             </p>
             <hr className="my-4" />
           </div>
@@ -119,7 +129,7 @@ export default function SettingsPage() {
           >
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "Profile" ? "bg-color-two" : "bg-light-grey"
+                activeSetting === "Profile" ? "bg-color-two hover:bg-color-two" : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Profile")}
             >
@@ -130,13 +140,15 @@ export default function SettingsPage() {
                 setting="Profile settings"
                 settingText="Update information about yourself."
                 navigate={<MdKeyboardArrowRight className="text-xl"/>}
+                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
+                
               />
             </div>
 
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
                 activeSetting === "Security Setting"
-                  ? "bg-color-two"
+                  ? "bg-color-two hover:bg-color-two"
                   : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Security Setting")}
@@ -148,13 +160,14 @@ export default function SettingsPage() {
                 setting="Security settings"
                 settingText="Turpis ultrices quis vestibulum gravida"
                 navigate={<MdKeyboardArrowRight className="text-xl"/>}
+                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
               />
             </div>
 
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "Bank Setting"
-                  ? "bg-color-two"
+                activeSetting === "Bank Setting" || parentSetting === "Bank Setting"
+                  ? "bg-color-two hover:bg-color-two"
                   : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Bank Setting")}
@@ -164,22 +177,14 @@ export default function SettingsPage() {
                   <BiSolidBank className="text-color-one text-2xl lg:text-lg" />
                 }
                 setting="Bank Information"
-                settingText="Id at quis sed posuere magna vel"
+                settingText="Update your bank Information."
                 navigate={<MdKeyboardArrowRight className="text-xl"/>}
+                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
               />
             </div>
-
-            <AccountSettings
-              settingIcon={
-                <IoPeople className="text-color-one text-2xl lg:text-lg" />
-              }
-              setting="Referrals"
-              settingText="Sit ultricies in lorem cursus. In vitae"
-              navigate={<MdKeyboardArrowRight className="text-xl"/>}
-            />
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "Support Setting" ? "bg-color-two" : "bg-light-grey"
+                activeSetting === "Support Setting" ? "bg-color-two hover:bg-color-two" : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Support Setting")}
             >
@@ -190,27 +195,30 @@ export default function SettingsPage() {
                 setting="Support"
                 settingText="Mollis nulla in felis vulputate in ut diam."
                 navigate={<MdKeyboardArrowRight className="text-xl"/>}
+                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
               />
             </div>
             
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "FAQs Setting" ? "bg-color-two" : "bg-light-grey"
+                activeSetting === "FAQs Setting" ? "bg-color-two hover:bg-color-two" : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("FAQs Setting")}
             >
                 <AccountSettings
+
                 settingIcon={
                     <FaQuestionCircle className="text-color-one text-2xl lg:text-lg" />
                 }
                 setting="FAQs"
                 settingText="Ultricies ut felis sit vitae sed eget erat."
                 navigate={<MdKeyboardArrowRight className="text-xl"/>}
+                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
                 />
             </div>
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "Kyc Setting" ? "bg-color-two" : "bg-light-grey"
+                activeSetting === "Kyc Setting" ? "bg-color-two hover:bg-color-two" : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Kyc Setting")}
             >
@@ -221,6 +229,7 @@ export default function SettingsPage() {
                 setting="KYC"
                 settingText="Luctus turpis amet neque ultrices in"
                 navigate={<MdKeyboardArrowRight className="text-xl"/>}
+                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
                 />
             </div>
            
@@ -259,11 +268,24 @@ export default function SettingsPage() {
           {activeSetting === "Change Password" && <ChangePassword />}
           {activeSetting === "Bank Setting" && (
             <BankSetting
-              onNavigatetoCreateNewBank={() => handleSettingClick("New Bank")}
+              onNavigatetoCreateAddBank={() => handleSettingClick("New Bank", "Bank Setting")}
               onNavigatetoDeleteBank={() => setIsDeleteBankOpen(true)}
             />
           )}
-          {activeSetting === "New Bank" && <NewBank />}
+          {activeSetting === "New Bank" && (
+            <AddBank
+              onNavigateToAddBankDetails ={() => handleSettingClick ("Add Bank Details", "Bank Setting")}
+              onNavigateToAddCryptoDetails ={() => handleSettingClick ("Add Crypto Details", "Bank Setting")} />
+          )}
+          {activeSetting === "Add Bank Details" && (
+            <AddBankDetails />
+          )}
+          {activeSetting === "Add Crypto Details" && (
+            <AddCryptoDetails />
+          )}
+          {/* {activeSetting === "Bank Added" && (
+            <BankAdded />
+          )} */}
           {deleteBankOpen && (
             <DeleteBank onClose={() => setIsDeleteBankOpen(false)} />
           )}

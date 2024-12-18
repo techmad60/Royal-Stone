@@ -14,11 +14,13 @@ import KycInformation from "@/components/AuthDashboard/KycInformation";
 import ValidIdInformation from "@/components/AuthDashboard/ValidID";
 import NextOfKinInformation from "@/components/AuthDashboard/NextOfKin";
 import useNameStore from "@/store/nameStore";
+import { useLoadFullName } from "@/store/nameStore"; // Import the hook
 // import BvnInformation from "@/components/AuthDashboard/BVN";
 
 
 export default function AuthDashboard() {
   const fullName = useNameStore((state) => state.fullName);
+  useLoadFullName();
   const [userId, setUserId] = useState(""); // New state for userId
   const [openBankInfo, setIsOpenBankInfo] = useState(false);
   const [openAddBankInfo, setIsOpenAddBankInfo] = useState(false);

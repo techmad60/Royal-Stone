@@ -1,19 +1,37 @@
-import {create} from "zustand";
+"use client";
+
+import { create } from "zustand";
+import { useEffect } from "react";
 
 // Define an interface for the store state
 interface NameStore {
-    fullName: string;
-    setFullName: (name: string) => void;
-  }
-  
+  fullName: string;
+  setFullName: (name: string) => void;
+}
+
 // Create your Zustand store
 const useNameStore = create<NameStore>((set) => ({
-  fullName: localStorage.getItem("fullName") || "", // Load from localStorage if available
+  fullName: "", // Default value, will be updated in useEffect
   setFullName: (name) => {
     set({ fullName: name });
-    localStorage.setItem("fullName", name); // Save to localStorage when it's updated
+    if (typeof window !== "undefined") {
+      localStorage.setItem("fullName", name); // Save to localStorage when it's updated
+    }
   },
 }));
 
-export default useNameStore;
+// Create a hook to load the full name from localStorage
+export const useLoadFullName = () => {
+  const setFullName = useNameStore((state) => state.setFullName);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedName = localStorage.getItem("fullName");
+      if (storedName) {
+        setFullName(storedName);
+      }
+    }
+  }, [setFullName]);
+};
+
+export default useNameStore;

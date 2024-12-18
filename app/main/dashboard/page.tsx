@@ -10,17 +10,27 @@ import Button from "@/components/ui/Button";
 import ProductMobile from "@/components/Product/ProductMobile";
 import ProductDesktop from "@/components/Product/ProductDesktop";
 import useNameStore from "@/store/nameStore";
+import { useLoadFullName } from "@/store/nameStore"; // Import the hook
 import useProductStore from "@/store/productStore";
-
 
 export default function Dashboard() {
   const fullName = useNameStore((state) => state.fullName);
+  useLoadFullName();
   const { products, fetchProducts, isLoading, error } = useProductStore();
 
   useEffect(() => {
+    const fullName = localStorage.getItem("fullName");
+
+    if (fullName !== null) {
+      // The 'fullName' exists in localStorage
+      console.log("Full name found:", fullName);
+    } else {
+      // The 'fullName' does not exist in localStorage
+      console.log("Full name not found in localStorage.");
+    }
+
     fetchProducts();
   }, [fetchProducts]);
-
 
   return (
     <div className="flex flex-col lg:p-0 lg:pr-8">
@@ -75,7 +85,9 @@ export default function Dashboard() {
         {isLoading ? (
           <p>Loading products...</p>
         ) : error ? (
-          <p className="text-red-500">Failed to load products. Please try again later.</p>
+          <p className="text-red-500">
+            Failed to load products. Please try again later.
+          </p>
         ) : (
           <>
             <ProductMobile products={products} />

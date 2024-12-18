@@ -4,6 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import Button from "../ui/Button";
 import Navigator from "./SettingsNavigator";
 import { useRouter } from "next/navigation";
+import useNameStore from '@/store/nameStore';
 
 const profileSteps = [
   { label: "Settings", href: "/main/settings" },
@@ -20,11 +21,13 @@ export default function ProfileSettings() {
     state: "",
     address: "",
   });
-
   const [initialProfile, setInitialProfile] = useState(profile); // Store initial profile data
   const [isLoading, setIsLoading] = useState(false);
   const [isModified, setIsModified] = useState(false); // Track if the form has been modified
   const router = useRouter();
+
+  // Get setFullName from Zustand store
+  const setFullName = useNameStore((state) => state.setFullName);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -77,7 +80,7 @@ export default function ProfileSettings() {
     };
 
     fetchProfile();
-  }, []);
+  }, [router]);
 
   // Handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -141,6 +144,7 @@ export default function ProfileSettings() {
   
       alert("Profile updated successfully!");
       setInitialProfile(profile); // Update initial profile after a successful save
+      setFullName(profile.fullname); 
     } catch (error) {
       console.error("Error updating profile:", error);
     } finally {
