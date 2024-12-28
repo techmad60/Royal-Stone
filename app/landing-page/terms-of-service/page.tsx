@@ -1,6 +1,6 @@
 //app/privacy-policy/page.tsx
-import Header from "@/components/sections/Header";
-import Footer from "@/components/sections/Footer";
+import Header from "@/components/Sections/Header";
+import Footer from "@/components/Sections/Footer";
 import DownloadApp from "@/components/ui/DownloadApp";
 
 export default function TermsOfService() {

@@ -28,3 +28,6 @@ input[type="number"] {
 ::placeholder {
   font-size: 14px;
 }
+input, select {
+  outline: none;
+}

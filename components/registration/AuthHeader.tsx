@@ -1,18 +1,63 @@
-"use client"
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FaBars } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 interface AuthHeaderProps {
   title?: string;
-  toggleNav?: () => void; 
+  toggleNav?: () => void;
   grid?: string;
 }
 
-export default function AuthHeader({ title = "", toggleNav, grid = "" }: AuthHeaderProps) {
+export default function AuthHeader({
+  title,
+  toggleNav,
+  grid,
+}: AuthHeaderProps) {
+  const [profilePicture, setProfilePicture] = useState<string>("/images/profile-empty.png");
   const pathname = usePathname();
-  const showMenu = pathname.includes("/auth/auth-dashboard") || pathname.includes("/main/");
+  const showMenu =
+    pathname.includes("/auth/auth-dashboard") || pathname.includes("/main/");
+
+  useEffect(() => {
+    const fetchProfilePicture = async () => {
+      const token = localStorage.getItem("accessToken");
+      if (!token) {
+        console.warn("No access token found");
+        return;
+      }
+
+      try {
+        // Fetch user's profile data
+        const response = await fetch(
+          "https://api-royal-stone.softwebdigital.com/api/account/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.ok) {
+          const responseData= await response.json();
+          console.log("Response data:", responseData); // Debug log
+          const imageUrl = responseData.data?.avatar;
+          console.log("Avatar URL:", imageUrl); // Debug log
+          setProfilePicture(imageUrl || "/images/profile-empty.png");
+        } else {
+          console.error("Failed to fetch profile picture");
+        }
+      } catch (error) {
+        console.error("Error fetching profile picture:", error);
+      }
+    };
+
+    fetchProfilePicture();
+  }, []);
+
   return (
     <div className={`flex flex-col space-y-4 lg:pr-8 ${grid}`}>
       {/* Logo Img */}
@@ -27,32 +72,33 @@ export default function AuthHeader({ title = "", toggleNav, grid = "" }: AuthHea
       </Link>
       <div className="flex justify-between items-center border-y py-4 lg:border-y-0 lg:border-b">
         <div className="flex gap-4 items-center">
-            {showMenu && (
-                <FaBars className="lg:hidden" onClick={toggleNav} />
-            )}
+          {showMenu && <FaBars className="lg:hidden" onClick={toggleNav} />}
           <h1 className="font-semibold text-base text-color-zero lg:text-[22px]">
             {title}
-          </h1> 
+          </h1>
         </div>
         {/* User and Notification Img - Show only on the dashboard page */}
         {showMenu && (
-          <div className="flex gap-1">
+          <div className="flex items-center gap-1">
+            <div className="w-5">
+              {/* Profile Picture */}
               <Image
-              src={"/images/user.svg"}
-              alt="User Image"
-              width={25.41}
-              height={25.41}
-              className=""
+                src={profilePicture}
+                alt="User Image"
+                width={40}
+                height={40}
+                className="rounded-full"
               />
-              <Link href="/main/portfolio/notifications">
-                <Image
+            </div>
+
+            <Link href="/main/portfolio/notifications">
+              <Image
                 src={"/images/notification.svg"}
                 alt="Notification Image"
                 width={25.41}
                 height={25.41}
-                />
-              </Link>
-              
+              />
+            </Link>
           </div>
         )}
       </div>

@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import useNameStore from "@/store/nameStore";
-import { useLoadFullName } from "@/store/nameStore"; // Import the hook
-import { IoPerson} from "react-icons/io5";
+import useUserStore from "@/store/userStore";
+import { useLoadFullName } from "@/store/userStore"; // Import the hook
+import { IoPerson } from "react-icons/io5";
 import { IoIosLock } from "react-icons/io";
 import { TbPencil } from "react-icons/tb";
 import { BiSolidBank, BiSupport } from "react-icons/bi";
@@ -19,18 +19,16 @@ import ProfileSettings from "@/components/Settings/ProfileSetting";
 import VerifyEmailSetting from "@/components/Settings/VerifyEmail";
 import SecuritySettings from "@/components/Settings/SecuritySetting";
 import ChangePassword from "@/components/Settings/ChangePassword";
-import BankSetting from "@/components/Settings/BankSettings";
+// import BankSetting from "@/components/Settings/BankSettings";
 import AddBank from "@/components/Settings/AddBank";
 import AddBankDetails from "@/components/Settings/AddBankDetails";
 import AddCryptoDetails from "@/components/Settings/AddCryptoDetails";
-// import BankAdded from "@/components/Settings/BankAdded";
 import DeleteBank from "@/components/Settings/DeleteBank";
 import Support from "@/components/Settings/SupportSetting";
 import FAQs from "@/components/Settings/FaqsSettings";
 import Kyc from "@/components/Settings/KycSettings";
 import ValidID from "@/components/Settings/ValidId";
 import NextofKin from "@/components/Settings/NextofKin";
-import Bvn from "@/components/Settings/Bvn";
 
 
 export default function SettingsPage() {
@@ -39,9 +37,9 @@ export default function SettingsPage() {
     isDesktop ? "Profile" : null
   );
   const [parentSetting, setParentSetting] = useState<string | null>(null); // Track the parent setting
-  const fullName = useNameStore((state) => state.fullName);
-  useLoadFullName()
-  
+
+  const fullName = useUserStore((state) => state.fullName);
+  useLoadFullName();
 
   useEffect(() => {
     // Set activeSetting to "Profile" if on desktop
@@ -50,35 +48,43 @@ export default function SettingsPage() {
     }
   }, [isDesktop, activeSetting]);
 
-  const handleSettingClick = (setting: string, parent: string | null = null) => {
+  const handleSettingClick = (
+    setting: string,
+    parent: string | null = null
+  ) => {
     setActiveSetting(setting);
     setParentSetting(parent);
   };
 
   const [deleteBankOpen, setIsDeleteBankOpen] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   const handleDeleteAccount = async () => {
-    const confirmation = confirm("Are you sure you want to delete your account? This action cannot be undone.");
+    const confirmation = confirm(
+      "Are you sure you want to delete your account? This action cannot be undone."
+    );
     if (!confirmation) return;
-  
+
     // Retrieve the token from local storage
     const token = localStorage.getItem("accessToken"); // Replace "authToken" with your actual key if different
-  
+
     if (!token) {
       alert("User is not authenticated. Please log in again.");
       return;
     }
-  
+
     try {
-      const response = await fetch('https://api-royal-stone.softwebdigital.com/api/account/profile', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-      });
-  
+      const response = await fetch(
+        "https://api-royal-stone.softwebdigital.com/api/account/profile",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
       if (response.ok) {
         alert("Your account has been deleted successfully.");
         // Navigate to login or appropriate page
@@ -86,15 +92,18 @@ export default function SettingsPage() {
       } else {
         const errorData = await response.json();
         console.error("Error deleting account:", errorData);
-        alert(errorData?.message || "Failed to delete account. Please try again.");
+        alert(
+          errorData?.message || "Failed to delete account. Please try again."
+        );
       }
     } catch (error) {
       console.error("Network error:", error);
-      alert("An error occurred. Please check your internet connection and try again.");
+      alert(
+        "An error occurred. Please check your internet connection and try again."
+      );
     }
   };
-  
-  
+
   return (
     <div className="">
       {/* Account Settings and Profile Settings */}
@@ -129,7 +138,9 @@ export default function SettingsPage() {
           >
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "Profile" ? "bg-color-two hover:bg-color-two" : "bg-light-grey"
+                activeSetting === "Profile"
+                  ? "bg-color-two hover:bg-color-two"
+                  : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Profile")}
             >
@@ -139,15 +150,15 @@ export default function SettingsPage() {
                 }
                 setting="Profile settings"
                 settingText="Update information about yourself."
-                navigate={<MdKeyboardArrowRight className="text-xl"/>}
-                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
-                
+                navigate={<MdKeyboardArrowRight className="text-xl" />}
+                containerStyle="bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
               />
             </div>
 
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "Security Setting"
+                activeSetting === "Security Setting" ||
+                parentSetting === "Security Setting"
                   ? "bg-color-two hover:bg-color-two"
                   : "bg-light-grey"
               }`}
@@ -158,15 +169,16 @@ export default function SettingsPage() {
                   <IoIosLock className="text-color-one text-2xl lg:text-lg" />
                 }
                 setting="Security settings"
-                settingText="Turpis ultrices quis vestibulum gravida"
-                navigate={<MdKeyboardArrowRight className="text-xl"/>}
-                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
+                settingText="Keep your accounts secure."
+                navigate={<MdKeyboardArrowRight className="text-xl" />}
+                containerStyle="bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
               />
             </div>
 
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "Bank Setting" || parentSetting === "Bank Setting"
+                activeSetting === "Bank Setting" ||
+                parentSetting === "Bank Setting"
                   ? "bg-color-two hover:bg-color-two"
                   : "bg-light-grey"
               }`}
@@ -178,13 +190,15 @@ export default function SettingsPage() {
                 }
                 setting="Bank Information"
                 settingText="Update your bank Information."
-                navigate={<MdKeyboardArrowRight className="text-xl"/>}
-                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
+                navigate={<MdKeyboardArrowRight className="text-xl" />}
+                containerStyle="bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
               />
             </div>
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "Support Setting" ? "bg-color-two hover:bg-color-two" : "bg-light-grey"
+                activeSetting === "Support Setting"
+                  ? "bg-color-two hover:bg-color-two"
+                  : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Support Setting")}
             >
@@ -194,48 +208,54 @@ export default function SettingsPage() {
                 }
                 setting="Support"
                 settingText="Mollis nulla in felis vulputate in ut diam."
-                navigate={<MdKeyboardArrowRight className="text-xl"/>}
-                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
+                navigate={<MdKeyboardArrowRight className="text-xl" />}
+                containerStyle="bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
               />
             </div>
-            
+
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "FAQs Setting" ? "bg-color-two hover:bg-color-two" : "bg-light-grey"
+                activeSetting === "FAQs Setting"
+                  ? "bg-color-two hover:bg-color-two"
+                  : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("FAQs Setting")}
             >
-                <AccountSettings
-
+              <AccountSettings
                 settingIcon={
-                    <FaQuestionCircle className="text-color-one text-2xl lg:text-lg" />
+                  <FaQuestionCircle className="text-color-one text-2xl lg:text-lg" />
                 }
                 setting="FAQs"
                 settingText="Ultricies ut felis sit vitae sed eget erat."
-                navigate={<MdKeyboardArrowRight className="text-xl"/>}
-                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
-                />
+                navigate={<MdKeyboardArrowRight className="text-xl" />}
+                containerStyle="bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
+              />
             </div>
             <div
               className={`cursor-pointer rounded-common hover:bg-slate-100 duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
-                activeSetting === "Kyc Setting" ? "bg-color-two hover:bg-color-two" : "bg-light-grey"
+                activeSetting === "Kyc Setting" ||
+                parentSetting === "Kyc Setting"
+                  ? "bg-color-two hover:bg-color-two"
+                  : "bg-light-grey"
               }`}
               onClick={() => handleSettingClick("Kyc Setting")}
             >
-                <AccountSettings
+              <AccountSettings
                 settingIcon={
-                    <BsPersonCheck className="text-color-one text-2xl lg:text-lg" />
+                  <BsPersonCheck className="text-color-one text-2xl lg:text-lg" />
                 }
                 setting="KYC"
-                settingText="Luctus turpis amet neque ultrices in"
-                navigate={<MdKeyboardArrowRight className="text-xl"/>}
-                containerStyle= "bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
-                />
+                settingText="Update your KYC info."
+                navigate={<MdKeyboardArrowRight className="text-xl" />}
+                containerStyle="bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
+              />
             </div>
-           
           </div>
           {/* Delete Account Button */}
-          <section className="flex bg-light-grey cursor-pointer hover:bg-slate-100 duration-300 p-4 shadow-sm rounded-common w-[167.5px] mt-4" onClick={handleDeleteAccount}>
+          <section
+            className="flex bg-light-grey cursor-pointer hover:bg-slate-100 duration-300 p-4 shadow-sm rounded-common w-[167.5px] mt-4"
+            onClick={handleDeleteAccount}
+          >
             <div className="flex  items-center gap-2 lg:gap-4">
               <Icon
                 icon={<RiDeleteBin6Line className="text-sm text-red-500" />}
@@ -254,52 +274,63 @@ export default function SettingsPage() {
           {activeSetting === "Profile" && <ProfileSettings />}
           {activeSetting === "Security Setting" && (
             <SecuritySettings
-              onVerifyClick={() => handleSettingClick("Verify Email")}
+              onVerifyClick={() =>
+                handleSettingClick("Verify Email", "Security Setting")
+              }
             />
           )}
           {activeSetting === "Verify Email" && (
             <VerifyEmailSetting
               onNavigateToChangePassword={() =>
-                handleSettingClick("Change Password")
+                handleSettingClick("Change Password", "Security Setting")
               }
             />
           )}
           {/* Add additional setting components if necessary */}
           {activeSetting === "Change Password" && <ChangePassword />}
           {activeSetting === "Bank Setting" && (
-            <BankSetting
-              onNavigatetoCreateAddBank={() => handleSettingClick("New Bank", "Bank Setting")}
-              onNavigatetoDeleteBank={() => setIsDeleteBankOpen(true)}
+            <AddBank
+            onNavigateToAddBankDetails={() =>
+              handleSettingClick("Add Bank Details", "Bank Setting")
+            }
+            onNavigateToAddCryptoDetails={() =>
+              handleSettingClick("Add Crypto Details", "Bank Setting")
+            }
             />
           )}
-          {activeSetting === "New Bank" && (
+          {/* {activeSetting === "New Bank" && (
             <AddBank
-              onNavigateToAddBankDetails ={() => handleSettingClick ("Add Bank Details", "Bank Setting")}
-              onNavigateToAddCryptoDetails ={() => handleSettingClick ("Add Crypto Details", "Bank Setting")} />
-          )}
-          {activeSetting === "Add Bank Details" && (
-            <AddBankDetails />
-          )}
-          {activeSetting === "Add Crypto Details" && (
-            <AddCryptoDetails />
-          )}
-          {/* {activeSetting === "Bank Added" && (
-            <BankAdded />
+              onNavigateToAddBankDetails={() =>
+                handleSettingClick("Add Bank Details", "Bank Setting")
+              }
+              onNavigateToAddCryptoDetails={() =>
+                handleSettingClick("Add Crypto Details", "Bank Setting")
+              }
+            />
           )} */}
+          {activeSetting === "Add Bank Details" && <AddBankDetails />}
+          {activeSetting === "Add Crypto Details" && <AddCryptoDetails />}
+
           {deleteBankOpen && (
             <DeleteBank onClose={() => setIsDeleteBankOpen(false)} />
           )}
+           
+           {/* Rejected */}
+          {/* <BankSetting
+              onNavigatetoCreateAddBank={() => handleSettingClick("New Bank", "Bank Setting")}
+              onNavigatetoDeleteBank={() => setIsDeleteBankOpen(true)}
+            /> */}
           {activeSetting === "Support Setting" && <Support />}
           {activeSetting === "FAQs Setting" && <FAQs />}
           {activeSetting === "Kyc Setting" && (
-            <Kyc 
-            onNavigatetoValidID={() => handleSettingClick("Valid ID")}
-            onNavigatetoNextofKin={() => handleSettingClick("Next of Kin")}
-            onNavigatetoBvn={() => handleSettingClick("BVN")}/>
+            <Kyc
+              onNavigatetoValidID={() => handleSettingClick("Valid ID", "Kyc Setting")}
+              onNavigatetoNextofKin={() => handleSettingClick("Next of Kin", "Kyc Setting")}
+              // onNavigatetoBvn={() => handleSettingClick("BVN")}
+            />
           )}
           {activeSetting === "Valid ID" && <ValidID />}
-          {activeSetting === "Next of Kin" && <NextofKin/>}
-          {activeSetting === "BVN" && <Bvn/>}
+          {activeSetting === "Next of Kin" && <NextofKin />}
         </div>
       </div>
     </div>

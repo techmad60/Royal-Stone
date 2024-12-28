@@ -25,6 +25,7 @@ export default function CompleteSetup() {
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+ 
 
   // Fetch countries on component mount
   useEffect(() => {

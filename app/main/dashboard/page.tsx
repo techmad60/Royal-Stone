@@ -9,12 +9,12 @@ import CardComponentFive from "@/components/ui/CardComponentFive";
 import Button from "@/components/ui/Button";
 import ProductMobile from "@/components/Product/ProductMobile";
 import ProductDesktop from "@/components/Product/ProductDesktop";
-import useNameStore from "@/store/nameStore";
-import { useLoadFullName } from "@/store/nameStore"; // Import the hook
+import useUserStore from "@/store/userStore";
+import { useLoadFullName } from "@/store/userStore"; // Import the hook
 import useProductStore from "@/store/productStore";
 
 export default function Dashboard() {
-  const fullName = useNameStore((state) => state.fullName);
+  const fullName = useUserStore((state) => state.fullName);
   useLoadFullName();
   const { products, fetchProducts, isLoading, error } = useProductStore();
 

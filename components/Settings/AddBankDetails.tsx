@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navigator from "../ui/Navigator";
 import Button from "../ui/Button";
 import BankAdded from "./BankAdded";
+// import BankSetting from "./BankSettings";
 
 export default function AddBankDetails() {
   const BankStepsMobile = [
@@ -20,6 +21,8 @@ export default function AddBankDetails() {
     accountHolderName: "",
     bankAddress: "",
     beneficiaryAddress: "",
+    swiftCode: "", // Optional
+    routingNumber: "", // Optional
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +30,7 @@ export default function AddBankDetails() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent form submission
 
     // Check required fields
@@ -42,8 +45,45 @@ export default function AddBankDetails() {
       return;
     }
 
-    // If all fields are valid, open the modal
-    setIsBankAddedOpen(true);
+    // Retrieve the access token (assuming it's in localStorage)
+    const token = localStorage.getItem("accessToken");
+
+    if (!token) {
+      alert("You must be logged in to add bank details.");
+      return;
+    }
+
+    // API call to submit the form data
+    try {
+      const response = await fetch("https://api-royal-stone.softwebdigital.com/api/bank", {
+        method: "POST",
+        headers: { "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        
+        body: JSON.stringify({
+          bankName: formData.bankName,
+          accountNumber: formData.accountNumber,
+          accountName: formData.accountHolderName, // Map accountHolderName to accountName
+          bankAddress: formData.bankAddress,
+          swiftCode: formData.swiftCode || "", // Send empty string if not provided
+          routingNumber: formData.routingNumber || "", // Send empty string if not provided
+          beneficiaryAddress: formData.beneficiaryAddress,
+        }),
+      });
+
+      const result = await response.json();
+      console.log("API Response:", result);
+
+      if (response.ok) {
+        setIsBankAddedOpen(true); // Show success modal
+      } else {
+        alert(result.message || "An error occurred. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting bank details:", error);
+      alert("Failed to submit bank details. Please check your connection.");
+    }
   };
 
   return (
@@ -69,7 +109,7 @@ export default function AddBankDetails() {
       </p>
       <form
         className="flex flex-col space-y-8 lg:w-[300px] xl:w-[430px] 2xlg:w-[500px]"
-        onSubmit={handleFormSubmit} // Use form's onSubmit
+        onSubmit={handleFormSubmit}
       >
         {/* Bank Name */}
         <div className="flex flex-col gap-2">
@@ -126,16 +166,17 @@ export default function AddBankDetails() {
             placeholder="21 Old Lane, Wall Street"
           />
         </div>
+
         {/* IBAN/SWIFT Code */}
         <div className="flex flex-col gap-2">
           <label className="text-color-form text-sm">IBAN/Swift Code (Optional)</label>
           <input
             type="number"
-            name="ibanCode"
-            // value={profile.email}
-            // onChange={handleChange}
+            name="swiftCode"
+            value={formData.swiftCode}
+            onChange={handleChange}
             className="rounded-sm border-b border-slate-200 text-color-zero"
-            placeholder="2010100191"
+            placeholder="099794"
           />
         </div>
 
@@ -145,12 +186,13 @@ export default function AddBankDetails() {
           <input
             type="number"
             name="routingNumber"
-            // value={profile.email}
-            // onChange={handleChange}
+            value={formData.routingNumber}
+            onChange={handleChange}
             className="rounded-sm border-b border-slate-200 text-color-zero"
-            placeholder="2010100191"
+            placeholder="67897943"
           />
         </div>
+
         {/* Beneficiary Address */}
         <div className="flex flex-col gap-1">
           <label className="text-color-form text-sm">Beneficiary Address</label>
@@ -168,13 +210,14 @@ export default function AddBankDetails() {
         <Button
           ButtonText={"Save"}
           className={`py-3 lg:w-[300px] xl:w-[430px] 2xlg:w-[500px] bg-color-one hover:bg-green-700`}
-          type="submit" // Keep this as 'submit'
+          type="submit"
         />
       </form>
 
       {bankAddedOpen && (
-        <BankAdded onClose={() => setIsBankAddedOpen(false)} textMessage="Bank Details Added"/>
+        <BankAdded onClose={() => setIsBankAddedOpen(false)} textMessage="Bank Details Added" />
       )}
+      
     </div>
   );
 }

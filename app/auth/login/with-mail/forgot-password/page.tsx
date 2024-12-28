@@ -21,7 +21,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     setError(null);
     setLoading(true);
-
+  
     // Validate email
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
@@ -29,25 +29,24 @@ export default function ForgotPassword() {
       setError("Please enter a valid email address.");
       return;
     }
-
+  
     try {
-      // Send PATCH request to the API
+      // Send GET request with email as a query parameter
       const response = await fetch(
-        "https://api-royal-stone.softwebdigital.com/api/auth/forgot-password",
+        `https://api-royal-stone.softwebdigital.com/api/auth/forgot-password?email=${encodeURIComponent(
+          email
+        )}`,
         {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email }),
+          method: "GET",
+          
         }
       );
-
+  
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || "Something went wrong");
       }
-
+  
       // Navigate to the verification page with the email as a query parameter
       router.push(
         `/auth/login/with-mail/forgot-password/verify-email?email=${encodeURIComponent(
@@ -64,7 +63,6 @@ export default function ForgotPassword() {
       setLoading(false);
     }
   };
-
   return (
     <div className="flex flex-col lg:w-[417px] xl:w-[33.5rem]">
       <Navigator currentStep={2} steps={loginSteps} />

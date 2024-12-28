@@ -1,7 +1,7 @@
 // Home Page
-import Header from "../components/sections/Header";
-import Main from "../components/sections/Main";
-import Footer from "../components/sections/Footer";
+import Header from "../components/Sections/Header";
+import Main from "../components/Sections/Main";
+import Footer from "../components/Sections/Footer";
 //import { montsy} from "./fonts/fonts";
 
 

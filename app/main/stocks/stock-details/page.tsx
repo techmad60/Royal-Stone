@@ -3,14 +3,14 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import TextToggle from "@/components/ui/TextToggle";
 import StatRow from "@/components/ui/StatRow";
-import StockNavigator from "@/components/stocks/StockNavigator";
+import StockNavigator from "@/components/Stocks/StockNavigator";
 import Button from "@/components/ui/Button";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useState } from "react";
-import TradeModal from "@/components/stocks/TradeModal";
-import BuyModal from "@/components/stocks/BuyModal";
-import TransactionProcessed from "@/components/stocks/TransactionProcessed";
-import TransactionDetails from "@/components/stocks/TransactionDetails";
+import TradeModal from "@/components/Stocks/TradeModal";
+import BuyModal from "@/components/Stocks/BuyModal";
+import TransactionProcessed from "@/components/Stocks/TransactionProcessed";
+import TransactionDetails from "@/components/Stocks/TransactionDetails";
 
 export default function StockDetails() {
     const isDesktop = useMediaQuery('(min-width: 1024px)');

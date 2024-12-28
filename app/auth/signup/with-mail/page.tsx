@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Navigator from "@/components/ui/Navigator";
 import CheckBox from "@/components/ui/Checkedbox";
@@ -8,7 +8,7 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import PhoneInput from "react-phone-input-2";
-import useNameStore from "@/store/nameStore";
+import useUserStore from "@/store/userStore";
 import "react-phone-input-2/lib/style.css";
 
 const signupSteps = [
@@ -30,10 +30,11 @@ export default function SignupWithMail() {
   const [emailError, setEmailError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true); // Track if button is disabled
   const router = useRouter();
 
   // Fetching setFullName from your Zustand store
-  const setFullName = useNameStore((state) => state.setFullName);
+  const setFullName = useUserStore((state) => state.setFullName);
 
   // Toggle Password Visibility
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
@@ -46,6 +47,14 @@ export default function SignupWithMail() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  useEffect(() => {
+    const { name, email, password, phone } = formData;
+    const allRequiredFieldsFilled =
+      name && email && password && phone && isChecked; // Include isChecked to ensure checkbox is ticked
+
+    setIsButtonDisabled(!allRequiredFieldsFilled); // Disable button if any required field is empty
+  }, [formData, isChecked]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -119,6 +128,7 @@ export default function SignupWithMail() {
       localStorage.setItem("userId", account.id);
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
+      localStorage.setItem("email", formData.email);
       
       //Save fullname to store
       setFullName(formData.name);
@@ -161,6 +171,13 @@ export default function SignupWithMail() {
       setLoading(false);
     }
   };
+  // Check if all required fields are filled
+  const isFormValid =
+    formData.name &&
+    formData.email &&
+    formData.password &&
+    formData.phone &&
+    isChecked;
 
   return (
     <div className="flex flex-col">
@@ -240,6 +257,7 @@ export default function SignupWithMail() {
               value={formData.password}
               onChange={handleChange}
               className="rounded-sm border-b border-slate-200 w-full text-colour-five"
+              placeholder="eXample@123"
             />
             <button
               type="button"
@@ -248,12 +266,13 @@ export default function SignupWithMail() {
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
-            {passwordError && (
+            
+          </div>
+          {passwordError && (
               <p className="text-red-500 text-xs mt-1 text-start">
                 {passwordError}
               </p>
             )}
-          </div>
         </div>
 
        
@@ -269,6 +288,7 @@ export default function SignupWithMail() {
             value={formData.referralCode}
             onChange={handleChange}
             className="rounded-sm border-b border-slate-200 text-colour-five"
+            placeholder="091156"
           />
         </div>
 
@@ -292,8 +312,8 @@ export default function SignupWithMail() {
         <Button
           type="submit"
           ButtonText={loading ? "Creating Account..." : "Create Account"}
-          className="py-3 w-full mt-2 lg:w-[417px] xl:w-[536px]"
-          disabled={loading}
+          className={`py-3 w-full mt-2 lg:w-[417px] xl:w-[536px] ${isButtonDisabled ? "bg-inactive cursor-not-allowed hover:bg-inactive" : "bg-color-one hover:bg-green-700"}`}
+          disabled={!isFormValid || loading || isButtonDisabled}
         />
       </form>
       <p className="text-slate-400 text-center mt-8 lg:w-[417px] xl:w-[536px]">

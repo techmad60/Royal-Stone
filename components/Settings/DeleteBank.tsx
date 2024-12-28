@@ -34,12 +34,12 @@ export default function DeleteBank({ onClose}: DeleteBankProps) {
 
                 <section className="bg-light-grey rounded-common shadow-sm h-[84px] py-2 flex flex-col space-y-4 lg:hidden">
                     <div className="flex pl-4 items-center gap-3">
-                        <Icon icon={<Image src="/images/banks/opay.svg" height={14} width={14} alt="Opay Logo"/>} containerSize="w-[16px] h-[16px]"/>
+                        <Icon icon={<Image src="/images/banks/citi-bank.svg" height={14} width={14} alt="Opay Logo"/>} containerSize="w-[16px] h-[16px]"/>
                         <p className="text-sm font-medium text-color-zero">GTBank</p>
                     </div>
                     <div className="flex items-center gap-4 pl-4">
                         <p className="text-color-form text-sm border-r pr-4">9019111278</p>
-                        <p className="text-color-form text-sm">Osindeinde Kolawole</p>
+                        <p className="text-color-form text-sm">Cooper Winterwind</p>
                     </div>
                 </section>
                 

@@ -26,7 +26,7 @@ export default function CardVerification({
 }: CardFiveProps) {
   return (
     <section
-      className={`flex justify-between items-center bg-light-grey hover:bg-slate-100 duration-300 cursor-pointer rounded-common p-4 xl:w-[765px] ${style}`}
+      className={`flex justify-between items-center bg-light-grey duration-300 cursor-pointer rounded-common p-4 xl:w-[765px] ${style}`}
       onClick={onClick}
     >
       <div className="flex gap-4">

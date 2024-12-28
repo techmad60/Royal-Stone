@@ -1,6 +1,6 @@
 
-import StockListMobile from "@/components/stocks/StocksMobile";
-import StockDesktopList from "@/components/stocks/StocksDesktop";
+import StockListMobile from "@/components/Stocks/StocksMobile";
+import StockDesktopList from "@/components/Stocks/StocksDesktop";
 
 export default function Stocks() {
   return (

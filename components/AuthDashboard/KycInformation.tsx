@@ -3,15 +3,23 @@ import CardVerification from "./CardVerification";
 import { IoPeople } from "react-icons/io5";
 import { BsPersonCheck } from "react-icons/bs";
 import { FaRegImage } from "react-icons/fa6";
+import { useKycStore } from "@/store/kycStore"; // Import Zustand store
 
 interface KycInformationProps {
   onClose: () => void;
   onClickValidId: () => void;
   onClickNextOfKin: () => void;
-  // onClickBvn: () => void;
+  onClickProfilePicture: () => void;
 }
 
-export default function KycInformation({ onClose, onClickValidId, onClickNextOfKin}: KycInformationProps) {
+export default function KycInformation({
+  onClose,
+  onClickValidId,
+  onClickNextOfKin,
+  onClickProfilePicture
+}: KycInformationProps) {
+  const { isValidIdProvided, isNextOfKinProvided, isProfilePictureProvided } = useKycStore(); // Access KYC status from Zustand store
+
   // Prevent background scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -27,10 +35,7 @@ export default function KycInformation({ onClose, onClickValidId, onClickNextOfK
           <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
         </div>
         <div className="flex items-center border-b w-full pb-2 p-4 sm:p-8 lg:p-4">
-          <p
-            onClick={onClose}
-            className="text-color-form text-sm cursor-pointer"
-          >
+          <p onClick={onClose} className="text-color-form text-sm cursor-pointer">
             Cancel
           </p>
           <p className="text-color-zero font-semibold text-lg mx-auto relative right-4">
@@ -38,44 +43,43 @@ export default function KycInformation({ onClose, onClickValidId, onClickNextOfK
           </p>
         </div>
         <div className="border-t flex-col space-y-3 p-4 sm:p-8 lg:p-4">
-          {/* Bank Information Card */}
-
+          {/* Valid ID Card */}
           <CardVerification
             iconImg={<BsPersonCheck className="text-xl text-color-one" />}
             label="Valid Identification"
-            status="Not Set"
-            showArrow="flex"
+            status={isValidIdProvided ? "Provided" : "Not Set"}
+            showArrow={isValidIdProvided ? "hidden" : "flex"}
+            statusClass={
+              isValidIdProvided ? "text-color-one" : "text-color-form"
+            }
             showSwitch="hidden"
             style="xl:w-auto"
-            onClick={onClickValidId}
+            onClick={isValidIdProvided ? undefined :onClickValidId} // Triggers modal when clicked
           />
           <CardVerification
             iconImg={<IoPeople className="text-xl text-color-one" />}
             label="Next of Kin"
-            status="Not Set"
-            showArrow="flex"
+            status={isNextOfKinProvided ? "Provided" : "Not Set"}
+            showArrow={isNextOfKinProvided ? "hidden" : "flex"}
+            statusClass={
+              isNextOfKinProvided? "text-color-one" : "text-color-form"
+            }
             showSwitch="hidden"
             style="xl:w-auto"
-            onClick={onClickNextOfKin}
+            onClick={isNextOfKinProvided ? undefined :onClickNextOfKin} // Triggers modal when clicked
           />
           <CardVerification
             iconImg={<FaRegImage className="text-xl text-color-one" />}
             label="Profile Picture"
-            status="Not Set"
-            showArrow="flex"
+            status={isProfilePictureProvided ? "Provided" : "Not Set"}
+            showArrow={isProfilePictureProvided ? "hidden" : "flex"}
+            statusClass={
+              isProfilePictureProvided? "text-color-one" : "text-color-form"
+            }
             showSwitch="hidden"
             style="xl:w-auto"
-          />
-          
-          {/* <CardVerification
-            iconImg={<BiSolidBank className="text-xl text-color-one" />}
-            label="BVN"
-            status="Not Set" // Dynamically set the class for text color
-            showArrow="flex" // Hide arrow if provided
-            showSwitch="hidden"
-            style="xl:w-auto"
-            onClick={onClickBvn}
-          /> */}
+            onClick={isProfilePictureProvided? undefined :onClickProfilePicture}
+          /> 
         </div>
       </div>
     </div>

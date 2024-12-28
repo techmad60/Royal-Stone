@@ -1,100 +1,180 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { TbTargetArrow } from "react-icons/tb";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import { BsPersonCheck } from "react-icons/bs";
 import { BiSolidBank } from "react-icons/bi";
-// import { IoPeople } from "react-icons/io5";
 import { LuScanFace } from "react-icons/lu";
 import CardComponentFive from "@/components/ui/CardComponentFive";
 import CardVerification from "@/components/AuthDashboard/CardVerification";
-import BankInformation from "@/components/AuthDashboard/BankInformation";
 import AddBankInformation from "@/components/AuthDashboard/AddBank";
 import KycInformation from "@/components/AuthDashboard/KycInformation";
 import ValidIdInformation from "@/components/AuthDashboard/ValidID";
 import NextOfKinInformation from "@/components/AuthDashboard/NextOfKin";
-import useNameStore from "@/store/nameStore";
-import { useLoadFullName } from "@/store/nameStore"; // Import the hook
-// import BvnInformation from "@/components/AuthDashboard/BVN";
-
+import ProfilePictureInformation from "@/components/AuthDashboard/ProfilePicture";
+import useUserStore from "@/store/userStore";
+import { useLoadFullName } from "@/store/userStore";
+import { useKycStore } from "@/store/kycStore";
 
 export default function AuthDashboard() {
-  const fullName = useNameStore((state) => state.fullName);
+  const fullName = useUserStore((state) => state.fullName);
   useLoadFullName();
+  const router = useRouter(); // Initialize useRouter
+  // Zustand store hooks
+  const {
+    isBankInfoProvided,
+    setIsBankInfoProvided,
+    isValidIdProvided,
+    setIsValidIdProvided,
+    isNextOfKinProvided,
+    setIsNextOfKinProvided,
+    isProfilePictureProvided,
+    setIsProfilePictureProvided,
+    isAddBankInfoModalOpen,
+    setIsAddBankInfoModalOpen,
+    isKycModalOpen,
+    setIsKycModalOpen,
+    isValidIdModalOpen,
+    setIsValidIdModalOpen,
+    isNextOfKinModalOpen,
+    setIsNextOfKinModalOpen,
+    isProfilePictureModalOpen,
+    setIsProfilePictureModalOpen,
+    isKycProvided,
+  } = useKycStore();
+
   const [userId, setUserId] = useState(""); // New state for userId
-  const [openBankInfo, setIsOpenBankInfo] = useState(false);
-  const [openAddBankInfo, setIsOpenAddBankInfo] = useState(false);
-  const [isBankInfoProvided, setIsBankInfoProvided] = useState(false);
-  const [openKycInfo, setIsOpenKycInfo] = useState(false);
-  const [openValidIdInfo, setIsOpenValidIdInfo] = useState(false);
-  const [openNextOfKinInfo, setIsOpenNextOfKinInfo] = useState(false);
-  // const [openBvnInfo, setIsOpenBvnInfo] = useState(false);
+
 
   useEffect(() => {
-    // const fullName = nameStore((state) => state.fullName);
     const savedUserId = localStorage.getItem("userId");
 
-   
     if (savedUserId) {
       setUserId(savedUserId);
 
-      // Retrieve the bank info status for this specific user
-      const savedBankStatus = localStorage.getItem(
-        `isBankInfoProvided-${savedUserId}`
-      );
-      if (savedBankStatus === "true") {
-        setIsBankInfoProvided(true);
-      }
-    }
-  }, []);
+      const statuses = [
+        {
+          key: `isBankInfoProvided-${savedUserId}`,
+          setter: setIsBankInfoProvided,
+        },
+        { key: `isValidIdProvided-${savedUserId}`, setter: setIsValidIdProvided },
+        {
+          key: `isNextOfKinProvided-${savedUserId}`,
+          setter: setIsNextOfKinProvided,
+        },
+        {
+          key: `isProfilePictureProvided-${savedUserId}`,
+          setter: setIsProfilePictureProvided,
+        },
+      ];
 
-  // Save the `isBankInfoProvided` state to localStorage with userId
+      statuses.forEach(({ key, setter }) => {
+        const status = localStorage.getItem(key);
+        setter(status === "Provided" || status === "true");
+      });
+    } else {
+      // Clear previous states if no userId is found
+      setIsBankInfoProvided(false);
+      setIsValidIdProvided(false);
+      setIsNextOfKinProvided(false);
+      setIsProfilePictureProvided(false);
+    }
+  }, [
+    setIsBankInfoProvided,
+    setIsNextOfKinProvided,
+    setIsProfilePictureProvided,
+    setIsValidIdProvided,
+  ]);
+
+useEffect(() => {
+  if (userId) {
+    // Store `isBankInfoProvided` as a boolean value in string format ("true" or "false")
+    localStorage.setItem(
+      `isBankInfoProvided-${userId}`,
+      String(isBankInfoProvided)
+    );
+    // Store `isValidIdProvided` as a boolean value in string format ("true" or "false")
+    localStorage.setItem(
+      `isValidIdProvided-${userId}`,
+      String(isValidIdProvided)
+    );
+    // Store `isNextOfKinProvided` as a boolean value in string format ("true" or "false")
+    localStorage.setItem(
+      `isNextOfKinProvided-${userId}`,
+      String(isNextOfKinProvided)
+    );
+    // Store `isProfilePictureProvided` as a boolean value in string format ("true" or "false")
+    localStorage.setItem(
+      `isProfilePictureProvided-${userId}`,
+      String(isProfilePictureProvided)
+    );
+  }
+}, [
+  isBankInfoProvided,
+  isValidIdProvided,
+  isNextOfKinProvided,
+  isProfilePictureProvided,
+  userId,
+]);
+
+
   useEffect(() => {
-    if (userId) {
-      localStorage.setItem(
-        `isBankInfoProvided-${userId}`,
-        String(isBankInfoProvided)
-      );
+    if (isKycProvided && isKycModalOpen) {
+      setIsKycModalOpen(false);
     }
-  }, [isBankInfoProvided, userId]);
+  }, [isKycProvided, isKycModalOpen, setIsKycModalOpen]);
 
-  // Open Bank Information modal
-  const handleOpenBankInfo = () => {
-    if (!isBankInfoProvided) {
-      setIsOpenBankInfo(true);
+  // Navigate to /main/dashboard if BankInfo and KYC are provided
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+  
+    if (userId && isBankInfoProvided && isKycProvided) {
+      router.push("/main/dashboard");
     }
-  };
+  }, [isBankInfoProvided, isKycProvided, router]);
+  
 
-  // Open Add Bank Information modal
-  const handleOpenAddBankInfo = () => {
-    setIsOpenBankInfo(false);
-    setIsOpenAddBankInfo(true);
-  };
-
-  // Handle successful save of bank details
+  const handleOpenAddBankInfo = () => setIsAddBankInfoModalOpen(true);
   const handleBankInfoSaved = (status: boolean) => {
-    setIsBankInfoProvided(status); // Update bank info state
-    setIsOpenAddBankInfo(false); // Close the modal
+    setIsBankInfoProvided(status);
+    setIsAddBankInfoModalOpen(false);
   };
 
-  const handleOpenKycInfo = () => {
-    setIsOpenKycInfo(true);
-  };
+  const handleOpenKycInfo = () => setIsKycModalOpen(true);
+  const handleOpenValidIdInfo = () => setIsValidIdModalOpen(true);
+  const handleOpenNextOfKinInfo = () => setIsNextOfKinModalOpen(true);
+  const handleOpenProfilePictureInfo = () => setIsProfilePictureModalOpen(true);
 
-  const handleOpenValidIdInfo = () => {
-    setIsOpenValidIdInfo(true)
-  }
-  const handleOpenNextOfKinInfo = () => {
-    setIsOpenNextOfKinInfo(true)
-  }
-  // const handleOpenBvnInfo = () => {
-  //   setIsOpenBvnInfo(true)
-  // }
+  const handleKyc = () => {
+    setIsValidIdProvided(true);
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      localStorage.setItem(`isValidIdProvided-${userId}`, "Provided");
+    }
+  };
+  const handleNextOfKinProvided = () => {
+    setIsNextOfKinProvided(true);
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      localStorage.setItem(`isNextOfKinProvided-${userId}`, "Provided");
+    }
+  };
+  const handleProfilePictureProvided = () => {
+    setIsProfilePictureProvided(true);
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      localStorage.setItem(`isProfilePictureProvided-${userId}`, "Provided");
+    }
+  };
+  const capitalizeFirstLetter = (name: string): string => {
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  };
 
   return (
     <div className="flex flex-col lg:pr-8">
       <p className="text-lg text-color-form py-4 lg:text-start">
-        Welcome, {fullName || "Guest"}! 👋🏻
+        Welcome, {fullName ? capitalizeFirstLetter(fullName) : "Guest"}! 👋🏻
       </p>
       <div className="flex gap-4 pb-3 my-4 sm:justify-center lg:justify-start">
         <CardComponentFive
@@ -119,26 +199,28 @@ export default function AuthDashboard() {
           status={isBankInfoProvided ? "Provided" : "Not Set"}
           statusClass={
             isBankInfoProvided ? "text-color-one" : "text-color-form"
-          } // Dynamically set the class for text color
-          showArrow={isBankInfoProvided ? "hidden" : "flex"} // Hide arrow if provided
+          }
+          showArrow={isBankInfoProvided ? "hidden" : "flex"}
           showSwitch="hidden"
-          onClick={isBankInfoProvided ? undefined : handleOpenBankInfo} // Disable onClick if provided
+          onClick={isBankInfoProvided ? undefined : handleOpenAddBankInfo}
+          style={
+            isBankInfoProvided ? "hover:bg-light-grey" : "hover:bg-slate-100"
+          }
         />
+
+        {/* KYC Card */}
         <CardVerification
           iconImg={<BsPersonCheck className="text-xl text-color-one" />}
           label="KYC"
-          status="Not Set"
-          showArrow="flex"
+          status={isKycProvided ? "Provided" : "Not Set"}
+          statusClass={isKycProvided ? "text-color-one" : "text-color-form"}
+          showArrow={isKycProvided ? "hidden" : "flex"}
           showSwitch="hidden"
-          onClick={handleOpenKycInfo}
+          onClick={isKycProvided ? undefined : handleOpenKycInfo}
+          style={isKycProvided ? "hover:bg-light-grey" : "hover:bg-slate-100"}
         />
-        {/* <CardVerification
-          iconImg={<IoPeople className="text-xl text-color-one" />}
-          label="Next of Kin"
-          status="Not Set"
-          showArrow="flex"
-          showSwitch="hidden"
-        /> */}
+
+        {/* Biometrics Card */}
         <CardVerification
           iconImg={<LuScanFace className="text-xl text-color-one" />}
           label="Enable Biometrics"
@@ -148,44 +230,38 @@ export default function AuthDashboard() {
         />
       </div>
 
-      {/* Modals */}
-      {openBankInfo && (
-        <BankInformation
-          onClose={() => setIsOpenBankInfo(false)}
-          onAdd={handleOpenAddBankInfo}
-        />
-      )}
-
-      {openAddBankInfo && (
+      {isAddBankInfoModalOpen && (
         <AddBankInformation
-          onClose={() => setIsOpenAddBankInfo(false)}
-          onSave={(status: boolean) => handleBankInfoSaved(status)} // New handler passed to modal
+          onClose={() => setIsAddBankInfoModalOpen(false)}
+          onSave={handleBankInfoSaved}
         />
       )}
-
-      {openKycInfo && (
+      {isKycModalOpen && (
         <KycInformation
           onClickNextOfKin={handleOpenNextOfKinInfo}
           onClickValidId={handleOpenValidIdInfo}
-          // onClickBvn={handleOpenBvnInfo}
-          onClose={() => setIsOpenKycInfo(false)}
+          onClickProfilePicture={handleOpenProfilePictureInfo}
+          onClose={() => setIsKycModalOpen(false)}
         />
       )}
-      {openValidIdInfo && (
+      {isValidIdModalOpen && (
         <ValidIdInformation
-          onClose={() => setIsOpenValidIdInfo(false)}
+          onClose={() => setIsValidIdModalOpen(false)}
+          onValidIdStatus={handleKyc}
         />
       )}
-      {openNextOfKinInfo && (
+      {isNextOfKinModalOpen && (
         <NextOfKinInformation
-          onClose={() => setIsOpenNextOfKinInfo(false)}
+          onClose={() => setIsNextOfKinModalOpen(false)}
+          onNextOfKinStatus={handleNextOfKinProvided}
         />
       )}
-      {/* {openBvnInfo && (
-        <BvnInformation
-          onClose={() => setIsOpenBvnInfo(false)}
+      {isProfilePictureModalOpen && (
+        <ProfilePictureInformation
+          onClose={() => setIsProfilePictureModalOpen(false)}
+          onProfilePictureStatus={handleProfilePictureProvided}
         />
-      )} */}
+      )}
     </div>
   );
 }

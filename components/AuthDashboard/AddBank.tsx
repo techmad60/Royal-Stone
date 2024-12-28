@@ -1,129 +1,132 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Button from "../ui/Button";
-import { IoIosArrowDown } from "react-icons/io";
 
 interface AddBankInformationProps {
   onClose: () => void;
   onSave: (status: boolean) => void;
 }
 
-interface Bank {
-  name: string;
-  code: string;
-  logo: string;
+// Define interface for form data
+interface FormData {
+  bankName: string;
+  accountNumber: string;
+  accountHolderName: string;
+  bankAddress: string;
+  beneficiaryAddress: string;
+  swiftCode: string;
+  routingNumber: string;
 }
 
-export default function AddBankInformation({
-  onClose,
-  onSave
-}: AddBankInformationProps) {
-  const [userName, setUserName] = useState("");
-  const [banks, setBanks] = useState<Bank[]>([]);
-  const [selectedBank, setSelectedBank] = useState<Bank | null>(null);
-  const [accessToken, setAccessToken] = useState<string | null>(null);
-  const [accountNumber, setAccountNumber] = useState(""); // Added state for account number
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Added for arrow rotation
+interface Errors {
+  bankName?: string;
+  accountNumber?: string;
+  accountHolderName?: string;
+  bankAddress?: string;
+  beneficiaryAddress?: string;
+  swiftCode?: string;
+  routingNumber?: string;
+}
 
-  // Fetch banks from API
-  // Retrieve access token from localStorage
-useEffect(() => {
-    try {
-      const token = localStorage.getItem("accessToken");
-      if (token) {
-        setAccessToken(token);
-        console.log("Access token retrieved:", token);
-      } else {
-        console.warn("Access token not found in localStorage.");
-      }
-    } catch (error) {
-      console.error("Error accessing localStorage:", error);
-    }
-  }, []);
 
+export default function AddBankInformation({ onClose, onSave }: AddBankInformationProps) {
   useEffect(() => {
-    const fetchBanks = async () => {
-      try {
-        const response = await fetch("https://nigerianbanks.xyz");
-        const data = await response.json();
-        setBanks(data);
-      } catch (error) {
-        console.error("Error fetching banks:", error);
-      }
-    };
-
-    fetchBanks();
-
-    // Load saved user name and prevent background scrolling
-    const savedName = localStorage.getItem("userName");
-    if (savedName) {
-      setUserName(savedName);
-    }
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
     };
   }, []);
 
-  // Handle Bank Selection
-  const handleBankSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedCode = event.target.value;
-    const bank = banks.find((b) => b.code === selectedCode);
-    setSelectedBank(bank || null);
-  };
+  const [formData, setFormData] = useState<FormData>({
+    bankName: "",
+    accountNumber: "",
+    accountHolderName: "",
+    bankAddress: "",
+    beneficiaryAddress: "",
+    swiftCode: "", // Optional
+    routingNumber: "", // Optional
+  });
 
-  // Handle Account Number Input
-  const handleAccountNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAccountNumber(event.target.value);
-  };
-
-  // Handle Dropdown Toggle
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
+  const [errors, setErrors] = useState<Errors>({});
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev: FormData) => ({ ...prev, [name]: value }));
+    setErrors((prev: Errors) => ({ ...prev, [name]: "" })); // Clear error on change
   };
 
   // Handle Form Submission
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault(); // Prevent default form behavior
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent form submission
 
-    if (!selectedBank || !accountNumber) {
-      alert("Please select a bank and enter an account number.");
+    // Basic validation for required fields
+    const newErrors: Errors = {};
+    if (!formData.bankName) newErrors.bankName = "Bank Name is required.";
+    if (!formData.accountNumber) newErrors.accountNumber = "Account Number is required.";
+    if (!formData.accountHolderName) newErrors.accountHolderName = "Account Holder Name is required.";
+    if (!formData.bankAddress) newErrors.bankAddress = "Bank Address is required.";
+    if (!formData.beneficiaryAddress) newErrors.beneficiaryAddress = "Beneficiary Address is required.";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors); // Set the error state
+      return; // Exit early if there are validation errors
+    }
+
+    setIsLoading(true);
+
+    // Retrieve the access token (assuming it's in localStorage)
+    const token = localStorage.getItem("accessToken");
+
+    if (!token) {
+      alert("You must be logged in to add bank details.");
+      setIsLoading(false);
       return;
     }
 
-    const payload = {
-      bankName: selectedBank.name,
-      bankCode: selectedBank.code,
-      accountNumber: accountNumber,
-    };
-
+    // API call to submit the form data
     try {
-      const response = await fetch( "https://api-royal-stone.softwebdigital.com/api/bank", {
+      const response = await fetch("https://api-royal-stone.softwebdigital.com/api/bank", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          bankName: formData.bankName,
+          accountNumber: formData.accountNumber,
+          accountName: formData.accountHolderName, // Map accountHolderName to accountName
+          bankAddress: formData.bankAddress,
+          swiftCode: formData.swiftCode || "", // Send empty string if not provided
+          routingNumber: formData.routingNumber || "", // Send empty string if not provided
+          beneficiaryAddress: formData.beneficiaryAddress,
+        }),
       });
 
+      const result = await response.json();
+      console.log("API Response:", result);
+
       if (response.ok) {
-        alert("Bank details saved successfully!");
-        onSave(true); 
-        onClose(); // Close the modal after success
+        // Handle success (for example, call onSave)
+        onSave(true); // Call onSave and pass true on success
       } else {
-        const errorData = await response.json();
-        alert(`Error: ${errorData.message || "Failed to save bank details."}`);
+        alert(result.message || "An error occurred. Please try again.");
+      }
+      if (response.status === 401) {
+        router.push("/auth/login")
       }
     } catch (error) {
-      console.error("Error saving bank details:", error);
-      alert("An error occurred while saving bank details.");
+      console.error("Error submitting bank details:", error);
+      alert("Failed to submit bank details. Please check your connection.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="fixed inset-0 flex bg-[#D9D9D9A6] items-end lg:items-center justify-end lg:justify-center z-50">
-      <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[400px] lg:rounded-[20px] lg:max-w-[621px] lg:h-[400px]">
+      <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[700px] lg:rounded-[20px] lg:max-w-[621px]">
         <div className="flex items-center border-b w-full pb-2 p-4">
           <p
             onClick={onClose}
@@ -139,65 +142,116 @@ useEffect(() => {
           <p className="text-color-form text-sm p-4">
             Provide your bank account details
           </p>
-          <form className="flex flex-col px-4" onSubmit={handleSubmit}>
-            <div className="flex flex-col space-y-4">
-              {/* Bank Selection */}
-              <div className="flex flex-col gap-1">
-                <label className="text-color-form text-sm">Bank</label>
-                <div className="flex gap-2 items-center border-b pb-3 relative mt-2">
-                  <div className="relative w-full">
-                    <select
-                      className="appearance-none w-full text-sm border-none pr-8 focus:outline-none"
-                      onChange={handleBankSelection}
-                      onClick={toggleDropdown}
-                      onBlur={() => setIsDropdownOpen(false)}
-                      required
-                    >
-                      <option value="">Select a bank</option>
-                      {banks.map((bank) => (
-                        <option key={bank.code} value={bank.code}>
-                          {bank.name}
-                        </option>
-                      ))}
-                    </select>
-                    <span
-                      className={`absolute inset-y-0 right-0 flex items-center pointer-events-none transition-transform ${
-                        isDropdownOpen ? "rotate-180" : "rotate-0"
-                      }`}
-                    >
-                      <IoIosArrowDown />
-                    </span>
-                  </div>
-                </div>
-              </div>
-              {/* Account Number */}
-              <div className="flex flex-col gap-1">
-                <label className="text-color-form text-sm">
-                  Account Number
-                </label>
-                <div className="relative border-b border-slate-200">
-                  <div className="flex justify-between py-2">
-                    <input
-                      type="text"
-                      value={accountNumber}
-                      onChange={handleAccountNumberChange}
-                      required
-                      className="outline-none rounded-sm placeholder:text-sm w-[300px] placeholder:text-slate-400 text-colour-five"
-                      placeholder="2010100191"
-                    />
-                    <div>
-                      <p className="text-sm text-color-one border-b border-color-one leading-none">
-                        {userName || "User Name"}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <form
+            className="flex flex-col space-y-6 p-4"
+            onSubmit={handleFormSubmit}
+          >
+            {/* Bank Name */}
+            <div className="flex flex-col gap-2">
+              <label className="text-color-form text-sm">Bank Name</label>
+              <input
+                type="text"
+                name="bankName"
+                value={formData.bankName}
+                onChange={handleChange}
+                required
+                className="rounded-sm border-b border-slate-200 text-color-zero"
+                placeholder="Citi Bank"
+              />
+              {errors.bankName && <p className="text-red-500 text-xs">{errors.bankName}</p>}
             </div>
+
+            {/* Account Number */}
+            <div className="flex flex-col gap-2">
+              <label className="text-color-form text-sm">Account Number</label>
+              <input
+                type="text"
+                name="accountNumber"
+                value={formData.accountNumber}
+                onChange={handleChange}
+                required
+                className="rounded-sm border-b border-slate-200 text-color-zero"
+                placeholder="2010100191"
+              />
+              {errors.accountNumber && <p className="text-red-500 text-xs">{errors.accountNumber}</p>}
+            </div>
+
+            {/* Account Holder Name */}
+            <div className="flex flex-col gap-2">
+              <label className="text-color-form text-sm">Account Holder Name</label>
+              <input
+                type="text"
+                name="accountHolderName"
+                value={formData.accountHolderName}
+                onChange={handleChange}
+                required
+                className="rounded-sm border-b border-slate-200 text-color-zero"
+                placeholder="Cooper Winterwind"
+              />
+              {errors.accountHolderName && <p className="text-red-500 text-xs">{errors.accountHolderName}</p>}
+            </div>
+
+            {/* Bank Address */}
+            <div className="flex flex-col gap-2">
+              <label className="text-color-form text-sm">Bank Address</label>
+              <input
+                type="text"
+                name="bankAddress"
+                value={formData.bankAddress}
+                onChange={handleChange}
+                required
+                className="rounded-sm border-b border-slate-200 text-color-zero"
+                placeholder="21 Old Lane, Wall Street"
+              />
+              {errors.bankAddress && <p className="text-red-500 text-xs">{errors.bankAddress}</p>}
+            </div>
+
+            {/* IBAN/SWIFT Code */}
+            <div className="flex flex-col gap-2">
+              <label className="text-color-form text-sm">IBAN/Swift Code (Optional)</label>
+              <input
+                type="text"
+                name="swiftCode"
+                value={formData.swiftCode}
+                onChange={handleChange}
+                className="rounded-sm border-b border-slate-200 text-color-zero"
+                placeholder="099794"
+              />
+            </div>
+
+            {/* Routing Number */}
+            <div className="flex flex-col gap-2">
+              <label className="text-color-form text-sm">Routing Number (Optional)</label>
+              <input
+                type="text"
+                name="routingNumber"
+                value={formData.routingNumber}
+                onChange={handleChange}
+                className="rounded-sm border-b border-slate-200 text-color-zero"
+                placeholder="67897943"
+              />
+            </div>
+
+            {/* Beneficiary Address */}
+            <div className="flex flex-col gap-1">
+              <label className="text-color-form text-sm">Beneficiary Address</label>
+              <input
+                type="text"
+                name="beneficiaryAddress"
+                value={formData.beneficiaryAddress}
+                onChange={handleChange}
+                required
+                className="rounded-sm border-b border-slate-200 text-color-zero"
+                placeholder="30 New Lane, Alabama"
+              />
+              {errors.beneficiaryAddress && <p className="text-red-500 text-xs">{errors.beneficiaryAddress}</p>}
+            </div>
+
             <Button
-              ButtonText="Save"
-              className="py-3 w-full mt-12 lg:w-full"
+              ButtonText={isLoading ? "Saving..." : "Save"}
+              className={`py-3 bg-color-one hover:bg-green-700`}
               type="submit"
+              disabled={isLoading}
             />
           </form>
         </div>

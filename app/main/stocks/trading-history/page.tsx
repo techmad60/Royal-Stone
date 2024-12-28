@@ -1,5 +1,5 @@
 import { RiStockLine } from "react-icons/ri";
-import StockLinks from "@/components/stocks/StockLinks";
+import StockLinks from "@/components/Stocks/StockLinks";
 
 
 export default function TradingHistory() {

@@ -35,21 +35,20 @@ export default function VerifyMail() {
       setError("Email is missing. Cannot resend OTP.");
       return;
     }
-
+  
     setResendLoading(true);
     setResendStatus(null);
-
+  
     try {
       const response = await fetch(
-       "https://api-royal-stone.softwebdigital.com/api/auth/request-verification?email=${encodeURIComponent(email)}",
-        { method: "GET" }
+        `https://api-royal-stone.softwebdigital.com/api/auth/forgot-password?email=${encodeURIComponent(email)}`,
       );
-
+  
       if (!response.ok) {
         const result = await response.json();
         throw new Error(result.message || "Failed to resend OTP.");
       }
-
+  
       setResendStatus("OTP sent successfully to your email.");
     } catch (err: unknown) {
       setResendStatus(
@@ -59,7 +58,6 @@ export default function VerifyMail() {
       setResendLoading(false);
     }
   };
-
   const handleChange = (value: string, index: number) => {
     if (!/^\d?$/.test(value)) return; // Allow only digits
     const updatedOtp = [...otp];
@@ -69,30 +67,65 @@ export default function VerifyMail() {
     if (value && index < otp.length - 1) {
       const nextInput = document.getElementById(`otp-${index + 1}`);
       nextInput?.focus();
+    } else if (!value && index > 0) { // If deleting, move focus to previous input
+      const prevInput = document.getElementById(`otp-${index - 1}`);
+      prevInput?.focus();
     }
+  };
+
+  const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    const pastedValue = e.clipboardData.getData("Text").slice(0, 6); // Limit to 6 characters
+    const updatedOtp = [...otp];
+    for (let i = 0; i < pastedValue.length; i++) {
+      updatedOtp[i] = pastedValue[i];
+    }
+    setOtp(updatedOtp);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-
+  
     const fullOtp = otp.join("");
     if (fullOtp.length < 6) {
       setError("Please enter a valid 6-digit OTP.");
       return;
     }
-
+  
     if (!email) {
       setError("Email is missing. Cannot proceed.");
       return;
     }
-
-    // Redirect to the reset password page with OTP and email
-    router.push(
-      `/auth/login/with-mail/forgot-password/verify-email/reset-password?email=${encodeURIComponent(
-        email
-      )}&otp=${encodeURIComponent(fullOtp)}`
-    );
+  
+    try {
+      const response = await fetch(
+        "https://api-royal-stone.softwebdigital.com/api/auth/verify-forgot-password-otp",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, otp: fullOtp }),
+        }
+      );
+      
+  
+      if (!response.ok) {
+        const result = await response.json();
+        throw new Error(result.message || "Failed to verify OTP.");
+      }
+  
+      // Redirect to reset password page
+      router.push(
+        `/auth/login/with-mail/forgot-password/verify-email/reset-password?email=${encodeURIComponent(
+          email
+        )}&otp=${encodeURIComponent(fullOtp)}`
+      );
+    } catch (err: unknown) {
+      setError(
+        err instanceof Error ? err.message : "An unexpected error occurred."
+      );
+    }
   };
 
   return (
@@ -117,7 +150,9 @@ export default function VerifyMail() {
                   type="text"
                   id={`otp-${index}`}
                   value={value}
+                  typeof="tel"
                   onChange={(e) => handleChange(e.target.value, index)}
+                  onPaste={handlePaste}
                   className="w-full h-full transform -rotate-45 text-center outline-none border-none bg-transparent text-color-zero"
                   maxLength={1}
                 />

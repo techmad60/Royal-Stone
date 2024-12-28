@@ -45,7 +45,6 @@ export default function WithMail() {
           body: JSON.stringify(formData),
         }
       );
-
       const result = await response.json();
       setLoading(false);
 
@@ -61,7 +60,7 @@ export default function WithMail() {
       console.log("Tokens stored successfully:", { accessToken, refreshToken, account});
 
       // Navigate to dashboard or next step
-      router.push("/auth/auth-dashboard");
+      router.push("/main/dashboard");
     } catch (err) {
       setLoading(false);
       if (err instanceof Error) {
@@ -101,6 +100,7 @@ export default function WithMail() {
               value={formData.password}
               onChange={handleChange}
               className="rounded-sm border-b border-slate-200 w-full text-colour-five"
+              placeholder="eXample@123"
               
             />
             <button

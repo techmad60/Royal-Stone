@@ -45,8 +45,11 @@ export default function ResetPassword() {
     e.preventDefault();
     setError(null);
 
-    if (!password || !confirmPassword) {
-      setError("Both password fields are required.");
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!password.match(passwordRegex)) {
+      setError(
+        "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character."
+      );
       return;
     }
 
@@ -106,6 +109,7 @@ export default function ResetPassword() {
               onChange={(e) => setPassword(e.target.value)}
               required
               className="rounded-sm border-b border-slate-200 w-full text-colour-five"
+              placeholder="eXample@123"
             />
             <button
               type="button"
@@ -127,7 +131,7 @@ export default function ResetPassword() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
               className="rounded-sm border-b border-slate-200 w-full text-colour-five"
-             
+              placeholder="eXample@123"
             />
             <button
               type="button"

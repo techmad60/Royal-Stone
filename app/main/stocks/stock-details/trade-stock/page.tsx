@@ -2,11 +2,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import StockNavigator from "@/components/stocks/StockNavigator";
+import StockNavigator from "@/components/Stocks/StockNavigator";
 import Button from "@/components/ui/Button";
-import BuyModal from "@/components/stocks/BuyModal";
-import TransactionProcessed from "@/components/stocks/TransactionProcessed";
-import TransactionDetails from "@/components/stocks/TransactionDetails";
+import BuyModal from "@/components/Stocks/BuyModal";
+import TransactionProcessed from "@/components/Stocks/TransactionProcessed";
+import TransactionDetails from "@/components/Stocks/TransactionDetails";
 
 export default function TradeStock() {
     const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);

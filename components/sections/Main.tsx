@@ -5,6 +5,7 @@ import GooglePlayButton from "../ui/GooglePlayButton";
 import DownloadApp from "../ui/DownloadApp";
 import CardComponent from "../ui/CardComponent";
 import CardComponentTwo from "../ui/CardComponentTwo";
+// import Carousel from "../ui/Carousel";
 import { GrSend } from "react-icons/gr";
 
 export default function Main() {
@@ -290,6 +291,7 @@ export default function Main() {
       </section>
 
       {/*Our Latest Products Section*/}
+      {/* <Carousel/> */}
       <section className="flex flex-col justify-center items-center bg-color-two py-16">
         <div className="flex flex-col justify-center items-center">
           <h2
@@ -300,7 +302,7 @@ export default function Main() {
         </div>
 
         <div className="flex gap-4 px-4 mt-12 lg:px-16 overflow-x-scroll hide-scrollbar">
-          {/* Product one */}
+          {/* Product 1 */}
           <section className="flex flex-col justify-start items-start flex-shrink-0">
             <Image
               src={"/images/small-potato.png"}
@@ -323,7 +325,7 @@ export default function Main() {
             </div>
           </section>
 
-          {/* Product Two */}
+          {/* Product 2 */}
           <section className="flex flex-col justify-start items-start flex-shrink-0">
             <Image
               src={"/images/small-potato.png"}
@@ -346,7 +348,7 @@ export default function Main() {
             </div>
           </section>
 
-          {/* Product three */}
+          {/* Product 3 */}
           <section className="flex flex-col justify-start items-start flex-shrink-0">
             <Image
               src={"/images/small-potato.png"}
@@ -369,7 +371,7 @@ export default function Main() {
             </div>
           </section>
 
-          {/* Product four */}
+          {/* Product 4 */}
           <section className="flex flex-col justify-start items-start flex-shrink-0">
             <Image
               src={"/images/small-potato.png"}

@@ -1,5 +1,5 @@
-"use client"
-import { useState, useEffect } from "react";
+"use client";
+import { useState, useEffect, useRef } from "react";
 import Navigator from "@/components/ui/Navigator";
 import Button from "@/components/ui/Button";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -21,6 +21,7 @@ export default function VerifyMail() {
 
   const router = useRouter();
   const searchParams = useSearchParams();
+  const firstOtpInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     const emailParam = searchParams?.get("email");
@@ -30,7 +31,14 @@ export default function VerifyMail() {
       setEmail(emailParam);
     }
   }, [searchParams]);
-  
+
+  // Focus on the first OTP input field when the page loads
+  useEffect(() => {
+    if (firstOtpInputRef.current) {
+      firstOtpInputRef.current.focus();
+    }
+  }, []);
+
   // Retrieve access token from localStorage
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
@@ -64,7 +72,9 @@ export default function VerifyMail() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.message || "Failed to resend verification email.");
+        throw new Error(
+          result.message || "Failed to resend verification email."
+        );
       }
 
       setResendStatus("Verification email sent successfully.");
@@ -86,9 +96,20 @@ export default function VerifyMail() {
     if (value && index < otp.length - 1) {
       const nextInput = document.getElementById(`otp-${index + 1}`);
       nextInput?.focus();
+    } else if (!value && index > 0) { // If deleting, move focus to previous input
+      const prevInput = document.getElementById(`otp-${index - 1}`);
+      prevInput?.focus();
     }
   };
-
+  
+  const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    const pastedValue = e.clipboardData.getData("Text").slice(0, 6); // Limit to 6 characters
+    const updatedOtp = [...otp];
+    for (let i = 0; i < pastedValue.length; i++) {
+      updatedOtp[i] = pastedValue[i];
+    }
+    setOtp(updatedOtp);
+  };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -132,7 +153,9 @@ export default function VerifyMail() {
       console.log("OTP verified successfully:", result);
       router.push("/auth/signup/with-mail/verify-mail/complete-setup");
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "An unexpected error occurred.");
+      setError(
+        err instanceof Error ? err.message : "An unexpected error occurred."
+      );
       setLoading(false);
     }
   };
@@ -145,8 +168,8 @@ export default function VerifyMail() {
           Verify Email
         </h1>
         <p className="text-sm text-color-form mt-2">
-          Kindly input the OTP sent to <strong>{email}</strong> to verify your account and complete
-          the signup process.
+          Kindly input the OTP sent to <strong>{email}</strong> to verify your
+          account and complete the signup process.
         </p>
         <form onSubmit={handleSubmit} className="flex flex-col w-full">
           <section className="flex items-center gap-2 w-full bg-light-grey rounded-[10px] h-[70px] space-x-4 justify-between px-6 mt-8 border border-slate-100">
@@ -160,6 +183,7 @@ export default function VerifyMail() {
                   id={`otp-${index}`}
                   value={value}
                   onChange={(e) => handleChange(e.target.value, index)}
+                  onPaste={handlePaste}
                   className="w-full h-full transform -rotate-45 text-center outline-none border-none bg-transparent text-color-zero"
                   maxLength={1}
                 />

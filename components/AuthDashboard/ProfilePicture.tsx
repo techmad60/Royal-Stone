@@ -1,26 +1,23 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { TiTimes } from "react-icons/ti";
 import Button from "../ui/Button";
 import { FaRegImage } from "react-icons/fa6";
-import Image from "next/image";
 
-interface ValidIdInfoProps {
-  onClose: () => void;
-  onValidIdStatus: () => void; // New prop to update KYC status in parent
+interface ProfilePictureInfoProps {
+    onClose: () => void;
+    onProfilePictureStatus: () => void;
 }
-
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-
-export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidIdInfoProps) {
-  const [selectedId, setSelectedId] = useState("Passport");
+export default function ProfilePictureInformation ({onClose, onProfilePictureStatus}: ProfilePictureInfoProps) {
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
   const [feedbackType, setFeedbackType] = useState<"success" | "error" | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const router = useRouter();
+  const router = useRouter() 
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -38,9 +35,6 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
     };
   }, [imagePreview]);
 
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedId(e.target.value);
-  };
 
   const handleImageClick = () => {
     fileInputRef.current?.click();
@@ -78,6 +72,7 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
       setIsUploading(true);
       setFeedbackMessage(null);
 
+      // Assuming you get access token and signature to upload image (as before)
       const accessToken = localStorage.getItem("accessToken");
       if (!accessToken) {
         setFeedbackType("error");
@@ -94,15 +89,14 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
           },
         }
       );
-
-      if (signatureResponse.status === 401) {
-        router.push("/auth/login");
-        return;
-      }
-
+      
       const signatureData = await signatureResponse.json();
       if (!signatureResponse.ok) {
         throw new Error(signatureData.message || "Failed to fetch signature");
+      }
+
+      if (signatureResponse.status === 401) {
+        router.push("/auth/login")
       }
 
       const { token, expire, signature } = signatureData.data;
@@ -133,32 +127,31 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
         localStorage.setItem("uploadedImageURL", uploadedImageURL);
         setImagePreview(uploadedImageURL);
 
-        const kycResponse = await fetch(
-          "https://api-royal-stone.softwebdigital.com/api/kyc",
+        const profileResponse = await fetch(
+          "https://api-royal-stone.softwebdigital.com/api/account/profile",
           {
-            method: "POST",
+            method: "PUT",
             headers: {
               Authorization: `Bearer ${accessToken}`,
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              identity: {
-                type: selectedId.toLowerCase(), // Convert ID type to lowercase with hyphen
-                value: uploadData.url, // Image URL from ImageKit
-              },
+              avatar: uploadedImageURL, // Set the avatar field with the uploaded image URL
             }),
           }
         );
-        const kycData = await kycResponse.json();
-        if (kycResponse.ok) {
-          console.log("KYC Response:", kycData);
+        const profileData = await profileResponse.json();
+        if (profileResponse.ok) {
+          console.log("Profile Response:", profileData);
         } else {
-          throw new Error(kycData.message || "Failed to submit KYC");
+          throw new Error(profileData.message || "Failed to submit Profile");
         }
 
-        onValidIdStatus(); // Notify parent about success
+        // Update the status in KYC when the upload is successful
+        onProfilePictureStatus(); // Notify parent that the Valid ID status has been provided
         setFeedbackType("success");
-        setFeedbackMessage("ID uploaded successfully!");
+        setFeedbackMessage("Profile picture uploaded successfully!");
+        // Close the modal after successful upload
         setTimeout(onClose, 1000); // Close modal after success
       } else {
         throw new Error(uploadData.message || "Upload failed");
@@ -175,71 +168,48 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
       setIsUploading(false);
     }
   };
-
-  return (
-    <div className="fixed inset-0 bg-[#D9D9D9A6] flex items-end lg:items-center justify-end lg:justify-center z-50">
-      <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[580px] sm:h-[580px] lg:rounded-[20px] lg:max-w-[621px] lg:h-auto">
+    return (
+        <div className="fixed inset-0 bg-[#D9D9D9A6] flex items-end lg:items-center justify-end lg:justify-center z-50">
+      <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[490px] sm:h-[580px] lg:rounded-[20px] lg:max-w-[621px] lg:h-auto">
         <div className="flex justify-center items-center mt-4 lg:hidden">
           <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
         </div>
         <div className="flex items-center border-b w-full pb-2 p-4 sm:p-8 lg:p-4">
-          <p onClick={onClose} className="text-color-form text-sm cursor-pointer">
+          <p
+            onClick={onClose}
+            className="text-color-form text-sm cursor-pointer"
+          >
             Cancel
           </p>
           <p className="text-color-zero font-semibold text-lg mx-auto relative right-4">
-            Valid Identification
+            Profile Picture
           </p>
         </div>
         <div className="flex flex-col p-4 sm:p-8 lg:p-4">
-          <div>
-            <div className="flex flex-col gap-1">
-              <p className="text-color-form text-sm">ID type</p>
-              <div className="relative border-b border-slate-200">
-                <select
-                  value={selectedId}
-                  onChange={handleSelectChange}
-                  required
-                  className="rounded-sm placeholder:text-color-zero placeholder:text-sm py-1 w-full"
-                >
-                  <option value="Passport">International Passport</option>
-                  <option value="Drivers License">Drivers License</option>
-                  <option value="Other Valid id">Other Valid ID</option>
-                </select>
-              </div>
-            </div>
-          </div>
           <section className="mt-8">
-            <p className="text-color-form text-sm">Provide a picture of the ID</p>
-            <div
-              className={`flex flex-col justify-center items-center space-y-4 my-8 py-6 shadow-sm bg-light-grey rounded-common w-full pr-8`}
-            >
+            <p className="text-color-form text-sm">
+              Provide a profile picture
+            </p>
+            <div className={`flex flex-col justify-center items-center space-y-4 my-8 py-6 shadow-sm bg-light-grey rounded-common w-full pr-8`}>
               {!image && !imagePreview && (
                 <>
-                  <div
-                    className={`w-7 h-7 shadow-sm flex items-center justify-center transform rotate-45 rounded-[9px] bg-white`}
-                  >
+                  <div className={`w-7 h-7 shadow-sm flex items-center justify-center transform rotate-45 rounded-[9px] bg-white`}>
                     <span className="text-color-one transform -rotate-45">
                       <FaRegImage className="text-color-one" />
                     </span>
                   </div>
-                  <p
-                    className={`text-sm text-color-one cursor-pointer`}
-                    onClick={handleImageClick}
-                  >
+                  <p className={`text-sm text-color-one cursor-pointer`} onClick={handleImageClick}>
                     Tap to Upload Image
                   </p>
                 </>
               )}
               {(imagePreview || image) && (
                 <div className="mt-4 flex flex-col justify-center items-center relative">
-                  <TiTimes
-                    onClick={handleRemoveImage}
-                    className="absolute top-0 right-0 text-color-form cursor-pointer text-xl bg-white rounded-full p-1"
-                  />
+                  <TiTimes onClick={handleRemoveImage} className="absolute top-0 right-0 text-color-form cursor-pointer text-xl bg-white rounded-full p-1" />
                   <Image
                     src={imagePreview || ""}
                     alt="Image Preview"
-                    className="mt-4 object-cover rounded-lg"
+                    className="mt-4object-cover rounded-lg"
                     width={128}
                     height={128}
                   />
@@ -259,17 +229,13 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
           </section>
 
           {feedbackMessage && (
-            <div
-              className={`my-1 text-sm ${
-                feedbackType === "error" ? "text-red-500" : "text-green-500"
-              }`}
-            >
+            <div className={`text-sm ${feedbackType === "error" ? "text-red-500" : "text-green-500"}`}>
               {feedbackMessage}
             </div>
           )}
 
           <Button
-            ButtonText={isUploading ? "Uploading ID..." : "Finish"}
+            ButtonText={isUploading ? "Uploading..." : "Finish"}
             className="w-full mt-4 duration-300"
             onClick={handleUpload}
             disabled={isUploading}
@@ -277,5 +243,8 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
         </div>
       </div>
     </div>
-  );
+    )
 }
+
+
+

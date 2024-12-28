@@ -4,7 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import Button from "../ui/Button";
 import Navigator from "./SettingsNavigator";
 import { useRouter } from "next/navigation";
-import useNameStore from '@/store/nameStore';
+import useUserStore from '@/store/userStore';
 
 const profileSteps = [
   { label: "Settings", href: "/main/settings" },
@@ -27,7 +27,7 @@ export default function ProfileSettings() {
   const router = useRouter();
 
   // Get setFullName from Zustand store
-  const setFullName = useNameStore((state) => state.setFullName);
+  const setFullName = useUserStore((state) => state.setFullName);
 
   useEffect(() => {
     const fetchProfile = async () => {

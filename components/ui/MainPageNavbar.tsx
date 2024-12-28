@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // Import useRouter for redirection
@@ -23,7 +24,9 @@ export default function MainPageNavbar({
   toggleNav,
 }: MainPageNavbarProps) {
   const router = useRouter(); // Use Next.js router for navigation
+  const pathname = usePathname();
 
+  const isDisabled = pathname === "/auth/auth-dashboard";
   // Prevent scrolling when navbar is open
   useEffect(() => {
     if (isNavOpen) {
@@ -40,28 +43,43 @@ export default function MainPageNavbar({
     // Confirm logout with the user
     const isConfirmed = confirm("Are you sure you want to log out?");
     if (!isConfirmed) return;
-  
+
     // Get the current userId
     const userId = localStorage.getItem("userId");
-  
-    // Preserve the `isBankInfoProvided` status for the current user
-    let bankInfoStatus = null;
+
+    // Define KYC-related keys to preserve
+    const kycKeys = [
+      "isBankInfoProvided",
+      "isValidIdProvided",
+      "isNextOfKinProvided",
+      "isProfilePictureProvided",
+    ];
+
+    // Preserve the KYC statuses for the current user
+    const preservedStatuses: Record<string, string | null> = {};
     if (userId) {
-      bankInfoStatus = localStorage.getItem(`isBankInfoProvided-${userId}`);
+      kycKeys.forEach((key) => {
+        preservedStatuses[key] = localStorage.getItem(`${key}-${userId}`);
+      });
     }
-  
+
     // Remove all keys from localStorage except the ones to preserve
     Object.keys(localStorage).forEach((key) => {
-      if (!key.startsWith(`isBankInfoProvided-${userId}`)) {
+      if (!kycKeys.some((kycKey) => key.startsWith(`${kycKey}-${userId}`))) {
         localStorage.removeItem(key);
       }
     });
-  
-    // Restore the preserved bank info status
-    if (userId && bankInfoStatus) {
-      localStorage.setItem(`isBankInfoProvided-${userId}`, bankInfoStatus);
+
+    // Restore the preserved KYC statuses
+    if (userId) {
+      kycKeys.forEach((key) => {
+        const statusValue = preservedStatuses[key];
+        if (statusValue !== null) {
+          localStorage.setItem(`${key}-${userId}`, statusValue);
+        }
+      });
     }
-  
+
     // Redirect to login page
     try {
       router.push("/auth/login");
@@ -70,7 +88,6 @@ export default function MainPageNavbar({
       alert("An error occurred during logout. Please try again.");
     }
   };
-  
 
   return (
     <>
@@ -105,46 +122,55 @@ export default function MainPageNavbar({
                 href="/main/dashboard"
                 icon={<GoHomeFill />}
                 label="Dashboard"
+                disabled={isDisabled} // Pass status to wrapper
               />
               <NavLink
                 href="/main/product"
                 icon={<TbPackages />}
                 label="Product"
+                disabled={isDisabled}
               />
               <NavLink
                 href="/main/portfolio"
                 icon={<RiMouseFill />}
                 label="Portfolio"
+                disabled={isDisabled}
               />
               <NavLink
                 href="/main/stocks"
                 icon={<RiStockLine />}
                 label="Stocks"
+                disabled={isDisabled}
               />
               <NavLink
                 href="/main/savings"
                 icon={<TbTargetArrow />}
                 label="Fixed Savings"
+                disabled={isDisabled}
               />
               <NavLink
                 href="/main/investments"
                 icon={<BsFileBarGraphFill />}
                 label="Investments"
+                disabled={isDisabled}
               />
               <NavLink
                 href="/main/referrals"
                 icon={<BsPeopleFill />}
                 label="Referrals"
+                disabled={isDisabled}
               />
               <NavLink
                 href="/main/transaction-history"
                 icon={<FaClock />}
                 label="Transaction History"
+                disabled={isDisabled}
               />
               <NavLink
                 href="/main/settings"
                 icon={<IoMdSettings />}
                 label="Settings"
+                // disabled={isDisabled}
               />
             </li>
             <hr className="my-6" />

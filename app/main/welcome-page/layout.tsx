@@ -1,5 +1,5 @@
 //app/login/layout.tsx
-import Prompt from "@/components/registration/Prompt";
+import Prompt from "@/components/Registration/Prompt";
 
 export default function LoginLayout({
   children,
