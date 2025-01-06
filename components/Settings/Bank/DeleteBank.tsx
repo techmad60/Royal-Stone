@@ -10,6 +10,8 @@ interface DeleteBankProps {
 }
 
 export default function DeleteBank({ onClose }: DeleteBankProps) {
+  const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null); // State for feedback message
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -23,25 +25,83 @@ export default function DeleteBank({ onClose }: DeleteBankProps) {
     bankDetails,
     cryptoWallets,
     selectedType, // Get selectedType from store
-    deleteBank,
-    deleteWallet,
+    deleteBank, // Function to delete bank account
+    deleteWallet, // Function to delete crypto wallet
   } = useBankCryptoStore();
 
   const selectedBank = bankDetails.find((bank) => bank.id === selectedBankId);
   const selectedCrypto = cryptoWallets.find(
     (wallet) => wallet.id === selectedCryptoId
   );
-  const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null); // State for feedback message
 
-  const handleDelete = () => {
-    if (selectedType === "bank" && selectedBank) {
-      deleteBank(selectedBank.id);
-      setFeedbackMessage("Bank Account deleted successfully!");
-    } else if (selectedType === "crypto" && selectedCrypto) {
-      deleteWallet(selectedCrypto.id);
-      setFeedbackMessage("Crypto Wallet deleted successfully!");
+  const getAuthToken = () => {
+    return localStorage.getItem("accessToken"); // Get access token from local storage
+  };
+
+  const handleDelete = async () => {
+    const token = getAuthToken(); // Get the token
+    if (!token) {
+      setFeedbackMessage("Authentication token missing.");
+      return;
     }
-    
+
+    let response;
+    if (selectedType === "bank" && selectedBank) {
+      // Prepare the payload for bank
+      const payload = {
+        bankID: selectedBank.id,
+      };
+
+      try {
+        // Sending API request to delete bank using fetch
+        response = await fetch("https://api-royal-stone.softwebdigital.com/api/bank", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (response.ok) {
+          setFeedbackMessage("Bank Account deleted successfully.");
+          deleteBank(selectedBank.id);
+        } else {
+          setFeedbackMessage("Failed to delete the Bank Account.");
+        }
+      } catch (error) {
+        setFeedbackMessage("Error occurred while deleting the Bank Account.");
+        console.error(error);
+      }
+    } else if (selectedType === "crypto" && selectedCrypto) {
+      // Prepare the payload for crypto wallet
+      const payload = {
+        walletID: selectedCrypto.id,
+      };
+
+      try {
+        // Sending API request to delete crypto wallet using fetch
+        response = await fetch("https://api-royal-stone.softwebdigital.com/api/bank/crypto-wallet", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (response.ok) {
+          setFeedbackMessage("Crypto Wallet deleted successfully.");
+          deleteWallet(selectedCrypto.id);
+        } else {
+          setFeedbackMessage("Failed to delete the Crypto Wallet.");
+        }
+      } catch (error) {
+        setFeedbackMessage("Error occurred while deleting the Crypto Wallet.");
+        console.error(error);
+      }
+    }
+
     // Close the modal after 2 seconds
     setTimeout(() => {
       onClose && onClose();
@@ -70,21 +130,24 @@ export default function DeleteBank({ onClose }: DeleteBankProps) {
           Do you want to delete the following details?
         </p>
 
+        {/* Render the feedback message if it exists */}
+        {feedbackMessage && (
+          <div className="text-green-500 font-semibold text-center p-4">
+            {feedbackMessage}
+          </div>
+        )}
+
         {/* Render the dynamic content based on the selected account */}
         {selectedType === "bank" && selectedBank ? (
           <>
             <section className="bg-light-grey rounded-common shadow-sm h-[84px] py-2 flex flex-col space-y-4 mx-4">
               <div className="flex pl-4 items-center gap-3">
-                <Icon icon={<BiSolidBank className="text-color-one                                           "/>} containerSize="w-[16px] h-[16px]" />
+                <Icon icon={<BiSolidBank className="text-color-one" />} containerSize="w-[16px] h-[16px]" />
                 <p className="text-sm font-medium text-color-zero">{selectedBank.bankName}</p>
               </div>
               <div className="flex items-center gap-4 pl-4">
-                <p className="text-color-form text-sm border-r pr-4">
-                  {selectedBank.accountNumber}
-                </p>
-                <p className="text-color-form text-sm">
-                  {selectedBank.accountName}
-                </p>
+                <p className="text-color-form text-sm border-r pr-4">{selectedBank.accountNumber}</p>
+                <p className="text-color-form text-sm">{selectedBank.accountName}</p>
               </div>
             </section>
           </>
@@ -92,28 +155,18 @@ export default function DeleteBank({ onClose }: DeleteBankProps) {
           <>
             <section className="bg-light-grey rounded-common shadow-sm h-[84px] py-2 flex flex-col space-y-4 mx-4">
               <div className="flex pl-4 items-center gap-3">
-                <Icon
-                  icon={<FaBitcoin className="text-color-one"/>}
-                  containerSize="w-[16px] h-[16px]"
-                />
+                <Icon icon={<FaBitcoin className="text-color-one" />} containerSize="w-[16px] h-[16px]" />
                 <p className="text-sm font-medium text-color-zero">{selectedCrypto.networkID.name}</p>
               </div>
               <div className="flex items-center gap-4 pl-4">
-                <p className="text-color-form text-sm border-r pr-4">
-                  {selectedCrypto.address}
-                </p>
+                <p className="text-color-form text-sm border-r pr-4">{selectedCrypto.address}</p>
               </div>
             </section>
           </>
         ) : (
           <p className="text-color-form text-sm p-4">No account selected</p>
         )}
-        {/* Render the feedback message if it exists */}
-        {feedbackMessage && (
-          <div className="text-green-500 font-semibold text-center p-4">
-            {feedbackMessage}
-          </div>
-        )}
+
         <div className="mt-12 m-4 lg:mt-8">
           <Button ButtonText="Delete" className="py-3 w-full lg:w-full" onClick={handleDelete} />
         </div>
