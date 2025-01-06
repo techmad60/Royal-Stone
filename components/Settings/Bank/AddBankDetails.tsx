@@ -218,10 +218,10 @@ export default function AddBankDetails() {
       setIsLoading(false);
     }
   };
-  const handleOpenDeleteBank = () => {
-    setIsDeleteBankOpen(true); // Open the DeleteBank component
-    setCurrentPage("bankInfo"); // Navigate to the bankInfo page
-  };
+  // const handleOpenDeleteBank = () => {
+  //   setIsDeleteBankOpen(true); // Open the DeleteBank component
+  //   setCurrentPage("bankInfo"); // Navigate to the bankInfo page
+  // };
   
   const handleCloseDeleteBank = () => {
     setIsDeleteBankOpen(false); // Close the DeleteBank component

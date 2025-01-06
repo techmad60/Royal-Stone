@@ -1,6 +1,7 @@
-import React, { Suspense } from "react";
+import VerifyMail from "@/components/Registration/Login/SignInVerifyEmail";
 import Loading from "@/components/ui/Loading";
-import VerifyMail from "@/components/Registration/SignInVerifyEmail";
+import { Suspense } from "react";
+
 
 export default function Page() {
   return (

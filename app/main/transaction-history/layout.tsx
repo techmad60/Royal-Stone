@@ -1,8 +1,8 @@
 //app/dashboard/layout.tsx
 "use client"
-import { useState } from "react";
-import AuthHeader from "@/components/Registration/AuthHeader";
+import AuthHeader from "@/components/ui/AuthHeader";
 import MainPageNavbar from "@/components/ui/MainPageNavbar";
+import { useState } from "react";
 
 export default function TransactionHistoryLayout({
   children,

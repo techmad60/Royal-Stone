@@ -1,12 +1,16 @@
 "use client";
+import FAQs from "@/components/Settings/Faqs/FaqsSettings";
+import Kyc from "@/components/Settings/Kyc/KycSettings";
+import NextofKin from "@/components/Settings/Kyc/NextofKin";
+import ValidID from "@/components/Settings/Kyc/ValidId";
 import ProfileSettings from "@/components/Settings/Profile/ProfileSetting";
 import ChangePassword from "@/components/Settings/Security/ChangePassword";
 import SecuritySettings from "@/components/Settings/Security/SecuritySetting";
 import VerifyOtpSetting from "@/components/Settings/Security/VerifyOtp";
+import Support from "@/components/Settings/Support/SupportSetting";
 import AccountSettings from "@/components/Settings/ui/AccountSettings";
 import Icon from "@/components/ui/Icon";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import useBankCryptoStore from "@/store/bankCryptoStore";
 import useUserStore, { useLoadFullName } from "@/store/userStore";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -19,12 +23,6 @@ import { IoPerson } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { TbPencil } from "react-icons/tb";
-// import AddPayment from "./Bank/AddPaymentMethod";
-import FAQs from "@/components/Settings/Faqs/FaqsSettings";
-import Kyc from "@/components/Settings/Kyc/KycSettings";
-import NextofKin from "@/components/Settings/Kyc/NextofKin";
-import ValidID from "@/components/Settings/Kyc/ValidId";
-import Support from "@/components/Settings/Support/SupportSetting";
 import AddBankDetails from "./Bank/AddBankDetails";
 import AddCryptoDetails from "./Bank/AddCryptoDetails";
 import BankSetting from "./Bank/BankSettings";
@@ -37,15 +35,6 @@ export default function SettingsParent() {
   );
   const [parentSetting, setParentSetting] = useState<string | null>(null); // Track the parent setting
 
-  const [deleteBankOpen, setIsDeleteBankOpen] =  useState(false);
-  
-  const setSelectedType = useBankCryptoStore((state) => state.setSelectedType);
-  const setSelectedBankId = useBankCryptoStore(
-    (state) => state.setSelectedBankId
-  );
-  const setSelectedCryptoId = useBankCryptoStore(
-    (state) => state.setSelectedCryptoId
-  );
   const fullName = useUserStore((state) => state.fullName);
   useLoadFullName();
 
@@ -64,17 +53,6 @@ export default function SettingsParent() {
     setParentSetting(parent);
   };
   const router = useRouter();
-
-//   const onNavigateToDelete = (id: string, type: "bank" | "crypto") => {
-//     setIsDeleteBankOpen(false);
-//     if (type === "bank") {
-//         setSelectedBankId(id); // Set the selected bank ID
-//     } else {
-//         setSelectedCryptoId(id); // Set the selected crypto ID
-//     }
-//     setSelectedType(type); // Set the type (bank or crypto)
-// };
-
 
   const handleDeleteAccount = async () => {
     const confirmation = confirm(
@@ -316,34 +294,10 @@ export default function SettingsParent() {
               onNavigateToAddCryptoDetails={() =>
                 handleSettingClick("Add Crypto Details", "Bank Setting")
               }
-              // onNavigateToDeleteBank={(bankId: string) => onNavigateToDelete(bankId, "bank")}
-              // onNavigateToDeleteCrypto={(cryptoId: string) =>
-              //     onNavigateToDelete(cryptoId, "crypto")
-              // }
             />
           )}
-          {/* {activeSetting === "New Bank" && (
-            <AddBank
-              onNavigateToAddBankDetails={() =>
-                handleSettingClick("Add Bank Details", "Bank Setting")
-              }
-              onNavigateToAddCryptoDetails={() =>
-                handleSettingClick("Add Crypto Details", "Bank Setting")
-              }
-            />
-          )} */}
           {activeSetting === "Add Bank Details" && <AddBankDetails />}
           {activeSetting === "Add Crypto Details" && <AddCryptoDetails />}
-
-          {/* {deleteBankOpen && (
-            <DeleteBank onClose={() => setIsDeleteBankOpen(false)} />
-          )} */}
-
-          {/* Rejected */}
-          {/* <BankSetting
-              onNavigatetoCreateAddBank={() => handleSettingClick("New Bank", "Bank Setting")}
-              onNavigatetoDeleteBank={() => setIsDeleteBankOpen(true)}
-            /> */}
           {activeSetting === "Support Setting" && <Support />}
           {activeSetting === "FAQs Setting" && <FAQs />}
           {activeSetting === "Kyc Setting" && (

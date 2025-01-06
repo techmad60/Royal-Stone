@@ -1,12 +1,12 @@
 "use client"
-import { useState } from "react";
-import CircleToggle from "@/components/ui/CircleToggle";
-import Image from "next/image";
-import Button from "@/components/ui/Button";
-import BankComponent from "@/components/ui/BankComponent";
-import Navigator from "@/components/ui/Navigator";
-import TransactionProcessed from "@/components/Portolio/FundTransactionProcessed";
 import TransactionDetails from "@/components/Portolio/FundTransactionDetails";
+import TransactionProcessed from "@/components/Portolio/FundTransactionProcessed";
+import BankComponent from "@/components/ui/BankComponent";
+import Button from "@/components/ui/Button";
+import CircleToggle from "@/components/ui/CircleToggle";
+import Navigator from "@/components/ui/Navigator";
+import Image from "next/image";
+import { useState } from "react";
 
 // For Profile Settings
 const fundSteps = [

@@ -104,8 +104,11 @@ export default function DeleteBank({ onClose }: DeleteBankProps) {
 
     // Close the modal after 2 seconds
     setTimeout(() => {
-      onClose && onClose();
-    }, 2000);
+        if (onClose) {
+          onClose(); // Explicitly call the function if it exists
+        }
+      }, 2000);
+      
   };
 
   return (

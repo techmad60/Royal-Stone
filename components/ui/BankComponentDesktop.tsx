@@ -1,17 +1,17 @@
-import Icon from "@/components/ui/Icon";
 import { ReactNode } from "react";
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import Icon from "./Icon";
 
 interface BankComponentProps {
   id?: string; // Optional id (assuming it's used for bank or crypto ID)
   bankImage?: ReactNode; // Optional image/icon for the bank
-  bankName?: string; // Name of the bank
+  bankName: string; // Name of the bank
   accNum?: number | string; // Account number (optional)
   accName?: string; // Account holder name (optional)
   showIcon?: boolean; // Flag to control icon visibility
   onClick?: () => void; // On click handler for the section
   onNavigateToDelete?: (id: string, type: string) => void; // Handler for deleting with id and type
-  type?: string; // Type can be "bank" or "crypto"
+  type: string; // Type can be "bank" or "crypto"
 }
 
 export default function BankComponentDesktop({
