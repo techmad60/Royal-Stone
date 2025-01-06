@@ -1,10 +1,11 @@
 "use client";
-import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import Navigator from "@/components/ui/Navigator";
 import Button from "@/components/ui/Button";
+import Navigator from "@/components/ui/Navigator";
+import useUserStore from "@/store/userStore";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const loginSteps = [
   { label: "Sign in with", href: "/auth/login" },
@@ -18,6 +19,9 @@ export default function WithMail() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+   // Fetching setFullName from your Zustand store
+   const setFullName = useUserStore((state) => state.setFullName);
 
   // Toggle Password Visibility
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
@@ -55,10 +59,11 @@ export default function WithMail() {
       const { accessToken, refreshToken, account } = result.data;
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
-      localStorage.setItem("userName", account.username); // Save user's full name
+      localStorage.setItem("fullname", account.fullname); // Save user's full name
       localStorage.setItem("userId", account.id); // Store the userId
       console.log("Tokens stored successfully:", { accessToken, refreshToken, account});
 
+      setFullName(account.fullname)
       // Navigate to dashboard or next step
       router.push("/main/dashboard");
     } catch (err) {

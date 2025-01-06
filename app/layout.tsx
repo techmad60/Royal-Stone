@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 
+
 export const metadata: Metadata = {
   title: "Royal Stone",
   icons: {
@@ -19,7 +20,8 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}</body>
     </html>
   );
 }

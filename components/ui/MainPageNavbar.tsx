@@ -1,18 +1,20 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect} from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation"; // Import useRouter for redirection
+import { useRouter } from "next/navigation"; 
 import { LiaTimesSolid } from "react-icons/lia";
 import { GoHomeFill } from "react-icons/go";
-import { TbPackages, TbTargetArrow } from "react-icons/tb";
+import { TbTargetArrow } from "react-icons/tb";
 import { RiMouseFill, RiStockLine } from "react-icons/ri";
 import { BsFileBarGraphFill, BsPeopleFill } from "react-icons/bs";
 import { FaClock } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { FiLogOut } from "react-icons/fi";
 import NavLink from "@/components/ui/MainPageNavLink";
+
+
 
 interface MainPageNavbarProps {
   isNavOpen: boolean;
@@ -38,48 +40,57 @@ export default function MainPageNavbar({
     // Cleanup function to remove class on unmount
     return () => document.body.classList.remove("overflow-hidden");
   }, [isNavOpen]);
+ 
 
   const handleLogout = () => {
     // Confirm logout with the user
-    const isConfirmed = confirm("Are you sure you want to log out?");
+    const isConfirmed = confirm("Are you sure you want to log out? 🤔");
     if (!isConfirmed) return;
-
-    // Get the current userId
+  
+    // Get the current userId and username
     const userId = localStorage.getItem("userId");
-
+    const userName = localStorage.getItem("userName");
+  
     // Define KYC-related keys to preserve
     const kycKeys = [
-      "isBankInfoProvided",
+      "isBankDetailsProvided",
+      "ïsCryptoDetailsProvided",
       "isValidIdProvided",
       "isNextOfKinProvided",
       "isProfilePictureProvided",
     ];
-
-    // Preserve the KYC statuses for the current user
-    const preservedStatuses: Record<string, string | null> = {};
+  
+    // Preserve the KYC statuses and username for the current user
+    const preservedData: Record<string, string | null> = { userName };
     if (userId) {
       kycKeys.forEach((key) => {
-        preservedStatuses[key] = localStorage.getItem(`${key}-${userId}`);
+        preservedData[key] = localStorage.getItem(`${key}-${userId}`);
       });
     }
-
+  
     // Remove all keys from localStorage except the ones to preserve
     Object.keys(localStorage).forEach((key) => {
-      if (!kycKeys.some((kycKey) => key.startsWith(`${kycKey}-${userId}`))) {
+      if (
+        key !== "userName" &&
+        !kycKeys.some((kycKey) => key.startsWith(`${kycKey}-${userId}`))
+      ) {
         localStorage.removeItem(key);
       }
     });
-
-    // Restore the preserved KYC statuses
+  
+    // Restore the preserved data
     if (userId) {
       kycKeys.forEach((key) => {
-        const statusValue = preservedStatuses[key];
+        const statusValue = preservedData[key];
         if (statusValue !== null) {
           localStorage.setItem(`${key}-${userId}`, statusValue);
         }
       });
     }
-
+    if (userName) {
+      localStorage.setItem("userName", userName);
+    }
+  
     // Redirect to login page
     try {
       router.push("/auth/login");
@@ -88,6 +99,7 @@ export default function MainPageNavbar({
       alert("An error occurred during logout. Please try again.");
     }
   };
+  
 
   return (
     <>
@@ -124,12 +136,12 @@ export default function MainPageNavbar({
                 label="Dashboard"
                 disabled={isDisabled} // Pass status to wrapper
               />
-              <NavLink
+              {/* <NavLink
                 href="/main/product"
                 icon={<TbPackages />}
                 label="Product"
                 disabled={isDisabled}
-              />
+              /> */}
               <NavLink
                 href="/main/portfolio"
                 icon={<RiMouseFill />}

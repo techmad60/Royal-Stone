@@ -31,3 +31,6 @@ input[type="number"] {
 input, select {
   outline: none;
 }
+.animate-spin {
+  animation: spin 1s linear infinite;
+}

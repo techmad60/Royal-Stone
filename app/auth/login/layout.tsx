@@ -1,6 +1,6 @@
 //app/login/layout.tsx
-import Prompt from "@/components/Registration/Prompt";
-import AuthHeader from "@/components/Registration/AuthHeader";
+import AuthHeader from "@/components/ui/AuthHeader";
+import Prompt from "@/components/ui/Prompt";
 
 export default function LoginLayout({
   children,

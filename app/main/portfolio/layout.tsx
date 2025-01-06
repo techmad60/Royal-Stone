@@ -1,7 +1,7 @@
 //app/product/layout.tsx
 "use client"
 import { useState } from "react";
-import AuthHeader from "@/components/Registration/AuthHeader";
+import AuthHeader from "@/components/ui/AuthHeader";
 import MainPageNavbar from "@/components/ui/MainPageNavbar";
 
 export default function ProductLayout({

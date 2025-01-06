@@ -1,59 +1,98 @@
 import { create } from "zustand";
 
 interface KycState {
-  isBankInfoProvided: boolean;
-  setIsBankInfoProvided: (status: boolean) => void;
+  //Bank/Crypto Info Provided
+  isBankDetailsProvided: boolean;
+  setIsBankDetailsProvided: (status: boolean) => void;
+  isCryptoDetailsProvided: boolean;
+  setIsCryptoDetailsProvided: (status: boolean) => void;
+
+  //Kyc Info Provided
   isValidIdProvided: boolean;
   setIsValidIdProvided: (status: boolean) => void;
   isNextOfKinProvided: boolean;
   setIsNextOfKinProvided: (status: boolean) => void;
   isProfilePictureProvided: boolean;
   setIsProfilePictureProvided: (status: boolean) => void;
-  isKycModalOpen: boolean;
-  setIsKycModalOpen: (status: boolean) => void;
+
+  //Bank/Crypto Modal Open
+  isBankModalOpen: boolean;
+  setIsBankModalOpen: (status: boolean) => void;
   isAddBankInfoModalOpen: boolean;
   setIsAddBankInfoModalOpen: (status: boolean) => void;
+  isAddCryptoInfoModalOpen: boolean;
+  setIsAddCryptoInfoModalOpen: (status: boolean) => void;
+
+  //Kyc Modal Open
+  isKycModalOpen: boolean;
+  setIsKycModalOpen: (status: boolean) => void;
   isValidIdModalOpen: boolean;
   setIsValidIdModalOpen: (status: boolean) => void;
   isNextOfKinModalOpen: boolean;
   setIsNextOfKinModalOpen: (status: boolean) => void;
   isProfilePictureModalOpen: boolean;
   setIsProfilePictureModalOpen: (status: boolean) => void;
-  isKycProvided: boolean; // Changed to a boolean property
-  updateKycProvidedState: () => void; // Function to update `isKycProvided`
+
+  //isKyc Provided Function
+  isKycProvided: boolean;
+  updateKycProvidedState: () => void; 
+
+  //isBank Provided Function
+  isBankProvided: boolean;
+  updateBankInfoProvidedState: () => void;
 
   userId: string | null;
   setUserId: (userId: string) => void;
 }
 
 export const useKycStore = create<KycState>((set, get) => ({
-  isBankInfoProvided: false,
-  setIsBankInfoProvided: (status) => set({ isBankInfoProvided: status }),
+  isBankDetailsProvided: false,
+  setIsBankDetailsProvided: (status) => {
+    set({ isBankDetailsProvided: status });
+    localStorage.setItem(`isBankDetailsProvided-${get().userId}`, String(status));
+    get().updateBankInfoProvidedState();
+  },
+
+  isCryptoDetailsProvided: false,
+  setIsCryptoDetailsProvided: (status) => {
+    set({ isCryptoDetailsProvided: status });
+    localStorage.setItem(`isCryptoDetailsProvided-${get().userId}`, String(status));
+    get().updateBankInfoProvidedState();
+  },
 
   isValidIdProvided: false,
   setIsValidIdProvided: (status) => {
     set({ isValidIdProvided: status });
+    localStorage.setItem(`isValidIdProvided-${get().userId}`, String(status));
     get().updateKycProvidedState(); // Trigger update
   },
 
   isNextOfKinProvided: false,
   setIsNextOfKinProvided: (status) => {
     set({ isNextOfKinProvided: status });
+    localStorage.setItem(`isNextOfKinProvided-${get().userId}`, String(status));
     get().updateKycProvidedState(); // Trigger update
   },
 
   isProfilePictureProvided: false,
   setIsProfilePictureProvided: (status) => {
     set({ isProfilePictureProvided: status });
+    localStorage.setItem(`isProfilePictureProvided-${get().userId}`, String(status));
     get().updateKycProvidedState(); // Trigger update
   },
   
   //Modals State
+  isBankModalOpen: false,
+  setIsBankModalOpen: (status) => set({isBankModalOpen: status}),
+
   isKycModalOpen: false,
   setIsKycModalOpen: (status) => set({ isKycModalOpen: status }),
 
   isAddBankInfoModalOpen: false,
   setIsAddBankInfoModalOpen: (status) => set({ isAddBankInfoModalOpen: status }),
+
+  isAddCryptoInfoModalOpen: false,
+  setIsAddCryptoInfoModalOpen: (status) => set({ isAddCryptoInfoModalOpen: status }),
 
   isValidIdModalOpen: false,
   setIsValidIdModalOpen: (status) => set({ isValidIdModalOpen: status }),
@@ -64,6 +103,7 @@ export const useKycStore = create<KycState>((set, get) => ({
   isProfilePictureModalOpen: false,
   setIsProfilePictureModalOpen: (status) => set({ isProfilePictureModalOpen: status }),
 
+
   // Computed state and updater
   isKycProvided: false,
   updateKycProvidedState: () => {
@@ -71,16 +111,13 @@ export const useKycStore = create<KycState>((set, get) => ({
     const isKycProvided = isValidIdProvided && isNextOfKinProvided && isProfilePictureProvided;
     set({ isKycProvided });
   },
+
+  isBankProvided: false,
+  updateBankInfoProvidedState() {
+    const {isBankDetailsProvided, isCryptoDetailsProvided} = get();
+    const isBankProvided = isBankDetailsProvided || isCryptoDetailsProvided;
+    set({isBankProvided});
+  },
   userId: null as string | null, // Default value with type
   setUserId: (userId: string) => set({ userId }),
-  // Sync KYC-related states with localStorage
-  syncKycStatesWithLocalStorage: () => {
-    const userId = get().userId;
-    if (userId) {
-      set({
-        isValidIdProvided: localStorage.getItem(`isValidIdProvided-${userId}`) === "true",
-        isNextOfKinProvided: localStorage.getItem(`isNextOfKinProvided-${userId}`) === "true",
-        isProfilePictureProvided: localStorage.getItem(`isProfilePictureProvided-${userId}`) === "true",
-      });
-    }}
 }));

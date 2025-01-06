@@ -17,6 +17,9 @@ export default function Dashboard() {
   const fullName = useUserStore((state) => state.fullName);
   useLoadFullName();
   const { products, fetchProducts, isLoading, error } = useProductStore();
+  const capitalizeFirstLetter = (name: string): string => {
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  };
 
   useEffect(() => {
     const fullName = localStorage.getItem("fullName");
@@ -31,11 +34,12 @@ export default function Dashboard() {
 
     fetchProducts();
   }, [fetchProducts]);
+  
 
   return (
     <div className="flex flex-col lg:p-0 lg:pr-8">
       <p className="text-base text-color-form py-4">
-        Welcome, {fullName || "Guest"}! 👋🏻
+      Welcome, {fullName ? capitalizeFirstLetter(fullName) : "Guest"}! 👋🏻
       </p>
       <div className="flex gap-4 pb-6 border-b">
         <CardComponentFive

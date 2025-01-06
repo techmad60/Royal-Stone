@@ -20,8 +20,32 @@ export default function NavLink({
   const isOnAuthDashboard = pathname === "/auth/auth-dashboard"; // Check if on auth-dashboard
 
   return (
+    // <Link
+    //   href={disabled || isOnAuthDashboard ? "#" : href}
+    //   className={`flex items-center gap-2 ${
+    //     isOnAuthDashboard || disabled
+    //       ? "text-slate-300" // Inactive style for auth-dashboard
+    //       : isActive
+    //       ? "text-color-one"
+    //       : "text-slate-400 hover:text-green-400"
+    //   } duration-150`}
+    //   onClick={(e) => (disabled || isOnAuthDashboard) && e.preventDefault()}
+    // >
+    //   <div
+    //     className={`w-7 h-7 shadow-sm flex items-center justify-center transform rotate-45 rounded-[9px] ${
+    //       isOnAuthDashboard || disabled
+    //         ? "bg-slate-200" // Inactive style for icon
+    //         : isActive
+    //         ? "bg-color-two"
+    //         : "bg-white"
+    //     }`}
+    //   >
+    //     <span className="transform -rotate-45">{icon}</span>
+    //   </div>
+    //   <p className="text-sm">{label}</p>
+    // </Link>
     <Link
-      href={disabled || isOnAuthDashboard ? "#" : href}
+      href={ href}
       className={`flex items-center gap-2 ${
         isOnAuthDashboard || disabled
           ? "text-slate-300" // Inactive style for auth-dashboard
@@ -29,16 +53,10 @@ export default function NavLink({
           ? "text-color-one"
           : "text-slate-400 hover:text-green-400"
       } duration-150`}
-      onClick={(e) => (disabled || isOnAuthDashboard) && e.preventDefault()}
+      
     >
       <div
-        className={`w-7 h-7 shadow-sm flex items-center justify-center transform rotate-45 rounded-[9px] ${
-          isOnAuthDashboard || disabled
-            ? "bg-slate-200" // Inactive style for icon
-            : isActive
-            ? "bg-color-two"
-            : "bg-white"
-        }`}
+        className={`w-7 h-7 shadow-sm flex items-center justify-center transform rotate-45 rounded-[9px]`}
       >
         <span className="transform -rotate-45">{icon}</span>
       </div>
