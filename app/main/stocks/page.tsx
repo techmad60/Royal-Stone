@@ -1,4 +1,4 @@
-
+import React from "react";
 import StockListMobile from "@/components/Stocks/StocksMobile";
 import StockDesktopList from "@/components/Stocks/StocksDesktop";
 
