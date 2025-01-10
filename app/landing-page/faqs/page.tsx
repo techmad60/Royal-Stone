@@ -1,9 +1,9 @@
 "use client"
-import { useState } from "react";
-import Header from "@/components/Sections/Header";
 import Footer from "@/components/Sections/Footer";
+import Header from "@/components/Sections/Header";
 import DownloadApp from "@/components/ui/DownloadApp";
-import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import { useState } from "react";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 export default function Faqs() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
