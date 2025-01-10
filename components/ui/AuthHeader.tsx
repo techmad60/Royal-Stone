@@ -1,9 +1,9 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { useState, useEffect } from "react";
 
 interface AuthHeaderProps {
   title?: string;
@@ -16,7 +16,9 @@ export default function AuthHeader({
   toggleNav,
   grid,
 }: AuthHeaderProps) {
-  const [profilePicture, setProfilePicture] = useState<string>("/images/profile-empty.png");
+  const [profilePicture, setProfilePicture] = useState<string>(
+    "/images/profile-empty.png"
+  );
   const pathname = usePathname();
   const showMenu =
     pathname.includes("/auth/auth-dashboard") || pathname.includes("/main/");
@@ -42,7 +44,7 @@ export default function AuthHeader({
         );
 
         if (response.ok) {
-          const responseData= await response.json();
+          const responseData = await response.json();
           console.log("Response data:", responseData); // Debug log
           const imageUrl = responseData.data?.avatar;
           console.log("Avatar URL:", imageUrl); // Debug log
@@ -77,20 +79,19 @@ export default function AuthHeader({
             {title}
           </h1>
         </div>
-        {/* User and Notification Img - Show only on the dashboard page */}
+        {/* User and Notification Img */}
         {showMenu && (
           <div className="flex items-center gap-1">
-            <div className="w-5 aspect-square">
+            <div className="w-5 h-5 rounded-full overflow-hidden">
               {/* Profile Picture */}
               <Image
                 src={profilePicture}
                 alt="User Image"
-                width={40}
-                height={40}
-                className="rounded-full object-cover"
+                width={20}
+                height={20}
+                className="w-full h-full object-cover"
               />
             </div>
-
             <Link href="/main/portfolio/notifications">
               <Image
                 src={"/images/notification.svg"}

@@ -26,6 +26,7 @@ import { TbPencil } from "react-icons/tb";
 import AddBankDetails from "./Bank/AddBankDetails";
 import AddCryptoDetails from "./Bank/AddCryptoDetails";
 import BankSetting from "./Bank/BankSettings";
+import DeleteAccount from "./ui/DeleteAccount";
 
 export default function SettingsParent() {
   const isDesktop = useMediaQuery("(min-width: 1024px)"); // true if screen width is 1024px or larger
@@ -34,7 +35,12 @@ export default function SettingsParent() {
     isDesktop ? "Profile" : null
   );
   const [parentSetting, setParentSetting] = useState<string | null>(null); // Track the parent setting
+  const [profilePicture, setProfilePicture] = useState<string>(
+    "/images/profile-empty.png"
+  );
+  const [isDeleteAccountModal, setIsDeleteAccountModal] = useState(false);
 
+  const router = useRouter();
   const fullName = useUserStore((state) => state.fullName);
   useLoadFullName();
 
@@ -45,6 +51,43 @@ export default function SettingsParent() {
     }
   }, [isDesktop, activeSetting]);
 
+  useEffect(() => {
+    const fetchProfilePicture = async () => {
+      const token = localStorage.getItem("accessToken");
+      if (!token) {
+        router.push("/auth/login");
+        return;
+      }
+
+      try {
+        // Fetch user's profile data
+        const response = await fetch(
+          "https://api-royal-stone.softwebdigital.com/api/account/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.ok) {
+          const responseData = await response.json();
+          console.log("Response data:", responseData); // Debug log
+          const imageUrl = responseData.data?.avatar;
+          console.log("Avatar URL:", imageUrl); // Debug log
+          setProfilePicture(imageUrl || "/images/profile-empty.png");
+        } else {
+          console.error("Failed to fetch profile picture");
+        }
+      } catch (error) {
+        console.error("Error fetching profile picture:", error);
+      }
+    };
+
+    fetchProfilePicture();
+  }, [router]);
+
   const handleSettingClick = (
     setting: string,
     parent: string | null = null
@@ -52,51 +95,9 @@ export default function SettingsParent() {
     setActiveSetting(setting);
     setParentSetting(parent);
   };
-  const router = useRouter();
 
-  const handleDeleteAccount = async () => {
-    const confirmation = confirm(
-      "Are you sure you want to delete your account? This action cannot be undone."
-    );
-    if (!confirmation) return;
-
-    // Retrieve the token from local storage
-    const token = localStorage.getItem("accessToken"); // Replace "authToken" with your actual key if different
-
-    if (!token) {
-      alert("User is not authenticated. Please log in again.");
-      return;
-    }
-
-    try {
-      const response = await fetch(
-        "https://api-royal-stone.softwebdigital.com/api/account/profile",
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      if (response.ok) {
-        alert("Your account has been deleted successfully.");
-        // Navigate to login or appropriate page
-        router.push("/auth/login");
-      } else {
-        const errorData = await response.json();
-        console.error("Error deleting account:", errorData);
-        alert(
-          errorData?.message || "Failed to delete account. Please try again."
-        );
-      }
-    } catch (error) {
-      console.error("Network error:", error);
-      alert(
-        "An error occurred. Please check your internet connection and try again."
-      );
-    }
+  const handleDeleteModal = () => {
+    setIsDeleteAccountModal(true);
   };
   const capitalizeFirstLetter = (name: string): string => {
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
@@ -113,13 +114,13 @@ export default function SettingsParent() {
         >
           <div>
             <div className="relative flex justify-start mt-8">
-              <div className="transform rotate-45 w-10 h-10 rounded-[16.66px]">
+              <div className="transform rotate-45 w-10 h-10 rounded-[16.66px] overflow-hidden">
                 <Image
-                  src="/images/user-2.svg"
+                  src={profilePicture}
                   height={40}
                   width={40}
                   alt="User Image"
-                  className="transform -rotate-45"
+                  className="transform -rotate-45 w-full h-full object-cover"
                 />
               </div>
               <div className="absolute inset-y-0 w-10 h-10 flex justify-center items-center bg-[rgba(0,0,0,0.2)] transform rotate-45 rounded-[16.66px]">
@@ -131,6 +132,8 @@ export default function SettingsParent() {
             </p>
             <hr className="my-4" />
           </div>
+
+          {/* Profile */}
           <div
             className={`${"space-y-4 lg:grid grid-cols-2 grid-rows-3 lg:mt-4 lg:space-y-0 lg:gap-x-20 lg:gap-y-2 xl:gap-x-8 xl:gap-y-8"}`}
           >
@@ -153,6 +156,7 @@ export default function SettingsParent() {
               />
             </div>
 
+            {/* Security */}
             <div
               className={`cursor-pointer rounded-common duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
                 activeSetting === "Security Setting" ||
@@ -173,6 +177,7 @@ export default function SettingsParent() {
               />
             </div>
 
+            {/* Bank */}
             <div
               className={`cursor-pointer rounded-common duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
                 activeSetting === "Bank Setting" ||
@@ -192,6 +197,8 @@ export default function SettingsParent() {
                 containerStyle="bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
               />
             </div>
+
+            {/* Support */}
             <div
               className={`cursor-pointer rounded-common duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
                 activeSetting === "Support Setting"
@@ -205,12 +212,13 @@ export default function SettingsParent() {
                   <BiSupport className="text-color-one text-2xl lg:text-lg" />
                 }
                 setting="Support"
-                settingText="Mollis nulla in felis vulputate in ut diam."
+                settingText="Talk to us."
                 navigate={<MdKeyboardArrowRight className="text-xl" />}
                 containerStyle="bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
               />
             </div>
 
+            {/* Faqs */}
             <div
               className={`cursor-pointer rounded-common duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
                 activeSetting === "FAQs Setting"
@@ -224,11 +232,13 @@ export default function SettingsParent() {
                   <FaQuestionCircle className="text-color-one text-2xl lg:text-lg" />
                 }
                 setting="FAQs"
-                settingText="Ultricies ut felis sit vitae sed eget erat."
+                settingText="Frequently Asked Questions."
                 navigate={<MdKeyboardArrowRight className="text-xl" />}
                 containerStyle="bg-transparent items-center lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px]"
               />
             </div>
+
+            {/* Kyc */}
             <div
               className={`cursor-pointer rounded-common duration-150 lg:w-[180px] lg:h-[133px] lg:items-start xl:w-[195px] 2xlg:w-[235px] ${
                 activeSetting === "Kyc Setting" ||
@@ -249,10 +259,11 @@ export default function SettingsParent() {
               />
             </div>
           </div>
-          {/* Delete Account Button */}
+
+          {/* Delete Account */}
           <section
             className="flex bg-light-grey cursor-pointer hover:bg-slate-100 duration-300 p-4 shadow-sm rounded-common w-[167.5px] mt-4"
-            onClick={handleDeleteAccount}
+            onClick={handleDeleteModal}
           >
             <div className="flex  items-center gap-2 lg:gap-4">
               <Icon
@@ -308,11 +319,15 @@ export default function SettingsParent() {
               onNavigatetoNextofKin={() =>
                 handleSettingClick("Next of Kin", "Kyc Setting")
               }
-              // onNavigatetoBvn={() => handleSettingClick("BVN")}
             />
           )}
           {activeSetting === "Valid ID" && <ValidID />}
           {activeSetting === "Next of Kin" && <NextofKin />}
+
+          {/* Delete Account Modal */}
+          {isDeleteAccountModal && (
+            <DeleteAccount onClose={() => setIsDeleteAccountModal(false)} />
+          )}
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
-import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { FaRegImage } from "react-icons/fa6";
 import { TiTimes } from "react-icons/ti";
 import Button from "../../ui/Button";
-import { FaRegImage } from "react-icons/fa6";
-import Image from "next/image";
 
 interface ValidIdInfoProps {
   onClose: () => void;
@@ -80,8 +80,7 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
 
       const accessToken = localStorage.getItem("accessToken");
       if (!accessToken) {
-        setFeedbackType("error");
-        setFeedbackMessage("You are not authenticated. Please log in again.");
+        router.push("/auth/login")
         return;
       }
 
@@ -143,7 +142,7 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
             },
             body: JSON.stringify({
               identity: {
-                type: selectedId.toLowerCase(), // Convert ID type to lowercase with hyphen
+                type: selectedId.toLowerCase().replace(" ", "-"), // Convert ID type to lowercase with hyphen
                 value: uploadData.url, // Image URL from ImageKit
               },
             }),
@@ -202,8 +201,8 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
                   className="rounded-sm placeholder:text-color-zero placeholder:text-sm py-1 w-full"
                 >
                   <option value="Passport">International Passport</option>
-                  <option value="Drivers License">Drivers License</option>
-                  <option value="Other Valid id">Other Valid ID</option>
+                  <option value="Driving License">Drivers License</option>
+                  <option value="Others">Other Valid ID</option>
                 </select>
               </div>
             </div>

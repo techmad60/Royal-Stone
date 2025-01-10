@@ -1,7 +1,7 @@
 // "use client";
-import BankComponent from "@/components/Settings/ui/BankComponent";
-import BankComponentDesktop from "@/components/Settings/ui/BankComponentDesktop";
 import BankHeader from "@/components/Settings/ui/BankHeader";
+import BankComponent from "@/components/ui/BankComponent";
+import BankComponentDesktop from "@/components/ui/BankComponentDesktop";
 import Button from "@/components/ui/Button";
 import Loading from "@/components/ui/Loading";
 import NavigatorTwo from "@/components/ui/NavigatorTwo";
@@ -160,7 +160,7 @@ export default function BankSetting({
           />
           <div>
             <div>
-              <div className="flex justify-between my-6 w-full lg:mt-[85px] lg:border-b lg:pb-4">
+              <div className="flex justify-between my-6 lg:mt-[85px] lg:border-b lg:pb-4 lg:mr-8">
                 <h1 className="text-color-zero text-base font-semibold ">
                   Bank/Crypto Information
                 </h1>
@@ -281,6 +281,7 @@ export default function BankSetting({
                               onNavigateToDelete={onNavigateToDeleteBank}
                               onClick={onNavigateToAddBankDetails}
                               type="bank"
+                              
                             />
                           </div>
                         ))}

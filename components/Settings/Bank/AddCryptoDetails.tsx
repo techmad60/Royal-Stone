@@ -206,7 +206,7 @@ export default function AddCryptoDetails() {
               },
             ]}
           />
-          <div className="flex flex-col justify-between my-6 w-full lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4">
+          <div className="flex flex-col justify-between my-6 lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4 lg:mr-8">
             <h1 className="text-color-zero text-base font-semibold">
               Add Crypto Information
             </h1>

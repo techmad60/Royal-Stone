@@ -9,9 +9,10 @@ interface BankComponentProps {
   accNum?: number | string; // Account number (optional)
   accName?: string; // Account holder name (optional)
   showIcon?: boolean; // Flag to control icon visibility
+  showBin?: boolean;
   onClick?: () => void; // On click handler for the section
   onNavigateToDelete?: (id: string, type: string) => void; // Handler for deleting with id and type
-  type: string; // Type can be "bank" or "crypto"
+  type?: string; // Type can be "bank" or "crypto"
 }
 
 export default function BankComponentDesktop({
@@ -23,6 +24,7 @@ export default function BankComponentDesktop({
   onClick,
   onNavigateToDelete,
   showIcon = true,
+  showBin = true,
   type,
 }: BankComponentProps) {
   // Handling the delete navigation (passing the id and type to the store)
@@ -46,10 +48,12 @@ export default function BankComponentDesktop({
         <p className="text-sm col-span-2">{accNum}</p>
         <div className="flex justify-between col-span-2">
           <p className="text-sm text-color-zero">{accName}</p>
-          <RiDeleteBin5Fill
-            className="text-red-500 cursor-pointer hover:text-red-600 duration-150"
-            onClick={handleDeleteNavigation} // Trigger delete navigation here
-          />
+          {showBin && (
+            <RiDeleteBin5Fill
+              className="text-red-500 cursor-pointer hover:text-red-600 duration-150"
+              onClick={handleDeleteNavigation} // Trigger delete navigation here
+            />
+          )}
         </div>
       </section>
       <hr />

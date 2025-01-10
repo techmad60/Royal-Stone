@@ -96,7 +96,8 @@ export default function ProfileSettings() {
       return updatedProfile;
     });
   };
-
+  
+  //Handle Submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -155,11 +156,11 @@ export default function ProfileSettings() {
       setTimeout(() => {
         setAlertMessage("Profile updated successfully! 🤙");
         setTimeout(() => {
-          setAlertMessage(null); 
-          setCurrentPage("settings");// Clear the alert message after 1 second
+          setAlertMessage(null);
+          setCurrentPage("settings"); // Clear the alert message after 1 second
         }, 1000); // Delay before clearing the message
       }, 0);
-     
+      setIsModified(false)
     } catch (error) {
       console.error("Error updating profile:", error);
     } finally {
@@ -168,7 +169,11 @@ export default function ProfileSettings() {
   };
 
   if (isLoading) {
-    return <div><Loading/></div>
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
 
   return (
@@ -181,16 +186,18 @@ export default function ProfileSettings() {
           <NavigatorTwo
             style="lg:hidden"
             links={[
-              { label: "Settings",  onClick: () => setCurrentPage("settings") },
+              { label: "Settings", onClick: () => setCurrentPage("settings") },
               {
                 label: "Profile Settings",
                 onClick: () => console.log("Profile Settings"),
               },
             ]}
           />
-          <h1 className="text-color-zero text-base font-semibold mt-6">
-            Profile Settings
-          </h1>
+          <div className="flex flex-col justify-between my-6 lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4 lg:mr-8">
+            <h1 className="text-color-zero text-base font-semibold">
+              Profile Settings
+            </h1>
+          </div>
           <form
             className="flex flex-col mt-6 space-y-8 lg:w-[300px] xl:w-[430px] 2xlg:w-[500px]"
             onSubmit={handleSubmit}

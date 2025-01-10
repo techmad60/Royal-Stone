@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useEffect, useState } from "react";
+import Button from "../../ui/Button";
+import NavigatorTwo from "../../ui/NavigatorTwo";
+import OtpInput from "../../ui/OtpInput";
 import SettingsParent from "../SettingsParent";
 import SecuritySettings from "./SecuritySetting";
-import Button from "../../ui/Button";
-import OtpInput from "../../ui/OtpInput";
-import NavigatorTwo from "../../ui/NavigatorTwo";
 
 interface VerifyOtpProps {
   onNavigateToChangePassword?: () => void;
@@ -150,7 +150,7 @@ export default function VerifyOtpSetting({
               { label: "Verify Otp", onClick: () => console.log("Verify Otp") },
             ]}
           />
-          <div className="justify-between my-6 w-full hidden lg:flex lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4">
+          <div className="justify-between my-6 hidden lg:flex lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4 lg:mr-8">
             <h1 className="text-color-zero text-base font-semibold ">
               Security
             </h1>

@@ -1,28 +1,28 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { TbTargetArrow } from "react-icons/tb";
-import { BsFileBarGraphFill } from "react-icons/bs";
-import { BsPersonCheck } from "react-icons/bs";
-import { BiSolidBank } from "react-icons/bi";
-import { LuScanFace } from "react-icons/lu";
-import CardComponentFive from "@/components/ui/CardComponentFive";
-import CardVerification from "@/components/AuthDashboard/ui/CardVerification";
-import BankInfo from "./Bank/BankInfo";
 import AddBankInformation from "@/components/AuthDashboard/Bank/AddBank";
 import KycInformation from "@/components/AuthDashboard/Kyc/KycInformation";
-import ValidIdInformation from "@/components/AuthDashboard/Kyc/ValidID";
 import NextOfKinInformation from "@/components/AuthDashboard/Kyc/NextOfKin";
 import ProfilePictureInformation from "@/components/AuthDashboard/Kyc/ProfilePicture";
-import useUserStore from "@/store/userStore";
-import { useLoadFullName } from "@/store/userStore";
+import ValidIdInformation from "@/components/AuthDashboard/Kyc/ValidID";
+import CardVerification from "@/components/AuthDashboard/ui/CardVerification";
+import CardComponentFive from "@/components/ui/CardComponentFive";
 import { useKycStore } from "@/store/kycStore";
+import useUserStore, { useLoadFullName } from "@/store/userStore";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { BiSolidBank } from "react-icons/bi";
+import { BsFileBarGraphFill, BsPersonCheck } from "react-icons/bs";
+import { LuScanFace } from "react-icons/lu";
+import { TbTargetArrow } from "react-icons/tb";
+import Loading from "../ui/Loading";
 import AddCryptoInformation from "./Bank/AddCrypto";
+import BankInfo from "./Bank/BankInfo";
 
 export default function Dashboard() {
   const fullName = useUserStore((state) => state.fullName);
   useLoadFullName();
   const router = useRouter(); // Initialize useRouter
+  const [loading, setLoading] = useState(false);
   // Zustand store hooks
   const {
     //Bank/Crypto Info Provided
@@ -183,7 +183,13 @@ export default function Dashboard() {
     const userId = localStorage.getItem("userId");
 
     if (userId && isBankProvided && isKycProvided) {
-      router.push("/main/dashboard");
+      // Show the loading UI for 2 seconds
+      setTimeout(() => {
+        setLoading(true); // Show loading UI
+        router.push("/main/dashboard"); // Redirect after 2 seconds
+      }, 2000); // 2 seconds delay
+    } else {
+      setLoading(false); // Hide loading UI immediately if conditions are not met
     }
   }, [isBankProvided, isKycProvided, router]);
 
@@ -238,6 +244,12 @@ export default function Dashboard() {
   const capitalizeFirstLetter = (name: string): string => {
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
   };
+
+  if (loading) {
+    return (
+      <div><Loading/></div>
+    )
+  }
 
   return (
     <div className="flex flex-col lg:pr-8">

@@ -36,16 +36,18 @@ export default function AddBankDetails() {
   });
   const [initialBankDetails, setInitialBankDetails] =
     useState<BankDetails | null>(null);
-  const { bankDetails, selectedBankId, setSelectedBankId } = useBankCryptoStore();
+  const { bankDetails, selectedBankId, setSelectedBankId } =
+    useBankCryptoStore();
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useMediaQuery("(max-width: 1024px)");
   const [alertMessage, setAlertMessage] = useState<string | null>(null); // For alert message
- 
 
   useEffect(() => {
     if (selectedBankId) {
       // If selectedBankId exists, find and set the bank details
-      const selectedBank = bankDetails.find((bank) => bank.id === selectedBankId);
+      const selectedBank = bankDetails.find(
+        (bank) => bank.id === selectedBankId
+      );
       if (selectedBank) {
         setBank(selectedBank);
         setInitialBankDetails(selectedBank);
@@ -66,7 +68,6 @@ export default function AddBankDetails() {
     }
     setIsLoading(false); // Reset loading state after the effect
   }, [selectedBankId, bankDetails]);
-  
 
   useEffect(() => {
     // Check if any field has changed
@@ -80,8 +81,8 @@ export default function AddBankDetails() {
     setIsModified(isChanged);
   }, [bank, initialBankDetails]); // Ensure dependencies are correctly set.
 
-   // Ensure clearing works when switching pages
-   const handleNavigateToAddBankDetails = () => {
+  // Ensure clearing works when switching pages
+  const handleNavigateToAddBankDetails = () => {
     setCurrentPage("bankInfo");
     setBank({
       bankName: "",
@@ -113,7 +114,7 @@ export default function AddBankDetails() {
       routingNumber: bank.routingNumber,
       beneficiaryAddress: bank.beneficiaryAddress,
     };
-  
+
     try {
       setIsLoading(true);
       const response = await fetch(
@@ -127,7 +128,7 @@ export default function AddBankDetails() {
           body: JSON.stringify(payload), // Match the backend payload structure
         }
       );
-  
+
       const result = await response.json();
       if (response.ok) {
         // Handle success
@@ -151,7 +152,7 @@ export default function AddBankDetails() {
       setIsLoading(false);
     }
   };
-  
+
   const updateBankDetails = async () => {
     const token = localStorage.getItem("accessToken");
     if (!token) return alert("You must be logged in to update bank details.");
@@ -218,18 +219,14 @@ export default function AddBankDetails() {
       setIsLoading(false);
     }
   };
-  // const handleOpenDeleteBank = () => {
-  //   setIsDeleteBankOpen(true); // Open the DeleteBank component
-  //   setCurrentPage("bankInfo"); // Navigate to the bankInfo page
-  // };
-  
+
   const handleCloseDeleteBank = () => {
     setIsDeleteBankOpen(false); // Close the DeleteBank component
     setCurrentPage("bankInfo"); // Optionally navigate back to settings or another page
   };
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!selectedBankId) {
       // If there's no selectedBankId, call addBankDetails (POST)
       addBankDetails();
@@ -238,7 +235,7 @@ export default function AddBankDetails() {
       updateBankDetails();
     }
   };
-  
+
   if (isLoading) {
     return (
       <div>
@@ -254,14 +251,13 @@ export default function AddBankDetails() {
       ) : currentPage === "bankInfo" ? (
         <BankSetting
           onNavigateToAddBankDetails={() => setCurrentPage("addBankDetails")}
-          onNavigateToAddCryptoDetails={() => setCurrentPage("addCryptoDetails")}
-          // onNavigateToDeleteBankDetails={() => setCurrentPage("deleteDetails")}
+          onNavigateToAddCryptoDetails={() =>
+            setCurrentPage("addCryptoDetails")
+          }
         />
       ) : currentPage === "addCryptoDetails" ? (
         <AddCryptoDetails />
-      ) :  (
-        
-
+      ) : (
         <div>
           {/* Mobile Navigator */}
           <NavigatorTwo
@@ -278,9 +274,9 @@ export default function AddBankDetails() {
               },
             ]}
           />
-          <div className="flex flex-col justify-between my-6 w-full lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4">
+          <div className="flex flex-col justify-between my-6 lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4 lg:mr-8">
             <h1 className="text-color-zero text-base font-semibold">
-              Add/Update Bank Details
+              {selectedBankId ? "Update Bank Details" : "Add Bank Details"}
             </h1>
             <p className="text-color-form text-sm mt-2 lg:hidden">
               Provide your bank account details
@@ -364,7 +360,7 @@ export default function AddBankDetails() {
                   />
                 </div>
               ))}
-  
+
             <Button
               ButtonText={isLoading ? "Saving..." : "Save Changes"}
               className={`py-3 lg:w-[300px] xl:w-[430px] 2xlg:w-[500px] ${
@@ -378,13 +374,11 @@ export default function AddBankDetails() {
         </div>
       )}
       {currentPage === "bankInfo" && (
-      <>
-        {/* Bank Info Page content can go here */}
-        {deleteBankOpen && (
-          <DeleteBank onClose={handleCloseDeleteBank} />
-        )}
-      </>
-    )}
+        <>
+          {/* Bank Info Page content can go here */}
+          {deleteBankOpen && <DeleteBank onClose={handleCloseDeleteBank} />}
+        </>
+      )}
       {/* Custom Alert */}
       {alertMessage && (
         <CustomAlert
@@ -394,5 +388,4 @@ export default function AddBankDetails() {
       )}
     </div>
   );
-  
 }

@@ -1,13 +1,13 @@
 "use client";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useState } from "react";
 import { BsFileBarGraphFill } from "react-icons/bs";
-import { TbTargetArrow } from "react-icons/tb";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import SettingsParent from "../SettingsParent";
-import AccountSettings from "../ui/AccountSettings";
+import { TbTargetArrow } from "react-icons/tb";
 import Navigator from "../../ui/Navigator";
 import NavigatorTwo from "../../ui/NavigatorTwo";
+import SettingsParent from "../SettingsParent";
+import AccountSettings from "../ui/AccountSettings";
 
 interface AddPaymentProps {
   onNavigateToAddBankDetails?: () => void;
@@ -41,7 +41,7 @@ export default function AddPayment({
               { label: "Add Bank/Crypto Info", onClick: () => console.log("Bank Info") },
             ]}
           />
-          <div className="flex justify-between my-6 w-full lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4">
+          <div className="flex justify-between my-6 lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4 lg:mr-8">
             <h1 className="text-color-zero text-base font-semibold ">
               Bank/Crypto Information
             </h1>

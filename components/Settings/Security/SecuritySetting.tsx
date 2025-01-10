@@ -1,11 +1,11 @@
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useState } from "react";
 import { IoIosLock } from "react-icons/io";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { useState } from "react";
-import SendOtp from "./SendOtp";
-import SettingsParent from "../SettingsParent";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Icon from "../../ui/Icon";
 import NavigatorTwo from "../../ui/NavigatorTwo";
+import SettingsParent from "../SettingsParent";
+import SendOtp from "./SendOtp";
 
 interface SecuritySettingsProps {
   onVerifyClick: () => void;
@@ -65,7 +65,7 @@ export default function SecuritySettings({
   return (
     <div>
       {/* Conditionally render either SettingsParent or SecuritySettings */}
-      {currentPage === "settings" && isMobile? (
+      {currentPage === "settings" && isMobile ? (
         <SettingsParent />
       ) : (
         <div>
@@ -73,12 +73,17 @@ export default function SecuritySettings({
             style="lg:hidden"
             links={[
               { label: "Settings", onClick: () => setCurrentPage("settings") },
-              { label: "Security", onClick: () => console.log("Security Settings") },
+              {
+                label: "Security",
+                onClick: () => console.log("Security Settings"),
+              },
             ]}
           />
-          <h1 className="text-color-zero text-base font-semibold mt-6">
-            Security
-          </h1>
+          <div className="flex flex-col justify-between my-6 lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4 lg:mr-8">
+            <h1 className="text-color-zero text-base font-semibold">
+              Security
+            </h1>
+          </div>
           <div className="flex flex-col space-y-4 mt-6">
             <section
               className="flex justify-between items-center bg-light-grey p-4 shadow-sm rounded-common cursor-pointer lg:w-[350px] lg:h-[67px] xl:w-[520px]"

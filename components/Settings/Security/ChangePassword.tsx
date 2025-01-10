@@ -116,7 +116,7 @@ export default function ChangePassword() {
               },
             ]}
           />
-          <div className="justify-between my-6 w-full hidden lg:flex lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4">
+          <div className="justify-between my-6 hidden lg:flex lg:my-0 lg:mt-[85px] lg:border-b lg:pb-4 lg:mr-8">
             <h1 className="text-color-zero text-base font-semibold ">
               Security
             </h1>
