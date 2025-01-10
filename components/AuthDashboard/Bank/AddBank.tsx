@@ -130,7 +130,7 @@ export default function AddBankInformation({ onClose, onBankDetailStatus }: AddB
 
   return (
     <div className="fixed inset-0 flex items-end lg:items-center justify-end lg:justify-center z-50">
-      <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[700px] lg:rounded-[20px] lg:max-w-[621px]">
+      <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[620px] lg:h-[700px] lg:rounded-[20px] lg:max-w-[621px]">
         <div className="flex items-center border-b w-full p-4">
           <p
             onClick={onClose}
@@ -147,7 +147,7 @@ export default function AddBankInformation({ onClose, onBankDetailStatus }: AddB
             Provide your bank account details
           </p>
           <form
-            className="flex flex-col space-y-4 p-4"
+            className="flex flex-col space-y-3 p-4 md:space-y-4"
             onSubmit={handleFormSubmit}
           >
             {/* Bank Name */}

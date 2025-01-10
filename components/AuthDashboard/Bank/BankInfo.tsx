@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { RiBankLine } from "react-icons/ri";
-import { FaBitcoin } from "react-icons/fa";
-import CardVerification from "../ui/CardVerification";
 import { useKycStore } from "@/store/kycStore";
+import { useEffect } from "react";
+import { FaBitcoin } from "react-icons/fa";
+import { RiBankLine } from "react-icons/ri";
+import CardVerification from "../ui/CardVerification";
 
 interface BankInformationProps {
     onClose: () => void;
@@ -20,7 +20,7 @@ export default function BankInfo({onClose, onClickAddBankDetails, onClickAddCryp
   }, []);
   return (
     <div className="fixed inset-0 flex bg-[#D9D9D9A6] items-end lg:items-center justify-end lg:justify-center z-50">
-      <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[300px] sm:h-[500px] lg:rounded-[20px] lg:max-w-[621px] lg:h-[400px]">
+      <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[350px] sm:h-[500px] lg:rounded-[20px] lg:max-w-[621px] lg:h-[400px]">
         <div className="flex justify-center items-center mt-4 lg:hidden">
           <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
         </div>

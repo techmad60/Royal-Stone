@@ -170,7 +170,7 @@ export default function DeleteBank({ onClose }: DeleteBankProps) {
               </div>
             </section>
 
-            <section className="md:flex flex-col">
+            <section className="hidden md:flex flex-col">
               <div className="p-4">
                 <BankHeader
                   header="Bank"
@@ -206,7 +206,7 @@ export default function DeleteBank({ onClose }: DeleteBankProps) {
               </div>
             </section>
 
-            <section className="lg:flex flex-col">
+            <section className="hidden md:flex flex-col">
               <div className="p-4">
                 <BankHeader header="Network" number="Wallet Address" name="" />
                 <BankComponentDesktop

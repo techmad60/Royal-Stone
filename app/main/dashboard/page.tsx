@@ -1,17 +1,20 @@
 "use client";
-import { useEffect } from "react";
+import ProductDesktop from "@/components/Product/ProductDesktop";
+import ProductMobile from "@/components/Product/ProductMobile";
+import Button from "@/components/ui/Button";
+import CardComponentFive from "@/components/ui/CardComponentFive";
+import Loading from "@/components/ui/Loading";
+import { useKycStore } from "@/store/kycStore";
+import useProductStore from "@/store/productStore";
+import useUserStore, { useLoadFullName } from "@/store/userStore";
 import Link from "next/link";
-import { TbTargetArrow } from "react-icons/tb";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import { FaClock } from "react-icons/fa6";
 import { MdArrowForwardIos } from "react-icons/md";
-import CardComponentFive from "@/components/ui/CardComponentFive";
-import Button from "@/components/ui/Button";
-import ProductMobile from "@/components/Product/ProductMobile";
-import ProductDesktop from "@/components/Product/ProductDesktop";
-import useUserStore from "@/store/userStore";
-import { useLoadFullName } from "@/store/userStore"; // Import the hook
-import useProductStore from "@/store/productStore";
+import { TbTargetArrow } from "react-icons/tb";
+
 
 export default function Dashboard() {
   const fullName = useUserStore((state) => state.fullName);
@@ -20,6 +23,9 @@ export default function Dashboard() {
   const capitalizeFirstLetter = (name: string): string => {
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
   };
+  const router = useRouter();
+  const {isBankProvided, isKycProvided} = useKycStore()
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fullName = localStorage.getItem("fullName");
@@ -34,7 +40,26 @@ export default function Dashboard() {
 
     fetchProducts();
   }, [fetchProducts]);
-  
+
+  // Navigate to /auth/auth-dashboard if BankInfo and KYC are not provided
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+
+    if (userId && !isBankProvided && !isKycProvided) {
+      setLoading(true); // Show loading UI immediately
+      setTimeout(() => {
+        router.push("/auth/auth-dashboard"); // Redirect after 2 seconds
+      }, 2000); // 2 seconds delay
+    } else {
+      setLoading(false); // Hide loading UI immediately if conditions are not met
+    }
+  }, [isBankProvided, isKycProvided, router]);
+
+  if (loading) {
+    return (
+      <div><Loading/></div>
+    )
+  }
 
   return (
     <div className="flex flex-col lg:p-0 lg:pr-8">

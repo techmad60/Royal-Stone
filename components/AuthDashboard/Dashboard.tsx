@@ -184,8 +184,8 @@ export default function Dashboard() {
 
     if (userId && isBankProvided && isKycProvided) {
       // Show the loading UI for 2 seconds
+      setLoading(true);
       setTimeout(() => {
-        setLoading(true); // Show loading UI
         router.push("/main/dashboard"); // Redirect after 2 seconds
       }, 2000); // 2 seconds delay
     } else {

@@ -1,9 +1,9 @@
-import { useEffect, useState, useRef } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { FaRegImage } from "react-icons/fa6";
 import { TiTimes } from "react-icons/ti";
 import Button from "../../ui/Button";
-import { FaRegImage } from "react-icons/fa6";
 
 interface ProfilePictureInfoProps {
     onClose: () => void;
@@ -190,7 +190,7 @@ export default function ProfilePictureInformation ({onClose, onProfilePictureSta
             <p className="text-color-form text-sm">
               Provide a profile picture
             </p>
-            <div className={`flex flex-col justify-center items-center space-y-4 my-8 py-6 shadow-sm bg-light-grey rounded-common w-full pr-8`}>
+            <div className={`flex flex-col justify-center items-center space-y-4 my-6 py-6 shadow-sm bg-light-grey rounded-common w-full pr-8`}>
               {!image && !imagePreview && (
                 <>
                   <div className={`w-7 h-7 shadow-sm flex items-center justify-center transform rotate-45 rounded-[9px] bg-white`}>

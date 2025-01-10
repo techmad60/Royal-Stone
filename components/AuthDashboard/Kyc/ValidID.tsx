@@ -177,7 +177,7 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
 
   return (
     <div className="fixed inset-0 bg-[#D9D9D9A6] flex items-end lg:items-center justify-end lg:justify-center z-50">
-      <div className="flex flex-col bg-white rounded-t-[15px] w-full h-[580px] sm:h-[580px] lg:rounded-[20px] lg:max-w-[621px] lg:h-auto">
+      <div className="flex flex-col bg-white rounded-t-[15px] w-full h-auto sm:h-[580px] lg:rounded-[20px] lg:max-w-[621px] lg:h-auto">
         <div className="flex justify-center items-center mt-4 lg:hidden">
           <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
         </div>
@@ -207,10 +207,10 @@ export default function ValidIdInformation({ onClose, onValidIdStatus }: ValidId
               </div>
             </div>
           </div>
-          <section className="mt-8">
+          <section className="mt-4">
             <p className="text-color-form text-sm">Provide a picture of the ID</p>
             <div
-              className={`flex flex-col justify-center items-center space-y-4 my-8 py-6 shadow-sm bg-light-grey rounded-common w-full pr-8`}
+              className={`flex flex-col justify-center items-center space-y-4 my-4 py-6 shadow-sm bg-light-grey rounded-common w-full pr-8`}
             >
               {!image && !imagePreview && (
                 <>
