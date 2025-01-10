@@ -1,5 +1,5 @@
 //app/privacy-policy/page.tsx
-import Footer from "@/components/Sections_temp/Footer";
+import Footer from "@/components/Sections/Footer";
 import Header from "@/components/Sections_temp/Header";
 import DownloadApp from "@/components/ui/DownloadApp";
 
