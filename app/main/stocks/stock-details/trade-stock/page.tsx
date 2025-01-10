@@ -1,8 +1,8 @@
 "use client"
-import BuyModal from "@/components/Stocks_temp/BuyModal";
-import StockNavigator from "@/components/Stocks_temp/StockNavigator";
-import TransactionDetails from "@/components/Stocks_temp/TransactionDetails";
-import TransactionProcessed from "@/components/Stocks_temp/TransactionProcessed";
+import BuyModal from "@/components/Stocks/BuyModal";
+import StockNavigator from "@/components/Stocks/StockNavigator";
+import TransactionDetails from "@/components/Stocks/TransactionDetails";
+import TransactionProcessed from "@/components/Stocks/TransactionProcessed";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
 import Link from "next/link";

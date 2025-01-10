@@ -1,4 +1,4 @@
-import StockLinks from "@/components/Stocks_temp/StockLinks";
+import StockLinks from "@/components/Stocks/StockLinks";
 import { RiStockLine } from "react-icons/ri";
 
 
