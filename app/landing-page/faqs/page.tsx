@@ -1,6 +1,6 @@
 "use client"
-import Footer from "@/components/Sections/Footer";
 import Header from "@/components/Sections/Header";
+import Footer from "@/components/Sections/Footer";
 import DownloadApp from "@/components/ui/DownloadApp";
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
