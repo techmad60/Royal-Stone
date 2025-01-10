@@ -1,7 +1,7 @@
-import { Faq } from "@/app/types/FaqType";
 import Faqs from "@/components/ui/Faqs";
 import NavigatorTwo from "@/components/ui/NavigatorTwo";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { Faq } from "@/types/FaqType";
 import { useEffect, useState } from "react";
 import SettingsParent from "../SettingsParent";
 

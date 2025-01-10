@@ -1,4 +1,4 @@
-import { Faq } from "@/app/types/FaqType";
+import { Faq } from "@/types/FaqType";
 import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
