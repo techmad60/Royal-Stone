@@ -26,6 +26,7 @@ import { TbPencil } from "react-icons/tb";
 import AddBankDetails from "./Bank/AddBankDetails";
 import AddCryptoDetails from "./Bank/AddCryptoDetails";
 import BankSetting from "./Bank/BankSettings";
+import ChangeAvatar from "./Profile/ChangeAvatar";
 import DeleteAccount from "./ui/DeleteAccount";
 
 export default function SettingsParent() {
@@ -38,6 +39,7 @@ export default function SettingsParent() {
   const [profilePicture, setProfilePicture] = useState<string>(
     "/images/profile-empty.png"
   );
+  const [isChangeAvatarModal, setIsChangeAvatarModal] = useState(false);
   const [isDeleteAccountModal, setIsDeleteAccountModal] = useState(false);
 
   const router = useRouter();
@@ -99,6 +101,10 @@ export default function SettingsParent() {
   const handleDeleteModal = () => {
     setIsDeleteAccountModal(true);
   };
+
+  const handleChangeAvatarModal = () => {
+    setIsChangeAvatarModal(true);
+  }
   const capitalizeFirstLetter = (name: string): string => {
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
   };
@@ -113,7 +119,7 @@ export default function SettingsParent() {
           }`}
         >
           <div>
-            <div className="relative flex justify-start mt-8">
+            <div className="relative flex justify-start mt-8 cursor-pointer" onClick={handleChangeAvatarModal}>
               <div className="transform rotate-45 w-10 h-10 rounded-[16.66px] overflow-hidden">
                 <Image
                   src={profilePicture}
@@ -327,6 +333,11 @@ export default function SettingsParent() {
           {/* Delete Account Modal */}
           {isDeleteAccountModal && (
             <DeleteAccount onClose={() => setIsDeleteAccountModal(false)} />
+          )}
+
+          {/* Change Avatar Modal */}
+          {isChangeAvatarModal && (
+            <ChangeAvatar onClose={() => setIsChangeAvatarModal(false)}/>
           )}
         </div>
       </div>
