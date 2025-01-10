@@ -1,6 +1,6 @@
 //app/about-us/page.tsx
 import Footer from "@/components/Sections/Footer";
-import Header from "@/components/Sections_temp/Header";
+import Header from "@/components/Sections/Header";
 import DownloadApp from "@/components/ui/DownloadApp";
 import Image from "next/image";
 
