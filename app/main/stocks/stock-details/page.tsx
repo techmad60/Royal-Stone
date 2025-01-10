@@ -1,16 +1,16 @@
 'use client'
+import BuyModal from "@/components/Stocks_temp/BuyModal";
+import StockNavigator from "@/components/Stocks_temp/StockNavigator";
+import TradeModal from "@/components/Stocks_temp/TradeModal";
+import TransactionDetails from "@/components/Stocks_temp/TransactionDetails";
+import TransactionProcessed from "@/components/Stocks_temp/TransactionProcessed";
+import Button from "@/components/ui/Button";
+import StatRow from "@/components/ui/StatRow";
+import TextToggle from "@/components/ui/TextToggle";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import TextToggle from "@/components/ui/TextToggle";
-import StatRow from "@/components/ui/StatRow";
-import StockNavigator from "@/components/Stocks/StockNavigator";
-import Button from "@/components/ui/Button";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useState } from "react";
-import TradeModal from "@/components/Stocks/TradeModal";
-import BuyModal from "@/components/Stocks/BuyModal";
-import TransactionProcessed from "@/components/Stocks/TransactionProcessed";
-import TransactionDetails from "@/components/Stocks/TransactionDetails";
 
 export default function StockDetails() {
     const isDesktop = useMediaQuery('(min-width: 1024px)');

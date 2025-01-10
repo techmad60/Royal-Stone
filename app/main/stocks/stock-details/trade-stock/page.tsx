@@ -1,12 +1,12 @@
 "use client"
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import StockNavigator from "@/components/Stocks/StockNavigator";
+import BuyModal from "@/components/Stocks_temp/BuyModal";
+import StockNavigator from "@/components/Stocks_temp/StockNavigator";
+import TransactionDetails from "@/components/Stocks_temp/TransactionDetails";
+import TransactionProcessed from "@/components/Stocks_temp/TransactionProcessed";
 import Button from "@/components/ui/Button";
-import BuyModal from "@/components/Stocks/BuyModal";
-import TransactionProcessed from "@/components/Stocks/TransactionProcessed";
-import TransactionDetails from "@/components/Stocks/TransactionDetails";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function TradeStock() {
     const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
