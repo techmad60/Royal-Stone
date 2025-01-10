@@ -1,9 +1,9 @@
 //app/contact-us/page.tsx
-import Header from "@/components/Sections/Header";
-import Footer from "@/components/Sections/Footer";
-import FormButton from "@/components/ui/FormButton";
-import DownloadApp from "@/components/ui/DownloadApp";
+import Footer from "@/components/Sections_temp/Footer";
+import Header from "@/components/Sections_temp/Header";
 import CardComponentThree from "@/components/ui/CardComponentThree";
+import DownloadApp from "@/components/ui/DownloadApp";
+import FormButton from "@/components/ui/FormButton";
 
 export default function ContactUs() {
     return (

@@ -1,8 +1,8 @@
 //app/about-us/page.tsx
-import Header from "@/components/Sections/Header";
-import Footer from "@/components/Sections/Footer";
-import Image from "next/image";
+import Footer from "@/components/Sections_temp/Footer";
+import Header from "@/components/Sections_temp/Header";
 import DownloadApp from "@/components/ui/DownloadApp";
+import Image from "next/image";
 
 export default function AboutUs() {
   return (
