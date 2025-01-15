@@ -1,17 +1,18 @@
 "use client"
-import { useEffect } from "react";
-import Navigator from "@/components/ui/Navigator";
-import ProductMobile from "@/components/Product/ProductMobile";
 import ProductDesktop from "@/components/Product/ProductDesktop";
-import useProductStore from "@/store/productStore";
+import ProductMobile from "@/components/Product/ProductMobile";
+import Loading from "@/components/ui/Loading";
+import Navigator from "@/components/ui/Navigator";
 import PaginationComponent from "@/components/ui/PaginationComponent";
+import useProductStore from "@/store/productStore";
+import { useEffect } from "react";
 
 
 const createInvestment = [
   { label: "Investments", href: "/main/investments" },
-  { label: "Make Investment", href: "/main/investments/create-investment" },
+  { label: "Make Investment", href: "/main/investments/make-investment" },
 ];
-export default function CreateInvestment() {
+export default function MakeInvestment() {
   const { products, fetchProducts, isLoading, error } = useProductStore();
   
    useEffect(() => {
@@ -23,12 +24,12 @@ export default function CreateInvestment() {
       <Navigator currentStep={1} steps={createInvestment} />
       <div className="space-y-2 mt-4">
         <h1 className="text-base font-semibold text-color-zero">
-          Create Investment
+          Make Investment
         </h1>
         <p className="text-color-form text-sm">Select an Investment Product</p>
       </div>
       {isLoading ? (
-        <p>Loading products...</p>
+        <div><Loading/></div>
       ) : error ? (
         <p className="text-red-500">
           Failed to load products. Please try again later.

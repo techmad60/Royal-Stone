@@ -1,6 +1,6 @@
+import Icon from "@/components/ui/Icon";
 import Navigator from "@/components/ui/Navigator";
 import Image from "next/image";
-import Icon from "@/components/ui/Icon";
 // For Profile Settings
 const detailsSteps = [
     { label: "Investments", href: "/main/investments" },

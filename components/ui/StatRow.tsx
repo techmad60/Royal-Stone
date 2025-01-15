@@ -6,14 +6,16 @@ interface StatRowProps {
   value: string;
   valueClass: string;
   isLast?: boolean;
+  paddingStyle? : string;
   showCopyIcon?: boolean; // Controls visibility of the copy icon
 }
 
 export default function StatRow({
   label,
-  value,
+  value = "",
   valueClass,
   isLast,
+  paddingStyle = "",
   showCopyIcon = false,
 }: StatRowProps) {
   const [copySuccess, setCopySuccess] = useState(false);
@@ -36,9 +38,9 @@ export default function StatRow({
 
   return (
     <div
-      className={`flex items-center justify-between py-4 ${
+      className={`flex items-center justify-between ${
         !isLast ? "border-b lg:border-dashed" : ""
-      }`}
+      } ${paddingStyle.includes("py-")? paddingStyle : `py-4 ${paddingStyle}`}`}
     >
       <p className="text-color-form text-sm">{label}</p>
       <div className="flex items-center gap-2">

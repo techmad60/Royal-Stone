@@ -24,15 +24,14 @@ export default function BankComponent({
   accNumber,
   accName,
   flexStyling,
-  style,
+  style = "",
   icon,
-  textStyle,
+  textStyle = "",
   onClick,
   onNavigateToDelete,
   showIcon = true, // Default to true
   type, // New type field
 }: BankProps) {
-
   // Handling the delete navigation (passing the id and type to the store)
   const handleDeleteNavigation = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering the parent's onClick
@@ -43,7 +42,8 @@ export default function BankComponent({
 
   return (
     <section
-      className={`bg-light-grey rounded-[20px] shadow-sm flex items-start justify-between w-[168px] h-[105px] p-3 cursor-pointer hover:bg-slate-100 duration-200 ${style}`}
+      className={`rounded-[20px] shadow-sm flex items-start justify-between w-[168px] h-[105px] p-3 cursor-pointer duration-200 
+        ${style.includes("bg-") ? style : `bg-light-grey hover:bg-slate-100 ${style}`}`}
       onClick={onClick}
     >
       <div>
@@ -51,7 +51,13 @@ export default function BankComponent({
           {showIcon && ( // Conditionally render the Icon component
             <Icon icon={bankImage} containerSize="w-[24px] h-[24px]" />
           )}
-          <p className={`text-color-zero text-sm font-medium ${textStyle}`}>
+          <p
+            className={`text-color-zero text-sm font-medium ${
+              textStyle.includes("text-")
+                ? textStyle
+                : `text-color-zero ${textStyle}`
+            }`}
+          >
             {bankName}
           </p>
         </div>

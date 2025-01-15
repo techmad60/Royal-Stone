@@ -1,18 +1,17 @@
 "use client";
-import { useEffect} from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+import NavLink from "@/components/ui/MainPageNavLink";
 import Image from "next/image";
-import { useRouter } from "next/navigation"; 
-import { LiaTimesSolid } from "react-icons/lia";
-import { GoHomeFill } from "react-icons/go";
-import { TbTargetArrow } from "react-icons/tb";
-import { RiMouseFill, RiStockLine } from "react-icons/ri";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { BsFileBarGraphFill, BsPeopleFill } from "react-icons/bs";
 import { FaClock } from "react-icons/fa6";
-import { IoMdSettings } from "react-icons/io";
 import { FiLogOut } from "react-icons/fi";
-import NavLink from "@/components/ui/MainPageNavLink";
+import { GoHomeFill } from "react-icons/go";
+import { IoMdSettings } from "react-icons/io";
+import { LiaTimesSolid } from "react-icons/lia";
+import { RiMouseFill, RiStockLine } from "react-icons/ri";
+import { TbTargetArrow } from "react-icons/tb";
 
 
 
@@ -85,7 +84,9 @@ export default function MainPageNavbar({
         if (statusValue !== null) {
           localStorage.setItem(`${key}-${userId}`, statusValue);
         }
+        console.log(statusValue)
       });
+     
     }
     if (userName) {
       localStorage.setItem("userName", userName);

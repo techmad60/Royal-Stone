@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import Button from "@/components/ui/Button";
+import { useEffect } from "react";
 
 interface MyComponentProps {
   onClose: () => void;
@@ -7,7 +7,7 @@ interface MyComponentProps {
   amount: string;
 }
 
-export default function CardTransfer({
+export default function WalletTransfer({
   onClose,
   onProceed,
   amount,

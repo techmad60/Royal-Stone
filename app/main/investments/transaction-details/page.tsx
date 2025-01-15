@@ -1,8 +1,8 @@
-import Investment from "@/components/Investments/Investment";
+import TransactionDetails from "@/components/Investments/Details/TransactionDetails";
 import Loading from "@/components/ui/Loading";
 import { Suspense } from "react";
 
-export default function InvestmentPage() {
+export default function TransactionDetailsPage() {
   return (
     <Suspense
       fallback={
@@ -11,7 +11,7 @@ export default function InvestmentPage() {
         </div>
       }
     >
-      <Investment />
+      <TransactionDetails />
     </Suspense>
   );
 }

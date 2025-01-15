@@ -1,6 +1,7 @@
 import { Faq } from "@/types/FaqType";
 import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import Loading from "./Loading";
 
 interface FaqsProps {
   faqs: Faq[];
@@ -41,7 +42,7 @@ const Faqs: React.FC<FaqsProps> = ({ faqs }) => {
               </section>
             ))
           ) : (
-            <p>No FAQs available at the moment.</p>
+            <div><Loading/></div>
           )}
         </div>
       </section>

@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import Button from "../ui/Button";
 import Image from "next/image";
+import { useEffect } from "react";
+import Button from "../../ui/Button";
 
 interface MyComponentProps {
   onClose: () => void;
@@ -11,6 +11,7 @@ interface MyComponentProps {
     name: string;
     ROI: { value: number };
     costPerUnit: number;
+    images: string[];
   };
 }
 
@@ -50,12 +51,16 @@ export default function InvestPreview({
           Confirm these details of your transaction
         </p>
         <div className="flex gap-2 py-3 mx-6">
-          <Image
-            src="/images/potato-2.svg"
-            width={39}
-            height={39}
-            alt="Product"
-          />
+          <div className="w-[39px] h-[39px] overflow-hidden rounded-[8px]">
+            <Image
+              src={product.images[0] || "/placeholder-image.png"}
+              width={39}
+              height={39}
+              alt="Product"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
           <div className="flex-col">
             <p className="text-sm text-color-zero">{product.name}</p>
             <p className="text-color-six text-sm">{product.ROI.value}% ROI</p>

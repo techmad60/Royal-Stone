@@ -1,14 +1,14 @@
 "use client";
-import React from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
-import useProductStore from "@/store/productStore"; // Import your Zustand store
-import Navigator from "@/components/ui/Navigator";
-import Image from "next/image";
-import { MdLocationOn } from "react-icons/md";
-import TextToggle from "@/components/ui/TextToggle";
 import Button from "@/components/ui/Button";
+import Navigator from "@/components/ui/Navigator";
 import StatRow from "@/components/ui/StatRow";
+import TextToggle from "@/components/ui/TextToggle";
+import useProductStore from "@/store/productStore"; // Import your Zustand store
+import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useEffect } from "react";
+import { MdLocationOn } from "react-icons/md";
+import Loading from "../ui/Loading";
 
 export default function ProductDetails({
   type,
@@ -40,8 +40,8 @@ export default function ProductDetails({
       investment: [
         { label: "Investments", href: "/main/investments" },
         {
-          label: "Create Investment",
-          href: "/main/investments/create-investment",
+          label: "Make Investment",
+          href: "/main/investments/make-investment",
         },
         {
           label: "Investment Product",
@@ -69,7 +69,12 @@ export default function ProductDetails({
         Failed to load product details. Please try again later.
       </p>
     );
-  if (!product) return <p>No product found.</p>;
+  if (!product)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
 
   // Unified navigation logic for the Invest button
   const handleInvestClick = () => {
@@ -89,89 +94,75 @@ export default function ProductDetails({
 
       {/* Small Screen */}
       <section className="flex overflow-scroll hide-scrollbar gap-2 my-4 sm:hidden ">
-        <div className="w-[110px] h-[111px] flex-shrink-0 col-span-2 row-span-2">
-          <Image
-            src={"/images/potato-3.svg"}
-            alt="product-details"
-            width={110}
-            height={111}
-            className=""
-          />
-        </div>
-        <div className="w-[110px] h-[111px] flex-shrink-0">
-          <Image
-            src={"/images/potato-3.svg"}
-            alt="product-details"
-            width={110}
-            height={111}
-          />
-        </div>
-        <div className="w-[110px] h-[111px] flex-shrink-0">
-          <Image
-            src={"/images/potato-3.svg"}
-            alt="product-details"
-            width={110}
-            height={111}
-          />
-        </div>
-        <div className="w-[110px] h-[111px] flex-shrink-0">
-          <Image
-            src={"/images/potato-3.svg"}
-            alt="product-details"
-            width={110}
-            height={111}
-          />
-        </div>
-        <div className="w-[110px] h-[111px] flex-shrink-0">
-          <Image
-            src={"/images/potato-3.svg"}
-            alt="product-details"
-            width={110}
-            height={111}
-          />
-        </div>
+        {product.images && product.images.length > 0 ? (
+          Array.from({ length: 4 }).map((_, index) => (
+            <div
+              key={index}
+              className="w-[110px] h-[111px] flex-shrink-0 rounded-[12px] overflow-hidden"
+            >
+              <Image
+                src={product.images[0] || "/placeholder-image.png"} // Reuse the first image
+                alt={`${product.name}-image-${index}`}
+                width={110}
+                height={111}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))
+        ) : (
+          <div className="text-center text-gray-500">No images available</div>
+        )}
       </section>
 
       {/* Large Screen */}
       <section className="hidden overflow-scroll hide-scrollbar my-4 sm:grid grid-cols-4 gap-x-2">
-        <div className="col-span-2">
+        <div className="col-span-2  rounded-[24px] overflow-hidden xl:w-[549px] xl:h-[337px]">
           <Image
-            src={"/images/potato-0.png"}
-            alt="product-details"
+            src={product.images[0] || "/placeholder-image.png"}
+            alt={`${product.name}`}
             width={549}
             height={337}
-            className=""
+            className="w-full h-full object-cover"
           />
         </div>
-        <div className="grid grid-cols-2 col-span-2 gap-x-2">
-          <Image
-            src={"/images/potato-small.png"}
-            alt="product-details"
-            width={315}
-            height={166}
-            className=""
-          />
-          <Image
-            src={"/images/potato-small.png"}
-            alt="product-details"
-            width={315}
-            height={166}
-            className=""
-          />
-          <Image
-            src={"/images/potato-small.png"}
-            alt="product-details"
-            width={315}
-            height={166}
-            className=""
-          />
-          <Image
-            src={"/images/potato-small.png"}
-            alt="product-details"
-            width={315}
-            height={166}
-            className=""
-          />
+        <div className="grid grid-cols-2 col-span-2  gap-y-2 lg:gap-x-16 xl:gap-x-[5rem]">
+          <div className=" rounded-[14px] overflow-hidden lg:w-[210px] xl:w-[315px] xl:h-[166px]">
+            <Image
+              src={product.images[0] || "/placeholder-image.png"}
+              alt="product-details"
+              width={315}
+              height={166}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className=" rounded-[14px] overflow-hidden lg:w-[210px] xl:w-[315px] xl:h-[166px]">
+            <Image
+              src={product.images[0] || "/placeholder-image.png"}
+              alt="product-details"
+              width={315}
+              height={166}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className=" rounded-[14px] overflow-hidden lg:w-[210px] xl:w-[315px] xl:h-[166px]">
+            <Image
+              src={product.images[0] || "/placeholder-image.png"}
+              alt="product-details"
+              width={315}
+              height={166}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className=" rounded-[14px] overflow-hidden lg:w-[210px] xl:w-[315px] xl:h-[166px]">
+            <Image
+              src={product.images[0] || "/placeholder-image.png"}
+              alt="product-details"
+              width={315}
+              height={166}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
@@ -184,7 +175,7 @@ export default function ProductDetails({
             <MdLocationOn className="text-color-form" />
             <p className="text-color-form text-sm">Sokoto, Nigeria</p>
           </div>
-          <TextToggle />
+          <TextToggle description={product.description} />
         </section>
 
         <div>

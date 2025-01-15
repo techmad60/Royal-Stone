@@ -1,7 +1,10 @@
-"use client"
-import { useState, useEffect } from "react";
+"use client";
+import { useEffect, useState } from "react";
+interface TextToggleProps {
+  description?: string; // Make description optional
+}
 
-export default function TextToggle() {
+export default function TextToggle({ description = "" }: TextToggleProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
@@ -24,11 +27,11 @@ export default function TextToggle() {
     <div className="py-4">
       <p className="text-color-form text-sm leading-[25px] lg:leading-[29px]">
         {isExpanded || isLargeScreen
-          ? "Habitasse cursus quis ac vitae eu. Adip isc ing odio sagittis sit leo nunc quis ac vitae eu. Adip isc ing odio libero sagittis sit leo nunc Habitasse cursus quis ac vitae eu. Adip isc ing odio sagittis sit leo nunc quis ac vitae eu. Adip isc ing odio libero sagittis sit leo nunc..."
-          : "Habitasse cursus quis ac vitae eu. Adip isc ing odio sagittis sit leo nunc... "}
+          ? description // Show full description
+          : `${description.slice(0, 100)}...`} {/* Show truncated description */}
         
         {/* Toggle option for small screens only */}
-        {!isLargeScreen && (
+        {!isLargeScreen && description.length > 100 && (
           <span
             className="text-color-one border- border-color-one cursor-pointer"
             onClick={handleToggle}

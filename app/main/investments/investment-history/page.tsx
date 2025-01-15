@@ -1,9 +1,9 @@
 "use client"
-import { useState } from "react";
-import Navigator from "@/components/ui/Navigator";
-import TransactionList from "@/components/Portolio/HistoryMobile";
+import InvestmentHistoryModal from "@/components/Investments/History/InvestmentHistoryModal";
 import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
-import InvestmentHistoryModal from "@/components/Investments/InvestmentHistoryModal";
+import TransactionList from "@/components/Portolio/HistoryMobile";
+import Navigator from "@/components/ui/Navigator";
+import { useState } from "react";
 
 
 const historySteps = [

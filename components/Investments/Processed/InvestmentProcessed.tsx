@@ -1,10 +1,10 @@
-import { useEffect } from "react";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
+import { useEffect } from "react";
 import { LiaTimesSolid } from "react-icons/lia";
 interface InvestmentProcessedProps {
   onClose: () => void;
-  onConfirm: () => void;
+  onConfirm?: () => void;
 }
 
 export default function InvestmentProcessed({ onClose , onConfirm}: InvestmentProcessedProps) {

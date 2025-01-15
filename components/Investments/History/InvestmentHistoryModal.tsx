@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import Icon from "../ui/Icon";
 import Image from "next/image";
+import { useEffect } from "react";
 import { BsFileBarGraphFill } from "react-icons/bs";
+import Icon from "../../ui/Icon";
 
 interface InvestmentHistoryProps {
   onClose: () => void;

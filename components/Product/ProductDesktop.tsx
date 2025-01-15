@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { MdArrowForwardIos } from "react-icons/md";
 
@@ -5,6 +6,7 @@ interface Product {
   id: string;
   name: string;
   availableUnits: number;
+  description: string;
   status: string;
   images: string[];
 }
@@ -23,7 +25,7 @@ export default function ProductDesktop({
   const handleNavigation = (productId: string) => {
     const basePath =
       navigateTo === "investment"
-        ? "/main/investments/make-investment/investment-product/investment-details"
+        ? "/main/investments/make-investment/investment-product"
         : "/main/product/product-details";
     router.push(`${basePath}?id=${encodeURIComponent(productId)}`);
   };
@@ -32,7 +34,9 @@ export default function ProductDesktop({
     <div>
       {/* Table Header */}
       <div className="hidden lg:grid grid-cols-6 items-center bg-light-grey rounded-common py-4 px-8 shadow-sm mt-4">
-        <p className="text-xs text-slate-400 col-span-3">Product Image & Name</p>
+        <p className="text-xs text-slate-400 col-span-3">
+          Product Image & Name
+        </p>
         <p className="text-xs text-slate-400">Units Available</p>
         <p className="text-xs text-slate-400">Status</p>
         <p className="text-xs text-slate-400">Actions</p>
@@ -47,19 +51,25 @@ export default function ProductDesktop({
           >
             {/* Product Image & Name */}
             <div className="flex items-center col-span-3 gap-2">
-              <img
-                src={product.images[0] || "/placeholder-image.png"}
-                alt={product.name}
-                width={40}
-                height={40}
-                className="object-cover rounded-md"
-              />
-              <p className="text-sm text-color-zero pr-4">{product.name}</p>
+              <div className="w-[40px] h-[40px] rounded-[5px] overflow-hidden">
+                <Image
+                  src={product.images[0] || "/placeholder-image.png"}
+                  alt={product.name}
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-color-zero pr-4 tracking-tight">
+                {product.name}
+              </p>
             </div>
 
             {/* Units Available */}
             <div>
-              <p className="text-sm text-color-zero">{product.availableUnits}</p>
+              <p className="text-sm text-color-zero">
+                {product.availableUnits}
+              </p>
             </div>
 
             {/* Status */}
@@ -71,7 +81,8 @@ export default function ProductDesktop({
                     : "bg-red-100 text-red-700"
                 }`}
               >
-                {product.status}
+                {product.status.charAt(0).toUpperCase() +
+                  product.status.slice(1)}
               </span>
             </div>
 
@@ -79,7 +90,7 @@ export default function ProductDesktop({
             <div className="flex gap-2">
               <button
                 onClick={() => handleNavigation(product.id)}
-                className="text-xs text-color-one rounded-[20px] shadow-sm bg-light-grey font-semibold hover:bg-green-700 hover:text-white duration-300 h-[22px] w-[57px] flex items-center justify-center"
+                className="text-xs text-color-one rounded-[20px] border border-slate-100 font-semibold hover:bg-green-700 hover:text-white duration-300 w-[93px] h-[34px] flex items-center justify-center"
                 aria-label={`Invest in ${product.name}`}
               >
                 Invest
