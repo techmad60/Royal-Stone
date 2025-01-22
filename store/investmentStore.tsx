@@ -31,7 +31,7 @@ interface InvestmentStore {
   totalPages: number;
   totalDocuments: number;
   isLoading: boolean;
-  error: string | null;
+  error: string | { message: string } | null;
   investmentId: string | null;
   setInvestmentId: (id: string | null) => void;
   fetchInvestments: (type: string, page?: number) => Promise<void>;
@@ -47,7 +47,7 @@ const useInvestmentStore = create<InvestmentStore>((set) => ({
   error: null,
   investmentId: null,
   setInvestmentId: (id) => set({ investmentId: id }),
-  fetchInvestments: async (type, page = 1) => {
+  fetchInvestments: async (type ="", page = 1) => {
     set({ isLoading: true, error: null }); // Start loading
     try {
       const token = localStorage.getItem("accessToken");

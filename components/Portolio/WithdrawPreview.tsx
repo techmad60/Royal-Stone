@@ -1,7 +1,7 @@
 'use client'
-import { useEffect } from "react";
-import Image from "next/image";
 import Button from "@/components/ui/Button";
+import Image from "next/image";
+import { useEffect } from "react";
 import Icon from "../ui/Icon";
 
 interface MyComponentProps {

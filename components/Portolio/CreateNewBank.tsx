@@ -1,8 +1,8 @@
-import { useEffect } from "react";
 import Image from "next/image";
-import Icon from "../ui/Icon";
+import { useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import FormButton from "../ui/FormButton";
+import Icon from "../ui/Icon";
 
 interface CreateBankProps {
   onClose: () => void;

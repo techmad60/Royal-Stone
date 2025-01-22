@@ -1,30 +1,28 @@
 "use client"
-import { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
-import FundWallet from "@/components/Portolio/FundWalletNavigator";
-import Image from "next/image";
-import Button from "@/components/ui/Button";
+// import FundWallet from "@/components/Portolio/FundWalletNavigator";
 import BankComponent from "@/components/ui/BankComponent";
-import TransactionProcessed from "@/components/Portolio/FundTransactionProcessed";
-import TransactionDetails from "@/components/Portolio/FundTransactionDetails";
+import Image from "next/image";
+// import TransactionProcessed from "@/components/Portolio/FundTransactionProcessed";
+// import TransactionDetails from "@/components/Portolio/FundTransactionDetails";
 
 
 export default function FundWalletPage() {
-    const [transactionProcessedOpen, setIsTransactionProcessedOpen] = useState (false)
-    const [transactionDetailsOpen, setIsTransactionDetailsOpen] = useState (false)
+    // const [transactionProcessedOpen, setIsTransactionProcessedOpen] = useState (false)
+    // const [transactionDetailsOpen, setIsTransactionDetailsOpen] = useState (false)
 
-    const openTransactionProcessed = () => {
-        setIsTransactionProcessedOpen(true)
-    }
+    // const openTransactionProcessed = () => {
+    //     setIsTransactionProcessedOpen(true)
+    // }
 
     // Function to open TransactionDetails and close TransactionProcessed
-    const handleViewDetailsClick = () => {
-        setIsTransactionProcessedOpen(false);
-        setIsTransactionDetailsOpen(true);
-    };
+    // const handleViewDetailsClick = () => {
+    //     setIsTransactionProcessedOpen(false);
+    //     setIsTransactionDetailsOpen(true);
+    // };
     return (
         <div>
-            <FundWallet currentStep={1}/>
+            {/* <FundWallet currentStep={1}/> */}
 
             <p className="text-color-zero text-base font-semibold py-4 lg:text-lg">Fund Wallet</p>
             <form className="flex flex-col space-y-4 mt-2">
@@ -65,17 +63,17 @@ export default function FundWalletPage() {
                         <BankComponent bankImage={<Image src="/images/banks/square-cash.svg" height={15} width={15} alt="Pay-Pal Logo"/>} bankName="Cash App"/>
                     </div>
                 </div>
-                <div onClick={openTransactionProcessed}>
+                {/* <div onClick={openTransactionProcessed}>
                     <Button ButtonText="Fund Wallet" className="py-3 mt-12 w-full lg:w-[528px]"/>
-                </div>
+                </div> */}
                 
             </form>
-           {transactionProcessedOpen && (
+           {/* {transactionProcessedOpen && (
                 <TransactionProcessed onClose={() => setIsTransactionProcessedOpen(false)} onConfirm={handleViewDetailsClick}/>
            )}
            {transactionDetailsOpen && (
                 <TransactionDetails onClose={() => setIsTransactionDetailsOpen(false)}/>
-           )}
+           )} */}
            
         </div>
     )

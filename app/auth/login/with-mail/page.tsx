@@ -20,8 +20,8 @@ export default function WithMail() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-   // Fetching setFullName from your Zustand store
-   const setFullName = useUserStore((state) => state.setFullName);
+  // Fetching setFullName from your Zustand store
+  const setFullName = useUserStore((state) => state.setFullName);
 
   // Toggle Password Visibility
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
@@ -50,20 +50,28 @@ export default function WithMail() {
         }
       );
       const result = await response.json();
+      console.log("Sign In Response", result);
       setLoading(false);
 
       if (!response.ok) {
         throw new Error(result.message || "Login failed");
       }
-       // Save tokens in localStorage
+      // Save tokens in localStorage
       const { accessToken, refreshToken, account } = result.data;
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
       localStorage.setItem("fullname", account.fullname); // Save user's full name
       localStorage.setItem("userId", account.id); // Store the userId
-      console.log("Tokens stored successfully:", { accessToken, refreshToken, account});
+      console.log("Tokens stored successfully:", {
+        accessToken,
+        refreshToken,
+        account,
+      });
 
-      setFullName(account.fullname)
+      // Save referralCode to Zustand store
+      useUserStore.getState().setReferralCode(account.referralCode);
+      
+      setFullName(account.fullname);
       // Navigate to dashboard or next step
       router.push("/main/dashboard");
     } catch (err) {
@@ -91,7 +99,6 @@ export default function WithMail() {
             onChange={handleChange}
             className="rounded-sm border-b border-slate-200 text-colour-five"
             placeholder="cooperwind@gmail.com"
-            
           />
         </div>
         {/* Password */}
@@ -106,7 +113,6 @@ export default function WithMail() {
               onChange={handleChange}
               className="rounded-sm border-b border-slate-200 w-full text-colour-five"
               placeholder="eXample@123"
-              
             />
             <button
               type="button"

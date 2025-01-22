@@ -1,4 +1,4 @@
-// components/LogInNavigator.tsx
+
 import Link from "next/link";
 import { MdArrowForwardIos } from "react-icons/md";
 

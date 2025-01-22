@@ -86,7 +86,7 @@ export default function InvestmentMobile({
                 {/* ROI */}
                 {investment.productID?.ROI && (
                   <p className="text-[10px] font-medium text-color-one tracking-tight">
-                    ROI: {investment.productID.ROI.value}%
+                    ROI: {investment.productID.ROI.value}% 
                   </p>
                 )}
               </div>

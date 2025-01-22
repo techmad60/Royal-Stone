@@ -113,12 +113,13 @@ export default function SignupWithMail() {
             password: formData.password,
             fullname: formData.name,
             phone: formData.phone,
-            referralCode: formData.referralCode || undefined, // optional field
+            referral: formData.referralCode || undefined, // optional field
           }),
         }
       );
 
       const registrationResult = await registrationResponse.json();
+      console.log("RegistrationInfo:", registrationResult)
 
       if (!registrationResponse.ok) {
         throw new Error(registrationResult.message || "Registration failed");
@@ -132,6 +133,10 @@ export default function SignupWithMail() {
       
       //Save fullname to store
       setFullName(formData.name);
+
+      // Save referralCode to Zustand store
+    const { referralCode } = account;
+    useUserStore.getState().setReferralCode(referralCode);
       
       console.log("Tokens stored successfully:", { accessToken, refreshToken });
 

@@ -19,7 +19,7 @@ import Loading from "../../ui/Loading";
 import BankTransfer from "../Payment-Method/BankTransfer";
 import CryptoTransfer from "../Payment-Method/CryptoTransfer";
 import WalletTransfer from "../Payment-Method/WalletTransfer";
-import ReceiptModal from "../Receipt/Receipt";
+import ReceiptModal from "../Receipt/PaymentReceipt";
 
 export default function InvestmentDetails() {
   const searchParams = useSearchParams();
@@ -176,6 +176,7 @@ export default function InvestmentDetails() {
 
   const handlePaymentSelection = (method: "bank" | "crypto" | "wallet") => {
     setSelectedType(method);
+    setFormError("");
   };
 
   console.log(transactionID)
@@ -265,8 +266,10 @@ export default function InvestmentDetails() {
                 <CircleToggle
                   isClicked={selectedType === "wallet"}
                   onClick={() => handlePaymentSelection("wallet")}
+                 
                 />
               }
+              onClick={() => handlePaymentSelection("wallet")}
             />
             <BankComponent
               style={
@@ -287,6 +290,7 @@ export default function InvestmentDetails() {
                   onClick={() => handlePaymentSelection("bank")}
                 />
               }
+              onClick={() => handlePaymentSelection("bank")}
             />
 
             <BankComponent
@@ -308,6 +312,7 @@ export default function InvestmentDetails() {
                   onClick={() => handlePaymentSelection("crypto")}
                 />
               }
+              onClick={() => handlePaymentSelection("crypto")}
             />
           </div>
         </div>

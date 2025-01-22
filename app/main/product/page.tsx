@@ -1,9 +1,9 @@
 "use client";
-import { useEffect } from "react";
-import useProductStore from "@/store/productStore"; // Import your Zustand store
-import ProductMobile from "@/components/Product/ProductMobile";
 import ProductDesktop from "@/components/Product/ProductDesktop";
-import PaginationComponent from "@/components/ui/PaginationComponent";
+import ProductMobile from "@/components/Product/ProductMobile";
+import useProductStore from "@/store/productStore"; // Import your Zustand store
+import { useEffect } from "react";
+// import PaginationComponent from "@/components/ui/PaginationComponent";
 
 export default function Products() {
   // Use Zustand store to manage products, loading, and errors
@@ -27,7 +27,7 @@ export default function Products() {
           <ProductDesktop products={products} navigateTo="product"/>
         </>
       )}
-      <PaginationComponent />
+      {/* <PaginationComponent /> */}
     </div>
   );
 }

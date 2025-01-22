@@ -19,21 +19,19 @@ interface MyComponentProps {
   onClose: () => void;
   onProceed: () => void;
   amount: string;
-  productId: string;
-  noOfUnits: string;
+  walletType: string;
 }
 
-export default function BankTransfer({
+export default function BankFunding({
   onClose,
   onProceed,
   amount,
-  productId,
-  noOfUnits,
+  walletType,
 }: MyComponentProps) {
   const [bankDetails, setBankDetails] = useState<BankDetails | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  // const [investmentId, setInvestmentId] = useState<string | null>(null);
+//   const [investmentId, setInvestmentId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
@@ -77,7 +75,7 @@ export default function BankTransfer({
         if (err instanceof Error) {
           setError(err.message); // Accessing the error message safely
         } else {
-          console.error('An unknown error occurred:', err);
+          console.error("An unknown error occurred:", err);
         }
       } finally {
         setIsLoading(false);
@@ -104,7 +102,7 @@ export default function BankTransfer({
       }
 
       const response = await fetch(
-        "https://api-royal-stone.softwebdigital.com/api/fund/investment/bank-deposit",
+        "https://api-royal-stone.softwebdigital.com/api/fund/bank-deposit",
         {
           method: "POST",
           headers: {
@@ -112,9 +110,9 @@ export default function BankTransfer({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            walletType: walletType,
             beneficiary: bankDetails.id, // Assuming this maps to `beneficiary`
-            productID: productId,
-            slot: noOfUnits,
+            amount: amount,
           }),
         }
       );
@@ -127,21 +125,20 @@ export default function BankTransfer({
       }
       const result = await response.json();
       console.log("Successful Response:", result);
-      const { id } = result.data.investment;
-      // Pass id to store
+      const { id } = result.data.wallets;
+    // Pass id to store
     useInvestmentStore.getState().setInvestmentId(id);
 
     // Retrieve investmentId after setting it
     const investmentId = useInvestmentStore.getState().investmentId;
     console.log("Investment ID:", investmentId);
-
       //Proceed to receipt
-      onProceed()
+      onProceed();
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message); // Accessing the error message safely
       } else {
-        console.error('An unknown error occurred:', err);
+        console.error("An unknown error occurred:", err);
       }
     } finally {
       setIsSubmitting(false);
@@ -182,12 +179,12 @@ export default function BankTransfer({
             Cancel
           </p>
           <p className="text-color-zero font-semibold text-lg mx-auto relative right-4">
-            Make Investment
+            Fund Via Bank Transfer
           </p>
         </div>
         <p className="text-color-form text-sm mx-4 py-4">
           You are required to make a bank transfer of ${amount} to the details
-          provided within an hour to proceed with your investment payment
+          provided within an hour to proceed with your wallet funding
         </p>
         <section className="flex flex-col justify-center items-center rounded-[10px] h-[91px] space-y-4 bg-light-grey mx-4 text-sm lg:p-5 lg:w-[572px]">
           <p className="text-color-form">Timer</p>
@@ -249,14 +246,6 @@ export default function BankTransfer({
             disabled={isSubmitting}
           />
         </div>
-        {/* {currentModal === "receipt" && (
-          <ReceiptModal
-            investmentId={investmentId} // Pass the ID here
-            onClose={() => {
-              setCurrentModal("bankTransfer");
-            }}
-          />
-        )} */}
       </div>
     </div>
   );

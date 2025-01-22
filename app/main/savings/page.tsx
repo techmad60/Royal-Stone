@@ -1,18 +1,18 @@
 "use client"
-import { useState } from "react";
-import Image from "next/image";
-import { TbTargetArrow } from "react-icons/tb";
-import { IoIosSend } from "react-icons/io";
-import { GoPlus } from "react-icons/go";
+import Button from "@/components/ui/Button";
 import CardComponentFive from "@/components/ui/CardComponentFive";
 import Icon from "@/components/ui/Icon";
-import Button from "@/components/ui/Button";
 import NoHistory from "@/components/ui/NoHistory";
 import Link from "next/dist/client/link";
-import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
-import { BsFileBarGraphFill } from "react-icons/bs";
+import Image from "next/image";
+import { useState } from "react";
+import { GoPlus } from "react-icons/go";
+import { IoIosSend } from "react-icons/io";
+import { TbTargetArrow } from "react-icons/tb";
+// import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
 import ProgressCard from "@/components/Savings/ProgressBar";
 import ProgressBarDesktop from "@/components/Savings/ProgressBarDesktop";
+import { BsFileBarGraphFill } from "react-icons/bs";
 
 
 export default function Savings() {
@@ -90,7 +90,7 @@ export default function Savings() {
               <Link href="/main/savings/savings-history" className="text-sm text-color-one">View All</Link>
             </div>
             <div className="hidden lg:grid">
-                <HistoryDesktop/>
+                {/* <HistoryDesktop/> */}
             </div>
           
             <div className="lg:hidden">

@@ -1,25 +1,32 @@
 "use client";
 
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
-import useProductStore from "@/store/productStore";
 
-export default function PaginationComponent() {
-  const { currentPage, totalPages, setCurrentPage } = useProductStore();
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
 
+export default function PaginationComponent({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationProps) {
   const handleNextPage = () => {
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1); // Move to the next page
+      onPageChange(currentPage + 1); // Move to the next page
     }
   };
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1); // Move to the previous page
+      onPageChange(currentPage - 1); // Move to the previous page
     }
   };
 
   return (
-    <div className="hidden items-center justify-center gap-4 mt-auto lg:flex">
+    <div className="flex items-center justify-center gap-4 my-4 lg:mt-auto">
       <p className="text-sm text-slate-400">
         Page {currentPage} of {totalPages}
       </p>

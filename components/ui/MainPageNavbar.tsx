@@ -11,7 +11,7 @@ import { GoHomeFill } from "react-icons/go";
 import { IoMdSettings } from "react-icons/io";
 import { LiaTimesSolid } from "react-icons/lia";
 import { RiMouseFill, RiStockLine } from "react-icons/ri";
-import { TbTargetArrow } from "react-icons/tb";
+import { TbPackages, TbTargetArrow } from "react-icons/tb";
 
 
 
@@ -49,6 +49,7 @@ export default function MainPageNavbar({
     // Get the current userId and username
     const userId = localStorage.getItem("userId");
     const userName = localStorage.getItem("userName");
+    // const referral
   
     // Define KYC-related keys to preserve
     const kycKeys = [
@@ -137,12 +138,12 @@ export default function MainPageNavbar({
                 label="Dashboard"
                 disabled={isDisabled} // Pass status to wrapper
               />
-              {/* <NavLink
+              <NavLink
                 href="/main/product"
                 icon={<TbPackages />}
                 label="Product"
                 disabled={isDisabled}
-              /> */}
+              />
               <NavLink
                 href="/main/portfolio"
                 icon={<RiMouseFill />}

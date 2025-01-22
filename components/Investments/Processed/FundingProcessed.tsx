@@ -2,12 +2,14 @@ import Button from "@/components/ui/Button";
 import Image from "next/image";
 import { useEffect } from "react";
 import { LiaTimesSolid } from "react-icons/lia";
-interface TransactionProcessedProps {
+
+interface FundingProcessedProps {
   onClose: () => void;
-  onConfirm: () => void;
+  onConfirm?: () => void;
+  amount?: string;
 }
 
-export default function TransactionProcessed({ onClose , onConfirm}: TransactionProcessedProps) {
+export default function FundingProcessed({ onClose , onConfirm, amount}: FundingProcessedProps) {
   // Prevent background scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -28,7 +30,7 @@ export default function TransactionProcessed({ onClose , onConfirm}: Transaction
             <LiaTimesSolid className="text-[rgba(255,255,255,1)]"/>
           </button>
         </div>
-         <p className="text-sm font-medium text-[rgba(255,255,255,1)]">Your wallet has successfully been funded with N200,000.00</p>   
+         <p className="text-sm font-medium text-[rgba(255,255,255,1)]">Your wallet has successfully been funded with ${amount}</p>   
         <div onClick={onConfirm} className="text-center flex justify-center items-center bg-[rgba(255,255,255,0.1)] rounded-[8px] border border-[rgba(255,255,255,0.1)]">
           <Button ButtonText="View transaction details" className="bg-transparent shadow-none hover:bg-transparent" />
         </div>

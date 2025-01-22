@@ -37,7 +37,7 @@ export default function ProductMobile({
         >
           <div className="w-[100px] h-[77px] rounded-[12px] overflow-hidden">
             <Image
-              src={product.images[0] || "/placeholder-image.png"}
+              src={product.images?.[0] || "/placeholder-image.png"}
               alt={product.name}
               width={77}
               height={77}
