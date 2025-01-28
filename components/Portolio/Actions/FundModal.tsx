@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import CircleToggle from "../ui/CircleToggle";
+import CircleToggle from "../../ui/CircleToggle";
 
 interface MyComponentProps {
   onClose: () => void;
 }
 
-export default function WithdrawModal({ onClose }: MyComponentProps) {
+export default function FundModal({ onClose }: MyComponentProps) {
   const [selectedWallet, setSelectedWallet] = useState<string | null>(null);
 
   useEffect(() => {
@@ -28,34 +28,36 @@ export default function WithdrawModal({ onClose }: MyComponentProps) {
           <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
         </div>
         <div className="flex items-center border-b w-full pb-2 p-4">
-          <p onClick={onClose} className="text-color-form text-sm cursor-pointer">
+          <p
+            onClick={onClose}
+            className="text-color-form text-sm cursor-pointer"
+          >
             Cancel
           </p>
           <p className="text-color-zero font-semibold text-lg mx-auto relative right-4">
-            Withdraw Funds From
+            Fund Wallet
           </p>
         </div>
         <div className="flex flex-col p-4 space-y-4">
           <Link
-            className={`flex items-center gap-2 p-4 rounded-[10px] text-sm duration-150 cursor-pointer hover:bg-color-two hover:text-color-one  ${
+            className={`flex items-center gap-2 p-4 rounded-[10px] text-sm duration-150 cursor-pointer hover:bg-color-two hover:text-color-one ${
               selectedWallet === "investment"
             }`}
             onClick={() => handleSelectWallet("investment")}
-            href="/main/investments/withdraw-funds"
+            href="/main/investments/fund-wallet"
           >
             <CircleToggle isClicked={selectedWallet === "investment"} />
-            <p>Investment Wallet</p>
+            <p>Investment</p>
           </Link>
 
           <Link
             className={`flex items-center gap-2 p-4 rounded-[10px] text-sm duration-150 cursor-pointer hover:bg-color-two hover:text-color-one ${
-              selectedWallet === "savings"
-            }`}
+              selectedWallet === "savings"}`}
             onClick={() => handleSelectWallet("savings")}
-            href="/main/savings/withdraw-funds"
+            href="/main/savings/fund-wallet"
           >
             <CircleToggle isClicked={selectedWallet === "savings"} />
-            <p>Savings Wallet</p>
+            <p>Savings</p>
           </Link>
         </div>
       </div>

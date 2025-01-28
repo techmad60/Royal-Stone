@@ -2,7 +2,8 @@ import Icon from "@/components/ui/Icon";
 import { useEffect, useState } from "react";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import { GoPlus } from "react-icons/go";
-
+import { IoIosSend } from "react-icons/io";
+import { TbTargetArrow } from "react-icons/tb";
 
 interface Transactions {
   id: string;
@@ -16,16 +17,11 @@ interface HistoryMobileProps {
   transactions: Transactions[];
 }
 
-export default function HistoryMobile({
-  transactions,
-}: HistoryMobileProps) {
-//   const [loading, setLoading] = useState(false);
-//   const [error, setError] = useState<string | null>(null);
-//   const [showModal, setShowModal] = useState(false); // Modal visibility state
-  const [latestTransactions, setLatestTransactions] = useState<any>([]);
+export default function HistoryMobile({ transactions }: HistoryMobileProps) {
+  const [latestTransactions, setLatestTransactions] = useState<Transactions[]>(
+    []
+  ); // Explicit type
   const [latestDateLabel, setLatestDateLabel] = useState<string>("");
-//   const [selectedTransaction, setSelectedTransaction] =
-//   useState<Transactions | null>(null); // Selected investment
 
   useEffect(() => {
     // Group investments by date
@@ -38,12 +34,14 @@ export default function HistoryMobile({
         }
         grouped[dateKey].push(transaction);
       });
-    
+
       return Object.entries(grouped)
         .map(([date, items]) => ({ date, items }))
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        .sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
     };
-    
+
     // Group and find the latest transactions
     const groupedTransactions = groupByDate(
       transactions.sort(
@@ -78,60 +76,25 @@ export default function HistoryMobile({
     }
   }, [transactions]);
 
-  // const fetchTransactionDetails = async (id: string, type: string) => {
-  //   const token = localStorage.getItem("accessToken");
-  //   try {
-  //     setLoading(true);
-  //     setError(null);
-
-  //     // Fetch details of the given type
-  //     const response = await fetch(
-  //       `https://api-royal-stone.softwebdigital.com/api/transaction?type=${type}`,
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
-  //     const data = await response.json();
-
-  //     if (!data.status) {
-  //       throw new Error("Failed to fetch investment details.");
-  //     }
-
-  //     // Find the specific transaction by ID
-  //     const transactionDetails = data.data.data.find(
-  //       (transaction: Transactions) => transaction.id === id
-  //     );
-
-  //     if (!transactionDetails) {
-  //       throw new Error("Investment not found.");
-  //     }
-
-  //     // Set the selected investment data and open modal
-  //     setSelectedTransaction(transactionDetails);
-  //     setShowModal(true);
-  //     // Use router.push to navigate to the details page with full investment data
-  //   } catch (err: any) {
-  //     setError(err.message || "An error occurred.");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
-  // if (loading) {
-  //   return (
-  //     <div>
-  //       <Loading />
-  //     </div>
-  //   );
-  // }
+  const getIconForTransactionType = (type: string) => {
+    switch (type) {
+      case "investment-wallet-funding":
+        return <GoPlus className="text-color-one" />;
+      case "investment-withdrawal":
+        return <IoIosSend className="text-color-one" />;
+      case "savings-wallet-funding":
+        return <GoPlus className="text-color-one" />;
+      case "savings-withdrawal":
+        return <IoIosSend className="text-color-one" />;
+      case "savings-target":
+        return <TbTargetArrow className="text-color-one" />;
+      default:
+        return <BsFileBarGraphFill className="text-color-one" />; // Default fallback icon
+    }
+  };
 
   return (
     <div className="lg:hidden">
-      {/* {error && <p className="text-red-500">{error}</p>} */}
       {latestTransactions.length > 0 ? (
         <section>
           <div>
@@ -142,21 +105,13 @@ export default function HistoryMobile({
             <section
               key={transaction.id}
               className="flex justify-between bg-light-grey shadow-sm rounded-common p-4 my-4"
-              // onClick={() =>
-              //   fetchTransactionDetails(transaction.id, transaction.type)
-              // }
             >
               <div className="flex gap-4">
                 <Icon
-                  icon={
-                    transaction.type === "investment-wallet-funding" ? (
-                      <GoPlus className="text-color-one" />
-                    ) : (
-                      <BsFileBarGraphFill className="text-color-one" />
-                    )
-                  }
+                  icon={getIconForTransactionType(transaction.type)}
                   containerSize="w-[39.6px] h-[39.6px] rounded-[14.85px] bg-[rgba(241,255,240,1)]"
                 />
+
                 <div>
                   <p className="text-sm text-color-zero font-medium tracking-tight">
                     {transaction.type
@@ -197,13 +152,6 @@ export default function HistoryMobile({
           No transactions available.
         </p>
       )}
-       {/* Modal for displaying transaction details */}
-       {/* {showModal && selectedTransaction && (
-        <InvestmentHistoryModal
-          investment={selectedTransaction} // Passing selected transaction as prop
-          closeModal={() => setShowModal(false)} // Close modal function
-        />
-      )} */}
     </div>
   );
 }

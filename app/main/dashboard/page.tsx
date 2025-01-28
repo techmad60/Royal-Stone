@@ -87,7 +87,8 @@ export default function Dashboard() {
 
     fetchDashboardData();
     fetchProducts();
-  }, [fetchProducts, router],);
+  }, [fetchProducts, router]);
+
 
   if (loading) {
     return (

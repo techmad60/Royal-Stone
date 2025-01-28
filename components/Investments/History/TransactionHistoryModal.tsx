@@ -23,25 +23,21 @@ interface Investments {
     images: string[];
     id: string;
   };
-  ROI?: {
-    value: number;
-    duration: number;
-  };
   costPerUnit?: number;
   slotPurchased?: number;
   updatedAt?: string;
   name?: string;
 }
 
-interface InvestmentHistoryProps {
+interface TransactionHistoryProps {
   investment: Investments;
   closeModal: () => void;
 }
 
-export default function InvestmentHistoryModal({
+export default function TransactionHistoryModal({
   closeModal,
   investment,
-}: InvestmentHistoryProps) {
+}: TransactionHistoryProps) {
   // Prevent background scroll when modal is open
   useEffect(() => {
     return () => {

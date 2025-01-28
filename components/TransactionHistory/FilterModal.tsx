@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
+import { useEffect, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { IoCalendar } from "react-icons/io5";
 import CheckBox from "../ui/Checkedbox";
@@ -75,7 +75,7 @@ export default function FilterModal({ onClose }: MyComponentProps) {
           <hr className="w-[51px] h-[5px] rounded-[40px] bg-[#D9D9D9]" />
         </div>
         <div className="flex items-center border-b w-full pb-2 p-4 lg:p-0">
-          <p onClick={onClose} className="text-color-form text-sm">
+          <p onClick={onClose} className="text-color-form text-sm cursor-pointer">
             Cancel
           </p>
           <p className="text-color-zero font-semibold text-lg mx-auto relative right-4">Filter</p>
@@ -135,7 +135,7 @@ export default function FilterModal({ onClose }: MyComponentProps) {
         {/* Transaction Date Section */}
         <section>
           <div className="flex justify-between py-4 cursor-pointer lg:py-2" >
-            <p className="text-sm font-medium">Transaction Date</p>
+            <p className="text-sm font-medium text-color-zero">Transaction Date</p>
             <div onClick={toggleTransactionDateExpand} className="lg:hidden">
                 {isTransactionTypeExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </div>
