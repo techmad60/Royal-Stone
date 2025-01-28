@@ -1,15 +1,8 @@
 "use client";
-<<<<<<< HEAD
-import FundModal from "@/components/Portolio/FundModal";
-import HistoryDesktop from "@/components/Portolio/History/HistoryDesktop";
-import HistoryMobile from "@/components/Portolio/History/HistoryMobile";
-import WithdrawModal from "@/components/Portolio/WithdrawModal";
-=======
 import FundModal from "@/components/Portolio/Actions/FundModal";
 import WithdrawModal from "@/components/Portolio/Actions/WithdrawModal";
 import HistoryDesktop from "@/components/Portolio/History/HistoryDesktop";
 import HistoryMobile from "@/components/Portolio/History/HistoryMobile";
->>>>>>> secondary/master
 import CardComponentFive from "@/components/ui/CardComponentFive";
 import Icon from "@/components/ui/Icon";
 import Loading from "@/components/ui/Loading";
