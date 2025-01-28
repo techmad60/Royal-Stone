@@ -1,7 +1,7 @@
 "use client";
 import FundModal from "@/components/Portolio/FundModal";
-import HistoryDesktop from "@/components/Portolio/HistoryDesktop";
-// import HistoryMobile from "@/components/Portolio/HistoryMobile";
+import HistoryDesktop from "@/components/Portolio/History/HistoryDesktop";
+import HistoryMobile from "@/components/Portolio/History/HistoryMobile";
 import WithdrawModal from "@/components/Portolio/WithdrawModal";
 import CardComponentFive from "@/components/ui/CardComponentFive";
 import Icon from "@/components/ui/Icon";
@@ -180,7 +180,7 @@ export default function Portfolio() {
           {/* Recent Transactions */}
           <>
             <HistoryDesktop transactions={recentTransactions} />
-            {/* <HistoryMobile transactions={recentTransactions} /> */}
+            <HistoryMobile transactions={recentTransactions} />
           </>
         </div>
       )}

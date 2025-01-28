@@ -2,7 +2,7 @@ import { usePathname } from "next/navigation";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import { GoPlus } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
-import Icon from "../ui/Icon";
+import Icon from "../../ui/Icon";
 
 interface Transactions {
   id: string;
